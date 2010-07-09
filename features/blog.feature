@@ -1,8 +1,7 @@
-@wip
 Feature: blog page
   In order to let the community know what we are up to
   The blog page should provide a way for the staff to create blog posts
-  And provide a way for all readers to comment on them
+  And provide a way for those posts to be managed
 
   Scenario: the blog page Blog title should be visible
     Given I am on the blog page
@@ -31,9 +30,7 @@ Feature: blog page
     Given I am on the blog page
     And I have a post
     And I follow "Back"
-    And show me the page
     And I follow "Destroy"
-    And show me the page
     Then I should not see "contenido"
     
   # Scenario: I should be able to delete comments
