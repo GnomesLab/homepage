@@ -4,19 +4,33 @@ Feature: post view page
   With all the comments expanded
   So i get a better grasp of the topic and its discussion
   
-  Scenario: the post page should have a header and a footer
-  Scenario: the post page should have a right menu with archives and popular tags
+  Scenario: the post page should have a header
+  Scenario: the post page should have a footer
   
-  Scenario: the post should have a creator name
-  Scenario: the post should have a title
-  Scenario: the post should have a date
-  Scenario: the post should have content
-  Scenario: the post should have tags
-  Scenario: the post should have all its comments visible
+  Scenario: the post page should have a right menu with archives
+  Scenario: the post page should have a right menu with popular tags
+  
+  Scenario: the post should have a username, title, date, content and tags
+    Given I am on the post view page
+    And I have a post
+    Then I should see the creator name
+    And I should see the title
+    And I should see the date
+    And I should see its content
+    And I should see its tags
+
+  Scenario: the comment should have username, email, website, title and content
+    Given I am on the post view page
+    And I have a comment
+    Then I should see the creator name
+    And I should not see the email
+    And I should see the comment title
+    And I should see the comment content
   
   Scenario: the comment form should be visible
-  Scenario: the comment form should a text area for username
-  Scenario: the comment form should have a text area for email
-  Scenario: the comment form should have a text area for website
-  Scenario: the comment form should have a text area for content
-  Scenario: the comment form should have a "submit comment" button
+    Given I am on the post view page
+    Then I should see a text area for username
+    And I should see a text area for email
+    And I should see a text area for website
+    And I should see a text area for content
+    And I should have a "submit comment" button

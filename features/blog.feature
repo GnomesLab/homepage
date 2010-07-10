@@ -3,21 +3,26 @@ Feature: blog page
   I should have a page with blog entries
   So I can read and comment on them
   And get involved in the subsequent discussions
-  
-  # FIXME: header and footer are two different scenarios, which can then work differently depending on the current user
-  # profile
-  Scenario: the blog page should have header and footer
-  
-  # FIXME: Scenario: latest blog posts, as in 2 is configuration not implicit functionality behavior
+
+  Scenario: the blog page should have a header
+  Scenario: the blog post should have a footer
+
   Scenario: the blog page should have the 2 latest posts visible
+    Given I am on the blog page
+    And I have posts
+    Then I should see the 2 latest posts
   
-  # FIXME: archive, popular tags
-  Scenario: the blog page should have a right menu with archives and popular tags
+  Scenario: the blog page should have a right menu with archives
+  Scenario: the blog page should have a right menu with popular tags
   
-  # FIXME: the scenario is the blog post, not it's properties
-  Scenario: the blog post should have a creator name
-  Scenario: the blog post should have a title
-  Scenario: the blog post should have a date
-  Scenario: the blog post should have content
-  Scenario: the blog post should have tags
-  Scenario: the blog post should provide a link for comments
+  Scenario: the blog post should have a post with username, title, date, content, tags and a link for comments
+    Given I am on the blog page
+    And I have a post
+    Then I should see the creator name
+    And I should see the title
+    And I should see the date
+    And I should see its content
+    And I should see its tags
+    And I should have a link for comments
+  
+  Scenario: the blog page should have a paginator
