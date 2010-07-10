@@ -1,7 +1,7 @@
 Feature: about gnomeslab
   As a visitor of the gnomeslab website
   I should have an informative page about the company
-  So I can unstand what they do, how they do it and who does it
+  So I can understand what they do, how they do it and who does it
   And I should also get a grasp about their working philosofy
   And their working location and contacts
 
