@@ -10,3 +10,5 @@ Feature: home page
   Scenario: the homepage should have a "our culture" section on the body
   Scenario: the homepage should have a "meet the team" section on the body
   Scenario: the homepage should have a "featured project" section on the body
+  
+  # FIXME: remake
