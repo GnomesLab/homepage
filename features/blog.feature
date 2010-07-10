@@ -1,50 +1,16 @@
 Feature: blog page
-  In order to let the community know what we are up to
-  The blog page should provide a way for the staff to create blog posts
-  And provide a way for those posts to be managed
-
-  Scenario: the blog page Blog title should be visible
-    Given I am on the blog page
-    Then I should see "blog"
-    And I should not see "404 page not found"
-    
-  Scenario: I should be able to create posts
-    Given I am on the blog page
-    When I follow "New Post"
-    When I fill in "Name" with "pedro"
-    And I fill in "Title" with "title"
-    And I fill in "Content" with "body"
-    And I press "Create Post"
-    Then I should see "successfully created"
-    
-  Scenario: I should be able to edit posts
-    Given I am on the blog page
-    And I have a post
-    When I follow "Edit"
-    And I fill in "Title" with "title"
-    And I fill in "Content" with "body"
-    And I press "Update Post"
-    Then I should see "successfully updated"
-    
-  Scenario: I should be able to delete posts
-    Given I am on the blog page
-    And I have a post
-    And I follow "Back"
-    And I follow "Destroy"
-    Then I should not see "contenido"
-    
-  # Scenario: I should be able to delete comments
-  #   Given I am an admin
-  #   And I am on the blog page
-  #   And I click "comments"
-  #   And I click "delete" on one comment
-  #   Then I should see "Comment sucessfully deleted"
-  # 
-  # Scenario: Everyone should be able to create comments
-  #   Given I am on the blog page
-  #   And there is at least 1 blog post
-  #   And I click "comments"
-  #   And I fill in title with "title"
-  #   And I fill in body with "body"
-  #   And I click submit
-  #   Then I should see "Comment sucessfully created"
+  As visitor of the gnomeslab website
+  I should have a page with blog entries
+  So I can read and comment on them
+  And get involved in the subsequent discussions
+  
+  Scenario: the blog page should have header and footer
+  Scenario: the blog page should have the 2 latest posts visible
+  Scenario: the blog page should have a right menu with archives and popular tags
+  
+  Scenario: the blog post should have a creator name
+  Scenario: the blog post should have a title
+  Scenario: the blog post should have a date
+  Scenario: the blog post should have content
+  Scenario: the blog post should have tags
+  Scenario: the blog post should provide a link for comments
