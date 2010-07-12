@@ -5,41 +5,45 @@ Feature: about gnomeslab
   And I should also get a grasp about their working philosophy
   And their working location and contacts
 
+  Background:
+    Given I am on the about page
+
   Scenario: the about page should have a header
+    Then I should see the generic header
+
+  Scenario: about us content
+    Then I should see the "About us"
+    And I should see the overview content
+    And I should see the team overview
+  
+  Scenario: right column more info menu
+    Then I should see "More info"
+    And I should see "About us"
+    And I should see "What do we do"
+    And I should see "How we do it"
+    And I should see "Working philosophy"
+
+  Scenario: right column flikr feed
+    #todo: flikr feed tests (photos)
+    
+  Scenario: What do we do content
+    When I follow "What do we do"
+    Then I should see the "What do we do content"
+
+  Scenario: How we do it content
+    When I follow "How we do it"
+    Then I should see the "How we do it"
+
+  Scenario: Working philosophy content
+    When I follow "Working philosofy"
+    Then I should see the "Working philosophy"
+
+  Scenario: About us content
+    When I follow "About us"
+    Then I should see the "About us content"
+
+    Scenario: right column flikr feed
+      #todo: flikr feed tests (photos)
+
   Scenario: the about page should have a footer
-
-  Scenario: the about page should have the about section
-    Given I am on the about page
-    Then I should see the "About" title
-    And I should see the about content
-    And I should see a "Contact us" link
-
-  Scenario: the about page should have a right menu with "What we do"
-    Given I am on the about page
-    And I follow "What do we do"
-    Then I should see the "What do we do" information
-
-  Scenario: the about page should have a right menu with "How we do it"
-    Given I am on the about page
-    And I follow "How we do it"
-    Then I should see the "How we do it" information
-
-  Scenario: the about page should have a right menu with "Who does it?"
-    Given I am on the about page
-    And I follow "Who does it"
-    Then I should see the "Who does it" information
-
-  Scenario: the about page should have a right menu with "Working philosofy"
-    Given I am on the about page
-    And I follow "Working philosofy"
-    Then I should see the "Working philosofy" information
-
-  Scenario: the about page should have a right menu with "Working location"
-    Given I am on the about page
-    And I follow "Working location"
-    Then I should see the "Working Location" information
-
-  Scenario: the about page should have a right menu with "Contacts"
-    Given I am on the about page
-    And I follow "Contacts"
-    Then I should see the contacts information
+    Then I should see the generic footer

@@ -4,13 +4,10 @@ Feature: contact page
   So I can contact gnomeslab directly
   
   Scenario: the contact page should have a header
-  Scenario: the contact page should have a footer
+    Then I should see the generic header
   
-  Scenario: the contact page should have a right menu with a googlemaps picture of our headquarters address
-  Scenario: the contact page should have a right menu with a link to the about page
-    Given I am on the contact page
-    And I follow "About"
-    Then I see the about page
+  Scenario: right column contact teaser content
+    Then I should see "Teaser content"
   
   Scenario: the contact page should have a functional contact form
     Given I am on the contact page
@@ -21,4 +18,7 @@ Feature: contact page
     And I fill in "Message" with "There is no spoon"
     And I click "Send the Message"
     Then I should see "Thank you! Your message was sent"
+    
+  Scenario: the blog post should have a footer
+    Then I should see the generic footer
   

@@ -3,14 +3,18 @@ Feature: home page
   I should see information about gnomeslab, its team, culture and services
   So that i learn what they do and who they are
 
+  Background:
+    Given I am on the home page
+
   Scenario: the homepage should have a header
-  Scenario: the homepage should have a footer
+    Then I should see the generic header
   
-  Scenario: the homepage should have the rotator rotating rotatable stuff
+  # the rotator might be implemented on a second phase
+  # Scenario: the homepage should have the rotator rotating rotatable stuff
   
   Scenario: the homepage should have a "Who are we" section on the body
     Given I am on the home page
-    Then I should see "Who are we?"
+    Then I should see "Who are we"
     
   Scenario: the homepage should have a "What we do" section on the body
     Given I am on the home page
@@ -27,3 +31,6 @@ Feature: home page
   Scenario: the homepage should have a "Featured project" section on the body
     Given I am on the home page
     Then I should see "Featured project"
+  
+  Scenario: the blog post should have a footer
+    Then I should see the generic footer
