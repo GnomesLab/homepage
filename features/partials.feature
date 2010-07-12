@@ -17,3 +17,13 @@
 #   Scenario: the footer should have a blogroll of the most recent blog titles
 #   Scenario: the footer should have a tag cloud
 #   Scenario: the footer should have gnomeslab latest tweets
+
+
+
+
+
+
+
+# Since we're splitting these up, for performance reasons, I would make the See the generic footer and header tests only use READ ONLY assertions, and this file could test the actions itself, visiting all the links and checking if they are working as intended.
+# 
+# This way the about page tests, for example, will run much faster.

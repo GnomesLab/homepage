@@ -20,9 +20,15 @@ Feature: projects page
     And I should see "Project 4"
     And I should see "Project 5"
     
-  Scenario: the projects page should have a paginator
+  Scenario: the projects page should have a paginator if there are 5 or more projects
+    Given I have 5 projects
     Then I should see "Prev"
     And I should see "Next"
+    
+  Scenario: the projects page should not have a paginator if there are 4 or less projects
+    Given I have 4 projects
+    Then I should not see "Prev"
+    And I should not see "Next"
   
   Scenario: the project should have a title, a thumbnail image, a date, a short description and a case study link
     Then I should see the project title

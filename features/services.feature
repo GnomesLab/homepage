@@ -19,8 +19,7 @@ Feature: services page
   
   Scenario: the services page should have a overview of each service we provide
     When I follow "Service 1"
-    Then I should see "Service 1 details
-"
+    Then I should see "Service 1 details"
   # Scenario: each service should have a service name - gief names?
   
   Scenario: each service should have a resumed text describing its content

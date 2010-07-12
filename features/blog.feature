@@ -6,8 +6,8 @@ Feature: blog page
 
   # use fixtures or factory girl
   Background:
-    Given I have posts
     Given I am on the blog page
+    And I have posts
 
   Scenario: the blog page should have a header
     Then I should see the generic header
@@ -27,25 +27,16 @@ Feature: blog page
     And I should see its content
     And I should see its tags
     And I should have a link for comments
-    
-  # Should i add edit and destroy to this page or it stays only on the post view page?
-  # 
-  # Scenario: admin should be able to edit posts
-  #   And I have a post
-  #   When I follow "Edit"
-  #   And I fill in "Title" with "title"
-  #   And I fill in "Content" with "content"
-  #   And I press "Update Post"
-  #   Then I should see "successfully updated"
-  # 
-  # Scenario: admin should be able to delete posts
-  #   And I have a post
-  #   And I follow "Destroy"
-  #   Then I should see "Post sucessfully deleted"
   
-  Scenario: the blog page should have a paginator
+  Scenario: the blog page should have a paginator if there are 2 or more posts
+    Given I have 2 blog entries
     Then I should see "Next"
     And I should see "Previous"
+    
+  Scenario: the blog page should not have a paginator if there are 1 or less posts
+    Given I have 1 post
+    Then I should not see "Next"
+    And I should not see "Previous"
     
   Scenario: the blog post should have a footer
     Then I should see the generic footer

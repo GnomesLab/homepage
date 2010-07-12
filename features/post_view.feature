@@ -4,6 +4,12 @@ Feature: post view page #fixme: texting
   With all the comments expanded
   So i get a better grasp of the topic and its discussion
   
+  # TODO
+  # Name: You can use a regular expression for the name that validates min & max length and assert that they are only alphanumeric + space and start with a letter
+  # Email: Standard email regex
+  # website: Standard URI regex for http and https
+  # Content: we can assume they must have 3chars minimum and we'll see how ppl behave
+  
   Background: Given I am on the post view page
   
   Scenario: the post page should have a header
@@ -41,6 +47,11 @@ Feature: post view page #fixme: texting
     And I have a post
     And I follow "Destroy"
     Then I should see "Post sucessfully deleted"
+    
+  Scenario: a post with no comments should display 0 comments
+     Given I have a post
+     And I dont have comments
+     Then I should see "0 comments"
 
   Scenario: the comment should have username, email, website, title and content
     And I have a comment
