@@ -14,12 +14,13 @@ Feature: blog page
   Scenario: the blog page should have the 2 latest posts visible
     Then I should see the 2 latest posts
 
-  Scenario: right column should have top 4 popular posts
+  Scenario: right column should have the top 4 popular posts
     Then I should see the top 4 popular posts
   
   Scenario: right column archives
     Then I should see archives
     And I should see "2010"
+    And I should see "July (3)"
 
   Scenario: right column popular tags
     Then I should see tags
