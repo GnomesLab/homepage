@@ -13,6 +13,7 @@ require 'cucumber/rails/world'
 require 'cucumber/rails/active_record'
 require 'cucumber/web/tableish'
 
+require 'factory_girl_rails'
 require 'capybara/rails'
 require 'capybara/cucumber'
 require 'capybara/session'
