@@ -3,7 +3,8 @@ Feature: service details page
   I want a service details page
   So I can learn more about a specific detail
 
-  Background: Given I am on the service details page
+  Background: 
+    Given I am on the service details page
 
   Scenario: the service details page should have a header
     Then I should see the generic header

@@ -24,7 +24,7 @@ Feature: about gnomeslab
     And I should see "Working philosophy"
 
   Scenario: right column flikr feed
-    #todo: flikr feed tests (photos)
+    #todo: flikr feed tests (photos) DELAYED
     
   Scenario: What do we do content
     When I follow "What do we do"
@@ -41,9 +41,6 @@ Feature: about gnomeslab
   Scenario: About us content
     When I follow "About us"
     Then I should see the "About us content"
-
-    Scenario: right column flikr feed
-      #todo: flikr feed tests (photos)
 
   Scenario: the about page should have a footer
     Then I should see the generic footer

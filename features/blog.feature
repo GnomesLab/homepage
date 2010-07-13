@@ -4,7 +4,6 @@ Feature: blog page
   So I can read and comment on them
   And get involved in the subsequent discussions
 
-  # use fixtures or factory girl
   Background:
     Given I am on the blog page
     And I have posts
@@ -14,11 +13,16 @@ Feature: blog page
 
   Scenario: the blog page should have the 2 latest posts visible
     Then I should see the 2 latest posts
+
+  Scenario: right column should have top 4 popular posts
+    Then I should see the top 4 popular posts
   
-  # todo: popular posts
-  
-  Scenario: right column archives #todo
-  Scenario: right column popular tags #todo
+  Scenario: right column archives
+    Then I should see archives
+    And I should see "2010"
+
+  Scenario: right column popular tags
+    Then I should see tags
   
   Scenario: blog post
     Then I should see the creator name

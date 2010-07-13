@@ -15,13 +15,13 @@ Feature: post view page #fixme: texting
   Scenario: the post page should have a header
     Then I should see the generic header
   
-  Scenario: right column archives archives
-  
-  # tags pretty much like lighthouse
+  Scenario: right column archives
+    Then I should see "Archives"
+    And I should see "2010"
+
   Scenario: right column popular tags
     Then I should see "Popular Tags"
-  
-  # todo: add related post right column
+
   Scenario: right column related posts
     Then I should see "Related posts"
   
@@ -104,6 +104,12 @@ Feature: post view page #fixme: texting
     And I press "Submit"
     Then I should see "You need to provide some content text"
     
+  Scenario: email validation
+    And I follow "New Comment"
+    And I have bad email build
+    And I press "Create Comment"
+    Then I should see "Email can't be blank"
+    
   Scenario: admin should be able to edit comments
     And I have a comment
     When I follow "Edit"
@@ -119,12 +125,3 @@ Feature: post view page #fixme: texting
   
   Scenario: the blog post should have a footer
     Then I should see the generic footer
-    
-    
-  # missing scenarios
-  # invalid form -done
-  # comment count - done
-  # comment incrementer - done with comment creation test
-  # comment "write a comment" internal link - done, post specs.
-  # add "replay" internal link test - this is attached to the first lvl reply, 2nd phase post release.
-  # add 1st lvl reply -- optional (aka 2nd fase post release)

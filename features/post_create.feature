@@ -6,6 +6,7 @@ So others can drool at my awesome writing skills
   Background:
     Given I am on the post create page
 
+    # TODO: refactor when features are done
   Scenario: I should be able to create posts
     When I fill in "Name" with "John"
     And I fill in "Title" with "title"

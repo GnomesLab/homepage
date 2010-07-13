@@ -3,7 +3,8 @@ Feature: services page
   I want a services page
   So I can know exactly for what kind of services i can hire from gnomeslab
 
-  Background: Given I am on the services page
+  Background: 
+    Given I am on the services page
 
   Scenario: the services page should have a header
     Then I should see the generic header
@@ -20,7 +21,6 @@ Feature: services page
   Scenario: the services page should have a overview of each service we provide
     When I follow "Service 1"
     Then I should see "Service 1 details"
-  # Scenario: each service should have a service name - gief names?
   
   Scenario: each service should have a resumed text describing its content
     Then I should see "small description"

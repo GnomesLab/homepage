@@ -3,7 +3,8 @@ Feature: projects page
   I want to have access to a portfolio of the gnomeslab company
   So i can drool in awe on their amazing work and beg them to let me have the honour of hiring them
   
-  Background: Given I am on the projects page
+  Background: 
+    Given I am on the projects page
 
   Scenario: the projects page should have a header
     Then I should see the generic header

@@ -9,6 +9,7 @@ Feature: contact page
   Scenario: right column contact teaser content
     Then I should see "Teaser content"
   
+  # TODO: replace with existing factory_girl
   Scenario: the contact page should have a functional contact form
     Given I am on the contact page
     When I fill in "First Name" with "John"
