@@ -9,6 +9,7 @@ Factory.define(:post) do |p|
   c.sequence(:name) { |n| "John#{n}" }
   c.sequence(:title) { |n| "title#{n}" }
   c.sequence(:body) { |n| "This is soma#{n}."}
+  c.tags "Nerdy, Geeky, Noobie"
 end
 
 Factory.define(:contact) do |f|

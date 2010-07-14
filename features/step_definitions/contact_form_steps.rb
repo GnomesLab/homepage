@@ -1,5 +1,17 @@
+Given /^I have bad first name build$/ do
+  @contact = Factory.build(:contact, :firstname => "")
+end
+
+Given /^I have bad last name build$/ do
+  @contact = Factory.build(:contact, :lastname => "")
+end
+
 Given /^I have bad email build$/ do
   @contact = Factory.build(:contact, :email => "")
+end
+
+Given /^I have bad message build$/ do
+  @contact = Factory.build(:contact, :message => "")
 end
 
 Given /^I fill the contact form$/ do
