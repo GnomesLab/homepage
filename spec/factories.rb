@@ -19,3 +19,5 @@ Factory.define(:contact) do |f|
   f.sequence(:company) { |n| "gnomeslab#{n}.com" }
   f.sequence(:message) { |n| "There is no spoon#{n}."}
 end
+
+#dummy users

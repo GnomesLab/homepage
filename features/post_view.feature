@@ -49,7 +49,7 @@ Feature: post view page #fixme: texting
     Then I should see "Post sucessfully deleted"
     
   Scenario: a post with no comments should display 0 comments
-     Given I have a post
+     And I have a post
      And I dont have comments
      Then I should see "0 comments"
 
@@ -68,32 +68,32 @@ Feature: post view page #fixme: texting
     And I should have a "submit comment" button
     
   Scenario: add a comment form, sucessfully created comment
-    Given I have valid data for a comment form
+    And I have valid data for a comment form
     And I fill the comment form
     And I press "Submit"
     Then I should see "Sucessfully created a comment"
     And comment count should up by one
   
   Scenario: username validation for comment form
-    Given I have an invalid name
+    And I have an invalid name
     And I fill the comment form
     And I press "Submit"
     Then I should see "You need to provide a valid name"
     
   Scenario: email validation for comment form
-    Given I have an invalid email
+    And I have an invalid email
     And I fill the comment form
     And I press "Submit"
     Then I should see "You need to provide a valid email"
     
   Scenario: website is not mandatory for the comment submission
-    Given I have an invalid website
+    And I have an invalid website
     And I fill the comment form
     And I press "Submit"
     Then I should see "Sucessfully created comment"
   
   Scenario: content validation for comment form
-    Given I have an invalid content
+    And I have an invalid content
     And I fill the comment form
     And I press "Submit"
     Then I should see "You need to provide a valid content"
