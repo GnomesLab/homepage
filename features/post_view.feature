@@ -67,48 +67,36 @@ Feature: post view page #fixme: texting
     And I should see a text area for content
     And I should have a "submit comment" button
     
-  Scenario: add a comment form sucessfully created comment
-    When I fill in "Name" with "John"
-    And I fill in "Email" with "some@email.com"
-    And I fill in "Website" with "gnomeslab"
-    And I fill in "Content" with "Comment content"
+  Scenario: add a comment form, sucessfully created comment
+    Given I have valid data for a comment form
+    And I fill the comment form
     And I press "Submit"
     Then I should see "Sucessfully created a comment"
     And comment count should up by one
   
   Scenario: username validation for comment form
-    And I fill in "Email" with "some@email.com"
-    And I fill in "Website" with "gnomeslab"
-    And I fill in "Content" with "Comment content"
+    Given I have an invalid name
+    And I fill the comment form
     And I press "Submit"
-    Then I should see "You need to provide a name"
+    Then I should see "You need to provide a valid name"
     
   Scenario: email validation for comment form
-    When I fill in "Name" with "John"
-    And I fill in "Website" with "gnomeslab"
-    And I fill in "Content" with "Comment content"
+    Given I have an invalid email
+    And I fill the comment form
     And I press "Submit"
-    Then I should see "You need to provide a email"
+    Then I should see "You need to provide a valid email"
     
   Scenario: website is not mandatory for the comment submission
-    When I fill in "Name" with "John"
-    And I fill in "Email" with "some@email.com"
-    And I fill in "Content" with "Comment content"
+    Given I have an invalid website
+    And I fill the comment form
     And I press "Submit"
-    Then I should see "Sucessfully created a comment"
+    Then I should see "Sucessfully created comment"
   
   Scenario: content validation for comment form
-    When I fill in "Name" with "John"
-    And I fill in "Email" with "some@email.com"
-    And I fill in "Website" with "gnomeslab"
+    Given I have an invalid content
+    And I fill the comment form
     And I press "Submit"
-    Then I should see "You need to provide some content text"
-    
-  Scenario: email validation
-    And I follow "New Comment"
-    And I have bad email build
-    And I press "Create Comment"
-    Then I should see "Email can't be blank"
+    Then I should see "You need to provide a valid content"
     
   Scenario: admin should be able to edit comments
     And I have a comment

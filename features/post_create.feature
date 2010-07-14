@@ -14,31 +14,27 @@ So others can drool at my awesome writing skills
     And I fill in "Tags" with "RoR"
     And I press "Create Post"
     Then I should see "successfully created"
-  
-  Scenario: post validations for name
-    When I fill in "Title" with "title"
-    And I fill in "Content" with "content"
-    And I fill in "Tags" with "RoR"
-    And I press "Create Post"
-    Then I should see "You need to provide a name"
-  
-  Scenario: post validations for title
-    When I fill in "Name" with "John"
-    And I fill in "Content" with "content"
-    And I fill in "Tags" with "RoR"
-    And I press "Create Post"
-    Then I should see "You need to provide a title"
     
-  Scenario: post validations for content
-    When I fill in "Name" with "John"
-    When I fill in "Title" with "title"
-    And I fill in "Tags" with "RoR"
-    And I press "Create Post"
-    Then I should see "You need to provide some content"
+  Scenario: username validation for post form
+    Given I have an invalid name
+    And I fill the post form
+    And I press "Submit"
+    Then I should see "You need to provide a valid name"
     
-  Scenario: post validations for tags
-    When I fill in "Name" with "John"
-    When I fill in "Title" with "title"
-    And I fill in "Content" with "content"
-    And I press "Create Post"
-    Then I should see "You need to provide some tags"
+  Scenario: title validation for post form
+    Given I have an invalid title
+    And I fill the post form
+    And I press "Submit"
+    Then I should see "You need to provide a valid title"
+    
+  Scenario: content validation for post form
+    Given I have an invalid content
+    And I fill the post form
+    And I press "Submit"
+    Then I should see "You need to provide a valid content"
+    
+  Scenario: tags validation for post form
+    Given I have an invalid tag
+    And I fill the post form
+    And I press "Submit"
+    Then I should see "You need to provide valid tags"

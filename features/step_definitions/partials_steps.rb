@@ -3,15 +3,17 @@ Then /^I should see the generic header$/ do
 end
 
 def header_test
-  assert page.has_content?("RSS")
-  assert page.has_content?("Facebook")
-  assert page.has_content?("Twitter")
+  page.should have_content('RSS')
+  # assert page.has_content?("RSS")
+  page.should have_content('Facebook')
+  page.should have_content('Twitter')
   assert page.has_content?("HOME")
-  assert page.has_content?("ABOUT")
-  assert page.has_content?("SERVICES")
-  assert page.has_content?("PROJECTS")
-  assert page.has_content?("BLOG")
-  assert page.has_content?("CONTACT")
+  page.should have_content('ABOUT')
+  page.should have_content('SERVICES')
+  page.should have_content('PROJECTS')
+  page.should have_content('BLOG')
+  page.should have_content('CONTACT')
+  
 end
 
 Then /^I should click the generic header$/ do

@@ -1,4 +1,4 @@
-Given /^I have bad email build$/ do
+Given /^I have an invalid email$/ do
   @comment = Factory.build(:comment, :email => "")
 end
 
