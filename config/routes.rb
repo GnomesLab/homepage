@@ -14,6 +14,7 @@ Homepage::Application.routes.draw do |map|
   match 'post_create', :to => 'static_pages#post_create'
   match 'project_detail', :to => 'static_pages#project_detail'
   match 'sitemap', :to => 'static_pages#sitemap'
+  match 'contact', :to => 'static_pages#contact'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

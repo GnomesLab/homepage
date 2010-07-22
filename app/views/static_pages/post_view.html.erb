@@ -148,88 +148,13 @@
 			<!-- Sidebar -->
 			<div id="sidebar" class="col-right col2">
 				
-				<div class="sidebar-box">
-					<h2 class="border">Categories</h2>
-					<ul class="fixlast">
-					    <li><a href="#">Microsites</a></li>
-					    <li><a href="#">Portals</a></li>
-					    <li><a href="#">Applications</a></li>
-					    <li class="last"><a href="#">Entertainment</a></li>
-					</ul>
-				</div>
-				
-				<div class="sidebar-box archives">
-					<h2 class="border">Archives</h2>
-					<ul>
-					    <li class="active">
-					    	<a href="#" class="toggle">[ + ]</a> <a href="#">2010</a>
-					    	<ul>
-					    	    <li><a href="#">January</a> (12)</li>
-					    	    <li><a href="#">February</a> (21)</li>
-					    	    <li><a href="#">March</a> (5)</li>
-					    	</ul>
-				    	</li>
-					    <li>
-					    	<a href="#" class="toggle">[ + ]</a> <a href="#">2009</a>
-					    	<ul>
-					    	    <li><a href="#">January</a> (12)</li>
-					    	    <li><a href="#">February</a> (21)</li>
-					    	    <li><a href="#">March</a> (5)</li>
-					    	    <li><a href="#">April</a> (5)</li>
-					    	    <li><a href="#">May</a> (5)</li>
-					    	    <li><a href="#">June</a> (5)</li>
-					    	    <li><a href="#">July</a> (5)</li>
-					    	    <li><a href="#">August</a> (5)</li>
-					    	    <li><a href="#">September</a> (5)</li>
-					    	    <li><a href="#">October</a> (5)</li>
-					    	    <li><a href="#">November</a> (5)</li>
-					    	    <li><a href="#">December</a> (5)</li>
-					    	</ul>
-				    	</li>
-					    <li>
-					    	<a href="#" class="toggle">[ + ]</a> <a href="#">2008</a>
-					    	<ul>
-					    	    <li><a href="#">January</a> (12)</li>
-					    	    <li><a href="#">February</a> (21)</li>
-					    	    <li><a href="#">March</a> (5)</li>
-					    	    <li><a href="#">April</a> (5)</li>
-					    	    <li><a href="#">May</a> (5)</li>
-					    	    <li><a href="#">June</a> (5)</li>
-					    	    <li><a href="#">July</a> (5)</li>
-					    	    <li><a href="#">August</a> (5)</li>
-					    	    <li><a href="#">September</a> (5)</li>
-					    	    <li><a href="#">October</a> (5)</li>
-					    	    <li><a href="#">November</a> (5)</li>
-					    	    <li><a href="#">December</a> (5)</li>
-					    	</ul>
-				    	</li>
-					</ul>
-				</div>
-				
-				<div class="sidebar-box">
-					<h2 class="border">Popular Tags</h2>
-					<div class="tag-cloud">
-						<a href="#" class="tag-size1">Ut in quam</a>
-						<a href="#" class="tag-size2">eu lorem mollis</a>
-						<a href="#" class="tag-size5">varius a ut risus</a>
-						<a href="#" class="tag-size3">Sed est augue</a>
-						<a href="#" class="tag-size4">consectetur nec hendrerit eu</a>
-						<a href="#" class="tag-size6">laoreet vel magna</a>
-						<a href="#" class="tag-size7">Fusce urna nisi</a>
-						<a href="#" class="tag-size2">faucibus eu accumsan et</a>
-						<a href="#" class="tag-size1">dictum sed nibh</a>
-					</div>
-				</div>
-				
-				<div class="sidebar-box">
-					<h2 class="border">Advertisment</h2>
-					<div class="ads">
-						<div class="cl">&nbsp;</div>
-						<a href="http://mailbakery.com" class="left" title="MailBakery.com - HTML Email Template Coding Service"><img src="../images/bakery-banner.jpg" alt="" /></a>
-						<a href="http://htmlmafia.com" title="htmlMafia.com - PSD to HTML in Bulk" target="_blank" class="right"><img src="../images/mafia-banner.jpg" alt="" /></a>
-						<div class="cl">&nbsp;</div>
-					</div>
-				</div>
+        <%= render :partial => 'blog_categories' %>
+
+        <%= render :partial => 'archives' %>
+
+        <%= render :partial => 'popular_tags' %>
+        
+        <%= render :partial => 'advertisement' %>
 				
 			</div>
 			<!-- End Sidebar -->
