@@ -107,7 +107,7 @@ h1#logo a{ display:block; height:65px; text-indent: -4000px; background:url(../i
 #slider-holder ul li{ width:978px; height:298px; position:relative; overflow:hidden; float:left; display:inline; }
 
 .slider-controls { font-size:0; line-height:0; height:0; position:absolute; top:270px; right:20px; z-index:2;}
-.slider-controls a{ width:16px; height:16px; float:left; background:url(images/slider-nav.gif) no-repeat right 0; text-indent: -4000px; margin-left:3px;}
+.slider-controls a{ width:16px; height:16px; float:left; background:url(../images/slider-nav.gif) no-repeat right 0; text-indent: -4000px; margin-left:3px;}
 .slider-controls a:hover,
 .slider-controls a.active{ background-position:0 0;}
 
