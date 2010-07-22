@@ -1,142 +1,151 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<title>Gbnomeslab :: home</title>
-	<link rel="stylesheet" href="../stylesheets/style.css" type="text/css" media="all" />
-	
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
-	
-	<!-- JS -->
-	<script src="../javascripts/jquery-1.4.1.min.js" type="text/javascript"></script>
-	<script src="../javascripts/jquery.jcarousel.pack.js" type="text/javascript"></script>
-	<script src="../javascripts/jquery-func.js" type="text/javascript"></script>
-	<!-- End JS -->		
-</head>
-<body>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Gbnomeslab :: home</title>
+    <link rel="stylesheet" href="../stylesheets/style.css" type="text/css" media="all" />
 
-<!-- Header -->
-<div id="header">
-	<div class="shell">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
 
-		<!-- Socials -->
-		<div class="socials">
-			<a href="#" class="rss-link">RSS</a>
-			<span>|</span>
-			<a href="#" class="facebook-link">Facebook</a>
-			<span>|</span>
-			<a href="#" class="twitter-link">Twitter</a>
-		</div>
-		<!-- End Socials -->
-		
-	</div>
-</div>
-<!-- End Header -->
+    <!-- JS -->
+    <script src="../javascripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="../javascripts/jquery.jcarousel.pack.js" type="text/javascript"></script>
+    <script src="../javascripts/jquery-func.js" type="text/javascript"></script>
+    <!-- End JS -->
+  </head>
 
-<!-- Container -->
-<div id="container">
-	<div class="shell">
-	  <!-- Logo + Navigation -->
-	  
-		<%= render :partial => 'top_menus' %>
-		
-		<!-- End Logo + Navigation -->
-		<!-- Main -->
-		<div id="main">
-			<div class="cl">&nbsp;</div>
-			
-			<!-- Content -->
-			<div id="content" class="col col1">
+  <body>
+    <!-- Header -->
+    <div id="header">
+      <div class="shell">
+        <!-- Socials -->
+        <div class="socials">
+          <a href="#" class="rss-link">RSS</a>
+          <span>|</span>
+          <a href="#" class="facebook-link">Facebook</a>
+          <span>|</span>
+          <a href="#" class="twitter-link">Twitter</a>
+        </div>
+        <!-- End Socials -->
+      </div>
+    </div>
+    <!-- End Header -->
 
+    <!-- Container -->
+    <div id="container">
+      <!-- shell -->
+      <div class="shell">
+        <!-- Logo + Navigation -->
+        <%= render :partial => 'top_menus' %>
+        <!-- End Logo + Navigation -->
 
+        <!-- Main -->
+        <div id="main">
+          <div class="cl">&nbsp;</div>
 
-<%= yield %>
+          <!-- Content -->
+          <div id="content" class="col col1">
+            <%= yield %>
+          </div>
+          <!-- End Content -->
 
+          <!-- Sidebar -->
+          <div id="sidebar" class="col-right col2">
+            <%= yield :sidebar %>
+          </div>
+          <!-- End Sidebar -->
 
+          <div class="cl">&nbsp;</div>
+        </div>
+        <!-- End Main -->
+      </div>
+      <!-- end shell -->
+    </div>
+    <!-- End Container -->
 
+    <!-- Footer -->
+    <div id="footer">
+      <div class="shell cols">
+        <div class="cl">&nbsp;</div>
 
-		</div>
-		<!-- End Main -->
-		
-	</div>
-</div>
-<!-- End Container -->
+        <!-- Col -->
+        <div class="col col3">
+          <h5>About</h5>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquam libero nec nisl tincidunt faucibus.
+             Aliquam erat volutpat.
+          </p>
+          <p>
+            Ut in quam eu lorem mollis varius a ut risus. Sed est augue, consectetur nec hendrerit eu, 
+            laoreet vel magna. Fusce urna nisi, faucibus eu accumsan et, dictum sed nibh.
+          </p>
+        </div>
+        <!-- End Cols -->
 
-<!-- Footer -->
-<div id="footer">
-	<div class="shell cols">
-		<div class="cl">&nbsp;</div>
-		
-		<!-- Col -->
-		<div class="col col3">
-			<h5>About</h5>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquam libero nec nisl tincidunt faucibus. Aliquam erat volutpat.</p>
-			<p>Ut in quam eu lorem mollis varius a ut risus. Sed est augue, consectetur nec hendrerit eu, laoreet vel magna. Fusce urna nisi, faucibus eu accumsan et, dictum sed nibh.</p>
-		</div>
-		<!-- End Cols -->
-		
-		<!-- Col -->
-		<div class="col col3">
-			<h5>Blogroll</h5>
-			<ul class="fixlast gray-links">
-			    <li><a href="blog-detailed.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-			    <li><a href="blog-detailed.html">Ut in quam eu lorem mollis varius a ut risus</a></li>
-			    <li><a href="blog-detailed.html">Duis aliquam libero nec nisl tincidunt faucibus. Aliquam erat volutpat.</a></li>
-			    <li class="last"><a href="blog-detailed.html">Fusce urna nisi, faucibus eu accumsan et, dictum sed nibh.</a></li>
-			</ul>
-		</div>
-		<!-- End Cols -->
-		
-		<!-- Col -->
-		<div class="col col3">
-			<h5>Tag Cloud</h5>
-			<div class="tag-cloud">
-				<a href="#" class="tag-size1">Ut in quam</a>
-				<a href="#" class="tag-size2">eu lorem mollis</a>
-				<a href="#" class="tag-size5">varius a ut risus</a>
-				<a href="#" class="tag-size3">Sed est augue</a>
-				<a href="#" class="tag-size4">consectetur nec hendrerit eu</a>
-				<a href="#" class="tag-size6">laoreet vel magna</a>
-				<a href="#" class="tag-size7">Fusce urna nisi</a>
-				<a href="#" class="tag-size2">faucibus eu accumsan et</a>
-				<a href="#" class="tag-size1">dictum sed nibh</a>
-			</div>
-		</div>
-		<!-- End Cols -->
-		
-		<!-- Col -->
-		<div class="col-right col3">
-			<h5>Latest Tweets</h5>
-			<ul class="fixlast">
-			    <li>
-			    	<span>Link: Andy Awesome, lovely pop artillustration on canvas</span>
-			    	<a href="http://chocotemplates.com">chocotemplates.com</a>
-			    	<small>about 15 hours ago</small>
-			    </li>
-			    <li>
-			    	<span>Link: Andy Awesome, lovely pop artillustration on canvas</span>
-			    	<a href="http://chocotemplates.com">chocotemplates.com</a>
-			    	<small>about 15 hours ago</small>
-			    </li>
-			    <li class="last">
-			    	<span>Link: Andy Awesome, lovely pop artillustration on canvas</span>
-			    	<a href="http://chocotemplates.com">chocotemplates.com</a>
-			    	<small>about 15 hours ago</small>
-			    </li>
-			</ul>
-		</div>
-		<!-- End Cols -->
-		
-		<div class="cl">&nbsp;</div>
-	</div>
-</div>
-<!-- End Footer -->
+        <!-- Col -->
+        <div class="col col3">
+          <h5>Blogroll</h5>
+          <ul class="fixlast gray-links">
+            <li><a href="blog-detailed.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
+            <li><a href="blog-detailed.html">Ut in quam eu lorem mollis varius a ut risus</a></li>
+            <li><a href="blog-detailed.html">
+              Duis aliquam libero nec nisl tincidunt faucibus. Aliquam erat volutpat.
+            </a></li>
+            <li class="last"><a href="blog-detailed.html">
+              Fusce urna nisi, faucibus eu accumsan et, dictum sed nibh.
+            </a></li>
+          </ul>
+        </div>
+        <!-- End Cols -->
 
-<!-- Footer Nav -->
+        <!-- Col -->
+        <div class="col col3">
+          <h5>Tag Cloud</h5>
+          <div class="tag-cloud">
+            <a href="#" class="tag-size1">Ut in quam</a>
+            <a href="#" class="tag-size2">eu lorem mollis</a>
+            <a href="#" class="tag-size5">varius a ut risus</a>
+            <a href="#" class="tag-size3">Sed est augue</a>
+            <a href="#" class="tag-size4">consectetur nec hendrerit eu</a>
+            <a href="#" class="tag-size6">laoreet vel magna</a>
+            <a href="#" class="tag-size7">Fusce urna nisi</a>
+            <a href="#" class="tag-size2">faucibus eu accumsan et</a>
+            <a href="#" class="tag-size1">dictum sed nibh</a>
+          </div>
+        </div>
+        <!-- End Cols -->
 
-<%= render :partial => 'footer_nav' %>
+        <!-- Col -->
+        <div class="col-right col3">
+          <h5>Latest Tweets</h5>
+          <ul class="fixlast">
+            <li>
+              <span>Link: Andy Awesome, lovely pop artillustration on canvas</span>
+              <a href="http://chocotemplates.com">chocotemplates.com</a>
+              <small>about 15 hours ago</small>
+            </li>
+            <li>
+              <span>Link: Andy Awesome, lovely pop artillustration on canvas</span>
+              <a href="http://chocotemplates.com">chocotemplates.com</a>
+              <small>about 15 hours ago</small>
+            </li>
+            <li class="last">
+              <span>Link: Andy Awesome, lovely pop artillustration on canvas</span>
+              <a href="http://chocotemplates.com">chocotemplates.com</a>
+              <small>about 15 hours ago</small>
+            </li>
+          </ul>
+        </div>
+        <!-- End Cols -->
 
-<!-- Footer Nav -->
-</body>
+        <div class="cl">&nbsp;</div>
+      </div>
+    </div>
+    <!-- End Footer -->
+
+    <!-- Footer Nav -->
+    <%= render :partial => 'footer_nav' %>
+    <!-- Footer Nav -->
+  </body>
 </html>
