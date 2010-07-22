@@ -1,3 +1,4 @@
+@wip
 Scenario: post create
 As an admin
 I want to create posts
