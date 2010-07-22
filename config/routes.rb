@@ -8,6 +8,7 @@ Homepage::Application.routes.draw do |map|
   get 'post_create',    :to => 'static_pages#post_create'
   get 'project_detail', :to => 'static_pages#project_detail'
   get 'sitemap',        :to => 'static_pages#sitemap'
+  get 'contact',        :to => 'static_pages#contact'
 
   root :to => "static_pages#homepage"
 end
