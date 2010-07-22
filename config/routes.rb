@@ -3,7 +3,17 @@ Homepage::Application.routes.draw do |map|
 
   get "home/index"
   
-  root :to => "home#index"
+  root :to => "static_pages#homepage"
+  
+  match 'about', :to => 'static_pages#about'
+  match 'services', :to => 'static_pages#services'
+  match 'projects', :to => 'static_pages#projects'
+  match 'blog', :to => 'static_pages#blog'
+  match 'service_detail', :to => 'static_pages#service_detail'
+  match 'post_view', :to => 'static_pages#post_view'
+  match 'post_create', :to => 'static_pages#post_create'
+  match 'project_detail', :to => 'static_pages#project_detail'
+  match 'sitemap', :to => 'static_pages#sitemap'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
