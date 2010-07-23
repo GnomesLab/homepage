@@ -40,6 +40,8 @@
         <%= render :partial => 'top_menus' %>
         <!-- End Logo + Navigation -->
 
+        <%= yield :pre_content %>
+
         <!-- Main -->
         <div id="main">
           <div class="cl">&nbsp;</div>
@@ -57,6 +59,10 @@
           <!-- End Sidebar -->
 
           <div class="cl">&nbsp;</div>
+          
+          <!-- Cols -->
+          <%= yield :content_columns %>
+          <!-- End Cols -->
         </div>
         <!-- End Main -->
       </div>
