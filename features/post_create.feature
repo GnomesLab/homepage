@@ -1,8 +1,7 @@
-@wip
-Scenario: post create
-As an admin
-I want to create posts
-So others can drool at my awesome writing skills
+Feature: post create
+  As an admin
+  I want to create posts
+  So others can drool at my awesome writing skills
 
   Background:
     Given I am on the post create page
