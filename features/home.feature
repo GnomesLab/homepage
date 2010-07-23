@@ -1,3 +1,4 @@
+@wip
 Feature: home page
   As a visitor of the gnomeslab website
   I should see information about gnomeslab, its team, culture and services
@@ -14,18 +15,19 @@ Feature: home page
   
   Scenario: the homepage should have a "Who are we" section on the body
     Then I should see "Who are we"
+    And I should see "Gnomeslab is different."
     
-  Scenario: the homepage should have a "What we do" section on the body
-    Then I should see "What we do"
+  Scenario: the homepage should have a "What We Do?" section on the body
+    Then I should see "We develop websites"
     
-  Scenario: the homepage should have a "Our culture" section on the body
-    Then I should see "Our culture"
+  Scenario: the homepage should have a "Our Culture" section on the body
+    Then I should see "We believe in"
     
   Scenario: the homepage should have a "Meet the team" section on the body
-    Then I should see "Meet the team"
+    Then I should see "Seriously"
     
   Scenario: the homepage should have a "Featured project" section on the body
-    Then I should see "Featured project"
+    Then I should see "Lorem ipsum"
   
   Scenario: the blog post should have a footer
     Then I should see the generic footer
