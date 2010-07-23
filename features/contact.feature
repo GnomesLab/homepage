@@ -1,16 +1,26 @@
+@wip
 Feature: contact page
-  As a user
-  I want a contact form avaliable
-  So I can contact gnomeslab directly
+  In order to allow Gnomeslab Homepage visitors to contact our company
+  We provide them with a contact form that forwards their messages to our mailbox
+  It also stores all the contents in the database for statistical analysis
 
   Background:
     Given I am on the contact page
 
-  Scenario: the contact page should have a header
+  Scenario: page header
     Then I should see the generic header
 
-  Scenario: right column contact us teaser content
-    Then I should see "Teaser content"
+  Scenario: page title and pitch line
+    Then I should see "Feedback"
+    And I should see "Send us a message! We would love to hear about your projects... or could just say hi!"
+
+  Scenario: right column gnomeslab profile
+    Then I should see "Our profile"
+    And I should see "Friendly and very approachable"
+    And I should see "Standards and User Experience"
+    And I should see "Agile Development practitioners"
+    And I should see "We use Ruby on Rails and other agile tools"
+    And I should see "We respond to you, not investors"
 
   Scenario: the contact page should have a functional contact form
     When I fill in "First Name" with "John"
