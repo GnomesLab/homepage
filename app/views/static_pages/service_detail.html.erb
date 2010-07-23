@@ -1,34 +1,23 @@
-    <div id="main">
-    	<div class="cl">&nbsp;</div>
-	
-    	<!-- Content -->
-    	<div id="content" class="col col1">
-				<h2 class="border">Services Name</h2>
-				<div class="entry">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-					   dictum, neque ut imperdiet pellentesque, nulla tellus tempus magna,
-					   sed consectetur Lorem ipsum dolor sit amet, consectetur adipiscing
-				     elit. Integer dictum, neque ut imperdiet pellentesque, nulla
-					   tellus tempus magna, sed consectetur orci metus a justo. Aliquam
-					   ac congue nunc. Mauris a tortor ut massa egestas tempus.
-					   Pellentesque tincidunt fermentum diam sagittis ullamcorper. orci
-					   metus a justo. Aliquam ac congue nunc. Mauris a tortor ut massa egestas tempus. Pellentesque tincidunt fermentum diam sagittis ullamcorper.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum, neque ut imperdiet pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. Aliquam ac congue nunc. Mauris a tortor ut massa egestas tempus. Pellentesque tincidunt fermentum diam sagittis ullamcorper.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum, neque ut imperdiet pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. Aliquam ac congue nunc. Mauris a tortor ut massa egestas tempus. Pellentesque tincidunt fermentum diam sagittis ullamcorper.</p>
-				</div>
-			</div>
-			<!-- End Content -->
-			
-			<!-- Sidebar -->
-			<div id="sidebar" class="col-right col2">
+<!-- Content -->
+<div id="content" class="col col1">
+  <h2 class="border">Services Name</h2>
+  <div class="entry">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+       dictum, neque ut imperdiet pellentesque, nulla tellus tempus magna,
+       sed consectetur Lorem ipsum dolor sit amet, consectetur adipiscing
+       elit. Integer dictum, neque ut imperdiet pellentesque, nulla
+       tellus tempus magna, sed consectetur orci metus a justo. Aliquam
+       ac congue nunc. Mauris a tortor ut massa egestas tempus.
+       Pellentesque tincidunt fermentum diam sagittis ullamcorper. orci
+       metus a justo. Aliquam ac congue nunc. Mauris a tortor ut massa egestas tempus. Pellentesque tincidunt fermentum diam sagittis ullamcorper.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum, neque ut imperdiet pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. Aliquam ac congue nunc. Mauris a tortor ut massa egestas tempus. Pellentesque tincidunt fermentum diam sagittis ullamcorper.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum, neque ut imperdiet pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. Aliquam ac congue nunc. Mauris a tortor ut massa egestas tempus. Pellentesque tincidunt fermentum diam sagittis ullamcorper.</p>
+  </div>
+</div>
+<!-- End Content -->
 
-<%= render :partial => 'our_services' %>
-
-<%= render :partial => 'services_text' %>
-
-<%= render :partial => 'advertisement' %>
-
-			</div>
-			<!-- End Sidebar -->
-			
-			<div class="cl">&nbsp;</div>
+<%= content_for :sidebar do %>
+  <%= render :partial => 'shared/content_box/our_services' %>
+  <%= render :partial => 'shared/content_box/services_text' %>
+  <%= render :partial => 'shared/content_box/advertisement' %>
+<% end %>
