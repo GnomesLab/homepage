@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   # GET /
   def homepage
+    render 'static_pages/homepage/homepage'
   end
 
   # GET /about

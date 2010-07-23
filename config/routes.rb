@@ -1,5 +1,5 @@
 Homepage::Application.routes.draw do |map|
-  get 'about',          :to => 'static_pages#about'
+  get 'about',          :to => 'static_pages#about',          :as => 'about_us'
   get 'services',       :to => 'static_pages#services'
   get 'projects',       :to => 'static_pages#projects'
   get 'blog',           :to => 'static_pages#blog'

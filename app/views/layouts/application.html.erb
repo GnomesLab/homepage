@@ -37,7 +37,7 @@
       <!-- shell -->
       <div class="shell">
         <!-- Logo + Navigation -->
-        <%= render :partial => 'top_menus' %>
+        <%= render 'shared/top_menus' %>
         <!-- End Logo + Navigation -->
 
         <%= yield :pre_content %>
@@ -151,7 +151,7 @@
     <!-- End Footer -->
 
     <!-- Footer Nav -->
-    <%= render :partial => 'footer_nav' %>
+    <%= render 'shared/footer/nav' %>
     <!-- Footer Nav -->
   </body>
 </html>
