@@ -5,11 +5,11 @@
       <li><%= link_to 'Home', root_path, :class => 'active' %></li>
       <li><%= link_to 'About', about_us_path %></li>
       <li>
-        <a href="services.html">Services</a>
+        <%= link_to 'Services', services_path %>
         <div class="dd">
           <ul>
             <li>
-              <a href="service-detailed.html">Service 1</a>
+              <a href="service-detailed.html">Websites</a>
               <div class="dd">
                 <ul>
                   <li><a href="service-detailed.html">Service 1.1</a></li>
@@ -21,7 +21,7 @@
               </div>
             </li>
             <li>
-              <a href="service-detailed.html">Service 2</a>
+              <a href="service-detailed.html">Web Applications</a>
               <div class="dd">
                 <ul>
                   <li><a href="service-detailed.html">Service 2.1</a></li>
@@ -32,7 +32,7 @@
               </div>
             </li>
             <li>
-              <a href="service-detailed.html">Service 3</a>
+              <a href="service-detailed.html">Web Services</a>
               <div class="dd">
                 <ul>
                   <li><a href="service-detailed.html">Service 3.1</a></li>
@@ -41,35 +41,11 @@
                 </ul>
               </div>
             </li>
-            <li>
-              <a href="service-detailed.html">Service 4</a>
-              <div class="dd">
-                <ul>
-                  <li><a href="service-detailed.html">Service 4.1</a></li>
-                  <li><a href="service-detailed.html">Service 4.2</a></li>
-                  <li><a href="service-detailed.html">Service 4.3</a></li>
-                  <li><a href="service-detailed.html">Service 4.4</a></li>
-                  <li><a href="service-detailed.html">Service 4.5</a></li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <a href="service-detailed.html">Service 5</a>
-              <div class="dd">
-                <ul>
-                  <li><a href="service-detailed.html">Service 5.1</a></li>
-                  <li><a href="service-detailed.html">Service 5.2</a></li>
-                  <li><a href="service-detailed.html">Service 5.3</a></li>
-                  <li><a href="service-detailed.html">Service 5.4</a></li>
-                  <li><a href="service-detailed.html">Service 5.5</a></li>
-                </ul>
-              </div>
-            </li>
           </ul>
         </div>
       </li>
       <li>
-        <a href="projects.html">Projects</a>
+        <%= link_to 'Projects', projects_path %>
         <div class="dd">
           <ul>
             <li>
@@ -130,7 +106,7 @@
           </ul>
         </div>
       </li>
-      <li><a href="blog.html">Blog</a></li>
+      <li><%= link_to 'Blog', blog_path %>
       <li><%= link_to 'Contact', contact_path %></li>
     </ul>
   </div>
