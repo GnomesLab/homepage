@@ -3,15 +3,14 @@
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <title><%= @title || title %></title>
-    <link rel="stylesheet" href="../stylesheets/style.css" type="text/css" media="all" />
+    <%= stylesheet_link_tag 'style' %>
 
     <meta name="keywords" content="" />
     <meta name="description" content="" />
 
     <!-- JS -->
-    <script src="../javascripts/jquery-1.4.1.min.js" type="text/javascript"></script>
-    <script src="../javascripts/jquery.jcarousel.pack.js" type="text/javascript"></script>
-    <script src="../javascripts/jquery-func.js" type="text/javascript"></script>
+    <%= javascript_include_tag ['jquery-1.4.1.min', 'jquery.jcarousel.pack', 'jquery-func', 'application'],
+                               :cache => true %>
     <!-- End JS -->
   </head>
 
@@ -37,7 +36,7 @@
       <!-- shell -->
       <div class="shell">
         <!-- Logo + Navigation -->
-        <%= render 'shared/top_menus' %>
+        <%= render 'shared/header/top_menu' %>
         <!-- End Logo + Navigation -->
 
         <%= yield :pre_content %>

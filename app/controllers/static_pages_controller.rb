@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
 
   # GET /about
   def about
+    render 'static_pages/about/about'
   end
 
   # GET /services
