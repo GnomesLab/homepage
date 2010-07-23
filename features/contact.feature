@@ -22,7 +22,14 @@ Feature: contact page
     And I should see "We use Ruby on Rails and other agile tools"
     And I should see "We respond to you, not investors"
 
-  Scenario: the contact page should have a functional contact form
+  Scenario: visible contact form
+    Then I should see "Your name (required)"
+    And I should see "Email (required) we will keep it safe"
+    And I should see "Company name (optional)"
+    And I should see "Phone number (optional)"
+    And I should see "Your message (required)"
+
+  Scenario: fully functional contact form
     When I fill in "First Name" with "John"
     And I fill in "Last Name" with "Doe"
     And I fill in "Email" with "email@somehost.com"

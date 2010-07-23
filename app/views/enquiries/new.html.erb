@@ -1,0 +1,53 @@
+<% title 'Get in touch', true %>
+<%= content_title 'Feedback' %>
+
+<!-- Contact Form -->
+<div class="form floated-form">
+  <p>Send us a message! We would love to hear about your projects... or could just say hi!</p>
+
+  <%= form_for @enquiry do |f| -%>
+    <%= f.label :name, raw("Your name <span>(required)</span>"), :title => 'Please enter your name!' %>
+    <%= f.text_field :name, :class => 'field required' %>
+    <div class="cl">&nbsp;</div>
+
+    <%= f.label :email, raw("Email <span>(required) we will keep it safe</span>"), 
+                :title => 'Please enter your email address!' %>
+    <%= f.text_field :email, :class => 'field required' %>
+    <div class="cl">&nbsp;</div>
+
+    <%= f.label :company, raw("Company name <span>(optional)</span>"), 
+                :title => 'Please tell us the name of the company you represent.' %>
+    <%= f.text_field :company, :class => 'field' %>
+    <div class="cl">&nbsp;</div>
+
+    <%= f.label :phone_number, raw("Phone number <span>(optional)</span>"), 
+                :title => 'If you wish to be contacted by phone, please provide us with your direct number.' %>
+    <%= f.text_field :phone_number, :class => 'field' %>
+    <div class="cl">&nbsp;</div>
+
+    <%= f.label :message, raw("Your message <span>(required)</span>"), 
+                :title => 'Please type your message.' %>
+    <%= f.text_area :message, :class => 'field required', :rows => 10, :cols => 10 %>
+    <div class="cl">&nbsp;</div>
+
+    <div class="form-buttons">
+      <%= f.submit "Send your message", :class => 'button', :disable_with => 'Sending...' %>
+    </div>
+  <% end -%>
+
+  <!--
+  <form action="" method="post" class="validate-form">
+    <div class="msg msg-error" style="display:none">
+      <strong>Error!</strong> <span>Please enter your first name!</span>
+    </div>
+
+    <div class="msg msg-thanks" style="display:none">
+      <strong>Thank You!</strong> Your message was sent!
+    </div>
+  -->
+</div>
+<!-- End Contact Form -->
+
+<%= content_for :sidebar do %>
+  <%= render 'shared/content_box/our_profile' %>
+<% end %>
