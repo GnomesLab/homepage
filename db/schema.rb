@@ -23,12 +23,4 @@ ActiveRecord::Schema.define(:version => 20100723153214) do
 
   add_index "enquiries", ["email"], :name => "index_enquiries_on_email"
 
-  create_table "posts", :force => true do |t|
-    t.string   "name"
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
 end
