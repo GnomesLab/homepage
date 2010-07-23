@@ -282,7 +282,7 @@ input.button:hover { background:#00aeef; color:#fff; }
 
 .msg { text-align: center; padding:2px; color:#fff; margin:0 auto 20px auto; }
 .msg-error { background:#8b0000; }
-.msg-thanks { background:#00aeef; }
+.msg-notice { background:#00aeef; }
 
 .sitemap{ padding-top:5px; }
 .sitemap ul{ list-style-type: none; padding:0 0 10px 20px; text-transform: uppercase;}

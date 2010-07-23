@@ -5,6 +5,8 @@
 <div class="form floated-form">
   <p>Send us a message! We would love to hear about your projects... or could just say hi!</p>
 
+  <%= render 'shared/flash/box', :locals => flash %>
+
   <%= form_for @enquiry do |f| -%>
     <%= f.label :name, raw("Your name <span>(required)</span>"), :title => 'Please enter your name!' %>
     <%= f.text_field :name, :class => 'field required' %>
@@ -34,17 +36,6 @@
       <%= f.submit "Send your message", :class => 'button', :disable_with => 'Sending...' %>
     </div>
   <% end -%>
-
-  <!--
-  <form action="" method="post" class="validate-form">
-    <div class="msg msg-error" style="display:none">
-      <strong>Error!</strong> <span>Please enter your first name!</span>
-    </div>
-
-    <div class="msg msg-thanks" style="display:none">
-      <strong>Thank You!</strong> Your message was sent!
-    </div>
-  -->
 </div>
 <!-- End Contact Form -->
 

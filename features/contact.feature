@@ -29,38 +29,32 @@ Feature: contact page
     And I should see "Phone number (optional)"
     And I should see "Your message (required)"
 
-  Scenario: fully functional contact form
-    When I fill in "First Name" with "John"
-    And I fill in "Last Name" with "Doe"
-    And I fill in "Email" with "email@somehost.com"
-    And I fill in "Company" with "ESA"
-    And I fill in "Message" with "There is no spoon"
-    And I click "Send the Message"
-    Then I should see "Thank you! Your message was sent"
+  Scenario: cannot send a message without a name
+    Given I fill in "name" with ""
+    When I press "Send your message"
+    Then I should see a generic contact error message
+  
+  Scenario: cannot send a message without a valid email address
+    Given I fill in "enquiry[email]" with "invalid@mail"
+    When I press "Send your message"
+    Then I should see a generic contact error message
 
-  Scenario: the contact form should be provided with a valid first name
-    And I have a invalid first name
-    When I fill in the contact form
-    And I press "Send the Message"
-    Then I should see "Error! Please enter your first name!"
+  Scenario: cannot send a message without filling in its body
+    Given I fill in "message" with ""
+    When I press "Send your message"
+    Then I should see a generic contact error message
+    
+  Scenario: messages can be sent without a company name or a phone number
+    Given I have contact without company name or phone number
+    And I fill in the contact form
+    When I press "Send your message"
+    Then I should see a contact message successfully sent flash
 
-  Scenario: the contact form should be provided with a valid last name
-    And I have a invalid last name
-    When I fill the contact form
-    And I press "Send the Message"
-    Then I should see "Error! Please enter your last name!"
+  Scenario: messages can be sent when all fields are filled in
+    Given I have valid contact data
+    And I fill in the contact form
+    When I press "Send your message"
+    Then I should see a contact message successfully sent flash
 
-  Scenario: the contact form should be provided with a valid email
-    And I have a invalid email
-    When I fill the contact form
-    And I press "Send the Message"
-    Then I should see "Error! Please enter your valid email!"
-
-  Scenario: the contact form should be provided with a valid message
-    And I have a invalid message
-    When I fill the contact form
-    And I press "Send the Message"
-    Then I should see "Error! Please enter your message!"
-
-  Scenario: the blog post should have a footer
+  Scenario: page footer
     Then I should see the generic footer

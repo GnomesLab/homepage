@@ -31,12 +31,8 @@ def header_link_test
 end
 
 Then /^I should see the generic footer$/ do
-  footer_test
-end
-
-def footer_test
-  assert page.has_content?("ABOUT")
-  assert page.has_content?("BLOGROLL")
-  assert page.has_content?("TAG CLOUD")
-  assert page.has_content?("LATEST TWEETS")
+  page.should have_content("About")
+  page.should have_content("Blogroll")
+  page.should have_content("Tag Cloud")
+  page.should have_content("Latest Tweets")
 end

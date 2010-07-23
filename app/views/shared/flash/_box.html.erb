@@ -1,0 +1,3 @@
+<% flash.each do |key,msg| %>
+  <%= raw("<div class='msg msg-#{key}'>#{msg}</div>") %>
+<% end %>
