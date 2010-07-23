@@ -4,4 +4,3 @@
 # Github - Lighthouse commands
 
 * [closes #id]
-* [invalid #id]
