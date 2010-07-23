@@ -1,56 +1,43 @@
-    <div id="main">
-    	<div class="cl">&nbsp;</div>
-	
-    	<!-- Content -->
-    	<div id="content" class="col col1">
-				<h2 class="border">Feedback</h2>				
-					
-				<!-- Contact Form -->
-				<div class="form floated-form">
-					<form action="" method="post" class="validate-form">
-						<div class="msg msg-error" style="display:none">
-							<strong>Error!</strong> <span>Please enter your first name!</span>
-						</div>
-						
-						<div class="msg msg-thanks" style="display:none">
-							<strong>Thank You!</strong> Your message was sent!
-						</div>
-						
-						<label title="Please enter your first name!" for="fname-field">First Name <span>(required)</span></label>
-						<input type="text" class="field required" name="fname-field" id="fname-field"  />
-						<div class="cl">&nbsp;</div>
-					
-						<label title="Please enter your last name!" for="lname-field">Last Name <span>(required)</span></label>
-						<input type="text" class="field required" name="lname-field" id="lname-field"  />
-						<div class="cl">&nbsp;</div>
-					
-						<label title="Please enter your valid email!" for="mail-field">Email <span>(required) Will not be published</span></label>
-						<input type="text" class="field required valid-email" name="mail-field" id="mail-field"  />
-						<div class="cl">&nbsp;</div>
-						
-						<label for="company-field">Company</label>
-						<input type="text" class="field" name="company-field" id="company-field"  />
-						<div class="cl">&nbsp;</div>
-					
-						<label title="Please enter your message!" for="message-field">Message <span>(required)</span></label>
-						<textarea class="field required" rows="10" cols="10" name="message-field" id="message-field"></textarea>
-						<div class="cl">&nbsp;</div>						
-						
-						<div class="form-buttons"><input type="submit" class="button" value="Send the Message" /></div>
-					</form>
-				</div>
-				<!-- End Contact Form -->
-				<br/>
-				<p>Enter a helper text here to add additional contact information.</p>
-			</div>
-			<!-- End Content -->
-			
-			<!-- Sidebar -->
-			<div id="sidebar" class="col-right col2">
-				
-<%= render :partial => 'teaser' %>
-				
-			</div>
-			<!-- End Sidebar -->
-			
-			<div class="cl">&nbsp;</div>
+<h2 class="border">Feedback</h2>
+  
+<!-- Contact Form -->
+<div class="form floated-form">
+  <form action="" method="post" class="validate-form">
+    <div class="msg msg-error" style="display:none">
+      <strong>Error!</strong> <span>Please enter your first name!</span>
+    </div>
+    
+    <div class="msg msg-thanks" style="display:none">
+      <strong>Thank You!</strong> Your message was sent!
+    </div>
+    
+    <label title="Please enter your first name!" for="fname-field">First Name <span>(required)</span></label>
+    <input type="text" class="field required" name="fname-field" id="fname-field"  />
+    <div class="cl">&nbsp;</div>
+  
+    <label title="Please enter your last name!" for="lname-field">Last Name <span>(required)</span></label>
+    <input type="text" class="field required" name="lname-field" id="lname-field"  />
+    <div class="cl">&nbsp;</div>
+  
+    <label title="Please enter your valid email!" for="mail-field">Email <span>(required) Will not be published</span></label>
+    <input type="text" class="field required valid-email" name="mail-field" id="mail-field"  />
+    <div class="cl">&nbsp;</div>
+    
+    <label for="company-field">Company</label>
+    <input type="text" class="field" name="company-field" id="company-field"  />
+    <div class="cl">&nbsp;</div>
+  
+    <label title="Please enter your message!" for="message-field">Message <span>(required)</span></label>
+    <textarea class="field required" rows="10" cols="10" name="message-field" id="message-field"></textarea>
+    <div class="cl">&nbsp;</div>            
+    
+    <div class="form-buttons"><input type="submit" class="button" value="Send the Message" /></div>
+  </form>
+</div>
+<!-- End Contact Form -->
+<br/>
+<p>This page should have added text to provide more contact possibilities, not only a form. A text must be written and revised, including personal contact information for each gnomeslab member, a general email contact, and eventually more stuff.</p>
+
+<%= content_for :sidebar do %>
+  <%= render :partial => 'shared/content_box/teaser' %>
+<% end %>
