@@ -1,23 +1,17 @@
 Then /^I should see the generic header$/ do
-  header_link_test
-end
-
-def header_test
   page.should have_content('RSS')
-  # assert page.has_content?("RSS")
   page.should have_content('Facebook')
   page.should have_content('Twitter')
-  assert page.has_content?("HOME")
-  page.should have_content('ABOUT')
-  page.should have_content('SERVICES')
-  page.should have_content('PROJECTS')
-  page.should have_content('BLOG')
-  page.should have_content('CONTACT')
-  
+  page.should have_content("Home")
+  page.should have_content('About')
+  page.should have_content('Services')
+  page.should have_content('Projects')
+  page.should have_content('Blog')
+  page.should have_content('Contact')
 end
 
 Then /^I should click the generic header$/ do
-  header_test
+  header_link_test
 end
 
 def header_link_test
@@ -37,12 +31,8 @@ def header_link_test
 end
 
 Then /^I should see the generic footer$/ do
-  footer_test
-end
-
-def footer_test
-  assert page.has_content?("ABOUT")
-  assert page.has_content?("BLOGROLL")
-  assert page.has_content?("TAG CLOUD")
-  assert page.has_content?("LATEST TWEETS")
+  page.should have_content("About")
+  page.should have_content("Blogroll")
+  page.should have_content("Tag Cloud")
+  page.should have_content("Latest Tweets")
 end

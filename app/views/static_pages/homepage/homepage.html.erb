@@ -1,4 +1,8 @@
-<%= content_for(:pre_content) { render 'static_pages/homepage/rotator' } %>
+<%= content_for(:pre_content) do %>
+  <%= render 'shared/flash/box' %>
+  <%= render 'static_pages/homepage/rotator' %>
+<% end %>
+
 <% title 'Web Development', true %>
 <%= content_title 'Who are we?' %>
 

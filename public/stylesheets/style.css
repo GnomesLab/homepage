@@ -176,6 +176,7 @@ h1#logo a{ display:block; height:65px; text-indent: -4000px; background:url(../i
 .sidebar-box { padding-bottom:20px;}
 #sidebar ul{ list-style-type: none; padding-bottom:10px;}
 #sidebar ul li{ border-bottom:dashed 1px #cdcdcd; padding-bottom:5px; margin-bottom:5px;}
+#sidebar ul li.arrow{ background:url(../images/layout/more.gif) no-repeat 0 8px; padding-left:8px; }
 #sidebar ul li.last{ margin-bottom:0;}
 #sidebar ul li a{ text-decoration: none; background:url(../images/layout/more.gif) no-repeat 0 5px; padding-left:8px; }
 #sidebar .ads{ padding:5px 0 10px 0; }
@@ -281,7 +282,7 @@ input.button:hover { background:#00aeef; color:#fff; }
 
 .msg { text-align: center; padding:2px; color:#fff; margin:0 auto 20px auto; }
 .msg-error { background:#8b0000; }
-.msg-thanks { background:#00aeef; }
+.msg-notice { background:#00aeef; }
 
 .sitemap{ padding-top:5px; }
 .sitemap ul{ list-style-type: none; padding:0 0 10px 20px; text-transform: uppercase;}
