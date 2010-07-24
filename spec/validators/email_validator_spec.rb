@@ -14,7 +14,7 @@ end
 
 describe EmailValidator do
   it "should recognise a valid address" do
-    pending "invalid multibyte regexp"
+    pending "ruby 1.9.2 utf 8 encoding"
     # tester = EmailValidatorTester.new('mail@gnomeslab.com')
     # tester.should be_valid
   end
