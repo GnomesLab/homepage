@@ -6,10 +6,6 @@ Then /^I should see a contact message successfully sent flash$/ do
   page.should have_content("Thank you for contacting us! We will get back to you shortly.")
 end
 
-Given /^I fill in the contact form without a company name or phone number$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
 Given /^I have contact without company name or phone number$/ do
   @contact = Factory.build(:enquiry, :company => '', :phone_number => '')
 end
