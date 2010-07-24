@@ -38,7 +38,7 @@ describe Enquiry do
       subject.should be_valid
     end
 
-    it "should be valid it all the properties" do
+    it "should be valid with all the properties set" do
       subject.should be_valid
     end
   end
