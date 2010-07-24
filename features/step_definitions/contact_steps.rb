@@ -25,3 +25,7 @@ Given /^I fill in the contact form$/ do
   fill_in "enquiry[phone_number]",  :with => @contact.phone_number
   fill_in "enquiry[message]",       :with => @contact.message
 end
+
+Given /^An email should be sent to Gnomeslab$/ do
+  ActionMailer::Base.deliveries.should_not be_empty
+end

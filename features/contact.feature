@@ -48,12 +48,14 @@ Feature: contact page
     And I fill in the contact form
     When I press "Send your message"
     Then I should see a contact message successfully sent flash
+    And An email should be sent to Gnomeslab
 
   Scenario: messages can be sent when all fields are filled in
     Given I have valid contact data
     And I fill in the contact form
     When I press "Send your message"
     Then I should see a contact message successfully sent flash
+    And An email should be sent to Gnomeslab
 
   Scenario: page footer
     Then I should see the generic footer
