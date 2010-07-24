@@ -2,15 +2,7 @@ require 'spec_helper'
 
 describe Enquiry do
 
-  subject {
-    returning Enquiry.new do |e|
-      e.name         = 'Client Name'
-      e.email        = 'mail@company.com'
-      e.message      = 'Gnomeslab is amazing'
-      e.company      = 'company'
-      e.phone_number = '919999999'
-    end
-  }
+  subject { Factory.build(:enquiry) }
 
   describe "properties" do
     it "must have a name" do

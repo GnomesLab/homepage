@@ -23,5 +23,10 @@ describe EnquiryMailer do
       @email.body.should include(@enquiry.company)
       @email.body.should include(@enquiry.phone_number)
     end
+
+    it "the email must be sent only to the Gnomeslab" do
+      @email.to.first.should == 'gnomeslab@gmail.com'
+      @email.should have(1).to
+    end
   end
 end
