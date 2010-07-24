@@ -18,6 +18,7 @@ class EnquiriesController < ApplicationController
     @enquiry = Enquiry.new(params[:enquiry])
 
     if @enquiry.save
+      EnquiryMailer.contact(@enquiry).deliver
       flash[:notice] = "Thank you for contacting us! We will get back to you shortly."
       redirect_to root_path
     else
