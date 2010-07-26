@@ -45,6 +45,7 @@ class StaticPagesController < ApplicationController
   # GET /project_detail
   # FIXME: this route should never exist /projects/:id is the correct route
   def project_detail
+    render 'static_pages/projects/project_detail'
   end
 
   # GET /sitemap
