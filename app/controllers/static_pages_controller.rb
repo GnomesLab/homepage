@@ -16,6 +16,7 @@ class StaticPagesController < ApplicationController
   
   # GET /projects
   def projects
+    render 'static_pages/projects/projects'
   end
 
   # GET /blog
