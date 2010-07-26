@@ -66,9 +66,56 @@
 
   <h4>Have a project?</h4>
   <p>Don't let your project fail. <a href="#">Contact us</a> today. We would love to hear all about it!</p>
-</div>
+  <br />
+  </div>
+  
+  <!-- Meet the team -->
+  <h4>Meet the Team!</h4>
+  <div class="meet-list justify">
+    <ol>
+      <li>
+        <div class="cl">&nbsp;</div>
+        <div class="meet-meta">
+          <img src="../images/content/mafia-banner.jpg" alt="" />
+        </div>
+        <div class="entry">
+          <h3>Mr. Red</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum, neque ut imperdiet pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. Aliquam ac congue nunc. Mauris a tortor ut massa egestas tempus.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum.</p>
+          <p><a href="#">Contact</a></p>
+        </div>
+        <div class="cl">&nbsp;</div>
+      </li>
+      <li>
+        <div class="cl">&nbsp;</div>
+        <div class="meet-meta">
+          <img src="../images/content/bakery-banner.jpg" alt="" />
+        </div>
+        <div class="entry">
+          <h3>Mr. Green</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum, neque ut imperdiet pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. Aliquam ac congue nunc. Mauris a tortor ut massa egestas tempus.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum.</p>
+          <p><a href="#">Contact</a></p>
+        </div>
+        <div class="cl">&nbsp;</div>
+      </li>
+      <li>
+        <div class="cl">&nbsp;</div>
+        <div class="meet-meta">
+          <img src="../images/content/mafia-banner.jpg" alt="" />
+        </div>
+        <div class="entry">
+          <h3>Mr. Blue</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum, neque ut imperdiet pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. Aliquam ac congue nunc. Mauris a tortor ut massa egestas tempus.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum.</p>
+          <p><a href="#">Contact</a></p>
+        </div>
+        <div class="cl">&nbsp;</div>
+      </li>
+      </ol>
+  </div>
 
 <%= content_for :sidebar do %>
-  <%= render :partial => 'static_pages/about/about_us' %>
-  <%= render :partial => 'static_pages/about/about_us_text' %>
+  <%= render :partial => 'shared/content_box/our_profile' %>
+  <%= render :partial => 'static_pages/about/about_contact_teaser' %>
 <% end %>
