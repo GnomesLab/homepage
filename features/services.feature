@@ -25,14 +25,7 @@ Feature: services page
     
   Scenario: there should be a web services service
     Then I should see "Web Services"
-    And I should see "Lorem Ipsum"
-  
-  Scenario: the services page should have a overview of each service we provide
-    When I follow "Service 1"
-    Then I should see "Service 1 details"
-    
-  Scenario: each service should have a link to read more
-    Then I should see "read more" link
+    And I should see "Lorem ipsum"
   
   Scenario: the blog post should have a footer
     Then I should see the generic footer
