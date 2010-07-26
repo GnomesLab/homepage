@@ -140,6 +140,32 @@ h1#logo a{ display:block; height:65px; text-indent: -4000px; background:url(../i
 .entry h5,
 .entry h6 { padding-bottom:6px; }
 
+/* meet the team */
+
+.meet{ }
+.meet-list ol{
+  list-style-type: none;
+  padding-top:12px;
+  border-bottom:dashed 1px #cdcdcd; }
+
+.meet-list ol li{
+  border-top:dashed 1px #cdcdcd;
+  background:#f3f3f3; /* comment this line for white background */
+  padding:12px 0 4px 0;
+  width:100%;}
+
+.meet-list .meet-meta {
+  float:left;
+  width:130px;
+  text-align: right;
+  font-size:10px;
+  line-height:15px;
+  color:#767676;
+  padding-bottom: 8px;}
+
+.meet-list .entry { float:right; width:490px; line-height:18px; }
+.meet-list .entry p{ padding-bottom:6px;}
+
 /* can be used anywhere, but mostly here */
 .justify { text-align: justify; }
 
