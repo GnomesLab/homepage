@@ -9,8 +9,8 @@ class StaticPagesController < ApplicationController
     render 'static_pages/about/about'
   end
 
-  # GET /serviced
-  def service
+  # GET /service
+  def services
     render 'static_pages/services/services'
   end
   
@@ -21,10 +21,6 @@ class StaticPagesController < ApplicationController
 
   # GET /blog
   def blog
-  end
-
-  # GET /services
-  def services
   end
 
   # GET /service_details
