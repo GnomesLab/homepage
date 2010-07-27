@@ -1,3 +1,4 @@
+@wip @pdc
 Feature: about gnomeslab
   As a visitor of the gnomeslab website
   I should have an informative page about the company
@@ -8,7 +9,7 @@ Feature: about gnomeslab
   Background:
     Given I am on the about page
 
-  Scenario: the about page should have a header
+  Scenario: page header
     Then I should see the generic header
 
   Scenario: about us content
@@ -22,9 +23,6 @@ Feature: about gnomeslab
     And I should see "What do we do"
     And I should see "How we do it"
     And I should see "Working philosophy"
-
-  Scenario: right column flikr feed
-    #todo: flikr feed tests (photos) DELAYED
     
   Scenario: What do we do content
     When I follow "What do we do"
