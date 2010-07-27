@@ -13,4 +13,5 @@ group :development, :test do
   gem 'spork'
   gem 'launchy'
   gem 'factory_girl_rails'
+  gem 'will_paginate', '~> 3.0.pre2'
 end
