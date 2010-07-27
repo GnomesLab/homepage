@@ -150,7 +150,6 @@ h1#logo a{ display:block; height:65px; text-indent: -4000px; background:url(../i
 
 .meet-list ol li{
   border-top:dashed 1px #cdcdcd;
-  background:#f3f3f3; /* comment this line for white background */
   padding:12px 0 4px 0;
   width:100%;}
 

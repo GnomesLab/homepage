@@ -1,3 +1,4 @@
+@pdc
 Feature: about gnomeslab
   As a visitor of the gnomeslab website
   I should have an informative page about the company
@@ -35,6 +36,9 @@ Feature: about gnomeslab
   Scenario: Working philosophy content
     Then I should see "Meet the Team!"
     And I should see "Mr. Red"
+    And I should see "Mr. Green"
+    And I should see "Mr. Blue"
+    And I should see "Paws"
 
   Scenario: About us content
     Then I should see "Have a project?"
