@@ -35,6 +35,12 @@ unless ARGV.any? {|a| a =~ /^gems/} # Don't load anything when running the gems:
         t.fork = true # You may get faster startup if you set this to false
         t.profile = 'mt'
       end
+      
+      Cucumber::Rake::Task.new({:dba => 'db:test:prepare'}, 'Run features that are being worked on') do |t|
+        t.binary = vendored_cucumber_bin
+        t.fork = true # You may get faster startup if you set this to false
+        t.profile = 'dba'
+      end
 
       Cucumber::Rake::Task.new({:rerun => 'db:test:prepare'},
       'Record failing features and run only them if any exist') do |t|

@@ -6,8 +6,13 @@
   std_opts = "--format #{ENV['CUCUMBER_FORMAT'] || 'progress'} --strict --tags ~@wip"
 %>
 
+<%
+zerg = "--tags @pdc,@mt,@dba"
+%>
+
 default: <%= std_opts %> features
-wip: --tags @wip --wip features
+wip: <%= zerg %> --wip features
 rerun: <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags ~@wip
 pdc: --tags @pdc --wip features
 mt: --tags @mt --wip features
+dba: --tags @dba --wip features
