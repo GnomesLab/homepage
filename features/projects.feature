@@ -1,19 +1,17 @@
-@wip @mt
+@mt
 Feature: projects page
   In order to trust Gnomeslab ability to produce deliverables of the highest quality
   As a visitor I have the ability to browse their projects portfolio
 
-  # TODO: I would add the has n' projects here.
   Background: 
     Given I am on the projects page
+    And Gnomeslab have 10 projects
 
   Scenario: page header
     Then I should see the generic header
 
-  # FIXME: if you add the projects at the background level, in this step you'll need to remove some of them
-  # (eg: When I have less than 6 projects)
   Scenario: paginator is not visible with less than 6 projects
-    Given Gnomeslab have 5 projects
+    When Gnomeslab have less than 6 projects
     Then I should see the projects list
     And I should see 5 projects
     And I shouldn't see the paginator
