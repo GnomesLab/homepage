@@ -26,6 +26,7 @@ Feature: projects page
     Given Gnomeslab have 1 project
     Then I should see the projects list
     And I should see the project title
+    And I should see the project subtitle
     And I should see the project date
     And I should see the project image
     And I should a link to the project
