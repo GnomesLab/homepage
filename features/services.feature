@@ -1,4 +1,3 @@
-@wip @pdc
 Feature: services page
   As a user
   I want a services page
@@ -10,11 +9,13 @@ Feature: services page
   Scenario: the services page should have a header
     Then I should see the generic header
 
-  Scenario: right column with links to our services details
-    Then I should see "Our Services"
-    And I should see "Service 1"
-    And I should see "Service 2"
-    And I should see "Service 3"
+  Scenario: right column with links to our featured project
+    Then I should see "Featured Project"
+    And I should see "Lorem ipsum"
+    
+  Scenario: right column with a contact teaser
+    Then I should see "Services Contact Teaser"
+    And I should see "Some contact teaser"
     
   Scenario: there should be a websites service
     Then I should see "Websites"

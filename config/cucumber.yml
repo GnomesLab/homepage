@@ -9,3 +9,5 @@
 default: <%= std_opts %> features
 wip: --tags @wip --wip features
 rerun: <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags ~@wip
+pdc: --tags @pdc --wip features
+mt: --tags @mt --wip features

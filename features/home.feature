@@ -1,4 +1,3 @@
-@wip @pdc
 Feature: home page
   As a visitor of the gnomeslab website
   I should see information about gnomeslab, its team, culture and services

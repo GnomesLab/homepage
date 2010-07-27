@@ -23,6 +23,18 @@ unless ARGV.any? {|a| a =~ /^gems/} # Don't load anything when running the gems:
         t.fork = true # You may get faster startup if you set this to false
         t.profile = 'wip'
       end
+      
+      Cucumber::Rake::Task.new({:pdc => 'db:test:prepare'}, 'Run features that are being worked on') do |t|
+        t.binary = vendored_cucumber_bin
+        t.fork = true # You may get faster startup if you set this to false
+        t.profile = 'pdc'
+      end
+      
+      Cucumber::Rake::Task.new({:mt => 'db:test:prepare'}, 'Run features that are being worked on') do |t|
+        t.binary = vendored_cucumber_bin
+        t.fork = true # You may get faster startup if you set this to false
+        t.profile = 'mt'
+      end
 
       Cucumber::Rake::Task.new({:rerun => 'db:test:prepare'},
       'Record failing features and run only them if any exist') do |t|
@@ -32,7 +44,7 @@ unless ARGV.any? {|a| a =~ /^gems/} # Don't load anything when running the gems:
       end
 
       desc 'Run all features'
-      task :all => [:ok, :wip]
+      task :all => [:ok, :wip, :pdc]
     end
     desc 'Alias for cucumber:ok'
     task :cucumber => 'cucumber:ok'
