@@ -1,4 +1,3 @@
-@pdc
 Feature: services page
   As a user
   I want a services page
@@ -18,10 +17,14 @@ Feature: services page
     Then I should see "Have a project?"
     And I should see "Some contact teaser"
 
-  # TODO: Pedro, please implement
   Scenario: web development service
+    Then I should see "Web development"
+    
   Scenario: product development service
+    Then I should see "Product development"
+    
   Scenario: consulting service
+    Then I should see "Consulting"
 
   Scenario: page footer
     Then I should see the generic footer
