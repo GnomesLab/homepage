@@ -150,9 +150,8 @@ h1#logo a{ display:block; height:65px; text-indent: -4000px; background:url(../i
 
 .meet-list ol li{
   border-top:dashed 1px #cdcdcd;
-  background:#f3f3f3; /* comment this line for white background */
   padding:12px 0 4px 0;
-  width:100%;}
+  width:100%; }
 
 .meet-list .meet-meta {
   float:left;
@@ -161,7 +160,12 @@ h1#logo a{ display:block; height:65px; text-indent: -4000px; background:url(../i
   font-size:10px;
   line-height:15px;
   color:#767676;
-  padding-bottom: 8px;}
+  padding-bottom: 8px; }
+
+.meet-list .meet-meta img {
+  -moz-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  -webkit-border-radius: 5px; }
 
 .meet-list .entry { float:right; width:490px; line-height:18px; }
 .meet-list .entry p{ padding-bottom:6px;}
