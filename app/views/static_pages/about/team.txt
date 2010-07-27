@@ -1,0 +1,77 @@
+<ol>
+  <li>
+    <div class="cl">&nbsp;</div>
+    <div class="meet-meta">
+      <img src="http://www.gravatar.com/avatar/f8d9ece58e97250910d1588b54149415?s=130"
+           alt="Diogo Almeida, Gnomeslab founder and CEO" />
+    </div>
+    <div id="diogo_almeida" class="entry">
+      <h3>Diogo Almeida <span class='small'>Founder & CEO</span></h3>
+      <p>
+        Young entrepreneur and creative, Diogo has a constant drive to create even better web-facing 
+        applications and products, for Gnomeslab and its clients.<br />
+        Diogo has been hacking the web since 1999 and has a passion for User Experience, 
+        Agile Development and Ruby on Rails.<br />
+        Prior to founding Gnomeslab, with Pedro Coutinho and Miguel Teixeira, Diogo was building 
+        web-facing products for some of biggest and most innovative Portuguese companies, 
+        such as Portugal Telecom.
+      </p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum.</p>
+      <p><a href="#">Contact</a></p>
+    </div>
+    <div class="cl">&nbsp;</div>
+  </li>
+  <li>
+    <div class="cl">&nbsp;</div>
+    <div class="meet-meta">
+      <img src="../images/content/bakery-banner.jpg" alt="" />
+    </div>
+    <div class="entry">
+      <h3>Mr. Green</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum, neque ut imperdiet 
+        pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. Aliquam ac congue nunc. 
+        Mauris a tortor ut massa egestas tempus.
+      </p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum.</p>
+      <p><a href="#">Contact</a></p>
+    </div>
+    <div class="cl">&nbsp;</div>
+  </li>
+  <li>
+    <div class="cl">&nbsp;</div>
+    <div class="meet-meta">
+      <img src="../images/content/mafia-banner.jpg" alt="" />
+    </div>
+    <div class="entry">
+      <h3>Mr. Blue</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum, neque ut imperdiet 
+        pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. Aliquam ac congue nunc. 
+        Mauris a tortor ut massa egestas tempus.
+      </p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum.</p>
+      <p><a href="#">Contact</a></p>
+    </div>
+    <div class="cl">&nbsp;</div>
+  </li>
+  <li>
+    <div class="cl">&nbsp;</div>
+    <div class="meet-meta">
+      <img src="../images/content/bakery-banner.jpg" alt="" />
+    </div>
+    <div class="entry">
+      <h3>Paws</h3>
+      <p>MEAOOOOOWWWWWWWWWWWWWW!</p>
+      <p>purrrrrrrrrrrrrrrrrrrrrrrrrr
+         purrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+        purrrrrrrrrrr purrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+         purrrrrrrrrrrrrrrrrrrrrrrrrrrr purrrrrrrrrrrrrrrr
+          purrrrrrrrrrrrrrrrrrrrrrrr
+        purrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+        </p>
+      <p><a href="#">Contact</a></p>
+    </div>
+    <div class="cl">&nbsp;</div>
+  </li>
+  </ol>

@@ -14,14 +14,11 @@ module NavigationHelpers
     when /the blog\s?page/
       root_path # FIXME: posts_path
     
+    when /^(.*) profile section$/i
+      "#{about_us_path}##{$1.downcase.split.join('_')}"
+
     when /the about page/
       about_us_path
-
-      # Add more mappings here.
-      # Here is an example that pulls values out of the Regexp:
-      #
-      #   when /^(.*)'s profile page$/i
-      #     user_profile_path(User.find_by_login($1))
 
     else
       begin
