@@ -24,22 +24,12 @@ unless ARGV.any? {|a| a =~ /^gems/} # Don't load anything when running the gems:
         t.profile = 'wip'
       end
       
-      Cucumber::Rake::Task.new({:pdc => 'db:test:prepare'}, 'Run features that are being worked on') do |t|
-        t.binary = vendored_cucumber_bin
-        t.fork = true # You may get faster startup if you set this to false
-        t.profile = 'pdc'
-      end
-      
-      Cucumber::Rake::Task.new({:mt => 'db:test:prepare'}, 'Run features that are being worked on') do |t|
-        t.binary = vendored_cucumber_bin
-        t.fork = true # You may get faster startup if you set this to false
-        t.profile = 'mt'
-      end
-      
-      Cucumber::Rake::Task.new({:dba => 'db:test:prepare'}, 'Run features that are being worked on') do |t|
-        t.binary = vendored_cucumber_bin
-        t.fork = true # You may get faster startup if you set this to false
-        t.profile = 'dba'
+      { :dba => 'Diogo Almeida', :pdc => 'Pedro Coutinho', :mt => 'Miguel Teixeira' }.each do |k,v|
+        Cucumber::Rake::Task.new({k => 'db:test:prepare'}, "Run features being worked on by #{v}") do |t|
+          t.binary = vendored_cucumber_bin
+          t.fork = true # You may get faster startup if you set this to false
+          t.profile = k.to_s
+        end
       end
 
       Cucumber::Rake::Task.new({:rerun => 'db:test:prepare'},

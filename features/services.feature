@@ -1,3 +1,4 @@
+@pdc
 Feature: services page
   As a user
   I want a services page
@@ -6,28 +7,21 @@ Feature: services page
   Background: 
     Given I am on the services page
 
-  Scenario: the services page should have a header
+  Scenario: page header
     Then I should see the generic header
 
-  Scenario: right column with links to our featured project
+  Scenario: right column featured project
     Then I should see "Featured Project"
     And I should see "Lorem ipsum"
-    
-  Scenario: right column with a contact teaser
-    Then I should see "Services Contact Teaser"
+
+  Scenario: right column contact teaser
+    Then I should see "Have a project?"
     And I should see "Some contact teaser"
-    
-  Scenario: there should be a websites service
-    Then I should see "Websites"
-    And I should see "Your website might be everything"
-    
-  Scenario: there should be a websites service
-    Then I should see "Web Applications"
-    And I should see "With internet speeds and stability"
-    
-  Scenario: there should be a web services service
-    Then I should see "Web Services"
-    And I should see "Lorem ipsum"
-  
-  Scenario: the blog post should have a footer
+
+  # TODO: Pedro, please implement
+  Scenario: web development service
+  Scenario: product development service
+  Scenario: consulting service
+
+  Scenario: page footer
     Then I should see the generic footer
