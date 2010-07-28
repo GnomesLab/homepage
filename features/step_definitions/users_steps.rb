@@ -1,7 +1,3 @@
-# Given /^I have an invalid name$/ do
-#   @comment = Factory.build(:comment, :name => "")
-# end
-
 Given /^I have an account$/ do
   @user = Factory.build(:user)
 end
