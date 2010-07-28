@@ -1,4 +1,6 @@
 Homepage::Application.routes.draw do |map|
+  devise_for :users
+
   get 'about',          :to => 'static_pages#about',          :as => 'about_us'
   get 'services',       :to => 'static_pages#services'
   get 'blog',           :to => 'static_pages#blog'

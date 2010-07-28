@@ -19,6 +19,19 @@
     <div id="header">
       <div class="shell">
         <!-- Socials -->
+        <div class="login">
+          <% if user_signed_in? %>
+            <li>
+            <span>|</span>
+            <%= link_to('Logout', destroy_user_session_path) %>        
+            </li>
+          <% else %>
+            <li>
+            <span>|</span>
+            <%= link_to('Login', new_user_session_path)  %>  
+            </li>
+          <% end %>
+        </div>
         <div class="socials">
           <a href="#" class="rss-link">RSS</a>
           <span>|</span>
@@ -38,14 +51,6 @@
         <!-- Logo + Navigation -->
         <%= render 'shared/header/top_menu' %>
         <!-- End Logo + Navigation -->
-        
-        <!-- Flash messages  -->
-        
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        
-        <!-- End of flash messages -->
-        
 
         <%= yield :pre_content %>
 

@@ -1,0 +1,42 @@
+<% title 'Sign in', true %>
+<%= content_title 'Sign in' %>
+
+<div class="cl">&nbsp;</div><br />
+
+
+<div class="form floated-form">
+  <%= render 'shared/flash/box', :locals => flash %>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <%= f.label :email %>
+    <%= f.text_field :email, :class => 'field required' %>
+    
+    <div class="cl">&nbsp;</div>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, :class => 'field required' %>
+    
+    <div class="cl">&nbsp;</div>
+    
+    <div class="check">
+      <span class="checkbox"><%= f.check_box :remember_me %></span>
+      <span class="label"><%= f.label :remember_me %></span>
+    </div>
+    
+    <div class="sign_buttons">
+      <% if devise_mapping.rememberable? -%>
+
+      <% end -%>
+    
+      <div class="cl">&nbsp;</div>
+
+      <%= f.submit "Sign in" %>
+    
+      <div class="cl">&nbsp;</div><br />
+    </div>
+    
+  <% end %>
+
+</div>
+<%= content_for :sidebar do %>
+  <%= render 'shared/content_box/our_profile' %>
+<% end %>

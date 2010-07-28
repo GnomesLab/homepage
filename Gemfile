@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.beta4'
-gem 'devise'
+gem 'rails', '3.0.0.rc'
+gem "devise", :git => 'git://github.com/plataformatec/devise.git'
 gem 'will_paginate', '~> 3.0.pre2'
 
 group :development, :test do

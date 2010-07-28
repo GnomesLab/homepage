@@ -16,6 +16,13 @@ Homepage::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
-  
+
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # You did not specify how you would like Rails to report deprecation notices
+  # for your development environment, please set
+  # config.active_support.deprecation to :log at
+  # config/environments/development.rb
+
+  config.active_support.deprecation = :log
 end

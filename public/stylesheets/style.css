@@ -71,6 +71,16 @@ h1#logo a{ display:block; height:65px; text-indent: -4000px; background:url(../i
 
 #header { height:46px; background:#000 url(../images/layout/header.gif) repeat-x center bottom;}
 
+.login {
+  font-size:10px;
+  float: right;
+  margin-top: 8px;
+  margin-left: 5px;
+  list-style-type: none;
+}
+.login a {
+  text-decoration: none;
+}
 .socials { float:right; font-size:10px; color:#484848; padding-top:8px;}
 .socials span{ padding:0 5px;}
 .socials a{ color:#999; text-decoration: none; padding:2px 0 2px 18px; background:url(../images/layout/socials.gif) no-repeat 0 0; }
@@ -284,6 +294,22 @@ p.nav span{ color:#999; padding:0 6px;}
 .floated-form { padding-top:10px;}
 .floated-form label{ float:left; width:200px; display:inline; padding-top:1px; text-align: right;}
 .floated-form .field{ float:left; display:inline; margin-left:15px; margin-bottom:12px;}
+.floated-form .sign_buttons {
+  padding-left: 310px;
+}
+.floated-form .check {  
+  padding-left: 215px;
+  background: red;
+}
+.floated-form .check .checkbox {
+  float: left;
+}
+.floated-form .check .label {
+  float: left;
+  margin-top: -5px;
+  margin-left: -115px;
+  margin-bottom: 20px;
+}
 .floated-form small{ padding-left:215px; position:relative; top:-13px;}
 
 input.button { border:0; background:#000; color:#b3b3b3; padding:3px 5px; cursor:pointer; font-size:12px; }
@@ -297,6 +323,7 @@ input.button:hover { background:#00aeef; color:#fff; }
 .msg { text-align: center; padding:2px; color:#fff; margin:0 auto 20px auto; }
 .msg-error { background:#8b0000; }
 .msg-notice { background:#00aeef; }
+.msg-alert { background:#00aeef; }
 
 .sitemap{ padding-top:5px; }
 .sitemap ul{ list-style-type: none; padding:0 0 10px 20px; text-transform: uppercase;}
@@ -307,3 +334,8 @@ input.button:hover { background:#00aeef; color:#fff; }
 .sitemap ul ul a{ background:transparent; padding:0; color:#4a4a4a;}
 .sitemap ul ul a:hover{ color:#00aeef;}
 .sitemap ul ul ul a{ background:transparent; padding:0; color:#999; }
+
+.devise {
+  padding-top: 30px;
+  padding-left: 30px;
+}
