@@ -1,8 +1,9 @@
 @crystal
 Feature: services page
-  As a user
-  I want a services page
-  So I can know exactly for what kind of services i can hire from gnomeslab
+  In order to allow our visitors to know which services Gnomeslab offers to the market
+  We provide a service portfolio page, detailing our three major offerings
+  Furthermore, we take this opportunity to provide our visitors with quick overview of one of our featured projects
+  as well as quick access to our contacts.
 
   Background: 
     Given I am on the services page
@@ -10,22 +11,28 @@ Feature: services page
   Scenario: page header
     Then I should see the generic header
 
-  Scenario: right column featured project
-    Then I should see "Featured Project"
-    And I should see "Lorem ipsum"
-
-  Scenario: right column contact teaser
-    Then I should see "Have a project?"
-    And I should see "Some contact teaser"
-
   Scenario: web development service
     Then I should see "Web development"
+    And I should see "The Internet is becoming more"
     
   Scenario: product development service
     Then I should see "Product development"
+    And I should see "So you have an idea for a new product?"
     
   Scenario: consulting service
     Then I should see "Consulting"
+    And I should see "Somethings companies run into issues that go way beyond the technical scope."
+
+  Scenario: right column company profile
+    Then I should see "Our profile"
+
+  Scenario: right column contact teaser
+    Then I should see "Have an idea a project or a problem?"
+    And I should see "We can help you with that!"
+
+  Scenario: right column featured project
+    Then I should see "Featured project"
+    And I should see "Lorem ipsum"
 
   Scenario: page footer
     Then I should see the generic footer
