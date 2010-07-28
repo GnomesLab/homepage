@@ -19,6 +19,9 @@ module NavigationHelpers
 
     when /the about page/
       about_us_path
+      
+    when /the login page/
+      new_user_session_path
 
     else
       begin
