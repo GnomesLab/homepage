@@ -11,4 +11,5 @@ wip: --tags <%= ['@wip', '@pdc', '@mt', '@dba'].join(',') %> --wip features
 pdc: --tags @pdc --wip features
 mt: --tags @mt --wip features
 dba: --tags @dba --wip features
+crystal: --tags @crystal -p default
 rerun: <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags ~@wip

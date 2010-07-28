@@ -12,10 +12,11 @@ unless ARGV.any? {|a| a =~ /^gems/} # Don't load anything when running the gems:
     require 'cucumber/rake/task'
 
     namespace :cucumber do
-      Cucumber::Rake::Task.new({:ok => 'db:test:prepare'}, 'Run features that should pass') do |t|
+      Cucumber::Rake::Task.new({:ok => 'db:test:prepare'},
+                                'Features that have been celebrated with a bottle of Crystal Champagne') do |t|
         t.binary = vendored_cucumber_bin # If nil, the gem's binary is used.
         t.fork = true # You may get faster startup if you set this to false
-        t.profile = 'default'
+        t.profile = 'crystal'
       end
 
       Cucumber::Rake::Task.new({:wip => 'db:test:prepare'}, 'Run features that are being worked on') do |t|
@@ -40,7 +41,7 @@ unless ARGV.any? {|a| a =~ /^gems/} # Don't load anything when running the gems:
       end
 
       desc 'Run all features'
-      task :all => [:ok, :wip, :pdc]
+      task :all => [:ok, :wip, :dba, :pdc, :mt]
     end
     desc 'Alias for cucumber:ok'
     task :cucumber => 'cucumber:ok'

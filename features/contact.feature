@@ -1,3 +1,4 @@
+@crystal
 Feature: contact page
   In order to allow Gnomeslab Homepage visitors to contact our company
   We provide them with a contact form that forwards their messages to our mailbox
