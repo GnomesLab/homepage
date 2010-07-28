@@ -4,5 +4,5 @@ class Project < ActiveRecord::Base
   @@per_page = 5
 
   # Named scopes
-  scope :recent, order('date desc')
+  scope :reverse, order('date desc')
 end

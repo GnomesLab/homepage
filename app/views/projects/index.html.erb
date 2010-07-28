@@ -2,7 +2,9 @@
 
 <!-- Projects -->
 <div class="items items-images">
+  <% if @projects %>
   <ul class="projects">
+    <% for project in @projects %>
       <li>
         <div class="cl">&nbsp;</div>
         <div class="item-image">
@@ -10,77 +12,26 @@
         </div>
         <div class="item-info">
           <small><a href="projects.html">Gnomeslab</a> / July, 1 2010</small>
-          <h3><a href="project-detailed.html">OAuth</a></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adi neque ut imperdiet pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. elit.</p>
+          <h3>
+            <a href="project-detailed.html"><%= project.title %></a>
+          </h3>
+          <p><%= project.subtitle %></p>
           <p class="view"><a href="project-detailed.html">View case study</a></p>
         </div>
         <div class="cl">&nbsp;</div>
       </li>
-      
-      <li>
-        <div class="cl">&nbsp;</div>
-        <div class="item-image">
-          <a href="project-detailed.html" class="aimg"><img src="../images/content/project2.jpg" alt="" /></a>
-        </div>
-        <div class="item-info">
-          <small><a href="projects.html">Gnomeslab</a> / July 15, 2009</small>
-          <h3><a href="project-detailed.html">Miniplace</a></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adi neque ut imperdiet pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. elit.</p>
-          <p class="view"><a href="project-detailed.html">View case study</a></p>
-        </div>
-        <div class="cl">&nbsp;</div>
-      </li>
-      
-      <li>
-        <div class="cl">&nbsp;</div>
-        <div class="item-image">
-          <a href="project-detailed.html" class="aimg"><img src="../images/content/project3.jpg" alt="" /></a>
-        </div>
-        <div class="item-info">
-          <small><a href="projects.html">Microsites</a> / December 16, 2009</small>
-          <h3><a href="project-detailed.html">Project Title</a></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adi neque ut imperdiet pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. elit.</p>
-          <p class="view"><a href="project-detailed.html">View case study</a></p>
-        </div>
-        <div class="cl">&nbsp;</div>
-      </li>
-      
-      <li>
-        <div class="cl">&nbsp;</div>
-        <div class="item-image">
-          <a href="project-detailed.html" class="aimg"><img src="../images/content/project4.jpg" alt="" /></a>
-        </div>
-        <div class="item-info">
-          <small><a href="projects.html">Microsites</a> / December 16, 2009</small>
-          <h3><a href="project-detailed.html">Project Title</a></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adi neque ut imperdiet pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. elit.</p>
-          <p class="view"><a href="project-detailed.html">View case study</a></p>
-        </div>
-        <div class="cl">&nbsp;</div>
-      </li>
-      
-      <li>
-        <div class="cl">&nbsp;</div>
-        <div class="item-image">
-          <a href="project-detailed.html" class="aimg"><img src="../images/content/project2.jpg" alt="" /></a>
-        </div>
-        <div class="item-info">
-          <small><a href="projects.html">Microsites</a> / December 16, 2009</small>
-          <h3><a href="project-detailed.html">Project Title</a></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adi neque ut imperdiet pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. elit.</p>
-          <p class="view"><a href="project-detailed.html">View case study</a></p>
-        </div>
-        <div class="cl">&nbsp;</div>
-      </li>
+    <% end %>
   </ul>
+  <% end %>
 </div>
 <!-- End Projects -->
 
-<!-- Pagging -->
-<div class="pagging">
-  1 - 5 of 21 First<span>|</span><a href="#">&lt; Prev</a><span>|</span><a href="#">Next &gt;</a><span>|</span><a href="#">Last</a>
-</div>
-<!-- End Pagging -->
+<!-- Pagination -->
+<%= will_paginate @projects,
+                  :previous_label => '&lt; Prev',
+                  :next_label => 'Next &gt;',
+                  :separator => '<span>|</span>' %>
+<!-- End Pagination -->
 
 <%= content_for :sidebar do %>
   <%= render :partial => 'categories' %>

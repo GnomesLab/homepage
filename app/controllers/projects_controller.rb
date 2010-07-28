@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @projects = Project.recent.paginate :page => params[:page], :per_page => Project.per_page
+    @projects = Project.reverse.paginate :page => params[:page], :per_page => Project.per_page
 
     respond_with @projects
   end
