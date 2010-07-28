@@ -38,6 +38,14 @@
         <!-- Logo + Navigation -->
         <%= render 'shared/header/top_menu' %>
         <!-- End Logo + Navigation -->
+        
+        <!-- Flash messages  -->
+        
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        
+        <!-- End of flash messages -->
+        
 
         <%= yield :pre_content %>
 
