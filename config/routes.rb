@@ -1,5 +1,5 @@
 Homepage::Application.routes.draw do |map|
-  get 'about',          :to => 'static_pages#about',          :as => 'about_us'
+  get 'about',          :to => 'static_pages#about_us', :as => 'about_us'
   get 'services',       :to => 'static_pages#services'
   get 'blog',           :to => 'static_pages#blog'
   get 'service_detail', :to => 'static_pages#service_detail'
@@ -12,5 +12,5 @@ Homepage::Application.routes.draw do |map|
   resources :enquiries
   resources :projects
 
-  root :to => "static_pages#homepage"
+  root :to => "static_pages#home"
 end

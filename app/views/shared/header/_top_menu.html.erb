@@ -2,12 +2,12 @@
   <h1 id="logo"><%= link_to 'Web Development | Gnomeslab', root_path %></h1>
   <div id="navigation">
     <ul>
-      <li><%= link_to 'Home', root_path, :class => 'active' %></li>
-      <li><%= link_to 'About', about_us_path %></li>
-      <li><%= link_to 'Services', services_path %></li>
-      <li><%= link_to 'Projects', projects_path %></li>
-      <li><%= link_to 'Blog', blog_path %></li>
-      <li><%= link_to 'Contact', contact_path %></li>
+      <li><%= top_menu_link :home %></li>
+      <li><%= top_menu_link :about_us %></li>
+      <li><%= top_menu_link :services %></li>
+      <li><%= top_menu_link :projects %></li>
+      <li><%= top_menu_link :blog %></li>
+      <li><%= top_menu_link :contact %></li>
     </ul>
   </div>
 </div>

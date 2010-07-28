@@ -1,11 +1,11 @@
 class StaticPagesController < ApplicationController
   # GET /
-  def homepage
+  def home
     render 'static_pages/homepage/homepage'
   end
 
   # GET /about
-  def about
+  def about_us
     render 'static_pages/about/about'
   end
 
