@@ -42,3 +42,13 @@ Then /^I should see the (.*) of ([0-9]+) projects$/ do |property, n|
     end
   end
 end
+
+Then /^I should see the categories list$/ do
+  page.should have_css('.categories')
+end
+
+Then /^I should see links to all the projects categories$/
+  Project.each do |p|
+    page.should have_xpath("//div[@class='categories']//a[contains(@href, '#{category_path(p.category)}')]")
+  end
+end

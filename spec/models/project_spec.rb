@@ -25,6 +25,16 @@ context Project do
       subject.should_not be_valid
     end
 
+    it "must have a category" do
+      subject.category = nil
+      subject.should_not be_valid
+    end
+
+    it "must have a valid category" do
+      subject.category = Category.new
+      subject.should_not be_valid
+    end
+
     it "must be valid with all the properties set" do
       subject.should be_valid
     end
