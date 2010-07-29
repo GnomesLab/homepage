@@ -37,20 +37,5 @@ context Post do
         subject.should_not be_valid
       end
     end
-    
-    
-
-
-    describe "email" do
-      it "enforces devise standard validations" do
-        subject.email = nil
-
-        subject.should_not be_valid
-        subject.errors.should include :email
-        subject.errors.should include :password
-      end
-    end #devise
-
-  end # Validations
-
+  end
 end
