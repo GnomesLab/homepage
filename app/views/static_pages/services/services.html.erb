@@ -1,31 +1,84 @@
-<h2 class="border">Services</h2>
+<% title 'Web Development | Product Development | Consulting | Gnomeslab Services' %>
+<%= content_title 'Services' %>
 
 <!-- Services -->
-<div class="items justify">
-  <ul>
-      <li>
-        <h3><a href="service-detailed.html">Web development</a></h3>
-      <p>Some text here.
-        <br /><a href="service-detailed.html" class="more">more</a></p>
-        
-      </li>
-      <li>
-        <h3><a href="service-detailed.html">Product development</a></h3>
-      <p>Some text here
-        <br /><a href="service-detailed.html" class="more">more</a></p>
-        
-      </li>
-      <li>
-        <h3><a href="service-detailed.html">Consulting</a></h3>
-      <p>Some text here
-        <br /><a href="service-detailed.html" class="more">more</a></p>
-        
-      </li>
-  </ul>
+<div class="entry justify">
+
+  <div id="web_development">
+    <h3>Web development</h3>
+
+    <p>The Internet is becoming more, and more, important for businesses by the day. Today companies 
+      - including yours - face the challenge of dealing with competitors that can be found a few clicks away.
+    </p>
+    <p>
+      With almost 2 billion users surfing the Internet, a powerful website might be everything a customer needs 
+      not only to find you, but to understand you. To understand the way you work and your culture. To understand 
+      what sets you apart from your competitors. In essence, helping him answer the fundamental question: 
+      why should he put his precious dollars in your company?
+    </p>
+    <p>
+      Gnomeslab understands the Internet, and it's critical importance for your business success. From small 
+      personal websites to big enterprise portals we have the expertise to get it up and running fast and smoothly.
+    </p>
+  </div>
+
+  <br />
+  <div id="product_development">
+    <h3>Product development</h3>
+
+    <p>
+      So you have an idea for a new product? Maybe it's just a sketch in the back of your morning coffee napkin. No?... 
+      Perhaps something quite more elaborate, with supporting market studies SWOT and PEST analysis and an 
+      immaculate business plan that catched the heart of your investors?
+    </p>
+    <p>
+      Regardless of the stage of your idea, or business model, Gnomeslab can help you build your next 
+      web-facing product. Our team makes years of product development experience at your disposal 
+      in a creative and truly <i>Agile Software Development</i> environment that masters the art of releasing 
+      early and often.
+    </p>
+    <p>
+      At Gnomeslab we love products. They set companies apart! Don't miss the time to market. Get your product out 
+      there before your competitors do!
+    </p>
+  </div>
+
+  <br />
+  <div id="consulting">
+    <h3>Consulting</h3>
+    
+    <p>Somethings companies run into issues that go way beyond the technical scope.</p>
+    <p>
+      Understanding todays business needs are broader and more complex, Gnomeslab puts its expertise at your 
+      disposal a comprehensive consulting service, that can help you with:
+      <ul>
+        <li>Search Engine Optimization processes (SEO)</li>
+        <li>The latest web standards and practices, including HTML 5, CSS 3 and Unobtrusive Javascript</li>
+        <li>Accessibility and User Experience, engaging your users with your web assets</li>
+        <li>Project management, Development Life Cycle and Agile Software Development, including Pair Programing</li>
+        <li>Product planing, roadmap and development</li>
+        <li>Successfully adopting Ruby and Ruby on Rails</li>
+        <li>Distributed web applications, caching and performance</li>
+        <li>
+          Single sign-on systems, namely the increasingly popular <%= link_to 'OAuth2', 
+                                                                              'http://wiki.oauth.net/OAuth-2' %> in use 
+          used by companies such as <%= link_to 'Facebook', 'http://facebook.com' %>,
+                                    <%= link_to 'Twitter', 'http://twitter.com' %> and 
+                                    <%= link_to '37 Signals', 'http://37signals.com' %>
+        </li>
+        <li>and so much more...</li>
+      </ul>
+    </p>
+    <p>
+      Your success is our success. Get your projects to the next level. <%= link_to 'Contact us', contact_path %> today!
+    </p>
+  </div>
 
 </div>
+
 <!-- End Services -->
 <%= content_for :sidebar do %>
+  <%= render :partial => 'shared/content_box/our_profile' %>
+  <%= render :partial => 'static_pages/services/contact_teaser' %>
   <%= render :partial => 'shared/content_box/featured_project' %>
-  <%= render :partial => 'static_pages/services/services_contact_teaser' %>
 <% end %>

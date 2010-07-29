@@ -33,7 +33,8 @@
     <div class="cl">&nbsp;</div>
 
     <div class="form-buttons">
-      <%= f.submit "Send your message", :class => 'button', :disable_with => 'Sending...' %>
+      <%= f.submit "Send your message", :class => 'button', :disable_with => 'Sending...' %> or 
+      <%= link_to 'cancel', root_path, :title => 'Go back to the homepage' %>
     </div>
   <% end -%>
 </div>

@@ -1,12 +1,12 @@
 class StaticPagesController < ApplicationController
   # GET /
-  def homepage
-    render 'static_pages/homepage/homepage'
+  def home
+    render 'static_pages/home/home'
   end
 
   # GET /about
-  def about
-    render 'static_pages/about/about'
+  def about_us
+    render 'static_pages/about_us/about_us'
   end
 
   # GET /service
