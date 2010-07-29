@@ -1,5 +1,5 @@
 Given /^I have an invalid name$/ do
-  @comment = Factory.build(:comment, :name => "")
+  @comment = Factory.build(:comment, :user => "")
 end
 
 Given /^I have an invalid email$/ do
@@ -11,7 +11,7 @@ Given /^I have an invalid body$/ do
 end
 
 Given /^I fill the comment form$/ do
-  fill_in("Name", :with => @comment.name)
+  fill_in("Name", :with => @comment.user)
   fill_in("Email", :with => @comment.email)
   fill_in("Website", :with => @comment.website)
   fill_in("Body", :with => @comment.body)

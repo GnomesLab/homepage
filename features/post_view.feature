@@ -25,12 +25,12 @@ Feature: post view page #fixme: texting
   Scenario: right column related posts
     Then I should see "Related posts"
   
-  Scenario: the post should have a username, title, date, content, comment count, new comment internal link and tags
+  Scenario: the post should have a user, title, date, body, comment count, new comment internal link and tags
     And I have a post
-    Then I should see the creator name
+    Then I should see the user name
     And I should see the title
     And I should see the date
-    And I should see its content
+    And I should see its body
     And I should see the comment count
     And I should see its tags
     And I should see the "New comment" internal link
@@ -39,7 +39,7 @@ Feature: post view page #fixme: texting
     And I have a post
     When I follow "Edit"
     And I fill in "Title" with "title"
-    And I fill in "Content" with "content"
+    And I fill in "body" with "body"
     And I press "Update Post"
     Then I should see "successfully updated"
 
@@ -53,12 +53,12 @@ Feature: post view page #fixme: texting
      And I dont have comments
      Then I should see "0 comments"
 
-  Scenario: the comment should have username, email, website, title and content
+  Scenario: the comment should have username, email, website, title and body
     And I have a comment
-    Then I should see the creator name
+    Then I should see the creator username
     And I should not see the email
     And I should see the comment title
-    And I should see the comment content
+    And I should see the comment body
   
   Scenario: add comment form
     Then I should see a text area for username
