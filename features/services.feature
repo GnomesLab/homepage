@@ -32,7 +32,7 @@ Feature: services page
 
   Scenario: right column featured project
     Then I should see "Featured project"
-    And I should see "Lorem ipsum"
+    And I should see "Product :: miniPlace.com"
 
   Scenario: page footer
     Then I should see the generic footer
