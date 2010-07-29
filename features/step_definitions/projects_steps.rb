@@ -24,3 +24,11 @@ Then /^I should(n\'t)? see the paginator$/ do |n|
     page.should_not have_css('.pagination')
   end
 end
+
+Then /^I should see the (.*) of ([0-9]+) projects$/ do |property, n|
+  projects = Project.all
+
+  n.to_i.times do |i|
+    page.should have_content(projects[i].send(property))
+  end
+end
