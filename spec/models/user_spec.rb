@@ -40,4 +40,25 @@ context User do
 
   end # Validations
 
+  describe "mass assignment protection" do
+    it "only allows email and password to be mass-assignable" do
+      User.new.sanitize_for_mass_assignment(:email => "hello@world.com",
+                                            :password => "hello_world",
+                                            :encrypted_password => "encrypted-stuff",
+                                            :password_salt => "salting",
+                                            :reset_password_token => "",
+                                            :remember_token => "",
+                                            :remember_created_at => Time.now,
+                                            :sign_in_count => 1,
+                                            :current_sign_in_at => Time.now,
+                                            :last_sign_in_at => Time.now,
+                                            :current_sign_in_ip => "",
+                                            :last_sign_in_ip => "",
+                                            :created_at => Time.now,
+                                            :updated_at => Time.now,
+                                            :name => "John Doe").should == { :email => "hello@world.com",
+                                                                             :password => "hello_world" }
+    end
+  end # mass assignment
+
 end

@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
   validates :name, :presence => true, :format => { :with => /\A([a-zA-Z]+{3,10})\s([a-zA-Z]+{3,10})\z/i,
                                                    :allow_blank => false,
                                                    :allow_nil => false }
+
+  public :sanitize_for_mass_assignment
 end

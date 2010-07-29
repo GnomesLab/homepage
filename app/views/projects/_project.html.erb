@@ -1,0 +1,13 @@
+<li>
+  <div class="cl">&nbsp;</div>
+  <div class="item-image">
+    <%= link_to image_tag(project.image, :alt => project.title), project, :class => 'aimg' %>
+  </div>
+  <div class="item-info">
+    <small><a href="projects.html">Gnomeslab</a> / <%=l project.date, :format => :short %></small>
+    <h3> <%= link_to project.title, project %> </h3>
+    <p><%= project.subtitle %></p>
+    <p class="view"><%= link_to 'View case study', project %></p>
+  </div>
+  <div class="cl">&nbsp;</div>
+</li>

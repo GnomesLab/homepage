@@ -2,26 +2,8 @@
 
 <!-- Projects -->
 <div class="items items-images">
-  <% if !@projects.blank? %>
-  <ul class="projects">
-    <% for project in @projects %>
-      <li>
-        <div class="cl">&nbsp;</div>
-        <div class="item-image">
-          <a href="project-detailed.html" class="aimg"><img src="../images/content/project1.jpg" alt="" /></a>
-        </div>
-        <div class="item-info">
-          <small><a href="projects.html">Gnomeslab</a> / July, 1 2010</small>
-          <h3>
-            <a href="project-detailed.html"><%= project.title %></a>
-          </h3>
-          <p><%= project.subtitle %></p>
-          <p class="view"><a href="project-detailed.html">View case study</a></p>
-        </div>
-        <div class="cl">&nbsp;</div>
-      </li>
-    <% end %>
-  </ul>
+  <% if @projects.present? %>
+    <ul class="projects"> <%= render @projects %> </ul>
   <% end %>
 </div>
 <!-- End Projects -->
