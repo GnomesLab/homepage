@@ -5,4 +5,9 @@ class Project < ActiveRecord::Base
 
   # Named scopes
   scope :reverse, order('date desc')
+
+  # Instance methods
+  def date
+    self[:date].strftime('%B, %d %Y')
+  end
 end

@@ -29,6 +29,13 @@ Then /^I should see the (.*) of ([0-9]+) projects$/ do |property, n|
   projects = Project.all
 
   n.to_i.times do |i|
-    page.should have_content(projects[i].send(property))
+    case property
+    when 'image'
+      page.should have_xpath("//img[contains(@src, '#{projects[i].image}')]")
+    when 'link'
+      page.should have_xpath("//a[contains(@href, '#{project_path(projects[i])}')]")
+    else
+      page.should have_content(projects[i].send(property))      
+    end
   end
 end
