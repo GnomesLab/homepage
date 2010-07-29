@@ -2,7 +2,7 @@
 
 <!-- Projects -->
 <div class="items items-images">
-  <% if @projects %>
+  <% if !@projects.blank? %>
   <ul class="projects">
     <% for project in @projects %>
       <li>

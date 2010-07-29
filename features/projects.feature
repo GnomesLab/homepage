@@ -4,19 +4,20 @@ Feature: projects page
   As a visitor I have the ability to browse their projects portfolio
 
   Background: 
-    Given I am on the projects page
-    And Gnomeslab have 10 projects
+    Given Gnomeslab has 10 projects
+    And I am on the projects page
 
   Scenario: page header
     Then I should see the generic header
 
   Scenario: paginator is not visible with less than 6 projects
-    Given Gnomeslab have less than 6 projects
+    Given Gnomeslab has less than 6 projects
+    And I am on the projects page
     Then I should see the projects list with 5 projects
     And I shouldn't see the paginator
 
   Scenario: paginator is visible with more than 6 or more projects
-    When Gnomeslab have more than 6 projects
+    When Gnomeslab has more than 6 projects
     Then I should see the projects list with 5 projects
     And I should see the paginator
 
