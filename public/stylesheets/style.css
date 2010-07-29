@@ -297,7 +297,7 @@ p.nav span{ color:#999; padding:0 6px;}
 .floated-form label{ float:left; width:200px; display:inline; padding-top:1px; text-align: right;}
 .floated-form .field{ float:left; display:inline; margin-left:15px; margin-bottom:12px;}
 .floated-form .sign_buttons {
-  padding-left: 310px;
+  padding-left: 215px;
 }
 .floated-form .check {  
   padding-left: 215px;
@@ -310,7 +310,7 @@ p.nav span{ color:#999; padding:0 6px;}
   float: left;
   margin-top: -5px;
   margin-left: -115px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 .floated-form small{ padding-left:215px; position:relative; top:-13px;}
 
@@ -336,8 +336,3 @@ input.button:hover { background:#00aeef; color:#fff; }
 .sitemap ul ul a{ background:transparent; padding:0; color:#4a4a4a;}
 .sitemap ul ul a:hover{ color:#00aeef;}
 .sitemap ul ul ul a{ background:transparent; padding:0; color:#999; }
-
-.devise {
-  padding-top: 30px;
-  padding-left: 30px;
-}

@@ -5,5 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name
+  # default devise settings:
+  # attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_protected :name, :email, :password, :password_confirmation, :remember_me
+  
+  # validations
+  # validates :name, :presence => true, :format => /\A([a-zA-Z]+{3,10})\s([a-zA-Z]+{3,10})\z/i
+  validates_format_of :name, :with => /\A([a-zA-Z]+{3,10})\s([a-zA-Z]+{3,10})\z/i, :on => :create
 end
