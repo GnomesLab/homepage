@@ -31,12 +31,9 @@ Feature: projects page
     Then I should see the projects list with 5 projects
     And I should see the paginator
   
-  # FIXME: If the data is loaded at the background level you only need to assert that it's being displayed as intended
   Scenario: right column project categories
-    Given Gnomeslab has projects with the categories Product, Security
-    Then I should see 2 links in the categories list
-    And I should see a link to the category Product
-    And I should see a link to the category Security
+    Then I should see the categories list
+    And I should see links to all the projects categories
   
   # TODO
   Scenario: right column contact teaser
