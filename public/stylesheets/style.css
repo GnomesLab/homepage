@@ -241,8 +241,10 @@ h1#logo a{ display:block; height:65px; text-indent: -4000px; background:url(../i
 .items .item-image { float:left; display:inline; width:302px; }
 .items .item-info { float:left; display:inline; width:322px; padding-left:16px;}
 
-.pagging { border-top:dashed 1px #cdcdcd; text-align: right; padding-top:5px; margin-top:13px;}
-.pagging span{ color:#999; padding:0 6px;}
+.pagination { border-top:dashed 1px #cdcdcd; text-align: right; padding-top:5px; margin-top:13px;}
+.pagination em { font-style: normal; }
+.pagination span{ color:#999; padding:0 6px;}
+.pagination span.previous_page { padding: 0; }
 
 p.nav { }
 p.nav span{ color:#999; padding:0 6px;}

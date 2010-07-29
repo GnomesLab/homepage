@@ -20,4 +20,18 @@ context ApplicationHelper do
       content_title('hello world').should == "<h2 class='border'>hello world</h2>"
     end
   end
+
+  describe "top menu link" do
+    before :each do
+      helper.stub!(:params).and_return({ :controller => 'static_pages', :action => 'services' })
+    end
+
+    it "returns a non active link" do
+      helper.top_menu_link(:home).should == %Q{<a href=\"/\">Home</a>}
+    end
+    
+    it "returns an active link" do
+      helper.top_menu_link(:services).should == %Q{<a href=\"/services\" class=\"active\">Services</a>}
+    end
+  end
 end
