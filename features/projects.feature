@@ -15,7 +15,7 @@ Feature: projects page
     Then I should see the projects list with 5 projects
     And I should see the title of 5 projects
     And I should see the subtitle of 5 projects
-    And I should see the date of 5 projects
+    And I should see the short date of 5 projects
     And I should see the image of 5 projects
     And I should see the link of 5 projects
     # And I should a link to the project category
