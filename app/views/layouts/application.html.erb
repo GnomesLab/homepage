@@ -19,19 +19,14 @@
     <div id="header">
       <div class="shell">
         <!-- Socials -->
-        <div class="login">
-          <% if user_signed_in? %>
+        <% if current_user %>
+          <div class="login">
             <li>
-            <span>|</span>
-            <%= link_to('Logout', destroy_user_session_path) %>        
+              <span>|</span>
+              <%= link_to 'Logout', destroy_user_session_path %>
             </li>
-          <% else %>
-            <li>
-            <span>|</span>
-            <%= link_to('Login', new_user_session_path)  %>  
-            </li>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
         <div class="socials">
           <a href="#" class="rss-link">RSS</a>
           <span>|</span>
