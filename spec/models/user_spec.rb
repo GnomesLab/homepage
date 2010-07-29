@@ -33,8 +33,8 @@ context User do
         subject.password = "123"
 
         subject.should_not be_valid
-        subject.errors[:email].should_not be_nil
-        subject.errors[:password].should_not be_nil
+        subject.errors.should include :email
+        subject.errors.should include :password
       end
     end #devise
 
