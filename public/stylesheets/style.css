@@ -301,9 +301,9 @@ p.nav span{ color:#999; padding:0 6px;}
 }
 .floated-form .check {  
   padding-left: 215px;
-  background: red;
 }
 .floated-form .check .checkbox {
+  margin-right: 10px;
   float: left;
 }
 .floated-form .check .label {
@@ -325,7 +325,7 @@ input.button:hover { background:#00aeef; color:#fff; }
 .msg { text-align: center; padding:2px; color:#fff; margin:0 auto 20px auto; }
 .msg-error { background:#8b0000; }
 .msg-notice { background:#00aeef; }
-.msg-alert { background:#00aeef; }
+.msg-alert { background:#8b0000; }
 
 .sitemap{ padding-top:5px; }
 .sitemap ul{ list-style-type: none; padding:0 0 10px 20px; text-transform: uppercase;}
