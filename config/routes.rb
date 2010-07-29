@@ -1,5 +1,5 @@
 Homepage::Application.routes.draw do |map|
-  devise_for :users
+  devise_for :users, :skip => [:passwords, :registrations]
 
   get 'about',          :to => 'static_pages#about_us', :as => 'about_us'
   get 'services',       :to => 'static_pages#services'

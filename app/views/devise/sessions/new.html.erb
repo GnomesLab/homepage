@@ -1,42 +1,40 @@
-<% title 'Sign in', true %>
+<% title 'Page administration', true %>
 <%= content_title 'Sign in' %>
-
-<div class="cl">&nbsp;</div><br />
-
 
 <div class="form floated-form">
   <%= render 'shared/flash/box', :locals => flash %>
+
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-    <%= f.label :email %>
-    <%= f.text_field :email, :class => 'field required' %>
-    
+    <%= f.label :email, raw("Email address <span>(required)</span>") %>
+    <%= f.text_field :email,
+                     :class => "field #{flash[:alert].nil? ? 'required' : ' field-error'}" %>
     <div class="cl">&nbsp;</div>
 
-    <%= f.label :password %>
-    <%= f.password_field :password, :class => 'field required' %>
-    
+    <%= f.label :password, raw("Password <span>(required)</span>") %>
+    <%= f.password_field :password,
+                         :class => "field #{flash[:alert].nil? ? 'required' : ' field-error'}" %>
     <div class="cl">&nbsp;</div>
     
-    <div class="check">
-      <span class="checkbox"><%= f.check_box :remember_me %></span>
-      <span class="label"><%= f.label :remember_me %></span>
-    </div>
-    
+    <% if devise_mapping.rememberable? %>
+      <div class="check">
+        <br />
+        <span class="checkbox"><%= f.check_box :remember_me %></span>
+        <span class="label"><%= f.label :remember_me %></span>
+      </div>
+    <% end %>
+
+    <div class="cl">&nbsp;</div>
+
     <div class="sign_buttons">
-      <% if devise_mapping.rememberable? -%>
-
-      <% end -%>
-    
       <div class="cl">&nbsp;</div>
-
-        <%= f.submit "Sign in", :class => 'button', :disable_with => 'Signing in...' %>
-        or <%= link_to 'cancel', root_path, :title => 'Go back to the homepage' %>
+      <br />
+      <%= f.submit "Sign in", :class => 'button', :disable_with => 'Signing in...' %> or 
+      <%= link_to 'cancel', root_path, :title => 'Go back to the homepage' %>
       <div class="cl">&nbsp;</div><br />
     </div>
-    
   <% end %>
-
 </div>
+
 <%= content_for :sidebar do %>
   <%= render 'shared/content_box/our_profile' %>
 <% end %>
