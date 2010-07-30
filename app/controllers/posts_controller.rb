@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   respond_to :html
   
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:id]) || Post.first
     @post.increment
     
     respond_with @post
