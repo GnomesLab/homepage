@@ -5,39 +5,57 @@ context Project do
   subject { Factory.build(:project) }
 
   describe "validations" do
-    it "must have a title" do
-      subject.title = nil
-      subject.should_not be_valid
-    end
-
-    it "must have a subtitle" do
-      subject.subtitle = nil
-      subject.should_not be_valid
-    end
-
-    it "must have a image" do
-      subject.image = nil
-      subject.should_not be_valid
-    end
-
-    it "must have a date" do
-      subject.date = nil
-      subject.should_not be_valid
-    end
-
-    it "must have a category" do
-      subject.category = nil
-      subject.should_not be_valid
-    end
-
-    it "must have a valid category" do
-      subject.category = Category.new
-      subject.should_not be_valid
-    end
 
     it "must be valid with all the properties set" do
       subject.should be_valid
     end
+
+    describe "title" do
+      it "is a required attribute" do
+        subject.title = nil
+        subject.should_not be_valid
+        subject.errors.should include :title
+      end
+    end # title
+
+    describe "subtitle" do
+      it "is a required attribute" do
+        subject.subtitle = nil
+        subject.should_not be_valid
+        subject.errors.should include :subtitle
+      end
+    end # subtitle
+
+    describe "image" do
+      it "is a required attribute" do
+        subject.image = nil
+        subject.should_not be_valid
+        subject.errors.should include :image
+      end
+    end # image
+
+    describe "date" do
+      it "is a required attribute" do
+        subject.date = nil
+        subject.should_not be_valid
+        subject.errors.should include :date
+      end
+    end # date
+
+    describe "category" do
+      it "is a required attribute" do
+        subject.category = nil
+        subject.should_not be_valid
+        subject.errors.should include :category
+      end
+
+      it "must have a valid category" do
+        subject.category = Category.new
+        subject.should_not be_valid
+        subject.errors.should include :category
+      end
+    end # category
+
   end # validations
 
   describe "named scopes" do
