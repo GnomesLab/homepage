@@ -15,19 +15,21 @@ Then /^I should click the generic header$/ do
 end
 
 def header_link_test
-  click_link "logo"
-  visit path_to(request.headers['http_referer'])
-  click_link "HOME"
-  visit path_to(request.headers['http_referer'])
-  click_link "ABOUT"
-  visit path_to(request.headers['http_referer'])
-  click_link "SERVICES"
-  visit path_to(request.headers['http_referer'])
-  click_link "PROJECTS"
-  visit path_to(request.headers['http_referer'])
-  click_link "BLOG"
-  visit path_to(request.headers['http_referer'])
-  click_link "CONTACT"
+  find("#logo a").click # logo
+  page.should have_content('Who are we?')
+  visit root_path
+  top_menu_clicker 1, 'Who are we?' # home
+  top_menu_clicker 2, 'About us'
+  top_menu_clicker 3, 'Services'
+  top_menu_clicker 4, 'Projects'
+  top_menu_clicker 5, 'Integer dictum nulla tempus'
+  top_menu_clicker 6, 'Feedback'
+end
+
+def top_menu_clicker(index = 0, content = nil)
+  find(:xpath, "//div[@id='navigation']/ul/li[#{index}]/a").click # home
+  page.should have_content(content)
+  visit root_path
 end
 
 Then /^I should see the generic footer$/ do
