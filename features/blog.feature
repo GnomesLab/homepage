@@ -1,4 +1,4 @@
-@pdc
+@wip @pdc
 Feature: blog page
   As visitor of the gnomeslab website
   I should have a page with blog entries
