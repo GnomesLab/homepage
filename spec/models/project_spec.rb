@@ -56,8 +56,4 @@ context Project do
     end
   end # pagination
 
-  describe "equality" do
-    
-  end
-
 end
