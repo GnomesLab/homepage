@@ -47,8 +47,16 @@ Then /^I should see the categories list$/ do
   page.should have_css('.categories')
 end
 
-Then /^I should see links to all the projects categories$/
-  Project.each do |p|
-    page.should have_xpath("//div[@class='categories']//a[contains(@href, '#{category_path(p.category)}')]")
+Then /^I should see links to all the projects categories$/ do
+  Project.all.each do |p|
+    page.should have_xpath("//a[contains(@href, '#{category_path(p.category)}')]")
   end
+end
+
+Then /^I should see the contact teaser$/ do
+  page.should have_css('.contact-us')
+end
+
+Then /^I should see the contact link$/ do
+  page.should have_xpath("//a[@href='#{contact_path}']")
 end
