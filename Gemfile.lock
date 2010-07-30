@@ -165,4 +165,5 @@ DEPENDENCIES
   ruby-debug19
   spork
   sqlite3-ruby
+  term-ansicolor (>= 1.0.5)
   will_paginate (~> 3.0.pre2)
