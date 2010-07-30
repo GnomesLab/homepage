@@ -19,10 +19,6 @@ class StaticPagesController < ApplicationController
     render 'static_pages/projects/projects'
   end
 
-  # GET /blog
-  def blog
-  end
-
   # GET /service_details
   # FIXME: this route should never exist /services/:id is the correct route
   def service_details

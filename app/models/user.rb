@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  
+  has_many :posts
+  
   # Devise modules
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 

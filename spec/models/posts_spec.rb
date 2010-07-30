@@ -24,16 +24,30 @@ context Post do
       end
     end
     
-    describe "title" do
+    describe "title minimum" do
+      it "defines title has a minimum lenght" do
+        subject.title = "hi"
+        subject.should_not be_valid
+      end
+    end
+    
+    describe "title maximum" do
+      it "defines title has a maximum lenght" do
+        subject.title = "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii 35 is max"
+        subject.should_not be_valid
+      end
+    end
+    
+    describe "body" do
       it "defines the body as a required attribute" do
         subject.body = nil
         subject.should_not be_valid
       end
     end
     
-    describe "title" do
-      it "defines body has a minimum lenght" do
-        subject.body = "hi"
+    describe "body minimum" do
+      it "defines the body has a minimum lenght" do
+        subject.body = "ni"
         subject.should_not be_valid
       end
     end
