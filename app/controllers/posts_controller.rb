@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   
   respond_to :html
   
+  # GET /posts/id
   def show
     @post = Post.find(params[:id])
     @post.increment
@@ -10,10 +11,14 @@ class PostsController < ApplicationController
     respond_with @post
   end
   
+  # GET /blog
   def blog
-    render 'posts/blog'
+    @posts = Post.reverse.paginate :page => params[:page], :per_page => Post.per_page
+    
+    respond_with @posts
   end
   
+  # POST /posts/new
   def new
     @post = Post.new(params[:post])
     @post.user = current_user
@@ -21,6 +26,7 @@ class PostsController < ApplicationController
     respond_with @post
   end
   
+  # POST /posts
   def create
     @post = Post.new(params[:post])
     @post.user = current_user
@@ -33,5 +39,31 @@ class PostsController < ApplicationController
        Please check your input and try again."
       render :new
     end
+  end
+  
+  # POST /post/id/edit
+  def edit
+    @post = Post.find(params[:id])
+    @post.user = current_user
+  end
+  
+  def update
+    @post = Post.find(params[:id])
+    
+    respond_to do |format|
+      if @post.update_attributes(params[:post])
+        format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
+      else
+        format.html { render :action => "edit" }
+      end
+    end
+  end
+  
+  # splat
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    flash[:notice] = "Hasta la vista post!"
+    redirect_to posts_url
   end
 end

@@ -26,6 +26,23 @@ a.gray { color:#4a4a4a; }
 
 .left, .alignleft { float:left; display:inline; }
 .right, .alignright { float:right; display:inline; }
+.creator {
+  font-size: medium;
+  padding-top: 4px;
+  float: right;
+  position: relative;
+  padding-left: 5px;
+}
+.spacer {
+  border-style: none;
+  padding-bottom: 0px;
+}
+
+.post-head {
+  border-bottom:dashed 1px #cdcdcd;
+  padding-bottom:9px;
+  margin-bottom:10px;
+}
 
 .post .alignleft { margin:0 10px 5px 0;}
 .post .alignright { margin:0 0 5px 10px;}

@@ -8,9 +8,9 @@ Feature: login page
     Given I am on the login page
     And I have an account
 
-  Scenario: logging in an  account
+  Scenario: logging in an account
     And I am not authenticated
-    When I fill in "Email" with "john@doe.com"
+    When I fill in "Email" with "john1@doe.com"
     And I fill in "Password" with "123456"
     And I press "Sign in"
     Then I should see "Signed in successfully."
@@ -24,7 +24,7 @@ Feature: login page
     
   Scenario: invalid password
     And I am not authenticated
-    When I fill in "Email" with "john@doe.com"
+    When I fill in "Email" with "john1@doe.com"
     And I fill in "Password" with "badpassword"
     And I press "Sign in"
     Then I should see "Invalid email or password."

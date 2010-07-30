@@ -1,0 +1,21 @@
+<p>Whats on your mind, <%= @post.user.name %>?</p>
+
+<%= render 'shared/flash/box', :locals => flash %>
+
+<%= form_for @post do |f| -%>
+
+  <%= f.label :title, raw("Title <span>(required)</span>") %>
+  <%= f.text_field :title,
+                   :class => "field #{flash[:error].nil? ? 'required' : ' field-error'}" %>
+  <div class="cl">&nbsp;</div>
+
+  <%= f.label :body, raw("Text <span>(required)</span>") %>
+  <%= f.text_area :body, 
+                  :class => "field #{flash[:error].nil? ? 'required' : ' field-error'}" %>
+  <div class="cl">&nbsp;</div>
+
+  <div class="form-buttons">
+    <%= f.submit "Submit your post", :class => 'button', :disable_with => 'Posting...' %> or 
+    <%= link_to 'cancel', root_path, :title =>'Go back to the homepage' %>
+  </div>
+<% end -%>
