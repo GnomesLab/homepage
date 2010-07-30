@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(:version => 20100729233314) do
     t.date     "date",        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-	t.integer  "category_id", :null => false
+    t.integer  "category_id", :null => false
   end
 
   add_index "projects", ["category_id"], :name => "index_projects_on_category_id"
