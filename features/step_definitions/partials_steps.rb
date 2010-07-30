@@ -11,19 +11,16 @@ Then /^I should see the generic header$/ do
 end
 
 Then /^I should click the generic header$/ do
-  header_link_test
-end
-
-def header_link_test
   find("#logo a").click # logo
   page.should have_content('Who are we?')
   visit root_path
-  top_menu_clicker 1, 'Who are we?' # home
-  top_menu_clicker 2, 'About us'
-  top_menu_clicker 3, 'Services'
-  top_menu_clicker 4, 'Projects'
-  top_menu_clicker 5, 'Integer dictum nulla tempus'
-  top_menu_clicker 6, 'Feedback'
+
+  { 1 => 'Who are we?', # home
+    2 => 'About us',
+    3 => 'Services',
+    4 => 'Projects',
+    5 => 'Integer dictum nulla tempus',
+    6 => 'Feedback' }.each { |k,v| top_menu_clicker(k,v) }
 end
 
 def top_menu_clicker(index = 0, content = nil)
