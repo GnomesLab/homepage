@@ -13,13 +13,13 @@ context ApplicationHelper do
     it "can also append ' - Gnomeslab' to the title" do
       title('Blog', true).should == 'Blog | Gnomeslab'
     end
-  end
+  end # page title
 
   describe "content title" do
     it "should return the content title html for the provided text" do
       content_title('hello world').should == "<h2 class='border'>hello world</h2>"
     end
-  end
+  end # content title
 
   describe "top menu link" do
     before :each do
@@ -33,5 +33,5 @@ context ApplicationHelper do
     it "returns an active link" do
       helper.top_menu_link(:services).should == %Q{<a href=\"/services\" class=\"active\">Services</a>}
     end
-  end
+  end # top menu link
 end

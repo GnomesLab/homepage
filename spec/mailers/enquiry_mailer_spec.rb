@@ -3,6 +3,7 @@ require "spec_helper"
 context EnquiryMailer do
 
   describe "contact email" do
+
     before(:each) do
       @enquiry = Factory.build(:enquiry)
       @email   = EnquiryMailer.contact(@enquiry).deliver
@@ -30,6 +31,7 @@ context EnquiryMailer do
       @email.should have(1).to
       @email.to.first.should include 'gnomeslab@googlegroups.com'
     end
+
   end # contact email
 
 end
