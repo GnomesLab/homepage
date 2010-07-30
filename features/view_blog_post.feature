@@ -8,7 +8,13 @@ Feature: view post and comments
   Background:
     Given There is 1 post
     And I am on the view post page
-  
+
+  Scenario: page header
+    Then I should see the generic header
+
+  Scenario: page footer
+    Then I should see the generic footer
+
    #  
    # # TODO
    # # Name: You can use a regular expression for the name that validates min & max length and assert that they are only alphanumeric + space and start with a letter

@@ -15,5 +15,7 @@ pedro_coutinho.email = 'pdcoutinho@gmail.com'
 pedro_coutinho.password = '111111'
 pedro_coutinho.save!
 
-Rails.env == "development"
-10.times { Factory.create(:post) }
+# Posts (blog)
+if Rails.env == "development"
+  10.times { Factory.create(:post) }
+end

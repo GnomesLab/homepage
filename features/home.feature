@@ -7,8 +7,8 @@ Feature: home page
   Background:
     Given I am on the home page
 
-  Scenario: the homepage should have a header
-    Then I should see the generic header
+  Scenario: page header
+    Then I should click the generic header
 
   Scenario: the homepage should have a "Who are we" section on the body
     Then I should see "Who are we"
