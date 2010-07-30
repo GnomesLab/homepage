@@ -1,6 +1,9 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.0.rc'
+
+gem 'active_record_attributes_equality', '>= 1.0.0.rc'
+
 gem "devise", :git => 'git://github.com/plataformatec/devise.git'
 gem 'will_paginate', '~> 3.0.pre2'
 
