@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   
   # GET /posts/id
   def show
-    @post = Post.find(params[:id]) || Post.first
+    @post = Post.find(params[:id]) || Post.last
     @post.increment
     
     respond_with @post
