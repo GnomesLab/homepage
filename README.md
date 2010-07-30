@@ -1,3 +1,7 @@
+# WARNING!
+
+As of beta3 development, all commits without tests will be rolledback as soon as I catch them.
+
 ## Issue tracker
 Have an issue? Report it in our [Lighthouse Tracker Page](http://gnomeslab.lighthouseapp.com/projects/55987-homepage/overview "Gnomeslab Lighthouse Tracker")
 
