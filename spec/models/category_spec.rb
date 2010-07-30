@@ -5,7 +5,7 @@ context Category do
   subject { Factory.build(:category) }
 
   describe "associations" do
-    it "should have projects" do
+    it "has many projects" do
       project_attributes = Factory.attributes_for(:project)
 
       subject.projects.should be_a_kind_of Array
