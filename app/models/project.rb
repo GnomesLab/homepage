@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
   # associations
   belongs_to :category
-  
+
   # validations
   validates :title,    :presence => true
   validates :subtitle, :presence => true
