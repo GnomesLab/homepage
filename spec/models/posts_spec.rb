@@ -21,7 +21,7 @@ context Post do
       it "defines user as a required attribute" do
         subject.user = nil
         subject.should_not be_valid
-        subject.errors.should include :user_id
+        subject.errors.should include :user
       end
     end # name
     
