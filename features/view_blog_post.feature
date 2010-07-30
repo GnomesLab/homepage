@@ -15,18 +15,17 @@ Feature: view post and comments
   Scenario: page footer
     Then I should see the generic footer
 
-   #  
-   # # TODO
-   # # Name: You can use a regular expression for the name that validates min & max length and assert that they are only alphanumeric + space and start with a letter
-   # # Email: Standard email regex
-   # # website: Standard URI regex for http and https
-   # # Content: we can assume they must have 3chars minimum and we'll see how ppl behave
-   # 
-   # Background: Given I am on the post view page
-   # 
-   # Scenario: the post page should have a header
-   #   Then I should see the generic header
-   # 
+  Scenario: blog post
+    Then I should see the post's user
+    And I should see the post's title
+    And I should see the post's date
+    And I should see the post's title
+    And I should see the post's body
+    # And I should see the post's comment count
+    # And I should see the post's tag list
+    # And I should see the New comment internal link
+
+
    # Scenario: right column archives
    #   Then I should see "Archives"
    #   And I should see "2010"

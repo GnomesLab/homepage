@@ -8,7 +8,7 @@ gem "devise", :git => 'git://github.com/plataformatec/devise.git'
 gem 'will_paginate', '~> 3.0.pre2'
 
 group :development, :test do
-  gem 'term-ansicolor', '>= 1.0.5'
+  #gem 'term-ansicolor', '>= 1.0.5'
   gem 'sqlite3-ruby', :require => 'sqlite3'
   gem 'ruby-debug19'
   gem "capybara"

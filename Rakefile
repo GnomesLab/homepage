@@ -4,8 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-
-# DEPRECATION WARNING: Calling a method in Rails::Application is deprecated,
-# please call it directly in your application constant Homepage::Application.
-
 Homepage::Application.load_tasks

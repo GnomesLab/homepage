@@ -28,6 +28,8 @@ Have an issue? Report it in our [Lighthouse Tracker Page](http://gnomeslab.light
 
 Pop a bottle of crystal. You've made it once again!
 
+**Note:** Please don't forget to add @crystal to all .feature files that represent completed features that should be passing.
+
 ## Github - Lighthouse commands
 
 * [closes #id]
@@ -42,4 +44,4 @@ Pop a bottle of crystal. You've made it once again!
 * will_paginate 3.0.pre2
 
 #### Internal
-* active_record_attributes_equality 1.0.0.rc
+* active_record_attributes_equality 1.0.0.rc.2
