@@ -34,7 +34,11 @@ Feature: projects page
   Scenario: right column project categories
     Then I should see the categories list
     And I should see links to all the projects categories
-  
-  # TODO
+
   Scenario: right column contact teaser
+    Then I should see the contact teaser
+    And I should see "contact us"
+    And I should see the contact link
+
   Scenario: page footer
+   Then I should see the generic footer
