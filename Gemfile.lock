@@ -23,7 +23,7 @@ GEM
       rack-mount (~> 0.6.9)
       rack-test (~> 0.5.4)
       tzinfo (~> 0.3.22)
-    active_record_attributes_equality (1.0.0.rc.2)
+    active_record_attributes_equality (1.0.0)
       activerecord (>= 3.0.0.rc)
     activemodel (3.0.0.rc)
       activesupport (= 3.0.0.rc)
@@ -153,7 +153,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_record_attributes_equality (>= 1.0.0.rc)
+  active_record_attributes_equality (>= 1.0.0)
   capybara
   cucumber
   cucumber-rails
