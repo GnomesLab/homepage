@@ -1,25 +1,27 @@
 <!-- Post -->
-  <div>
-    <h2 class="post-head">
-      <small class="creator">by <%= post.user.name %></small>
-      <small class="right"><%=l post.created_at, :format => :long %></small>
-          <%= link_to post.title, post %>
-    </h2>
-  </div>
+<%= content_tag :div, :id => "post_#{post.id}", :class => 'post' do %>
+  <h2>
+    <small class="right"><%= l(post.created_at, :format => :long) %></small>
+    <%= link_to post.title, post %>
+  </h2>
+
   <div class="entry">
-    <p><%= post.body %></p>
+    <%= post.body %>
   </div>
   
   <div class="post-meta">
     <div class="cl">&nbsp;</div>
     <div class="left">
-      <p><em>Tags:</em> <a href="blog.html">Tag1</a>, <a href="blog.html">Tag2</a>, <a href="blog.html">Tag3</a></p>
+      <p id='created_by'><em>Created by:</em> <%= post.user.name %></p>
+      <p id='post_tags'>
+        <em>Tags:</em> <a href="blog.html">Tag1</a>, <a href="blog.html">Tag2</a>, <a href="blog.html">Tag3</a>
+      </p>
     </div>
-    <span class="right">
+    <span id='comments' class="right">
       <a href="blog-detailed.html" class="gray">Comments: 0</a>
     </span>
     <div class="cl">&nbsp;</div>
   </div>
   <div class="spacer">&nbsp;</div>
-  
+<% end %>
 <!-- End Post -->

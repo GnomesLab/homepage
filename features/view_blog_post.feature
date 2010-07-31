@@ -1,4 +1,3 @@
-@wip @dba
 Feature: view post and comments
   In order to allow our visitors to read a post with more detail
   Gnomeslab website provides them with a post view page.

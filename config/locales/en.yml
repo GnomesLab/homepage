@@ -1,5 +1,5 @@
 en:
-  date:
+  time:
     formats:
-      short: '%B, %d %Y'
-      long: '%b %d, %Y at %I:%M%p'
+      short: %b %d, %Y
+      long: %b %d, %Y @ %H:%M

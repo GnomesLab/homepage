@@ -1,36 +1,37 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, :only => [:create, :edit, :update, :destroy]
-  
+
   respond_to :html
-  
-  # GET /posts/id
+
+  # GET /blog
+  # GET /posts
+  def index
+    @posts = Post.latest.paginate :page => params[:page], :per_page => Post.per_page
+
+    respond_with @posts
+  end
+
+  # GET /posts/:id
   def show
     @post = Post.find(params[:id]) || Post.last
     @post.increment
-    
-    respond_with @post
-  end
-  
-  # GET /blog
-  def blog
-    @posts = Post.reverse.paginate :page => params[:page], :per_page => Post.per_page
-    
-    respond_with @posts
-  end
-  
-  # POST /posts/new
-  def new
-    @post = Post.new(params[:post])
-    @post.user = current_user
 
     respond_with @post
   end
-  
+
+  # GET /posts/new
+  def new
+    @post = Post.new(params[:post])
+
+    respond_with @post
+  end
+
   # POST /posts
   def create
     @post = Post.new(params[:post])
     @post.user = current_user
-    
+
+    # FIXME: respond_with
     if @post.save
       redirect_to blog_path
       flash[:notice] = "The post was successfully created"
@@ -40,16 +41,18 @@ class PostsController < ApplicationController
       render :new
     end
   end
-  
-  # POST /post/id/edit
+
+  # GET /post/:id/edit
   def edit
     @post = Post.find(params[:id])
-    @post.user = current_user
+    respond_with @post
   end
-  
+
+  # PUT /post/:id
   def update
     @post = Post.find(params[:id])
-    
+
+    # FIXME: respond_with
     respond_to do |format|
       if @post.update_attributes(params[:post])
         format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
@@ -58,8 +61,9 @@ class PostsController < ApplicationController
       end
     end
   end
-  
-  # splat
+
+  # DELETE /post/:id
+  # FIXME: null exception
   def destroy
     @post = Post.find(params[:id])
     @post.destroy

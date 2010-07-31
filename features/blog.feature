@@ -1,48 +1,38 @@
-@wip @pdc
+@wip @dba
 Feature: blog page
-  As visitor of the gnomeslab website
-  I should have a page with blog entries
-  So I can read and comment on them
-  And get involved in the subsequent discussions
+  Gnomeslab wishes to communicate with its visitors and update them on its projects and rambles.
+  The corporation's blog is the communication tool of choice to connect with our visitors.
 
   Background:
-    Given I am on the blog page
-    And I have posts
+    Given There are 10 posts
+    And I am on the posts page
 
-  Scenario: the blog page should have a header
+  Scenario: page header
     Then I should see the generic header
 
   Scenario: the blog page should have the 2 latest posts visible
     Then I should see the 2 latest posts
 
-  Scenario: right column should have the top 4 popular posts
-    Then I should see the top 4 popular posts
-  
+  Scenario: blog post
+    Then I should see 2 latest posts title
+    And I should see 2 latest posts date
+    And I should see 2 latest posts body
+    And I should see 2 latest posts creator name
+    And I should see 2 latest posts tags
+    And I should see 2 latest posts comment count
+
+  Scenario: paginator
+    Then I should see the posts paginator
+    
+  Scenario: popular posts
+    Then I should see the popular posts title
+    And I should see the 5 most popular post titles
+
   Scenario: right column archives
     Then I should see archives
-    And I should see "2010"
-    And I should see "July (3)"
 
-  Scenario: right column popular tags
-    Then I should see tags
-  
-  Scenario: blog post
-    Then I should see the creator name
-    And I should see the title
-    And I should see the date
-    And I should see its content
-    And I should see its tags
-    And I should have a link for comments
-  
-  Scenario: the blog page should have a paginator if there are 2 or more posts
-    Given I have 2 blog entries
-    Then I should see "Next"
-    And I should see "Previous"
-    
-  Scenario: the blog page should not have a paginator if there are 1 or less posts
-    Given I have 1 post
-    Then I should not see "Next"
-    And I should not see "Previous"
-    
-  Scenario: the blog post should have a footer
+  # Scenario: right column popular tags
+  #   Then I should see tags
+
+  Scenario: page footer
     Then I should see the generic footer
