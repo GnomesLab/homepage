@@ -18,8 +18,8 @@ module ApplicationHelper
   # TODO: refactor
   def top_menu_link(destination = :home)
     text = destination.to_s.humanize.capitalize
-    route_name = destination == :home ? :root : destination.to_s
-    dispatcher_route = Rails.application.routes.routes.select { |route| route.name == route_name }.first
+    route_name = destination == :home ? :root.to_s : destination.to_s
+    dispatcher_route = Rails.application.routes.routes.select { |route| route.name.to_s == route_name }.first
     path = dispatcher_route.path.gsub(/\(.:format\)/, '')
 
     if params[:controller] == (destination == :contact ? 'enquiries' : destination.to_s) ||

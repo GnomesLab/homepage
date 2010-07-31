@@ -6,6 +6,7 @@ gem 'active_record_attributes_equality', '>= 1.0.0.rc'
 
 gem "devise", :git => 'git://github.com/plataformatec/devise.git'
 gem 'will_paginate', '~> 3.0.pre2'
+gem 'stringex', '~> 1.1.0'
 
 group :development, :test do
   #gem 'term-ansicolor', '>= 1.0.5'

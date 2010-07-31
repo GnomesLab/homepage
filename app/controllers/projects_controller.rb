@@ -4,7 +4,13 @@ class ProjectsController < ApplicationController
   # GET /projects
   def index
     @projects = Project.reverse.paginate :page => params[:page], :per_page => Project.per_page
+    @categories = Category.ordered_by_name
 
-    respond_with @projects
+    respond_with @projects, @categories
+  end
+
+  # GET /projects/:id-:name
+  def show
+
   end
 end
