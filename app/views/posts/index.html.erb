@@ -1,18 +1,15 @@
 <!-- Posts -->
-<div class="posts justify">
+<div id='posts' class="justify">
   <%= render 'shared/flash/box', :locals => flash %>
-  <div class="post">
-    <% if @posts.present? %>
-      <%= render @posts %>
-    <% end %>
-  </div>
+
+  <%= render @posts if @posts %>
+
   <!-- Pagination -->
   <%= will_paginate @posts,
                     :previous_label => '&lt; Prev',
                     :next_label => 'Next &gt;',
                     :separator => '<span>|</span>' %>
   <!-- End Pagination -->
-  
 </div>
 <!-- End Posts -->
 

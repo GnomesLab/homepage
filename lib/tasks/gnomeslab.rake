@@ -37,6 +37,7 @@ namespace :gnomeslab do
       end
 
       run_rake_task 'db:drop:all'
+      run_rake_task 'db:create:all'
       run_rake_task 'db:schema:load'
       run_rake_task 'db:test:load'
       run_rake_task 'spec'

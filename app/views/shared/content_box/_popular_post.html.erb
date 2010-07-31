@@ -1,17 +1,15 @@
-<div class="sidebar-box">
+<div id="popular_posts" class="sidebar-box">
   <h2 class="border">Popular Posts</h2>
   <div class="entry">
+    <% if Post.popular %>
     <ul>
-      <% if Post.exists? %>
-        <% @posts = Post.ordered %>
-        <% for posts in @posts do %>
-          <li>
-            <%= link_to posts.title, posts %><br />
-          </li>
-        <% end %>
-        <% else %>
-        there are no posts.
+      <% Post.popular.each do |post| %>
+        <li><%= link_to post.title, post %></li>
       <% end %>
     </ul>
+    <% else %>
+      <p>There are no posts :(</p>
+      <p>Perhaps you can check our <%= link_to 'Twitter', 'http://twitter.com/gnomeslab' %>!</p>
+    <% end %>
   </div>
 </div>

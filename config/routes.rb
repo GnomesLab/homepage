@@ -3,7 +3,7 @@ Homepage::Application.routes.draw do |map|
 
   get 'about',          :to => 'static_pages#about_us', :as => 'about_us'
   get 'services',       :to => 'static_pages#services'
-  get 'blog',           :to => 'posts#blog'
+  get 'blog',           :to => 'posts#index'
   get 'service_detail', :to => 'static_pages#service_detail'
   get 'post_view',      :to => 'posts#show'
   get 'post_create',    :to => 'posts#new'

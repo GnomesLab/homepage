@@ -1,4 +1,6 @@
-<p>Whats on your mind, <%= @post.user.name %>?</p>
+<p>
+  Whats on your mind, <%= current_user.name %>? Share something with our users!
+</p>
 
 <%= render 'shared/flash/box', :locals => flash %>
 
@@ -10,7 +12,7 @@
   <div class="cl">&nbsp;</div>
 
   <%= f.label :body, raw("Text <span>(required)</span>") %>
-  <%= f.text_area :body, 
+  <%= f.text_area :body,
                   :class => "field #{flash[:error].nil? ? 'required' : ' field-error'}" %>
   <div class="cl">&nbsp;</div>
 

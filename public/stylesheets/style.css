@@ -26,26 +26,11 @@ a.gray { color:#4a4a4a; }
 
 .left, .alignleft { float:left; display:inline; }
 .right, .alignright { float:right; display:inline; }
-.creator {
-  font-size: medium;
-  padding-top: 4px;
-  float: right;
-  position: relative;
-  padding-left: 5px;
-}
+
 .spacer {
   border-style: none;
   padding-bottom: 0px;
 }
-
-.post-head {
-  border-bottom:dashed 1px #cdcdcd;
-  padding-bottom:9px;
-  margin-bottom:10px;
-}
-
-.post .alignleft { margin:0 10px 5px 0;}
-.post .alignright { margin:0 0 5px 10px;}
 
 .cl { font-size:0; line-height:0; clear:both; display:block; height:0; }
 
@@ -95,9 +80,11 @@ h1#logo a{ display:block; height:65px; text-indent: -4000px; background:url(../i
   margin-left: 5px;
   list-style-type: none;
 }
+
 .login a {
   text-decoration: none;
 }
+
 .socials { float:right; font-size:10px; color:#484848; padding-top:8px;}
 .socials span{ padding:0 5px;}
 .socials a{ color:#999; text-decoration: none; padding:2px 0 2px 18px; background:url(../images/layout/socials.gif) no-repeat 0 0; }
@@ -276,10 +263,15 @@ p.nav span{ color:#999; padding:0 6px;}
 .project-slider .slider-nav a.next { left:608px;}
 .project-slider .slider-nav a.prev { left:-4px;}
 
-.posts {}
-.posts .pagging{ border:0; margin-top:0; padding-top:0; width:100%; position:relative; margin-top:-30px;}
-.posts .post { margin-bottom:40px; }
+#posts {}
+#posts .post { margin-bottom:40px; }
+#posts .pagging { border:0; margin-top:0; padding-top:0; width:100%; position:relative; margin-top:-30px;}
 
+.post h2 {
+  border-bottom:dashed 1px #cdcdcd;
+  padding-bottom:9px;
+  margin-bottom:10px;
+}
 .post .entry{ padding-top:5px; }
 .post-meta { border-top:dashed 1px #cdcdcd; border-bottom:dashed 1px #cdcdcd; font-size:10px; white-space:nowrap; line-height:18px; padding:5px 0;}
 

@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
   # associations
-  belongs_to :category, :counter_cache => :count_of_projects
+  belongs_to :category, :counter_cache => true
 
   # validations
   validates :title,    :presence => true

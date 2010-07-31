@@ -24,20 +24,20 @@ context Post do
         subject.errors.should include :user
       end
     end # name
-    
+
     describe "title" do
       it "is a required attribute" do
         subject.title = nil
         subject.should_not be_valid
         subject.errors.should include :title
       end
-      
+
       it "has a minimum lenght" do
         subject.title = "hi"
         subject.should_not be_valid
         subject.errors.should include :title
       end
-      
+
       it "has a maximum lenght" do
         subject.title = "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii 35 is max"
         subject.should_not be_valid
@@ -51,7 +51,7 @@ context Post do
         subject.should_not be_valid
         subject.errors.should include :body
       end
-      
+
       it "has a minimum lenght" do
         subject.body = "ni"
         subject.should_not be_valid
@@ -60,5 +60,28 @@ context Post do
     end
 
   end # Validations
+
+  describe "named scopes" do
+
+    before :each do
+      10.times { |i| Factory.create(:post, :user => test_user) }
+    end
+
+    describe "latest posts" do
+      it "should return the latest posts" do
+        Post.order('id desc').first.id == Post.latest.first.id
+      end
+    end # latest posts
+
+    describe "popular posts" do
+      it "should return the 5 most popular posts" do
+        popular = Post.popular
+        popular.should be_a_kind_of Array
+        popular.size.should == 5
+        popular.first.views.should >= popular.last.views
+      end
+    end # popular posts
+
+  end # named scopes
 
 end
