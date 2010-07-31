@@ -13,6 +13,7 @@ class Post < ActiveRecord::Base
   
   # named scopes
   scope :reverse, order('created_at desc')
+  scope :ordered, order('views desc')
   
   def increment
     self.transaction do

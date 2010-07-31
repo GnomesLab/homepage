@@ -1,9 +1,17 @@
 <div class="sidebar-box">
   <h2 class="border">Popular Posts</h2>
   <div class="entry">
-    <p>There are no popular posts, your life is a
-      LIE!!!
-      <br /><a href="#" class="more">click here just for lols</a>
-    </p>
+    <ul>
+      <% if Post.exists? %>
+        <% @posts = Post.ordered %>
+        <% for posts in @posts do %>
+          <li>
+            <%= link_to posts.title, posts %><br />
+          </li>
+        <% end %>
+        <% else %>
+        there are no posts.
+      <% end %>
+    </ul>
   </div>
 </div>
