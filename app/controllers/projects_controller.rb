@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
     @projects = Project.reverse.paginate :page => params[:page], :per_page => Project.per_page
     @categories = Category.ordered_by_name
 
-    respond_with @projects, @categories
+    respond_with @projects
   end
 
   # GET /projects/:id-:name
