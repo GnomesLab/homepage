@@ -58,7 +58,7 @@ namespace :gnomeslab do
         puts ['',
               '[gnome lead engineer on the speaker...]',
               "Sir, engineering gnomes report that #{bold(green('ALL SISTEMS ARE GO!'))}", '',
-              "Gnome rocketeers, #{bold(red('LAUNCH ZA MISSILES!!'))}", '', '']
+              "Gnome rocketeers, #{bold(red('THEN FIRE ZA MISSILES!!'))}", '', '']
       end
     end
 
