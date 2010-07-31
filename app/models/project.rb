@@ -15,4 +15,9 @@ class Project < ActiveRecord::Base
 
   # named scopes
   scope :reverse, order('date desc')
+  
+  def to_param
+    "#{self.id}-#{self.title.to_url}"
+  end
+
 end

@@ -12,7 +12,10 @@ Homepage::Application.routes.draw do |map|
   get 'contact',        :to => 'enquiries#new'
 
   resources :enquiries
-  resources :projects
+
+  match '/projects/:title_url' => 'projects#show', :as => :project, :constraints => { :title_url => /(\d*)\-(\S*)/ }
+  match '/projects/:name' => 'categories#show', :as => :categories
+  match '/projects/' => 'projects#index', :as => :projects
 
   root :to => "static_pages#home"
 end
