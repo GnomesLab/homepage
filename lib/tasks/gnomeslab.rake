@@ -5,9 +5,16 @@ include Term::ANSIColor
 def run_rake_task(name)
   key = name.gsub(/:/, '_').to_sym
 
-  begin
-    puts ['', "==> #{bold(yellow('EXECUTING'))} :: #{name} <==", '']
+  if @report.values.include? :FAILED
+    @report[key] = :SKIPPED
 
+    puts ['', "==> #{bold(cyan('SKIPPING'))} :: #{name} <==", '']
+    return
+  else
+    puts ['', "==> #{bold(yellow('EXECUTING'))} :: #{name} <==", '']
+  end
+
+  begin
     Rake::Task[name].execute
 
     @report[key] = :OK
@@ -34,11 +41,12 @@ namespace :gnomeslab do
       run_rake_task 'db:test:load'
       run_rake_task 'spec'
       run_rake_task 'cucumber:ok'
+      run_rake_task 'db:seed'
 
       puts ['', "#{bold('Report:')}", '========================================================', '']
 
       @report.each do |k,v|
-        puts "#{magenta(k.to_s.gsub(/_/,':'))} [ #{bold(v == :OK ? green(v.to_s) : red(v.to_s))} ]"
+        puts "#{magenta(k.to_s.gsub(/_/,':'))} [ #{bold(case v when :OK then green(v.to_s) when :FAILED then red(v.to_s) when :SKIPPED then cyan(v.to_s) end)} ]"
       end
 
       if @report.values.include? :FAILED

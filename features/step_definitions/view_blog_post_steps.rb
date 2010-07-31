@@ -3,7 +3,7 @@ Then /^I should see the post's (.*)$/ do |attribute|
 
   case attribute
   when "user" then page.should have_content post.user.name
-  when "date" then page.should have_content l(post.date, :format => :long)
+  when "date" then page.should have_content I18n.l(post.created_at, :format => :long)
   when "body" then page.should have_content post.body
   else
     page.should have_content post.send(attribute.to_sym)

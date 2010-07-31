@@ -19,7 +19,7 @@ Then /^I should click the generic header$/ do
     2 => 'About us',
     3 => 'Services',
     4 => 'Projects',
-    5 => 'Integer dictum nulla tempus',
+    5 => 'Popular Posts',
     6 => 'Feedback' }.each { |k,v| top_menu_clicker(k,v) }
 end
 
