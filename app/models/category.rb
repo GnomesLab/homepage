@@ -7,4 +7,12 @@ class Category < ActiveRecord::Base
 
   # validations
   validates :name, :presence => true
+  
+  # named scopes
+  scope :ordered_by_name, order('name asc')
+
+  # instance methods
+  def to_param
+    "#{self.name.to_url}"
+  end
 end

@@ -1,9 +1,10 @@
 <div class="sidebar-box categories">
   <h2 class="border">Categories</h2>
+  <% if @categories.present? %>
   <ul class="fixlast">
-      <li><a href="#">Microsites</a></li>
-      <li><a href="#">Portals</a></li>
-      <li><a href="#">Applications</a></li>
-      <li class="last"><a href="#">Entertainment</a></li>
+    <% @categories.each_with_index do |c, i| %>
+      <%= content_tag :li, link_to(c.name, c), :class => (i == @categories.count-1 ? 'last' : nil)%>
+    <% end %>
   </ul>
+  <% end %>
 </div>

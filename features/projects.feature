@@ -18,7 +18,7 @@ Feature: projects page
     And I should see the short date of 5 projects
     And I should see the image of 5 projects
     And I should see the link of 5 projects
-    # And I should a link to the project category
+    And I should see the link to the category of 5 projects
 
   Scenario: paginator is not visible with less than 6 projects
     Given Gnomeslab has less than 6 projects

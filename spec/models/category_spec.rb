@@ -15,4 +15,14 @@ context Category do
     end
   end # Validations
 
+  describe "named scopes" do
+    before(:each) do
+      10.times.each { Factory.create(:category) }
+    end
+
+    it "ordered_by_name named scope must order the categories by name asc" do
+      Category.ordered_by_name.should == Category.order('name asc')
+    end
+  end # named scopes
+
 end

@@ -37,6 +37,8 @@ Then /^I should see the (.*) of ([0-9]+) projects$/ do |property, n|
       page.should have_xpath("//a[contains(@href, '#{project_path(projects[i])}')]")
     when 'short date'
       page.should have_content((I18n.l projects[i].date, :format => :short))
+    when 'link to the category'
+      page.should have_xpath("//a[contains(@href, '#{category_path(projects[i].category)}')]")
     else
       page.should have_content(projects[i].send(property))      
     end
