@@ -14,12 +14,12 @@ Homepage::Application.routes.draw do |map|
   resources :enquiries
   resources :posts
 
-  match '/projects/:category_url/:project_url' => 'projects#show', 
-        :constraints => { :category_url => /([\w-]*)/, :project_url => /([\w-]*)/ },
+  match '/projects/:category_friendly_id/:project_friendly_id' => 'projects#show', 
+        :constraints => { :category_friendly_id => /([\w-]*)/, :project_friendly_id => /([\w-]*)/ },
         :as => :project
 
-  match '/projects/:category_url' => 'categories#show',
-        :constraints => { :category_url => /([\w-]*)/ },
+  match '/projects/:category_friendly_id' => 'categories#show',
+        :constraints => { :category_friendly_id => /([\w-]*)/ },
         :as => :category
 
   match '/projects/' => 'projects#index', :as => :projects
