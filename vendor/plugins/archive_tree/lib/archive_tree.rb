@@ -1,3 +1,5 @@
+require 'active_record' unless defined? ActiveRecord
+
 # require 'ruby-debug';
 # years = {}
 # (Post.minimum("Year(created_at)")..Post.maximum("Year(created_at)")).each do |y|
@@ -8,3 +10,8 @@
 # end
 # debugger
 # years
+
+
+module ArchiveTree
+  
+end # ArchiveTree
