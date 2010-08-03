@@ -14,9 +14,9 @@ Homepage::Application.routes.draw do |map|
   resources :enquiries
   resources :posts
 
-  match '/projects/:category_id/:project_id' => 'projects#show', :as => :project, :via => :get
-  match '/projects/:category_id' => 'categories#show', :as => :category, :via => :get
-  match '/projects/' => 'projects#index', :as => :projects, :via => :get
+  get '/projects/:category_id/:project_id' => 'projects#show', :as => :project
+  get '/projects/:category_id' => 'categories#show', :as => :category
+  get '/projects/' => 'projects#index', :as => :projects
 
   root :to => "static_pages#home"
 end
