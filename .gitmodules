@@ -1,0 +1,3 @@
+[submodule "vendor/plugins/archive_tree"]
+	path = vendor/plugins/archive_tree
+	url = git://github.com/GnomesLab/archive_tree.git

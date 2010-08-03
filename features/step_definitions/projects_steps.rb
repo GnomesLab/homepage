@@ -28,19 +28,36 @@ end
 # TODO refactor please
 Then /^I should see the (.*) of ([0-9]+) projects$/ do |property, n|
   projects = Project.all
+  xpath_prefix = "//ul[@class='projects']/li"
 
   n.to_i.times do |i|
     case property
-    when 'image'
-      page.should have_xpath("//img[contains(@src, '#{projects[i].image}')]")
+    when 'image with link'
+      page.should have_xpath("#{xpath_prefix}/div[@class='item-image']/a/
+                              img[contains(@src, '#{projects[i].image}')]")
+      page.should have_xpath("#{xpath_prefix}/div[@class='item-image']/
+                              a[contains(@href, '#{project_path(projects[i].category, projects[i])}')]")
     when 'link'
-      page.should have_xpath("//a[contains(@href, '#{project_path(projects[i])}')]")
-    when 'short date'
-      page.should have_content((I18n.l projects[i].date, :format => :short))
+      page.should have_xpath("#{xpath_prefix}/div[@class='item-info']/p[@class='view']/
+                              a[contains(@href, '#{project_path(projects[i].category, projects[i])}')]")
     when 'link to the category'
-      page.should have_xpath("//a[contains(@href, '#{category_path(projects[i].category)}')]")
+      link = find(:xpath, "#{xpath_prefix}/div[@class='item-info']/small/
+                          a[contains(@href, '#{category_path(projects[i].category)}')]")
+      link.text.should == projects[i].category.name
+    when 'title'
+      find(:xpath, "#{xpath_prefix}/div[@class='item-info']/h3/
+                   a[contains(@href, '#{category_path(projects[i].category)}')]")
+      title.text.should == projects[i].title
+    when 'subtitle'
+      all(:xpath, "#{xpath_prefix}/div[@class='item-info']/p").map do |n|
+        n.text
+      end.should include projects[i].subtitle
+    when 'short date'
+      all(:xpath, "#{xpath_prefix}/div[@class='item-info']/small").find_all do |n|
+        n.text.include? I18n.l(projects[i].date, :format => :short)
+      end.should_not be_empty
     else
-      page.should have_content(projects[i].send(property))      
+      page.should have_content(projects[i].send(property))     
     end
   end
 end

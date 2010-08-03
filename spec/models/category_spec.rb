@@ -32,6 +32,36 @@ context Category do
 
   end # Validations
 
+  # attributes
+  describe "attributes" do
+
+    before :each do
+      subject.save
+    end
+
+    describe "friendly_id" do
+      it "is automatically set after a save call" do
+        subject.friendly_id.should_not be_nil
+      end
+
+      it "should be used in find" do
+        subject.should == Category.find(subject.friendly_id)
+      end
+
+      it "should be updated" do
+        old_friendly_id = subject.friendly_id
+        subject.update_attributes(:name => 'new category name').should be_true
+        subject.friendly_id.should_not == old_friendly_id
+      end
+
+      it "should be versionated" do
+        old_friendly_id = subject.friendly_id
+        subject.update_attributes(:name => 'new category name').should be_true
+        Category.find(old_friendly_id).should == Category.find(subject.friendly_id)
+      end
+    end # friendly_id
+  end # attributes
+
   describe "named scopes" do
     before(:each) do
       10.times.each { Factory.create(:category) }

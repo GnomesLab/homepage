@@ -1,6 +1,7 @@
 class Category < ActiveRecord::Base
   # associations
   has_many :projects
+  has_friendly_id :name, :use_slug => true, :approximate_ascii => true
 
   # validations
   validates :name, :presence => true
@@ -10,6 +11,6 @@ class Category < ActiveRecord::Base
 
   # instance methods
   def to_param
-    "#{self.name.to_url}"
+    self.friendly_id
   end
 end
