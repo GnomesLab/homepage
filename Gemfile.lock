@@ -38,6 +38,7 @@ GEM
       activemodel (= 3.0.0.rc)
       activesupport (= 3.0.0.rc)
     activesupport (3.0.0.rc)
+    acts-as-taggable-on (2.0.6)
     archive-tar-minitar (0.5.2)
     arel (0.4.0)
       activesupport (>= 3.0.0.beta)
@@ -156,6 +157,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_record_attributes_equality (>= 1.0.0)
+  acts-as-taggable-on
   capybara
   cucumber
   cucumber-rails
