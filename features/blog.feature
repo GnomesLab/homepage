@@ -1,7 +1,7 @@
 @wip @dba
 Feature: blog page
   Gnomeslab wishes to communicate with its visitors and update them on its projects and rambles.
-  The corporation's blog is the communication tool of choice to connect with our visitors.
+  The corporation´s blog is the communication tool of choice to connect with our visitors.
 
   Background:
     Given There are 10 posts
