@@ -1,16 +1,17 @@
 <li>
   <div class="cl">&nbsp;</div>
   <div class="item-image">
-    <%= link_to image_tag(project.image, :alt => project.title), project, :class => 'aimg' %>
+    <%= link_to image_tag(project.image, :alt => project.title),
+                          project_path(project.category, project), :class => 'aimg' %>
   </div>
   <div class="item-info">
     <small>
-      <%= link_to project.category.name, project.category %>
-      / <%=l project.date, :format => :short %>
+      <%= link_to project.category.name, category_path(project.category) %> / 
+      <%= l project.date, :format => :short %>
     </small>
-    <h3> <%= link_to project.title, project %> </h3>
+    <h3><%= link_to project.title, project_path(project.category, project) %></h3>
     <p><%= project.subtitle %></p>
-    <p class="view"><%= link_to 'View case study', project %></p>
+    <p class="view"><%= link_to 'View case study', project_path(project.category, project) %></p>
   </div>
   <div class="cl">&nbsp;</div>
 </li>

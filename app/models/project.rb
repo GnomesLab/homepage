@@ -19,6 +19,6 @@ class Project < ActiveRecord::Base
 
   # instance methods
   def to_param
-    "#{self.id}-#{self.title.to_url}"
+    self.friendly_id
   end
 end

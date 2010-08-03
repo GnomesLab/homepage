@@ -8,4 +8,9 @@ class Category < ActiveRecord::Base
 
   # named scopes
   scope :ordered_by_name, order('name asc')
+
+  # instance methods
+  def to_param
+    self.friendly_id
+  end
 end

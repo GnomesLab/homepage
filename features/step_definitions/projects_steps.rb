@@ -34,7 +34,7 @@ Then /^I should see the (.*) of ([0-9]+) projects$/ do |property, n|
     when 'image'
       page.should have_xpath("//img[contains(@src, '#{projects[i].image}')]")
     when 'link'
-      page.should have_xpath("//a[contains(@href, '#{project_path(projects[i])}')]")
+      page.should have_xpath("//a[contains(@href, '#{project_path(projects[i].category, projects[i])}')]")
     when 'short date'
       page.should have_content((I18n.l projects[i].date, :format => :short))
     when 'link to the category'

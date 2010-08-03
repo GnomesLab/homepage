@@ -14,15 +14,9 @@ Homepage::Application.routes.draw do |map|
   resources :enquiries
   resources :posts
 
-  match '/projects/:category_friendly_id/:project_friendly_id' => 'projects#show', 
-        :constraints => { :category_friendly_id => /([\w-]*)/, :project_friendly_id => /([\w-]*)/ },
-        :as => :project
-
-  match '/projects/:category_friendly_id' => 'categories#show',
-        :constraints => { :category_friendly_id => /([\w-]*)/ },
-        :as => :category
-
-  match '/projects/' => 'projects#index', :as => :projects
+  match '/projects/:category_id/:project_id' => 'projects#show', :as => :project, :via => :get
+  match '/projects/:category_id' => 'categories#show', :as => :category, :via => :get
+  match '/projects/' => 'projects#index', :as => :projects, :via => :get
 
   root :to => "static_pages#home"
 end

@@ -60,33 +60,33 @@ context Project do
 
   # attributes
   describe "attributes" do
+
+    before :each do
+      subject.save
+    end
+
     describe "friendly_id" do
       it "is automatically set after a save call" do
-        subject.save
         subject.friendly_id.should_not be_nil
       end
 
       it "should be used in find" do
-        subject.save
         subject.should == Project.find(subject.friendly_id)
       end
 
       it "should be updated" do
-        subject.save
         old_friendly_id = subject.friendly_id
-        subject.title = 'new project title'
-        subject.save
+        subject.update_attributes(:title => 'new project title').should be_true
         subject.friendly_id.should_not == old_friendly_id
       end
 
       it "should be versionated" do
-        subject.save
         old_friendly_id = subject.friendly_id
-        subject.title = 'new friendly title'
-        subject.save
+        subject.update_attributes(:title => 'new project title').should be_true
         Project.find(old_friendly_id).should == Project.find(subject.friendly_id)
       end
     end # friendly_id
+
   end # attributes
 
   describe "named scopes" do
