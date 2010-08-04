@@ -1,4 +1,4 @@
-Homepage::Application.routes.draw do |map|
+Homepage::Application.routes.draw do
   devise_for :users, :skip => [:passwords, :registrations]
 
   get 'about',          :to => 'static_pages#about_us', :as => 'about_us'
