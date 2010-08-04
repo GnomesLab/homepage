@@ -31,7 +31,6 @@ Feature: projects page
 
   Scenario: right column project categories
     Then I should see the categories list
-    And I should see links to all the projects categories
 
   Scenario: right column contact teaser
     Then I should see the contact teaser

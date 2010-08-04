@@ -47,10 +47,6 @@ Given /^the category has less than ([0-9]+) projects?$/ do |n|
   end
 end
 
-Then /^the visible projects must belong to the selected category$/ do
-  peding
-end
-
 Given /^I see ([0-9]*) projects?$/ do |n|
   @projects_count = n.to_i
 end
