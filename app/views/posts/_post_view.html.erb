@@ -1,16 +1,16 @@
 <%= render 'shared/flash/box', :locals => flash %>
 <h2 class="border">
-  <span class="creator"><%= @post.user.name %></span>
   <small class="right"><%=l @post.created_at, :format => :long %> by</small>
   <%= @post.title %>
 </h2>       
 <div class="entry">
-  <p><%= @post.body %></p>
+  <%= @post.body %>
 </div>
 
 <div class="post-meta">
   <div class="cl">&nbsp;</div>
   <div class="left">
+    <p id='created_by'><em>Created by:</em> <%= @post.user.name %></p>
     <p><em>Tags:</em> <a href="blog.html">Tag1</a>, <a href="blog.html">Tag2</a>, <a href="blog.html">Tag3</a></p>
   </div>
   <span class="right">

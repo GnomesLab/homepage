@@ -8,7 +8,9 @@ class PostsController < ApplicationController
   def index
     @posts = Post.latest.paginate :page => params[:page], :per_page => Post.per_page
 
-    respond_with @posts
+    @published = Post.where(:visible => true).order("updated_at desc").paginate :page => params[:page], :per_page => Post.per_page
+    
+    respond_with @posts, @published
   end
 
   # GET /posts/:id

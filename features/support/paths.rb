@@ -15,6 +15,7 @@ module NavigationHelpers
     when /the login page/
       new_user_session_path
     else
+
       begin
         page_name =~ /the (.*) page/
         path_components = $1.split(/\s+/)

@@ -1,3 +1,7 @@
-@wip @pdc
+@wip
 Feature: edit user page
-  # TODO: this page should not be avaliable at any time
+  
+  Scenario: page should not be avaliable
+      Given I am logged in
+      When I visit the edit user page
+      Then I should see "Not Found"

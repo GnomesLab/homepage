@@ -2,7 +2,11 @@
 <div id='posts' class="justify">
   <%= render 'shared/flash/box', :locals => flash %>
 
-  <%= render @posts if @posts %>
+  <% if user_signed_in? %>
+    <%= render @posts if @posts %>
+  <% else %>
+    <%= render @published if @published %>
+  <% end %>
 
   <!-- Pagination -->
   <%= will_paginate @posts,
