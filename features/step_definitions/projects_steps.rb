@@ -33,6 +33,8 @@ Then /^the list should contain the titles with the respective links of each proj
 
     title.should_not be_nil
     title.text.should == p.title
+    pending
+    test_click title
   end
 end
 
@@ -78,6 +80,7 @@ Then /^the list should contain the link to the project category$/ do
 
     link.should_not be_nil
     link.text.should == p.category.name
+    test_click link
   end
 end
 
@@ -87,8 +90,10 @@ end
 
 Then /^I should see links to all the projects categories$/ do
   Project.all.each do |p|
-    page.should have_xpath("//div[contains(@class, 'categories')]/ul/li/
-                            a[contains(@href, '#{category_path(p.category)}')]")
+    link = find(:xpath, "//div[contains(@class, 'categories')]/ul/li/
+                         a[contains(@href, '#{category_path(p.category)}')]")
+    link.should_not be_nil
+    test_click link
   end
 end
 
