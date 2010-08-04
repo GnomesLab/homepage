@@ -5,13 +5,8 @@ namespace :gnomeslab do
 
   namespace :dev do
 
-    desc "Checkout master, pull the latest version from origin and install gems"
-    task :pre_flight => :environment do
-      system('bundle install') if system('git pull origin master') if system('git checkout master')
-    end
-
     desc "Executes a series of development database related commands."
-    task :bootstrap => [:pre_flight, 'db:drop:all', 'db:create', 'db:schema:load'] do
+    task :bootstrap => ['db:drop:all', 'db:create', 'db:schema:load'] do
       `rake db:test:load`
       Rake::Task['spec'].execute
       Rake::Task['cucumber:ok'].execute
