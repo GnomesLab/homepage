@@ -1,8 +1,8 @@
-Given /^(?:.*) has ([0-9]+) projects?$/ do |n|
+Given /^Gnomeslab has ([0-9]+) projects?$/ do |n|
   n.to_i.times { Factory.create(:project) }
 end
 
-Given /^(?:.*) has less than ([0-9]+) projects?$/ do |n|
+Given /^Gnomeslab has less than ([0-9]+) projects?$/ do |n|
   while Project.count >= n.to_i
     Project.last.delete
   end
@@ -14,7 +14,7 @@ Then /^I should see the projects list with ([0-9]+) projects?$/ do |n|
   page.should have_css('.projects > li', :count => @projects_count)
 end
 
-When /^(?:.*) has more than ([0-9]+) projects?$/ do |n|
+When /^Gnomeslab has more than ([0-9]+) projects?$/ do |n|
   Project.count.should > n.to_i
 end
 

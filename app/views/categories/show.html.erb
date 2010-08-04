@@ -1,0 +1,24 @@
+<h2 class="border">Projects</h2>
+
+<%= render 'breadcrumb' %>
+
+<!-- Projects -->
+<div class="items items-images">
+  <% if @projects.present? %>
+    <ul class="projects"> <%= render @projects %> </ul>
+  <% end %>
+</div>
+<!-- End Projects -->
+
+<!-- Pagination -->
+<%= will_paginate @projects,
+                  :previous_label => '&lt; Prev',
+                  :next_label => 'Next &gt;',
+                  :separator => '<span>|</span>',
+                  :params => { :controller => 'categories', :action => 'show', :category_id => @category } %>
+<!-- End Pagination -->
+
+<%= content_for :sidebar do %>
+  <%= render '/projects/categories_list' %>
+  <%= render '/projects/contact_teaser' %>
+<% end %>
