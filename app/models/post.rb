@@ -30,4 +30,11 @@ class Post < ActiveRecord::Base
       self.save
     end
   end
+  
+  #redcloth
+  def body!
+    content = RedCloth.new(body)
+    content.filter_html = true
+    content.to_html
+  end
 end
