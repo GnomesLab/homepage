@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   # Included behavior
-  # include ArchiveTree
+  include ArchiveTree
 
   # Associations
   belongs_to :user

@@ -96,4 +96,14 @@ context Post do
 
   end # named scopes
 
+  describe "archive tree" do
+
+    it "should extend klass with its ArchiveTree::ClassMethods" do
+      [:archived_years, :archived_months, :archive_tree].each do |method|
+        Post.should respond_to method
+      end
+    end # class methods
+
+  end # archive tree
+
 end
