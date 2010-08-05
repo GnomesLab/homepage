@@ -1,11 +1,9 @@
+# Monkey patch rack in order to fix UTF-8 warnings.
+# For more information regarding this issue please visit: http://github.com/rack/rack/issues#issue/41
 module Rack
-  # Rack::Utils contains a grab-bag of useful methods for writing web
-  # applications adopted from all kinds of Ruby libraries.
 
   module Utils
-    # Performs URI escaping so that you can construct proper
-    # query strings faster.  Use this rather than the cgi.rb
-    # version since it's faster.  (Stolen from Camping).
+
     def escape(s)
       s.to_s.gsub(/([^ a-zA-Z0-9_.-]+)/u) {
         '%'+$1.unpack('H2'*bytesize($1)).join('%').upcase
