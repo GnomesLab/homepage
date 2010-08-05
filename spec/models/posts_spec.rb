@@ -24,6 +24,13 @@ context Post do
         subject.errors.should include :user
       end
     end # name
+    
+    describe "tags" do
+      it "defines tags as an attribute" do
+        subject.tag_list = "rails, routes"
+        subject.should be_valid
+      end
+    end # tags
 
     describe "title" do
       it "is a required attribute" do
@@ -56,6 +63,11 @@ context Post do
         subject.body = "ni"
         subject.should_not be_valid
         subject.errors.should include :body
+      end
+      
+      it "should be RedClothable" do
+        subject.body!
+        subject.should be_valid
       end
     end
 
