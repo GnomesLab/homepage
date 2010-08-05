@@ -105,4 +105,25 @@ context Project do
     end
   end # pagination
 
+  # class methods
+  describe "class methods" do
+    before :each do
+      subject.save
+    end
+
+    describe "find_by_friendly_id" do
+      it "should have a find_by_friendly_id method" do
+        Project.should respond_to :find_by_friendly_id
+      end
+
+      it "should return nil if the friendly_id doesn't exists" do
+        Project.find_by_friendly_id('dummy-project').should be_nil
+      end
+
+      it "should return a project if the friendly_id exists" do
+        Project.find_by_friendly_id(subject.friendly_id).should_not be_nil
+      end
+    end
+  end # class methods
+
 end

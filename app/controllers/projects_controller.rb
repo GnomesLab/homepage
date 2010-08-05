@@ -9,8 +9,7 @@ class ProjectsController < ApplicationController
     respond_with @projects
   end
 
-  # GET /projects/:id-:name
+  # GET /projects/:category_id/:project_id
   def show
-
   end
 end
