@@ -346,5 +346,5 @@ input.button:hover { background:#00aeef; color:#fff; }
 .sitemap ul ul a:hover{ color:#00aeef;}
 .sitemap ul ul ul a{ background:transparent; padding:0; color:#999; }
 
-#breadcrumb { margin-bottom: 10px; float: left; }
+#breadcrumb { margin-bottom: 10px; overflow: hidden; }
 #breadcrumb li { float: left; list-style: none; margin-right: 5px; }

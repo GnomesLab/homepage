@@ -16,26 +16,26 @@ Feature: projects page
     And the breadcrumb should contain a link to the current category
     And the breadcrumb should contain a link to the current project
 
-  Scenario: image rotator should be visible if the project has more than 1 picture
-    Given the project has more than 1 picture
+  Scenario: image rotator should be visible if the project has more than 1 image
+    Given the project has more than 1 image
     Then I should see the project rotator
 
-  Scenario: image rotator should work if the project has more than 1 picture
-    Given the project has more than 1 picture
+  Scenario: image rotator should work if the project has more than 1 image
+    Given the project has more than 1 image
     When I click on the project rotator
-    Then I should another picture of the project
+    Then I should another image of the project
 
-  Scenario: image rotator shouldn't be visible if the project has less than 1 picture
-    Given the project has less than 2 pictures
+  Scenario: image rotator shouldn't be visible if the project has less than 1 image
+    Given the project has less than 2 images
     Then I shouldn't see the image rotator
 
-  Scenario: the project image should be visible if the project has only 1 picture
-    Given the project has less than 2 pictures
-    Then I should see the project picture
+  Scenario: the project image should be visible if the project has only 1 image
+    Given the project has less than 2 images
+    Then I should see the project image
 
-  Scenario: the project image shouldn't be visible if the project has no picture
-    Given the project has less than 1 picture
-    Then I shouldn't see the project picture
+  Scenario: the project image shouldn't be visible if the project has no image
+    Given the project has less than 1 image
+    Then I shouldn't see the project image
 
   Scenario: project title
     Then I should see the project title
