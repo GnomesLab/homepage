@@ -1,0 +1,33 @@
+<% if @title.nil? %>
+  <%= content_title "Page not found" %>
+  <p>Sorry, we seem to have misplaced what you were looking for, but we're searching for it!</p>
+<% else %>
+  <%= content_title "Tag :: #{@title.name.capitalize}" %>
+  <div id='posts' class="justify">
+  <br /><br />
+  
+  <%= render @posts if @posts %>
+  
+
+  <!-- Pagination -->
+  <%= will_paginate @posts,
+                    :previous_label => '&lt; Prev',
+                    :next_label => 'Next &gt;',
+                    :separator => '<span>|</span>' %>
+  <!-- End Pagination -->
+  </div>
+  <br /><br />
+  <h4>Other interesting tags:</h4>
+  <p><% @cloud_tags.each do |t| %>
+  <%= t.name %>
+  <%= t.count %> |
+  <% end %></p>
+<% end %>
+<%= content_for :sidebar do %>
+  <%= render :partial => 'shared/content_box/popular_post' %>
+  <%= render :partial => 'shared/content_box/popular_tags' %>
+  <%= render :partial => 'shared/content_box/archives' %>
+<% end %>
+    
+    
+    
