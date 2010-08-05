@@ -1,4 +1,4 @@
-@wip @pdc
+@crystal
 Feature: tags page
   In order to allow our users to find related posts
   The blog posts should have tags

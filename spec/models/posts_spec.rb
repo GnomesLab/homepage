@@ -77,7 +77,7 @@ context Post do
       it "should return the 5 most popular posts" do
         popular = Post.popular
         popular.should be_a_kind_of ActiveRecord::Relation
-        popular.size.should == 5
+        popular.length.should == 5
         popular.first.views.should >= popular.last.views
       end
     end # popular posts
