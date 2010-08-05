@@ -82,6 +82,6 @@ class PostsController < ApplicationController
     @cloud_tags = Post.tag_counts_on(:tags)
     @posts = Post.tagged_with(params[:tag_name]).latest.paginate :page => params[:page], :per_page => Post.per_page
     
-    respond_with @posts, @tags
+    respond_with @posts
   end
 end
