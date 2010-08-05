@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+  # Included behavior
+  include ArchiveTree
+
   # Associations
   belongs_to :user
   acts_as_taggable_on :tags
@@ -13,16 +16,7 @@ class Post < ActiveRecord::Base
 
   # Scopes
   scope :latest, order('id desc')
-  scope :most_popular, lambda { |l = 5| order('views desc').limit(l) }
-
-  # FIXME:
-  # Possible bug in the AREL engine.
-  # If you don't execute the .all it runs query without applying the scope filters:
-  #
-  # SQL (0.5ms)  SELECT COUNT(*) AS count_id FROM `posts` LIMIT 5
-  def self.popular(limit = 5)
-    Post.most_popular(limit).all
-  end
+  scope :popular, lambda { |l = 5| order('views desc').limit(l) }
 
   # Public instance methods
   # Increments (by 1) counter that tracks the number of views of the current post instance

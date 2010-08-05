@@ -1,3 +1,4 @@
+
 Feature: projects page
   As a user of the website
   If I find a project interesting
