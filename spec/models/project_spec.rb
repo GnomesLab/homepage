@@ -26,14 +26,6 @@ context Project do
       end
     end # subtitle
 
-    describe "image" do
-      it "is a required attribute" do
-        subject.image = nil
-        subject.should_not be_valid
-        subject.errors.should include :image
-      end
-    end # image
-
     describe "date" do
       it "is a required attribute" do
         subject.date = nil
@@ -55,6 +47,24 @@ context Project do
         subject.errors.should include :category
       end
     end # category
+
+    describe "images" do
+      it "may not have a image" do
+        subject.images = []
+        subject.should be_valid
+      end
+
+      it "may have one image" do
+        subject.images << Factory.create(:image)
+        subject.should be_valid
+      end
+
+      it "may have more than one image" do
+        subject.images << Factory.create(:image)
+        subject.images << Factory.create(:image)
+        subject.should be_valid
+      end
+    end
 
   end # validations
 

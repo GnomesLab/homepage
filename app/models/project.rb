@@ -3,13 +3,13 @@ class Project < ActiveRecord::Base
   include FriendlyIdFinder
 
   # associations
+  has_many :images
   belongs_to :category, :counter_cache => true
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true
 
   # validations
   validates :title,    :presence => true
   validates :subtitle, :presence => true
-  validates :image,    :presence => true
   validates :date,     :presence => true
   validates :category, :presence => true, :associated => true
 
