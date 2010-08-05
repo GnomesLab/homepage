@@ -1,4 +1,7 @@
 class Category < ActiveRecord::Base
+  # includes
+  include FriendlyIdFinder
+
   # associations
   has_many :projects
   has_friendly_id :name, :use_slug => true, :approximate_ascii => true

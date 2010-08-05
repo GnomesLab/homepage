@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   # GET /projects/:category_id
   def show
-    @category   = Category.find(params[:category_id])
+    @category = Category.find_by_friendly_id(params[:category_id])
     @projects   = @category.projects.reverse.paginate :page => params[:page], :per_page => Project.per_page
     @categories = Category.ordered_by_name
 
