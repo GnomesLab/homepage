@@ -1,4 +1,4 @@
-@wip
+@crystal
 Feature: register page
 
   Scenario: page should not be avaliable

@@ -1,10 +1,10 @@
 class Post < ActiveRecord::Base
   # Included behavior
   include ArchiveTree
+  acts_as_taggable_on :tags
 
   # Associations
   belongs_to :user
-  acts_as_taggable_on :tags
   
   # Validations
   validates :user, :presence => true
@@ -31,10 +31,15 @@ class Post < ActiveRecord::Base
     end
   end
   
-  #redcloth
-  def body!
-    content = RedCloth.new(body)
-    content.filter_html = true
-    content.to_html
+  # Escapes the Post#body into an HTML safe representation, blocking all sorts of injections.
+  #
+  # Example
+  #   p = Post.find.first
+  #   p.body = "<a href='http://google.com'>google</a>"
+  #   p.html_safe_body #=> "&gt;a..."
+  def html_safe_body
+    safe_body = RedCloth.new(body)
+    safe_body.filter_html = true
+    safe_body.to_html
   end
 end

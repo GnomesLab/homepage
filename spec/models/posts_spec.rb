@@ -94,4 +94,30 @@ context Post do
 
   end # archive tree
 
+  describe "acts as taggable on" do
+
+    it "supports tag definitions" do
+      p = Factory.create :post, :tag_list => 'gnomeslab'
+
+      p.tag_list.should include "gnomeslab"
+      p.tags.should be_a_kind_of Array
+      p.tags.first.name.should == "gnomeslab"
+    end
+
+  end # acts_as_taggable_on
+
+  describe "html_safe_body" do
+
+    it "adds an HTML paragraph by default" do
+      p = Factory.build :post, :body => "hello world"
+      p.html_safe_body.should == "<p>hello world</p>"
+    end
+
+    it "should escape html considered to be unsafe" do
+      p = Factory.build :post, :body => "<a href='http://google.com'>google</a>"
+      p.html_safe_body.should == "<p>&lt;a href='http://google.com'&gt;google&lt;/a&gt;</p>"
+    end
+
+  end # html_safe_body
+
 end

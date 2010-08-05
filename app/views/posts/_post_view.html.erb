@@ -4,7 +4,7 @@
   <%= @post.title %>
 </h2>       
 <div class="entry">
-  <%= raw(@post.body!) %>
+  <%= raw(@post.html_safe_body) %>
 </div>
 
 <div class="post-meta">

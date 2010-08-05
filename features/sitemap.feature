@@ -1,3 +1,4 @@
+@wip
 Feature: sitemap
   As visitor of the gnomeslab website
   I need a map of all the pages
