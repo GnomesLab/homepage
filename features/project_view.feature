@@ -1,34 +1,61 @@
-@wip
+@wp @mt
 Feature: projects page
-  As a user of the website
-  If I find a project interesting
-  I want to be able to see a detailed description of it
-  So I can learn more about that specific project
-  And about gnomeslab delivery capabilities
-  
-  Background: 
-    Given I am on the projects page
+  As website visitor if i got impressed by a project
+  I would like to see the project details
 
-  Scenario: the projects page should have a header
+  Background:
+    Given Gnomeslab has 1 project
+    And Im on the project page
+
+  Scenario: page header
     Then I should see the generic header
-  
-  Scenario: right column links to each project category
-    Then I should see "Category 1"
-    And I should see "Category 2"
-    And I should see "Category 3"
-  
-  Scenario: the projects page should have the latest 5 projects visible
-    Then I should see "Project 1"
-    And I should see "Project 2"
-    And I should see "Project 3"
-    And I should see "Project 4"
-    And I should see "Project 5"
-  
-  Scenario: the project should have a title, a thumbnail image, a date and a detailed description
+
+  Scenario: breadcrumb
+    Then I should see the breadcrumb
+    And the breadcrumb should contain a link to the projects page
+    And the breadcrumb should contain a link to the current category
+    And the breadcrumb should contain a link to the current project
+
+  Scenario: image rotator should be visible if the project has more than 1 picture
+    Given the project has more than 1 picture
+    Then I should see the project rotator
+
+  Scenario: image rotator should work if the project has more than 1 picture
+    Given the project has more than 1 picture
+    When I click on the project rotator
+    Then I should another picture of the project
+
+  Scenario: image rotator shouldn't be visible if the project has less than 1 picture
+    Given the project has less than 2 pictures
+    Then I shouldn't see the image rotator
+
+  Scenario: the project image should be visible if the project has only 1 picture
+    Given the project has less than 2 pictures
+    Then I should see the project picture
+
+  Scenario: the project image shouldn't be visible if the project has no picture
+    Given the project has less than 1 picture
+    Then I shouldn't see the project picture
+
+  Scenario: project title
     Then I should see the project title
-    And I should see a thumbnail image
-    And I should see the project date
-    And I should see a detailed description
-      
-  Scenario: the blog post should have a footer
-    Then I should see the generic footer
+
+  Scenario: project category
+    Then I should see the project category
+
+  Scenario: project date
+    Then I should see the project long date
+
+  Scenario: project description
+    Then I should see the project description
+  
+  Scenario: right column project categories
+    Then I should see a link to the project category
+
+  Scenario: right column contact teaser
+    Then I should see the contact teaser
+    And I should see "contact us"
+    And I should see the contact link
+
+  Scenario: page footer
+   Then I should see the generic footer

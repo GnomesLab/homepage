@@ -1,4 +1,3 @@
-@wip @mt
 Feature: projects page
   In order to trust Gnomeslab ability to produce deliverables of the highest quality
   As a visitor I have the ability to browse their projects portfolio
