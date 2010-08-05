@@ -1,10 +1,11 @@
 class Post < ActiveRecord::Base
   # Included behavior
-  include ArchiveTree
+  # include ArchiveTree
 
   # Associations
   belongs_to :user
   acts_as_taggable_on :tags
+  
   # Validations
   validates :user, :presence => true
   validates :body, :presence => true, :length => { :minimum => 3 }
