@@ -14,6 +14,8 @@ module NavigationHelpers
       post_path(Post.first)
     when /the login page/
       new_user_session_path
+    when /the tags page/
+      post_tags_path(Post.last.tag_list.first)
     else
 
       begin

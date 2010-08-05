@@ -14,6 +14,7 @@ Homepage::Application.routes.draw do |map|
   resources :enquiries
   resources :posts
 
+  get 'posts/tagged/:tag_name' => 'posts#tags', :as => "post_tags"
   get '/projects/:category_id/:project_id' => 'projects#show', :as => :project
   get '/projects/:category_id' => 'categories#show', :as => :category
   get '/projects/' => 'projects#index', :as => :projects

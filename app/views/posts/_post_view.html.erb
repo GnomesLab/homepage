@@ -1,6 +1,6 @@
 <%= render 'shared/flash/box', :locals => flash %>
 <h2 class="border">
-  <small class="right"><%=l @post.created_at, :format => :long %> by</small>
+  <small class="right"><%=l @post.created_at, :format => :long %></small>
   <%= @post.title %>
 </h2>       
 <div class="entry">
@@ -11,13 +11,18 @@
   <div class="cl">&nbsp;</div>
   <div class="left">
     <p id='created_by'><em>Created by:</em> <%= @post.user.name %></p>
-    <p><em>Tags:</em> <a href="blog.html">Tag1</a>, <a href="blog.html">Tag2</a>, <a href="blog.html">Tag3</a></p>
+    <p id='post_tags'>
+      <em>Tags:</em>
+      <% @post.tag_list.each do |t| %>
+      <%= link_to t.capitalize, post_tags_path(t) %>
+      <% end %>
+    </p>
   </div>
   <span class="right">
     <a href="#comments" class="gray">Comments: 19</a>
+    <% if user_signed_in? %>
+      </p>Destroy? <%= link_to "Edit", edit_post_path %>?</p>
+    <% end %>
   </span>
   <div class="cl">&nbsp;</div>
-  <% if user_signed_in? %>
-    <%= link_to "Edit", edit_post_path %>
-  <% end %>
 </div>

@@ -23,7 +23,8 @@ module ApplicationHelper
     path = dispatcher_route.path.gsub(/\(.:format\)/, '')
 
     if params[:controller] == (destination == :contact ? 'enquiries' : destination.to_s) ||
-        params[:controller] == 'static_pages' && params[:action] == destination.to_s
+        params[:controller] == 'static_pages' && params[:action] == destination.to_s ||
+          params[:controller] == (destination == :blog ? 'posts' : destination.to_s)
       link_to text, path, :class => 'active'
     else
       link_to text, path

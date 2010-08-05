@@ -14,11 +14,17 @@
     <div class="left">
       <p id='created_by'><em>Created by:</em> <%= post.user.name %></p>
       <p id='post_tags'>
-        <em>Tags:</em> <a href="blog.html">Tag1</a>, <a href="blog.html">Tag2</a>, <a href="blog.html">Tag3</a>
+        <em>Tags:</em>
+        <% post.tag_list.each do |t| %>
+        <%= link_to t, post_tags_path(t), :id => "tag_#{post.id}_#{post.tag_list.rindex(t)}" %>
+        <% end %>
       </p>
     </div>
     <span id='comments' class="right">
       <a href="blog-detailed.html" class="gray">Comments: 0</a>
+      <% if user_signed_in? %>
+        </p>Destroy? <%= link_to "Edit", edit_post_path(post) %>?</p>
+      <% end %>
     </span>
     <div class="cl">&nbsp;</div>
   </div>

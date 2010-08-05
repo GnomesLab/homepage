@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   # Associations
   belongs_to :user
-
+  acts_as_taggable_on :tags
   # Validations
   validates :user, :presence => true
   validates :body, :presence => true, :length => { :minimum => 3 }

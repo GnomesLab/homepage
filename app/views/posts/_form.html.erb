@@ -16,6 +16,11 @@
                   :class => "field #{flash[:error].nil? ? 'required' : ' field-error'}" %>
   <div class="cl">&nbsp;</div>
 
+  <%= f.label :Tags, raw("Tags <span>(separate with comma ',')</span>") %>
+  <%= f.text_field :tag_list,
+                   :class => "field #{flash[:error].nil? ? 'required' : ' field-error'}" %>
+  <div class="cl">&nbsp;</div>
+
   <div class="form-buttons">
     <%= f.submit "Submit your post", :class => 'button', :disable_with => 'Posting...' %> or 
     <%= link_to 'cancel', root_path, :title =>'Go back to the homepage' %>

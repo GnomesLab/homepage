@@ -6,11 +6,14 @@ class PostsController < ApplicationController
   # GET /blog
   # GET /posts
   def index
-    @posts = Post.latest.paginate :page => params[:page], :per_page => Post.per_page
+    if user_signed_in?
+      @posts = Post.order("updated_at desc").paginate :page => params[:page], :per_page => Post.per_page
+    else
+      @posts = Post.where(:visible => true).order("updated_at desc").paginate :page => params[:page],
+                                                                              :per_page => Post.per_page
+    end
 
-    @published = Post.where(:visible => true).order("updated_at desc").paginate :page => params[:page], :per_page => Post.per_page
-    
-    respond_with @posts, @published
+    respond_with @posts
   end
 
   # GET /posts/:id
@@ -71,5 +74,14 @@ class PostsController < ApplicationController
     @post.destroy
     flash[:notice] = "Hasta la vista post!"
     redirect_to posts_url
+  end
+  
+  # GET /post/tagged/:tag_name
+  def tags
+    @title = ActsAsTaggableOn::Tag.find_by_name params[:tag_name]
+    @cloud_tags = Post.tag_counts_on(:tags)
+    @posts = Post.tagged_with(params[:tag_name]).latest.paginate :page => params[:page], :per_page => Post.per_page
+    
+    respond_with @posts, @tags
   end
 end

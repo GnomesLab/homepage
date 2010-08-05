@@ -1,10 +1,10 @@
 Then /^I should see the (\d+) latest posts$/ do |n|
-  posts = Post.latest
+  posts = Post.order("updated_at desc")
   n.to_i.times { |i| inspect_post_html(posts[i].id, 'h2', Regexp.new(posts[i].title)) }
 end
 
 Then /^I should see (\d+) latest posts (.*)$/ do |n, attribute|
-  posts = Post.latest
+  posts = Post.order("updated_at desc")
 
   n.to_i.times do |i|
     case attribute
@@ -15,7 +15,10 @@ Then /^I should see (\d+) latest posts (.*)$/ do |n, attribute|
     when "creator name"
       inspect_post_html posts[i].id, '#created_by', Regexp.new(ERB::Util.h(posts[i].user.name))
     when "tags"
-      inspect_post_html posts[i].id, '#post_tags', Regexp.new("Tags: #{['Tag1', 'Tag2', 'Tag3'].join(', ')}")
+      inspect_post_html posts[i].id, "#tag_#{posts[i].id}_0", Regexp.new(ERB::Util.h(posts[i].tag_list[0]))
+      inspect_post_html posts[i].id, "#tag_#{posts[i].id}_1", Regexp.new(ERB::Util.h(posts[i].tag_list[1]))
+      inspect_post_html posts[i].id, "#tag_#{posts[i].id}_2", Regexp.new(ERB::Util.h(posts[i].tag_list[2]))
+      # inspect_post_html posts[i].id, '#post_tags', Regexp.new("Tags: #{['/.*/', '/.*/', '/.*/'].join(' ')}")
     when "comment count"
       inspect_post_html posts[i].id, '#comments', Regexp.new("Comments: 0")
     else
