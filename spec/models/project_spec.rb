@@ -160,7 +160,12 @@ context Project do
     end # default image
 
     describe "previews" do
-      it "may return an empty array" do
+      it "returns an empty array if there is no image" do
+        subject.previews.should be_empty
+      end
+
+      it "returns an empty array if there is only one image" do
+        Factory.create(:image, :project => subject)
         subject.previews.should be_empty
       end
 

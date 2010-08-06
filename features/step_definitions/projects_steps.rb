@@ -8,6 +8,12 @@ Given /^Gnomeslab has less than ([0-9]+) projects?$/ do |n|
   end
 end
 
+Given /^all the projects contains a default image$/ do
+  Project.all.each do |p|
+    Factory.create(:image, :project => p)
+  end
+end
+
 Then /^I should see the projects list with ([0-9]+) projects?$/ do |n|
   @projects_count = n.to_i
   page.should have_css('.projects', :count => 1)
@@ -54,12 +60,19 @@ Then /^the list should contain the short date of each project$/ do
   end
 end
 
-Then /^the list should contain the project image with a link to the project page$/ do
+Then /^the list should(n\'t)? contain the project image with a link to the project page$/ do |n|
   paginated_projects.each do |p|
-    page.should have_xpath("#{project_xpath_prefix}/div[@class='item-image']/a/
-                            img[contains(@src, '#{p.image}')]")
-    page.should have_xpath("#{project_xpath_prefix}/div[@class='item-image']/
-                            a[contains(@href, '#{project_path(p.category, p)}')]")
+    link = find(:xpath, "#{project_xpath_prefix}/div[@class='item-image']/
+                         a[contains(@href, '#{project_path(p.category, p)}')]")
+
+    if n.blank?
+      link.should_not be_nil
+      page.should have_xpath("#{project_xpath_prefix}/div[@class='item-image']/a/
+                              img[contains(@src, '#{p.default_image.url}')]")
+    else
+      link.should be_nil
+      page.should_not have_xpath("#{project_xpath_prefix}/div[@class='item-image']/a/img")
+    end
   end
 end
 
