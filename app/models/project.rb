@@ -21,6 +21,15 @@ class Project < ActiveRecord::Base
   scope :reverse, order('date desc')
 
   # instance methods
+  def default_image
+    self.images.default.first || self.images.first
+  end
+
+  def previews
+    return [] if self.images.blank?
+    self.images - [default_image]
+  end
+
   def to_param
     self.friendly_id
   end

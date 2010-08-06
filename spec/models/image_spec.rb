@@ -34,5 +34,40 @@ context Image do
       end
     end # project
 
+    describe "is_default" do
+      it "must be only one per project" do
+        subject.save
+
+        3.times do
+          Factory.create(:image, :project => subject.project, :is_default => true)
+          Factory.create(:image, :is_default => true)
+        end
+
+        Image.where('project_id = ?', subject.project.id).default.count.should == 1
+        Image.default.count.should == 4
+      end
+    end # is_default
+
   end # validations
+
+  # named scopes
+  describe "named scopes" do
+    before(:each) do
+      subject.save
+      10.times { Factory.create(:image) }
+    end
+
+    describe "default" do
+      it "default may be empty" do
+        Image.default.should be_empty
+      end
+
+      it "default must only return images with is_default set to true" do
+        subject.update_attributes(:is_default => true)
+        Image.default.each { |i| i.is_default.should be_true }
+      end
+
+    end # default
+  end # named scopes
+
 end
