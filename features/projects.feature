@@ -23,10 +23,17 @@ Feature: projects page
   Scenario: projects description should contain the project short date
     Given Gnomeslab has more than 5 project
     Then I should see the projects list with 5 projects
-    And the list should contain the short date of each project 
+    And the list should contain the short date of each project
 
-  Scenario: projects description should contain the project image with a link to the project
+  Scenario: projects description shouldn't display an empty image
     Given Gnomeslab has more than 5 project
+    Then I should see the projects list with 5 projects
+    And the list shouldn't contain the project image with a link to the project page
+
+  Scenario: projects description should contain the project default image with a link to the project
+    Given Gnomeslab has more than 5 project
+    And all the projects contains a default image
+    And I am on the projects page
     Then I should see the projects list with 5 projects
     And the list should contain the project image with a link to the project page
 

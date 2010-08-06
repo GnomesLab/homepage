@@ -11,5 +11,8 @@ class ProjectsController < ApplicationController
 
   # GET /projects/:category_id/:project_id
   def show
+    @project = Project.find_by_friendly_id(params[:project_id])
+
+    respond_with @project
   end
 end
