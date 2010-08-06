@@ -66,7 +66,7 @@ context Post do
       end
       
       it "should be RedClothable" do
-        subject.body!
+        subject.html_safe_body
         subject.should be_valid
       end
     end

@@ -24,6 +24,10 @@ Feature: view post and comments
     # And I should see the post's comment count
     # And I should see the post's tag list
     # And I should see the New comment internal link
+    
+  Scenario: popular posts
+    Then I should see the popular posts title
+    And I should see the 5 most popular post titles
 
 
    # Scenario: right column archives
