@@ -4,6 +4,14 @@ context Image do
 
   subject { Factory.build(:image) }
 
+  describe "associations" do
+    
+    it "belongs to a project" do
+      subject.project.should be_a_kind_of Project
+    end
+    
+  end # associations
+
   describe "validations" do
 
     it "must be valid with all the properties set" do
