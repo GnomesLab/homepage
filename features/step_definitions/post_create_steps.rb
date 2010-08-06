@@ -1,3 +1,4 @@
+# FIXME: automate, instead of simulate
 Given /^I am logged in$/ do
   user = Factory.create(:user)
   visit('/users/sign_in')
