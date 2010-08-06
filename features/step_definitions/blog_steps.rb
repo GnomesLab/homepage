@@ -15,6 +15,7 @@ Then /^I should see (\d+) latest posts (.*)$/ do |n, attribute|
     when "creator name"
       inspect_post_html posts[i].id, '#created_by', Regexp.new(ERB::Util.h(posts[i].user.name))
     when "tags"
+      # FIXME: this requires a revision
       inspect_post_html posts[i].id, "#tag_#{posts[i].id}_0", Regexp.new(ERB::Util.h(posts[i].tag_list[0]))
       inspect_post_html posts[i].id, "#tag_#{posts[i].id}_1", Regexp.new(ERB::Util.h(posts[i].tag_list[1]))
       inspect_post_html posts[i].id, "#tag_#{posts[i].id}_2", Regexp.new(ERB::Util.h(posts[i].tag_list[2]))
@@ -25,12 +26,6 @@ Then /^I should see (\d+) latest posts (.*)$/ do |n, attribute|
       inspect_post_html posts[i].id, 'h2', Regexp.new(ERB::Util.h(posts[i].send(attribute.to_sym)))
     end
   end
-end
-
-def inspect_post_html(id, element, regexp)
-  position = find("#posts #post_#{id} #{element}").text =~ regexp
-  position.should be_a_kind_of Fixnum
-  position.should_not be_nil
 end
 
 Then /^I should see the posts paginator$/ do

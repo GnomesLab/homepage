@@ -44,3 +44,5 @@ module Homepage
     config.filter_parameters += [:password]
   end
 end
+
+autoload :FriendlyIdFinder, "#{Rails.root}/lib/friendly_id_finder"

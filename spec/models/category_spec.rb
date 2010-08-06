@@ -62,6 +62,7 @@ context Category do
     end # friendly_id
   end # attributes
 
+  # named scopes
   describe "named scopes" do
     before(:each) do
       10.times.each { Factory.create(:category) }
@@ -71,5 +72,26 @@ context Category do
       Category.ordered_by_name.should == Category.order('name asc')
     end
   end # named scopes
+
+  # class methods
+  describe "class methods" do
+    before :each do
+      subject.save
+    end
+
+    describe "find_by_friendly_id" do
+      it "should have a find_by_friendly_id method" do
+        Category.should respond_to :find_by_friendly_id
+      end
+
+      it "should return nil if the friendly_id doesn't exists" do
+        Category.find_by_friendly_id('unexisting category').should be_nil
+      end
+
+      it "should return a category if the friendly_id exists" do
+        Category.find_by_friendly_id(subject.friendly_id).should_not be_nil
+      end
+    end
+  end # class methods
 
 end
