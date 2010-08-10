@@ -7,12 +7,12 @@ Feature: Posts archive
     Given There are 10 posts
 
   Scenario: The archive is available to guests
-    Given I am not authenticated
+    Given I am not signed in
     When I am on the posts page
     Then I should see "Archive"
 
   Scenario: The archive is available to guests
     Given I have an account
-    And I am authenticated
-    When I visit the posts page
+    And I am not signed in
+    When I am on the posts page
     Then I should see "Archive"

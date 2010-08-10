@@ -12,6 +12,10 @@ module NavigationHelpers
       about_us_path
     when /the view post page/
       post_path(Post.first)
+    when /registration page/
+      '/users/new'
+    when /profile page/
+      '/users/edit'
     when /the login page/
       new_user_session_path
     when /the tags page/

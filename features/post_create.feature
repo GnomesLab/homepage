@@ -5,11 +5,11 @@ Feature: post create
   So others can drool at my awesome writing skills
 
   Background:
-    Given I am logged in
+    Given I am signed in
     And I am on the post create page
     
   Scenario: I should not be able to create posts when im not logged in
-    And I am not authenticated
+    And I am not signed in
     And I am on the post create page
     Then I should see "Not Authorized!"
 

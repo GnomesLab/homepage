@@ -1,3 +1,0 @@
-# data validation
-
-# dummy users

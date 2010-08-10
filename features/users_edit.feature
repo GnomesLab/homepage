@@ -2,6 +2,6 @@
 Feature: edit user page
 
   Scenario: page should not be avaliable
-      Given I am logged in
-      When I visit the edit user page
+      Given I am signed in
+      When I am on the profile page
       Then I should see "Not Found"
