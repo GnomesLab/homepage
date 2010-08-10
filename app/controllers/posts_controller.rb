@@ -10,7 +10,7 @@ class PostsController < ApplicationController
       @posts = Post.order("updated_at desc").paginate :page => params[:page], :per_page => Post.per_page
     else
       @posts = Post.where(:visible => true).order("updated_at desc").paginate :page => params[:page],
-                                                                              :per_page => Post.per_page
+        :per_page => Post.per_page
     end
 
     respond_with @posts
@@ -75,12 +75,14 @@ class PostsController < ApplicationController
     flash[:notice] = "Hasta la vista post!"
     redirect_to posts_url
   end
-  
+
   # GET /post/tagged/:tag_name
+  #
+  # FIXME: remove the @title
   def tags
     @title = ActsAsTaggableOn::Tag.find_by_name params[:tag_name]
     @posts = Post.tagged_with(params[:tag_name]).latest.paginate :page => params[:page], :per_page => Post.per_page
-    
+
     respond_with @posts
   end
 end

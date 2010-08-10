@@ -24,7 +24,7 @@ context Post do
         subject.errors.should include :user
       end
     end # name
-    
+
     describe "tags" do
       it "defines tags as an attribute" do
         subject.tag_list = "rails, routes"
@@ -64,7 +64,7 @@ context Post do
         subject.should_not be_valid
         subject.errors.should include :body
       end
-      
+
       it "should be RedClothable" do
         subject.html_safe_body
         subject.should be_valid
@@ -96,27 +96,60 @@ context Post do
 
   end # named scopes
 
-  describe "archive tree" do
+  describe "imported behaviors" do
 
-    it "should extend klass with its ArchiveTree::ClassMethods" do
-      [:archived_years, :archived_months, :archive_tree].each do |method|
-        Post.should respond_to method
+    describe "archive tree" do
+
+      it "should extend klass with its ArchiveTree::ClassMethods" do
+        [:archived_years, :archived_months, :archive_tree].each do |method|
+          Post.should respond_to method
+        end
+      end # class methods
+
+    end # archive tree
+
+    describe "acts as taggable on" do
+
+      it "supports tag definitions" do
+        p = Factory.create :post, :tag_list => 'gnomeslab'
+
+        p.tag_list.should include "gnomeslab"
+        p.tags.should be_a_kind_of Array
+        p.tags.first.name.should == "gnomeslab"
       end
-    end # class methods
 
-  end # archive tree
+    end # acts_as_taggable_on
 
-  describe "acts as taggable on" do
+  end # imported behaviors
 
-    it "supports tag definitions" do
-      p = Factory.create :post, :tag_list => 'gnomeslab'
+  describe "class methods" do
 
-      p.tag_list.should include "gnomeslab"
-      p.tags.should be_a_kind_of Array
-      p.tags.first.name.should == "gnomeslab"
-    end
+    describe "tag cloud" do
 
-  end # acts_as_taggable_on
+      before :each do
+        Factory.create :post, :tag_list => "ruby, rails"
+      end
+
+      it "lists all the tags avaliable in Posts" do
+        cloud = Post.tag_cloud
+
+        cloud.length.should == 2
+        cloud.first.should be_a_kind_of ActsAsTaggableOn::Tag
+        cloud.first.name.should == "ruby"
+        cloud.last.name.should == "rails"
+      end
+
+      it "supports the limit to be overridden" do
+        cloud = Post.tag_cloud 1
+
+        cloud.length.should == 1
+        cloud.first.should be_a_kind_of ActsAsTaggableOn::Tag
+        cloud.first.name.should == "ruby"
+      end
+
+    end # tag_cloud
+
+  end # class methods
 
   describe "html_safe_body" do
 
@@ -131,14 +164,5 @@ context Post do
     end
 
   end # html_safe_body
-
-  describe "cloud_tags" do
-
-    it "lists all the tags avaliable in Posts" do
-      p = Factory.create :post, :tag_list => "rails"
-      p.tag_list == Post.cloud_tags.name
-    end
-
-  end # cloud_tags
 
 end

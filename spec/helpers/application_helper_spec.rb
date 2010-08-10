@@ -34,4 +34,28 @@ context ApplicationHelper do
       helper.top_menu_link(:services).should == %Q{<a href=\"/services\" class=\"active\">Services</a>}
     end
   end # top menu link
+
+  describe "draw tag cloud" do
+
+    it "defaults to the post model" do
+      Factory.create :post
+      cloud = []
+
+      ['rails', 'ruby', 'regexp'].each { |t| cloud << "<a href=\"/posts/tagged/#{t}\" class=\"tag-size7\">#{t}</a>" }
+
+      helper.draw_tag_cloud.should == cloud.join(' ')
+    end
+
+    it "limits the number of tags to 40" do
+      tags = []
+      41.times { |i| tags << "tag_#{i}" }
+
+      Factory.create :post, :tag_list => tags.join(', ')
+
+      helper.draw_tag_cloud.should == tags.reject! { |t| t == 'tag_40' }.map! do |t|
+        "<a href=\"/posts/tagged/#{t}\" class=\"tag-size7\">#{t}</a>"
+      end.join(' ')
+    end
+
+  end # draw tag cloud
 end
