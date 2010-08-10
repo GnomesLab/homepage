@@ -135,8 +135,8 @@ context Post do
   describe "cloud_tags" do
 
     it "lists all the tags avaliable in Posts" do
-      p = Factory.create :post
-      p.tag_list.should == Post.cloud_tags.each.name
+      p = Factory.create :post, :tag_list => "rails"
+      p.tag_list == Post.cloud_tags.name
     end
 
   end # cloud_tags
