@@ -7,8 +7,8 @@ Then /^the archived years "([^"]*)" should be available$/ do |years_string|
   
   years.each_with_index do |year, i|
     find(:xpath, "//div[@id='archives']/ul/li[#{i + 1}]/a[2]").text.should == year
-                                          end
-                                          end
+  end
+end
 
 Then /^"([^"]*)" should be the active archive year$/ do |year|
   find(:xpath, "//div[@id='archives']/ul/li[@class='active']/a[2]").text.should == year
