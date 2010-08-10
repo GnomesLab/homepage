@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 
   # Associations
   belongs_to :user
-  
+
   # Validations
   validates :user, :presence => true
   validates :body, :presence => true, :length => { :minimum => 3 }
@@ -30,7 +30,7 @@ class Post < ActiveRecord::Base
       self.save
     end
   end
-  
+
   # Escapes the Post#body into an HTML safe representation, blocking all sorts of injections.
   #
   # Example
@@ -41,5 +41,8 @@ class Post < ActiveRecord::Base
     safe_body = RedCloth.new(body)
     safe_body.filter_html = true
     safe_body.to_html
+  end
+  def self.cloud_tags
+    cloud_tags = Post.tag_counts_on(:tags).limit(40)
   end
 end

@@ -79,7 +79,6 @@ class PostsController < ApplicationController
   # GET /post/tagged/:tag_name
   def tags
     @title = ActsAsTaggableOn::Tag.find_by_name params[:tag_name]
-    @cloud_tags = Post.tag_counts_on(:tags)
     @posts = Post.tagged_with(params[:tag_name]).latest.paginate :page => params[:page], :per_page => Post.per_page
     
     respond_with @posts

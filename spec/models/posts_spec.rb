@@ -132,4 +132,13 @@ context Post do
 
   end # html_safe_body
 
+  describe "cloud_tags" do
+
+    it "lists all the tags avaliable in Posts" do
+      p = Factory.create :post
+      p.tag_list.should == Post.cloud_tags.each.name
+    end
+
+  end # cloud_tags
+
 end

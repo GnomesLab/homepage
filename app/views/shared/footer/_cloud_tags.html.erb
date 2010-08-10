@@ -1,0 +1,9 @@
+<div id="tag_cloud_title" class="col col3">
+   <h5>Tag Cloud</h5>
+   <div id="tag_cloud" class="tag-cloud">
+     <% tag_cloud(Post.cloud_tags, %w(tag-size1 tag-size2 tag-size3 tag-size4 tag-size5 tag-size6 tag-size7)) do |tag,
+                                                                                                          css_class| %>
+       <%= link_to tag.name, post_tags_path(tag.name), :class => css_class %>
+     <% end %>
+   </div>
+</div>
