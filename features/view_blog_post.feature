@@ -6,7 +6,7 @@ Feature: view post and comments
   Furthermore, we allow our visitors to engage with the content through the use of the new comment feature.
   
   Background:
-    Given There is 1 post
+    And There are 10 posts
     And I am on the view post page
 
   Scenario: page header
@@ -28,17 +28,18 @@ Feature: view post and comments
   Scenario: popular posts
     Then I should see the popular posts title
     And I should see the 5 most popular post titles
-
+    
+  Scenario: right column related posts
+    Then I should see the related posts title
+    And I should see the 5 most popular related post titles
+    
+  Scenario: right column related posts
+    Then I should see "Recent Comments"
 
    # Scenario: right column archives
    #   Then I should see "Archives"
    #   And I should see "2010"
    # 
-   # Scenario: right column popular tags
-   #   Then I should see "Popular Tags"
-   # 
-   # Scenario: right column related posts
-   #   Then I should see "Related posts"
    # 
    # Scenario: the post should have a user, title, date, body, comment count, new comment internal link and tags
    #   And I have a post

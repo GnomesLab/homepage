@@ -94,6 +94,28 @@ context Post do
       end
     end # popular posts
 
+    describe "related posts" do
+      it "should return the 5 most popular related posts" do
+        post = Post.first
+        related_posts = Post.related(post)
+        related_posts.should be_a_kind_of ActiveRecord::Relation
+        related_posts.length.should == 5
+        related_posts.first.views.should >= related_posts.last.views
+        related_posts.each do |t|
+          t.tag_list.should have_at_least(1).post.tag_list
+        end
+      end
+    end # related posts
+
+    describe "recent posts" do
+      it "should return the 5 most recent posts" do
+        recent_posts = Post.recent
+        recent_posts.should be_a_kind_of ActiveRecord::Relation
+        recent_posts.length.should == 5
+        recent_posts.first.id >= recent_posts.last.id
+      end
+    end # recent posts
+
   end # named scopes
 
   describe "imported behaviors" do

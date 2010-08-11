@@ -15,6 +15,7 @@ module PostsHelper
   end # draw_archive_tree
 
   private
+
     def draw_years(model_sym) # :nodoc:
       model = model_sym.to_s.capitalize.constantize
 

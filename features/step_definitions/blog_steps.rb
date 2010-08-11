@@ -34,6 +34,22 @@ Then /^I should see the posts paginator$/ do
   position.should == 0
 end
 
+Then /^I should see the recent posts title$/ do
+  position = find("#recent_posts h2").text =~ /Recent Posts/
+  position.should == 0
+end
+
+Then /^I should see the (\d+) most recent post titles$/ do |n|
+  post = Post.latest
+
+  n.to_i.times do |i|
+    regexp = Regexp.new(ERB::Util.h(post[i].title))
+    position = find(:xpath,
+                    "//div[@id='recent_posts']/div[@class='entry']/ul/li[#{i+1}]").text =~ regexp
+    position == 0
+  end
+end
+
 Then /^I should see the popular posts title$/ do
   position = find("#popular_posts h2").text =~ /Popular Posts/
   position.should == 0

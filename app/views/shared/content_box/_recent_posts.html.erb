@@ -1,14 +1,14 @@
-<div id="related_posts" class="sidebar-box">
-  <h2 class="border">Related Posts</h2>
+<div id="recent_posts" class="sidebar-box">
+  <h2 class="border">Recent Posts</h2>
   <div class="entry">
-    <% if Post.related(post) %>
+    <% if Post.recent %>
     <ul>
-      <% Post.related(post).each do |p| %>
+      <% Post.recent.each do |p| %>
         <li><%= link_to p.title, post_path(p) %></li>
       <% end %>
     </ul>
     <% else %>
-      <p>There are no related posts :(</p>
+      <p>There are no posts :(</p>
       <p>Perhaps you can check our <%= link_to 'Twitter', 'http://twitter.com/gnomeslab' %>!</p>
     <% end %>
   </div>

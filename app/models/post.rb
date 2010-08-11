@@ -35,6 +35,26 @@ class Post < ActiveRecord::Base
   def self.tag_cloud(limit = 40)
     Post.tag_counts_on(:tags).limit(limit)
   end
+  
+  # returns the 5 most recent posts
+  #
+  # this method relies on the scope :latest
+  #
+  # View example: (on recent posts partial)
+  #   <% recent.each do |p| %>
+  def self.recent(limit = 5)
+    self.latest.limit(limit)
+  end # end recent (posts)
+
+  # when given a post it will return 5 most popular related posts
+  #
+  # this method relies on the scope :popular which depends on the method increment to work.
+  #
+  # View example: (on related posts partial)
+  #   <% related(post).each do |p| %>
+  def self.related(post, limit = 5)
+    self.popular.tagged_with([post.tag_list], :any => true).limit(limit)
+  end # end related (posts)
 
   # Public instance methods
   #
