@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100805233710) do
+ActiveRecord::Schema.define(:version => 20100811222238) do
 
   create_table "categories", :force => true do |t|
     t.string   "name",                          :null => false
@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(:version => 20100805233710) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id", :null => false
+    t.text     "description", :null => false
+    t.string   "url",         :null => false
   end
 
   add_index "projects", ["category_id"], :name => "index_projects_on_category_id"
