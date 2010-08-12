@@ -4,7 +4,7 @@ Given /^I am(.*)signed in$/ do |type|
 
     visit('/users/sign_in')
     fill_in("user_email", :with => user.email)
-    fill_in("user_password", :with => user.password)
+    fill_in("user_password", :with => '123456')
     click_button("Sign in")
   else
     visit('/users/sign_out')

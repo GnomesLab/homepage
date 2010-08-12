@@ -1,4 +1,4 @@
-@wip
+@crystal
 Feature: login page
   In order to mantain the website
   We need a login page
@@ -9,10 +9,8 @@ Feature: login page
     And I have an account
 
   Scenario: logging in an account
-    And I am not signed in
-    When I fill in "Email" with "john1@doe.com"
-    And I fill in "Password" with "123456"
-    And I press "Sign in"
+    Given I am not signed in
+    When I am signed in
     Then I should see "Signed in successfully."
   
   Scenario: invalid email
