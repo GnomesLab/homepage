@@ -1,9 +1,9 @@
 <div class="sidebar-box categories">
   <h2 class="border">Categories</h2>
-  <% if @categories.present? %>
+  <% if Category.count %>
   <ul class="fixlast">
-    <% @categories.each_with_index do |c, i| %>
-      <%= content_tag :li, link_to(c.name, c), :class => (i == @categories.count-1 ? 'last' : nil)%>
+    <% Category.ordered_by_name.each_with_index do |c, i| %>
+      <%= content_tag :li, link_to(c.name, c), :class => (i == Category.count-1 ? 'last' : nil) %>
     <% end %>
   </ul>
   <% end %>

@@ -39,7 +39,6 @@ Then /^the list should contain the titles with the respective links of each proj
 
     title.should_not be_nil
     title.text.should == p.title
-    pending
     test_click title
   end
 end

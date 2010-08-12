@@ -8,10 +8,12 @@ class Project < ActiveRecord::Base
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true
 
   # validations
-  validates :title,    :presence => true
-  validates :subtitle, :presence => true
-  validates :date,     :presence => true
-  validates :category, :presence => true, :associated => true
+  validates :title,       :presence => true
+  validates :subtitle,    :presence => true
+  validates :description, :presence => true
+  validates :date,        :presence => true
+  validates :url,         :presence => true, :format => URI::regexp(%w(http https))
+  validates :category,    :presence => true, :associated => true
 
   # pagination
   cattr_reader :per_page

@@ -26,6 +26,28 @@ context Project do
       end
     end # subtitle
 
+    describe "description" do
+      it "is a required attribute" do
+        subject.description = nil
+        subject.should_not be_valid
+        subject.errors.should include :description
+      end
+    end # description
+
+    describe "url" do
+      it "is a required attribute" do
+        subject.url = nil
+        subject.should_not be_valid
+        subject.errors.should include :url
+      end
+      
+      it "must be a complete url" do
+        subject.url = 'www.dummy-url.com'
+        subject.should_not be_valid
+        subject.errors.should include :url
+      end
+    end # url
+
     describe "date" do
       it "is a required attribute" do
         subject.date = nil

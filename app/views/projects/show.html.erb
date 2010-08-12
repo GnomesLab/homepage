@@ -1,37 +1,15 @@
 <h2 class="border">
-  <small class="right"><a href="projects.html">Microsites</a> / December 16, 2009</small>
-  Project name
+  <small class="right"><%= l @project.date, :format => :long %></small>
+  <%= @project.title %>
 </h2>
 
 <%= render 'breadcrumb' %>
-
-<!-- Project Slider -->
-<div class="project-slider">
-  <div class="project-slider-holder">
-    <ul>
-        <li><a href="#"><img src="../images/content/project-big.jpg" alt="" /></a></li>
-        <li><a href="#"><img src="../images/content/project-big.jpg" alt="" /></a></li>
-        <li><a href="#"><img src="../images/content/project-big.jpg" alt="" /></a></li>
-        <li><a href="#"><img src="../images/content/project-big.jpg" alt="" /></a></li>
-        <li><a href="#"><img src="../images/content/project-big.jpg" alt="" /></a></li>
-    </ul>
-  </div>
-  <div class="slider-nav">
-    <a href="#" class="prev">previous</a>
-    <a href="#" class="next">next</a>
-  </div>
-</div>
-<!-- End Project Slider -->
+<%= render 'previews' %>
 
 <!-- Project Info -->
 <div class="entry">
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ipsum arcu, ultrices a gravida et, scelerisque vitae libero. Praesent id justo leo. Ut non metus non libero varius rutrum eu eget felis. Sed et est vitae orci imperdiet imperdiet.</p>
-  
-  <p>Pellentesque tincidunt libero vitae mi porttitor ut congue sapien luctus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus eu sem massa. Fusce vel risus leo. Nulla ut purus nulla, at ultrices nulla.</p>
-  
-  <p>Cras sodales facilisis accumsan. Nulla facilisi. Pellentesque ut eros a lectus convallis dictum. Donec cursus facilisis est ut sagittis. Nullam et lorem odio. Mauris quis lectus nec libero accumsan eleifend sed ut est. Sed nec vestibulum tortor. </p>
-  
-  <p class="nav"><a href="projects.html">Back to the List</a><span>|</span><a href="http://chocotemplates.com">Launch the Site</a></p>
+  <%= @project.description %>
+  <%= content_tag :p, link_to('Launch the Site', @project.url), :class => 'nav' %>
 </div>
 <!-- End Project Info -->
 
