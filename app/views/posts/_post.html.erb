@@ -20,16 +20,12 @@
         <% end %>
       </p>
     </div>
-    <span id='comments' class="right">
+    <div id='comments' class="right">
       <a href="blog-detailed.html" class="gray">Comments: 0</a>
       <% if user_signed_in? %>
-        <p><%= link_to "Edit", edit_post_path(post) %></p>
+        <p><%= link_to "Edit post", edit_post_path(post) %></p>
       <% end %>
-    </span>
-    <div class="cl">&nbsp;</div>
-    
-    <div>
-      <br />
+      
       <%= button_to 'Delete', post,
                     :method => :delete,
                     :class => 'button',
@@ -37,6 +33,7 @@
                     :title => 'Delete the selected post.',
                     'data-disable-with' => 'Deleting...' %>
     </div>
+    <div class="cl">&nbsp;</div>
   </div>
   <div class="spacer">&nbsp;</div>
 <% end %>
