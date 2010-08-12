@@ -121,7 +121,7 @@
 <!-- End Comments -->
 
 <%= content_for :sidebar do %>
-  <%= render :partial => 'shared/content_box/related_post', :locals => { :post => @post } %>
-  <%= render :partial => 'shared/content_box/popular_post' %>
-  <%= render :partial => 'shared/content_box/recent_comments' %>
+  <%= render 'shared/content_box/related_post', :collection => @post.related %>
+  <%= render 'shared/content_box/popular_post' %>
+  <%= render 'shared/content_box/recent_comments' %>
 <% end %>

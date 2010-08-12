@@ -2,11 +2,11 @@
   <h2 class="border">Popular Posts</h2>
   <div class="entry">
     <% if Post.popular %>
-    <ul>
+      <ul>
       <% Post.popular.each do |post| %>
         <li><%= link_to post.title, post %></li>
       <% end %>
-    </ul>
+      </ul>
     <% else %>
       <p>There are no posts :(</p>
       <p>Perhaps you can check our <%= link_to 'Twitter', 'http://twitter.com/gnomeslab' %>!</p>

@@ -1,4 +1,4 @@
-@wip
+@wip @pdc
 Feature: view post and comments
   In order to allow our visitors to read a post with more detail
   Gnomeslab website provides them with a post view page.
@@ -6,7 +6,7 @@ Feature: view post and comments
   Furthermore, we allow our visitors to engage with the content through the use of the new comment feature.
   
   Background:
-    And There are 10 posts
+    Given There are 10 posts
     And I am on the view post page
 
   Scenario: page header

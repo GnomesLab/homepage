@@ -23,7 +23,8 @@
     <span id='comments' class="right">
       <a href="blog-detailed.html" class="gray">Comments: 0</a>
       <% if user_signed_in? %>
-        </p>Destroy? <%= link_to "Edit", edit_post_path(post) %>?</p>
+        <p><%= link_to 'Destroy', post, :method => :delete %>? 
+        <%= link_to "Edit", edit_post_path(post) %>?</p>
       <% end %>
     </span>
     <div class="cl">&nbsp;</div>

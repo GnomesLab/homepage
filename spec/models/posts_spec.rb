@@ -97,7 +97,7 @@ context Post do
     describe "related posts" do
       it "should return the 5 most popular related posts" do
         post = Post.first
-        related_posts = Post.related(post)
+        related_posts = post.related
         related_posts.should be_a_kind_of ActiveRecord::Relation
         related_posts.length.should == 5
         related_posts.first.views.should >= related_posts.last.views

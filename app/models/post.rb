@@ -46,14 +46,14 @@ class Post < ActiveRecord::Base
     self.latest.limit(limit)
   end # end recent (posts)
 
-  # when given a post it will return 5 most popular related posts
+  # returns up to 5 related posts
   #
   # this method relies on the scope :popular which depends on the method increment to work.
   #
   # View example: (on related posts partial)
-  #   <% related(post).each do |p| %>
-  def self.related(post, limit = 5)
-    self.popular.tagged_with([post.tag_list], :any => true).limit(limit)
+  #   <%  post.related %>
+  def related(limit = 5)
+    self.find_related_tags.popular(limit)
   end # end related (posts)
 
   # Public instance methods

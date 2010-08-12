@@ -72,8 +72,11 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:notice] = "Hasta la vista post!"
-    redirect_to posts_url
+    
+    respond_to do |format|
+      format.html { redirect_to(blog_path) }
+      format.xml  { head :ok }
+    end
   end
 
   # GET /post/tagged/:tag_name
