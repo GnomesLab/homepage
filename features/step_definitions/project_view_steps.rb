@@ -9,13 +9,11 @@ Given /^the project has ([0-9]*) images?$/ do |n|
 end
 
 Given /^the project has more than ([0-9]*) image?$/ do |n|
-  @project.images.count.should > n.to_i
+  ((n.to_i+1) - @project.images.count).times { Factory.create(:image, :project => @project) }
 end
 
 Given /^the project has less than ([0-9]*) image?$/ do |n|
-  while @project.images.count >= n.to_i
-    @project.images.last.delete
-  end
+  ((@project.images.count+1) - n.to_i).times { @project.images.last.delete }
 end
 
 Then /^the breadcrumb should contain a link to the current project$/ do

@@ -40,11 +40,20 @@ context Project do
         subject.should_not be_valid
         subject.errors.should include :url
       end
-      
-      it "must be a complete url" do
-        subject.url = 'www.dummy-url.com'
-        subject.should_not be_valid
-        subject.errors.should include :url
+
+      it "should use http protocol by default" do
+        subject.url = 'www.gnomeslab.com'
+        subject.url.should == 'http://www.gnomeslab.com'
+      end
+
+      it "should preserve a http url" do
+        subject.url = 'http://www.gnomeslab.com'
+        subject.url.should == 'http://www.gnomeslab.com'
+      end
+
+      it "should preserve a https url" do
+        subject.url = 'https://backoffice.gnomeslab.com'
+        subject.url.should == 'https://backoffice.gnomeslab.com'
       end
     end # url
 
