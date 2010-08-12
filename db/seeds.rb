@@ -15,6 +15,12 @@ pedro_coutinho.email = 'pdcoutinho@gmail.com'
 pedro_coutinho.password = '111111'
 pedro_coutinho.save!
 
+miguel_teixeira          = User.new
+miguel_teixeira.name     = 'Miguel Teixeira'
+miguel_teixeira.email    = 'miguelfteixeira@gmail.com'
+miguel_teixeira.password = '1234567'
+miguel_teixeira.save!
+
 # Projects
 if Rails.env == "development"
   2.times do
