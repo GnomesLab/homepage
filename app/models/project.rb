@@ -35,4 +35,12 @@ class Project < ActiveRecord::Base
   def to_param
     self.friendly_id
   end
+
+  def url=(value)
+    unless value.nil? || value =~ /^(?:(http)|(https))\:\/\//
+      value = "http://#{value}"
+    end
+
+    self[:url] = value
+  end
 end
