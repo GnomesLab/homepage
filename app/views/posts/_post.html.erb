@@ -23,15 +23,15 @@
     <div id='comments' class="right">
       <a href="blog-detailed.html" class="gray">Comments: 0</a>
       <% if user_signed_in? %>
-        <p><%= link_to "Edit post", edit_post_path(post) %></p>
+        <p><%= link_to "Edit post", edit_post_path(post), :id => "edit_post_#{post.id}_link" %></p>
+
+        <%= button_to 'Delete', post,
+                      :method => :delete,
+                      :class => 'button',
+                      :confirm => 'Are you sure that you want to delete this post?',
+                      :title => 'Delete the selected post.',
+                      'data-disable-with' => 'Deleting...' %>
       <% end %>
-      
-      <%= button_to 'Delete', post,
-                    :method => :delete,
-                    :class => 'button',
-                    :confirm => 'Are you sure that you want to delete this post?',
-                    :title => 'Delete the selected post.',
-                    'data-disable-with' => 'Deleting...' %>
     </div>
     <div class="cl">&nbsp;</div>
   </div>

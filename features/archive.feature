@@ -28,4 +28,8 @@ Feature: Posts archive
   Scenario: Active year archived months
     Given I am on the posts page
     Then I should see the correct archive tree structure
+
+  # Scenario: View records for the selected year
+  #   Given I am on the posts page
+  #   When I follow "2010" within "#"
     

@@ -3,7 +3,7 @@ Then /^I should see the (\d+) latest posts$/ do |n|
   n.to_i.times { |i| inspect_post_html(posts[i].id, 'h2', Regexp.new(posts[i].title)) }
 end
 
-Then /^I should see (\d+) latest posts (.*)$/ do |n, attribute|
+Then /^I should see the (\d+) latest posts (.*)$/ do |n, attribute|
   posts = Post.order("updated_at desc")
 
   n.to_i.times do |i|
@@ -28,6 +28,19 @@ Then /^I should see (\d+) latest posts (.*)$/ do |n, attribute|
       inspect_post_html posts[i].id, '#comments p a', Regexp.new("Edit post")
     else
       inspect_post_html posts[i].id, 'h2', Regexp.new(ERB::Util.h(posts[i].send(attribute.to_sym)))
+    end
+  end
+end
+
+Then /^I should not see the (\d+) latest posts (.*)$/ do |n, attribute|
+  posts = Post.order("updated_at desc")
+
+  n.to_i.times do |i|
+    case attribute
+    when "delete button"
+      find("#posts #post_#{posts[i].id} form input.button").should be_nil
+    when "edit link"
+      find("#posts #post_#{posts[i].id} #comments p a#edit_post_#{posts[i].id}_link").should be_nil
     end
   end
 end

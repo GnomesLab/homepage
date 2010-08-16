@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.0.rc'
-gem 'mysql', '>= 2.8.1'
+gem 'mysql2'
 gem "devise", :git => 'git://github.com/plataformatec/devise.git'
 gem 'will_paginate', '~> 3.0.pre2'
 gem "friendly_id", '~> 3.1'
