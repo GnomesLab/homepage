@@ -21,10 +21,10 @@ class Post < ActiveRecord::Base
 
   # Public class methods
   #
-  # Returns the list of tags (+ActsAsTaggableOn::Tag+) associated with the Post model.
+  # Returns the list of tags (ActsAsTaggableOn::Tag) associated with the Post model.
   #
   # Default behavior
-  #   * Returns an array of +ActsAsTaggableOn::Tag+
+  #   * Returns an array of ActsAsTaggableOn::Tag
   #   * The default tag count limit is 40
   #
   # Generic example:

@@ -22,3 +22,7 @@ Then /^I should see the correct archive tree structure$/ do
          "//div[@id='archives']/ul/li[@class='active']/ul/li[#{i + 1}]").text.should == expected_value
   end
 end
+
+When /^I follow the active year archive link$/ do
+  find("#archives ul li.active a[2]").click
+end

@@ -58,4 +58,18 @@ context ApplicationHelper do
     end
 
   end # draw tag cloud
+
+  describe "friendly_post_path" do
+
+    it "makes falls back to ApplicationController#friendly_post_path" do
+      post = Factory.create :post, :created_at => Date.new(2010, 1, 1)
+      expected_path = "/blog/2010/01/#{post.id.to_s}-w"
+
+      helper.controller.stub!(:friendly_post_path).and_return expected_path
+      helper.controller.should_receive(:friendly_post_path).with(post).and_return expected_path
+
+      helper.controller.friendly_post_path post
+    end
+
+  end # end
 end

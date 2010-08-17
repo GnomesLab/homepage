@@ -45,4 +45,11 @@ module ApplicationHelper
 
     raw cloud.join(' ')
   end
+
+  # Generates a friendly url path for a given instance of +Post+
+  #
+  # This method falls back to ApplicationController#friendly_post_path
+  def friendly_post_path(post = nil)
+    self.controller.friendly_post_path post
+  end
 end

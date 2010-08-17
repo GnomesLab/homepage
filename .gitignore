@@ -6,3 +6,5 @@ tmp/**/*
 capybara*.html
 .DS_Store
 public/**/.DS_Store
+doc/**/*
+!.gitignore
