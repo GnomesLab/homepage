@@ -52,4 +52,17 @@ module ApplicationHelper
   def friendly_post_path(post = nil)
     self.controller.friendly_post_path post
   end
+
+  # Paginates a collection of records using the will_paginate them.
+  #
+  # Effectively, this method only applies the site specific costumizations to will_paginate look & feel.
+  def paginate_records(collection = [], params = {})
+    return '' unless collection.is_a?(WillPaginate::Collection) && collection.any?
+
+    raw will_paginate(collection,
+                      :previous_label => '&lt; Prev',
+                      :next_label => 'Next &gt;',
+                      :separator => '<span>|</span>',
+                      :params => params)
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100811222238) do
+ActiveRecord::Schema.define(:version => 20100817232032) do
 
   create_table "categories", :force => true do |t|
     t.string   "name",                          :null => false
@@ -43,16 +43,17 @@ ActiveRecord::Schema.define(:version => 20100811222238) do
   end
 
   create_table "posts", :force => true do |t|
-    t.string   "title",                         :null => false
-    t.integer  "user_id",                       :null => false
-    t.text     "body",                          :null => false
-    t.boolean  "visible",    :default => false
-    t.integer  "views",      :default => 0,     :null => false
+    t.string   "title",                       :null => false
+    t.integer  "user_id",                     :null => false
+    t.text     "body",                        :null => false
+    t.integer  "views",        :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "published_at"
   end
 
   add_index "posts", ["created_at"], :name => "index_posts_on_created_at"
+  add_index "posts", ["published_at"], :name => "index_posts_on_published_at"
 
   create_table "projects", :force => true do |t|
     t.string   "title",       :null => false

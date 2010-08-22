@@ -1,7 +1,11 @@
 Given /^There (?:are|is) (\d+) (.+)$/ do |n, name|
+
   n.to_i.times do |i|
-    Factory.create(name.gsub(/\s/, '_').singularize.to_sym)
+    model_sym = name.gsub(/\s/, '_').singularize.to_sym
+
+    model_sym == :post ? Factory.create(:published_post) : Factory.create(model_sym)
   end
+
 end
 
 #

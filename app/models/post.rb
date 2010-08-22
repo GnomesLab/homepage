@@ -11,13 +11,17 @@ class Post < ActiveRecord::Base
   validates :body, :presence => true, :length => { :minimum => 3 }
   validates :title, :presence => true, :length => { :within => 3..35 }
 
+  # Attribute accessibility
+  attr_accessible :user_id, :title, :body, :tag_list
+
   # Pagination
   cattr_reader :per_page
   @@per_page = 2
 
   # Scopes
-  scope :latest, order('id desc')
-  scope :popular, lambda { |l = 5| order('views desc').limit(l) }
+  scope :latest, order('published_at DESC')
+  scope :published, where('published_at IS NOT NULL')
+  scope :popular, lambda { |l = 5| order('views DESC').limit(l) }
 
   # Public class methods
   #
@@ -35,7 +39,7 @@ class Post < ActiveRecord::Base
   def self.tag_cloud(limit = 40)
     Post.tag_counts_on(:tags).limit(limit)
   end
-  
+
   # returns the 5 most recent posts
   #
   # this method relies on the scope :latest
@@ -80,4 +84,34 @@ class Post < ActiveRecord::Base
     safe_body.filter_html = true
     safe_body.to_html
   end
+
+  # Publishes a new or existing record.
+  #
+  # Default behavior:
+  # * If the record is a new record it will save it and then publish it
+  # * This method is not destructhive, thus it _always_ returns true or false and never an exception
+  # * Records that have already been published will _not_ re-published. In such cases +true+ will be returned
+  #
+  # Example:
+  #  Post.first.publish #=> true
+  def publish
+    return true if self.published_at
+
+    if self.new_record?
+      return false unless self.save
+    end
+
+    self.published_at = Time.now
+    self.save
+  end
+
+  # Returns true or false, depending if the record has already been published or not.
+  #
+  # Example
+  #  post = Post.first.publish
+  #  post.published? #=> true
+  def published?
+    self.published_at.present?
+  end
+
 end

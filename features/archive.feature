@@ -1,3 +1,4 @@
+@dba
 Feature: Posts archive
   In order to make it easier for our visitors to find the posts they are looking for
   GnomesLab catalogs its entries by date in its archive, allowing its visitors to browse all entries by year and month
@@ -28,7 +29,6 @@ Feature: Posts archive
     Given I am on the posts page
     Then I should see the correct archive tree structure
 
-@dba
   Scenario: View records for the selected year
     Given I am on the posts page
     When I follow the active year archive link

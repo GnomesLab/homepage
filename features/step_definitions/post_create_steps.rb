@@ -8,5 +8,5 @@ end
 
 Given /^I fill the post form$/ do
   fill_in("Title", :with => @post.title)
-  fill_in("Text", :with => @post.body)
+  fill_in("Text",  :with => @post.body)
 end

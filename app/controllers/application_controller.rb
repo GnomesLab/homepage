@@ -14,9 +14,8 @@ class ApplicationController < ActionController::Base
   def friendly_post_path(post = nil)
     return nil unless post.is_a? Post
 
-    # FIXME: change from created_at to published_at
     friendly_post_show_path post.created_at.year,
-      post.created_at.month < 10 ? "0#{post.created_at.month.to_s}" : post.created_at.month.to_s,
+      post.published_at.month < 10 ? "0#{post.published_at.month.to_s}" : post.published_at.month.to_s,
       "#{post.id.to_s}-w"
   end
 end

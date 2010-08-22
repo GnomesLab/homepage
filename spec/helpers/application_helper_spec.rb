@@ -72,4 +72,15 @@ context ApplicationHelper do
     end
 
   end # end
+
+  describe "paginate records" do
+    it "returns an empty string by default" do
+      helper.paginate_records([]).should == ''
+    end
+
+    it "accepts a parameters hash" do
+      helper.paginate_records([], { :controller => 'categories', :action => 'show' }).should == ''
+    end
+
+  end # paginate_records
 end

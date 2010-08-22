@@ -1,24 +1,36 @@
 class PostsController < ApplicationController
+  # Filters
   before_filter :authenticate_user!, :only => [:create, :edit, :update, :destroy]
 
+  # Responders
   respond_to :html
 
+  # Public actions
+
   # GET /blog
-  # GET /posts
+  #
+  # Redirects:
+  #   * Requests matching /^\/posts(\/?)$/ will be permanently redirected to the blog_path
   def index
-    if user_signed_in?
-      @posts = Post.order("updated_at desc").paginate :page => params[:page], :per_page => Post.per_page
-    else
-      @posts = Post.where(:visible => true).order("updated_at desc").paginate :page => params[:page],
-        :per_page => Post.per_page
-    end
+    return redirect_to blog_path, :status => 301 if request.path =~ /^\/posts(\/?)$/ && flash.empty?
+
+    @posts = user_signed_in? ? Post.latest : Post.published.latest
+    @posts = @posts.paginate :page => params[:page], :per_page => Post.per_page
 
     respond_with @posts
   end
 
   # GET /posts/:id
+  #
+  # Redirects:
+  #   * Requests matching /^\/posts\/\d.+$/ will be permanently redirect to the corresponding friendly_post_path
   def show
     @post = Post.find(params[:id]) || Post.last
+
+    if request.path =~ /^\/posts\/\d.+$/ && flash.empty?
+      return redirect_to friendly_post_path(@post), :status => 301
+    end
+
     @post.increment
 
     respond_with @post
@@ -36,20 +48,19 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
     @post.user = current_user
 
-    # FIXME: respond_with
     if @post.save
-      redirect_to blog_path
-      flash[:notice] = "The post was successfully created"
+      flash[:notice] = "Post was successfully created."
     else
-      flash.now[:error] = "Oops! Your message could not be sent.
-       Please check your input and try again."
-      render :new
+      flash[:error] = "Oops! Your post could not be created."
     end
+
+    respond_with @post
   end
 
   # GET /post/:id/edit
   def edit
     @post = Post.find(params[:id])
+
     respond_with @post
   end
 
@@ -57,32 +68,20 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
 
-    # FIXME: respond_with
-    respond_to do |format|
-      if @post.update_attributes(params[:post])
-        format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
-      else
-        format.html { render :action => "edit" }
-      end
-    end
+    respond_with @post
   end
 
   # DELETE /post/:id
-  # FIXME: null exception
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    
-    respond_to do |format|
-      format.html { redirect_to(blog_path) }
-      format.xml  { head :ok }
-    end
+    Post.find(params[:id]).try(:destroy)
+
+    redirect_to blog_path
   end
 
   # GET /post/tagged/:tag_name
   #
   # FIXME: remove the @title
-  def tags
+  def tagged
     @title = ActsAsTaggableOn::Tag.find_by_name params[:tag_name]
     @posts = Post.tagged_with(params[:tag_name]).latest.paginate :page => params[:page], :per_page => Post.per_page
 

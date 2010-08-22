@@ -2,18 +2,17 @@ require 'spec_helper'
 
 context ApplicationController do
 
-  base_path = '/blog'
-
   describe "friendly post path" do
+    base_path = '/blog'
 
     it "defaults to nil" do
       controller.friendly_post_path.should be_nil
     end
 
     it "accepts a post record" do
-      post = Factory.create(:post, :created_at => Date.new(2010, 1, 1))
+      post = Factory.create(:published_post)
 
-      controller.friendly_post_path(post).should == "/blog/2010/01/#{post.id.to_s}-w"
+      controller.friendly_post_path(post).should match /^\/blog\/201\d\/(0[1-9]|1[012])\/\d.+$/
     end
 
     it "rejects all other parameter types" do

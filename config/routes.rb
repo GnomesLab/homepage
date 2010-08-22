@@ -24,7 +24,7 @@ Homepage::Application.routes.draw do
       :as => "post_published_at",
       :constraints => { :year => /201\d/, :month => /(0[1-9]|1[012])/ }
 
-  get 'posts/tagged/:tag_name' => 'posts#tags', :as => "post_tags"
+  get 'posts/tagged/:tag_name' => 'posts#tagged', :as => "post_tags"
 
   resources :posts
 

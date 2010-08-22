@@ -1,10 +1,11 @@
 Then /^I should see the (\d+) latest posts$/ do |n|
-  posts = Post.order("updated_at desc")
+  posts = Post.published.latest
+
   n.to_i.times { |i| inspect_post_html(posts[i].id, 'h2', Regexp.new(posts[i].title)) }
 end
 
 Then /^I should see the (\d+) latest posts (.*)$/ do |n, attribute|
-  posts = Post.order("updated_at desc")
+  posts = Post.published.latest
 
   n.to_i.times do |i|
     case attribute
@@ -33,7 +34,7 @@ Then /^I should see the (\d+) latest posts (.*)$/ do |n, attribute|
 end
 
 Then /^I should not see the (\d+) latest posts (.*)$/ do |n, attribute|
-  posts = Post.order("updated_at desc")
+  posts = Post.published.latest
 
   n.to_i.times do |i|
     case attribute
@@ -46,7 +47,7 @@ Then /^I should not see the (\d+) latest posts (.*)$/ do |n, attribute|
 end
 
 Then /^I should see the posts paginator$/ do
-  posts = Post.latest
+  posts = Post.published.latest
   position = find("#posts div.pagination").text =~ Regexp.new("< Prev|1|2|3|4|5|Next >")
   position.should == 0
 end
@@ -57,7 +58,7 @@ Then /^I should see the recent posts title$/ do
 end
 
 Then /^I should see the (\d+) most recent post titles$/ do |n|
-  post = Post.latest
+  post = Post.published.latest
 
   n.to_i.times do |i|
     regexp = Regexp.new(ERB::Util.h(post[i].title))
@@ -73,7 +74,7 @@ Then /^I should see the popular posts title$/ do
 end
 
 Then /^I should see the (\d+) most popular post titles$/ do |n|
-  post = Post.latest
+  post = Post.published.latest
 
   n.to_i.times do |i|
     regexp = Regexp.new(ERB::Util.h(post[i].title))

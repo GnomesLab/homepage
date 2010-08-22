@@ -11,6 +11,14 @@ context Post do
     end
   end
 
+  describe "accessible attributes" do
+
+    it "defines the attributes that are mass assignable" do
+      Post._accessible_attributes.to_a == ["user_id", "title", "body", "tag_list"]
+    end
+
+  end # attr_accessible
+
   describe "validations" do
 
     it "recognises valid input data" do
@@ -84,6 +92,14 @@ context Post do
         Post.order('id desc').first.id == Post.latest.first.id
       end
     end # latest posts
+
+    describe "published" do
+      it "should only return the posts that have been published" do
+        Post.first.publish
+
+        Post.published == Array(Post.first)
+      end
+    end
 
     describe "popular posts" do
       it "should return the 5 most popular posts" do
@@ -186,5 +202,44 @@ context Post do
     end
 
   end # html_safe_body
+
+  describe "post publishing" do
+
+    it "allows you to easely publish" do
+      subject.publish.should be_true
+    end
+
+    it "has a published at date time" do
+      subject.published_at.should be_nil
+      subject.publish
+      subject.published_at.should be_a_kind_of Time
+    end
+
+    it "returns false when asked if a new record has already been published" do
+      subject.should_not be_published
+    end
+
+    it "only states that a post is published when it such setting has been explicitly defined" do
+      subject.save
+      subject.should_not be_published
+      subject.publish
+      subject.should be_published
+    end
+
+    it "saves a new record when asked to publish it" do
+      subject.should be_new_record
+      subject.publish
+      subject.should_not be_new_record
+      subject.should be_published
+    end
+
+    it "returns true but doesn't update the published at date if the record has already been published" do
+      subject.publish
+      expected = subject.published_at
+      subject.publish.should be_true
+      subject.published_at.should == expected
+    end
+
+  end # publish
 
 end

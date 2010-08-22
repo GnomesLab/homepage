@@ -21,8 +21,9 @@ miguel_teixeira.email    = 'miguelfteixeira@gmail.com'
 miguel_teixeira.password = '1234567'
 miguel_teixeira.save!
 
-# Projects
+# Development seed
 if Rails.env == "development"
+  # Projects
   2.times do
     c = Factory.create(:category)
     6.times do
@@ -30,9 +31,7 @@ if Rails.env == "development"
       2.times { Factory.create(:image, :project => p) }
     end
   end
-end
 
-# Posts (blog)
-if Rails.env == "development"
-  10.times { Factory.create(:post) }
+  # Blog posts
+  10.times { Factory.create(:published_post) }
 end
