@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/GnomesLab/archive_tree.git
-  revision: 10250e0ba62aee66a6851294b4aa95dd56151123
+  revision: 10250e0
   specs:
     archive_tree (1.0.0.alpha.3)
       activerecord (>= 3.0.0.rc)
