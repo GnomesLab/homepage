@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.0.0.rc'
+gem 'rails', '~> 3.0'
 gem 'mysql2', '~> 0.2'
 gem "devise", '~> 1.1'
 gem 'will_paginate', '~> 3.0.pre2'
