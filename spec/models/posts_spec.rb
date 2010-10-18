@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-context Post do
+describe Post do
 
   subject { Factory.build(:post) }
 

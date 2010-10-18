@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-context Project do
+describe Project do
 
   subject { Factory.build(:project) }
 

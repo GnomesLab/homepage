@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-context Category do
+describe Category do
 
   subject { Factory.build(:category) }
 

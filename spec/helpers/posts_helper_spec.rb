@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-context PostsHelper do
+describe PostsHelper do
 
   describe "draw archive tree" do
 

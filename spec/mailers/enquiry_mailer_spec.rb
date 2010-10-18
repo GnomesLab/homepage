@@ -1,6 +1,6 @@
 require "spec_helper"
 
-context EnquiryMailer do
+describe EnquiryMailer do
 
   describe "contact email" do
 

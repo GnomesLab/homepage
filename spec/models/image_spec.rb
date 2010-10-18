@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-context Image do
+describe Image do
 
   subject { Factory.build(:image) }
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-context ApplicationHelper do
+describe ApplicationHelper do
   describe "page title" do
     it "returns gnomeslab by default" do
       title.should == 'Gnomeslab'

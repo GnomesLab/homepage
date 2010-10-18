@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-context Enquiry do
+describe Enquiry do
 
   subject { Factory.build(:enquiry) }
 
