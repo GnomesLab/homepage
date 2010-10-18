@@ -29,9 +29,9 @@ Homepage::Application.routes.draw do
   resources :posts
 
   # Projects
-  get '/projects/:category_id/:project_id' => 'projects#show', :as => :project
-  get '/projects/:category_id' => 'categories#show', :as => :category
-  get '/projects/' => 'projects#index', :as => :projects
+  # get '/projects/:category_id/:project_id' => 'projects#show', :as => :project
+  # get '/projects/:category_id' => 'categories#show', :as => :category
+  # get '/projects/' => 'projects#index', :as => :projects
 
   # Root path
   root :to => "static_pages#home"
