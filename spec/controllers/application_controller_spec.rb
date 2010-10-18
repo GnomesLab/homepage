@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-context ApplicationController do
+describe ApplicationController do
 
   describe "friendly post path" do
     base_path = '/blog'

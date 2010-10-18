@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-context User do
+describe User do
 
   subject { Factory.build(:user) }
 
