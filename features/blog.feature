@@ -33,11 +33,11 @@ Feature: blog page
 
   Scenario: paginator
     Then I should see the posts paginator
-    
+
   Scenario: recent posts
     Then I should see the recent posts title
     And I should see the 5 most recent post titles
-    
+
   Scenario: popular posts
     Then I should see the popular posts title
     And I should see the 5 most popular post titles
