@@ -1,4 +1,4 @@
-@crystal
+@pdc
 Feature: about gnomeslab
   As a visitor of the gnomeslab website
   I should have an informative page about the company

@@ -5,7 +5,7 @@ Then /^I should see the generic header$/ do
   page.should have_content("Home")
   page.should have_content('About')
   page.should have_content('Services')
-  page.should have_content('Projects')
+  # page.should have_content('Projects')
   page.should have_content('Blog')
   page.should have_content('Contact')
 end
@@ -18,9 +18,9 @@ Then /^I should click the generic header$/ do
   { 1 => 'Who are we?', # home
     2 => 'About us',
     3 => 'Services',
-    4 => 'Projects',
-    5 => 'Popular Posts',
-    6 => 'Feedback' }.each { |k,v| top_menu_clicker(k,v) }
+    # 4 => 'Projects',
+    4 => 'Popular Posts',
+    5 => 'Feedback' }.each { |k,v| top_menu_clicker(k,v) }
 end
 
 def top_menu_clicker(index = 0, content = nil)
