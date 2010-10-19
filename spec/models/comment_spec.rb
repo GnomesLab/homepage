@@ -87,6 +87,26 @@ describe Comment do
     end # post
   end # validations
 
+  describe "named scopes" do
+    before :each do
+      post = Factory.create(:post)
+      5.times { |i| Factory.create(:comment, :post => post) }
+      5.times { |i| Factory.create(:comment, :post => post, :parent => Comment.first) }
+    end
+
+    describe "first level" do
+      it "should only return comments without parent" do
+        Comment.first_level.each { |c| c.parent.should be_nil }
+      end
+    end # first level
+
+    describe "second level" do
+      it "should only return comments with the specified parent" do
+        Comment.second_level(Comment.first).each { |c| c.parent.should == Comment.first }
+      end
+    end # second level
+  end # named scopes
+
   describe "dependecies" do
     describe "post" do
       it "must be destroyed with the post" do

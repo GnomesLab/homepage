@@ -286,6 +286,7 @@ p.nav span{ color:#999; padding:0 6px;}
 .comment-list .comment-meta strong{ display:block; font-size:20px; line-height:20px; color:#000; }
 .comment-list .comment-meta a{ color:#000; text-decoration: none;}
 .comment-list .comment-meta a:hover{ color:#00aeef; }
+.comment-list .comment-meta .comment-creator { color: #000; }
 
 .comment-list .entry { float:right; width:490px; line-height:18px; }
 .comment-list .entry p{ padding-bottom:6px;}

@@ -11,45 +11,19 @@
   <a href="#submit-comment" class="right">Write a comment</a>
   <h4 class="comments-count"><%= pluralize(@post.comments_count, 'Comment') %></h4>
   
+  <% if @post.comments.present? %>
   <!-- Comment List -->
   <div class="comment-list">
     <ol>
-        
-        <li>
-          <div class="cl">&nbsp;</div>
-          <div class="comment-meta">
-            <strong>2.</strong>
-            by <a href="#">John Smithon</a><br />
-            Mar 03, 2010 at 1.:23pm
-          </div>
-        <div class="entry">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum, neque ut imperdiet pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. Aliquam ac congue nunc. Mauris a tortor ut massa egestas tempus. </p>
-            <p><a href="#">Reply</a></p>
-          </div>
-          <div class="cl">&nbsp;</div>
-          
-          <ol>
-            <li>
-              <div class="cl">&nbsp;</div>
-              <div class="comment-meta">
-                by <a href="#">John Smithon</a><br />
-                Mar 03, 2010 at 1.:23pm
-              </div>
-            <div class="entry">
-                <p>Lorem ipsum dolor sit amet, congue nunc. Mauris a tortor ut massa egestas tempus. </p>
-                <p><a href="#">Reply</a></p>
-              </div>
-              <div class="cl">&nbsp;</div>
-            </li>
-            
-        </ol>
-          
-        </li>
-        
+      <% @post.comments.first_level.each_index do |idx| %>
+      <%= render :partial => 'comments/comment',
+                 :locals => { :idx => idx, :comment => @post.comments.first_level[idx] } %>
+      <% end %>
     </ol>
   </div>
   <!-- End Comment List -->
-  
+  <% end %>
+
   <!-- Comment Form -->
   <div class="comment-form form" id="submit-comment">
     <h4>Post a Comment</h4>

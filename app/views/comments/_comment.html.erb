@@ -1,0 +1,33 @@
+<li>
+  <div class="cl">&nbsp;</div>
+  <div class="comment-meta">
+    <strong><%= comment.id %>.</strong> by
+    <% if comment.url.nil? %>
+    <%= content_tag :span, comment.name, :class => 'comment-creator' %>
+    <% else %>
+    <%= link_to comment.name, comment.url, :class => 'comment-creator' %>
+    <% end %>
+    <br />
+    <%= l comment.created_at, :format => :long %>
+  </div>
+  <div class="entry">
+    <%= content_tag :p, comment.body %>
+    <p><a href="#">Reply</a></p>
+  </div>
+  <div class="cl">&nbsp;</div>
+
+  <ol>
+    <li>
+      <div class="cl">&nbsp;</div>
+      <div class="comment-meta">
+        by <a href="#" class="comment-creator">John Smithon</a><br />
+        Mar 03, 2010 at 1.:23pm
+      </div>
+    <div class="entry">
+        <p>Lorem ipsum dolor sit amet, congue nunc. Mauris a tortor ut massa egestas tempus. </p>
+        <p><a href="#">Reply</a></p>
+      </div>
+      <div class="cl">&nbsp;</div>
+    </li>
+  </ol>
+</li>

@@ -19,6 +19,18 @@ class Comment < ActiveRecord::Base
   # callbacks
   validate :validate_parent_post, :validate_parent_tree
 
+  # scopes
+  scope :first_level, where('parent_id IS NULL')
+  scope :second_level, lambda { |p| where('parent_id = ?', p.id) }
+
+  def top_comments
+    self.comments.select { |c| c.parent.nil? }
+  end
+
+  def comment_childs(parent)
+    self.comments.select { |c| c.parent.eql?(parent) }
+  end
+
   # instance methods
   def url=(value)
     unless value.nil? || value =~ /^(?:(\S+))\:\/\//

@@ -13,13 +13,19 @@ Feature: comments on a post page
      And the comments list should contain 0 comments
 
   Scenario: the comment should have name, date, email, website and content
-    And I have a comment
-    Then I should see the creator name
-    And I should see the comment number
+    And there are 1 comment
+    And I am on the view post page
+    Then I should see the comment name
     And I should see the comment date
-    And I should not see the email
-    And I should see the creator name as a link to his website
-    And I should see the comment content
+    And I should see the comment body
+    And I should see the comment number
+    And I should see the comment name as a link to the url
+
+  Scenario: a comment may have no website
+    And there are 1 comment
+    And the comment has no url
+    And I am on the view post page
+    Then I shouldn't see the comment name as a link to the url
 
   Scenario: add comment form
     Then I should see a text area for name
