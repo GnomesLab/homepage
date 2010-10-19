@@ -37,7 +37,7 @@ class Project < ActiveRecord::Base
   end
 
   def url=(value)
-    unless value.nil? || value =~ /^(?:(http)|(https))\:\/\//
+    unless value.nil? || value =~ /^(?:(\S+))\:\/\//
       value = "http://#{value}"
     end
 

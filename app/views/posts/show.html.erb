@@ -9,24 +9,11 @@
 <!-- Comments -->
 <div class="post-comments justify" id="comments">
   <a href="#submit-comment" class="right">Write a comment</a>
-  <h4>19 Comments</h4>
+  <h4 class="comments-count"><%= pluralize(@post.comments_count, 'Comment') %></h4>
   
   <!-- Comment List -->
   <div class="comment-list">
     <ol>
-        <li>
-          <div class="cl">&nbsp;</div>
-          <div class="comment-meta">
-            <strong>1.</strong>
-            by <a href="#">John Smithon</a><br />
-            Mar 03, 2010 at 1.:23pm
-          </div>
-        <div class="entry">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum, neque ut imperdiet pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. Aliquam ac congue nunc. Mauris a tortor ut massa egestas tempus. </p>
-            <p><a href="#">Reply</a></p>
-          </div>
-          <div class="cl">&nbsp;</div>
-        </li>
         
         <li>
           <div class="cl">&nbsp;</div>
@@ -54,33 +41,9 @@
               </div>
               <div class="cl">&nbsp;</div>
             </li>
-            <li>
-              <div class="cl">&nbsp;</div>
-              <div class="comment-meta">
-                by <a href="#">John Smithon</a><br />
-                Mar 03, 2010 at 1.:23pm
-              </div>
-            <div class="entry">
-                <p>Lorem ipsum dolor sit amet, congue nunc. Mauris a tortor ut massa egestas tempus. </p>
-                <p><a href="#">Reply</a></p>
-              </div>
-              <div class="cl">&nbsp;</div>
-            </li>
+            
         </ol>
           
-        </li>
-        <li>
-          <div class="cl">&nbsp;</div>
-          <div class="comment-meta">
-            <strong>3.</strong>
-            by <a href="#">John Smithon</a><br />
-            Mar 03, 2010 at 1.:23pm
-          </div>
-        <div class="entry">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum, neque ut imperdiet pellentesque, nulla tellus tempus magna, sed consectetur orci metus a justo. Aliquam ac congue nunc. Mauris a tortor ut massa egestas tempus. </p>
-            <p><a href="#">Reply</a></p>
-          </div>
-          <div class="cl">&nbsp;</div>
         </li>
         
     </ol>

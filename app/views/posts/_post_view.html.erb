@@ -18,7 +18,7 @@
     </p>
   </div>
   <span class="right">
-    <a href="#comments" class="gray">Comments: 19</a>
+    <a href="#comments" class="gray comments-count"><%= pluralize(@post.comments_count, 'Comment') %></a>
     <% if user_signed_in? %>
       </p>Destroy? <%= link_to "Edit", edit_post_path %>?</p>
     <% end %>

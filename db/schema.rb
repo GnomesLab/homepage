@@ -1,8 +1,8 @@
-# This file is auto-generated from the current state of the database. Instead 
+# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your 
+# Note that this schema.rb definition is the authoritative source for your
 # database schema. If you need to create the application database on another
 # system, you should be using db:schema:load, not running all the migrations
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100817232032) do
+ActiveRecord::Schema.define(:version => 20101019154548) do
 
   create_table "categories", :force => true do |t|
     t.string   "name",                          :null => false
@@ -20,6 +20,22 @@ ActiveRecord::Schema.define(:version => 20100817232032) do
   end
 
   add_index "categories", ["projects_count"], :name => "index_categories_on_projects_count"
+
+  create_table "comments", :force => true do |t|
+    t.string   "name",                         :null => false
+    t.string   "email",                        :null => false
+    t.string   "url"
+    t.text     "body",                         :null => false
+    t.boolean  "visible",    :default => true, :null => false
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "post_id"
+  end
+
+  add_index "comments", ["parent_id"], :name => "index_comments_on_parent_id"
+  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+  add_index "comments", ["visible"], :name => "index_comments_on_visible"
 
   create_table "enquiries", :force => true do |t|
     t.string   "name",         :null => false
@@ -43,13 +59,14 @@ ActiveRecord::Schema.define(:version => 20100817232032) do
   end
 
   create_table "posts", :force => true do |t|
-    t.string   "title",                       :null => false
-    t.integer  "user_id",                     :null => false
-    t.text     "body",                        :null => false
-    t.integer  "views",        :default => 0, :null => false
+    t.string   "title",                         :null => false
+    t.integer  "user_id",                       :null => false
+    t.text     "body",                          :null => false
+    t.integer  "views",          :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "published_at"
+    t.integer  "comments_count", :default => 0, :null => false
   end
 
   add_index "posts", ["created_at"], :name => "index_posts_on_created_at"
