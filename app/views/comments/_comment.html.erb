@@ -1,7 +1,7 @@
 <li>
   <div class="cl">&nbsp;</div>
   <div class="comment-meta">
-    <strong><%= comment.id %>.</strong> by
+    <strong><%= idx+1 %>.</strong> by
     <% if comment.url.nil? %>
     <%= content_tag :span, comment.name, :class => 'comment-creator' %>
     <% else %>

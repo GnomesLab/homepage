@@ -13,7 +13,7 @@ Feature: comments on a post page
      And the comments list should contain 0 comments
 
   Scenario: the comment should have name, date, email, website and content
-    And there are 1 comment
+    And there are 5 comment
     And I am on the view post page
     Then I should see the comment name
     And I should see the comment date
