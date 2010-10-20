@@ -34,4 +34,9 @@ if Rails.env == "development"
 
   # Blog posts
   10.times { Factory.create(:published_post) }
+  
+  # Comments
+  5.times do
+    Post.all.each { |p| Factory.create(:comment, :post => p) }
+  end
 end

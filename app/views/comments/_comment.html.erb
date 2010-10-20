@@ -1,3 +1,4 @@
+<% comments.each_with_index do |comment, idx| %>
 <li>
   <div class="cl">&nbsp;</div>
   <div class="comment-meta">
@@ -9,25 +10,21 @@
     <% end %>
     <br />
     <%= l comment.created_at, :format => :long %>
+    <br />
+    <% if user_signed_in? %>
+      <% if comment.visible %>
+      <%= link_to 'Hide', post_comment_path(comment.post, comment, :visible => 0), :method => :put, 
+                  :class => "hide" %>
+      <% else %>
+      <%= link_to 'Show', post_comment_path(comment.post, comment, :visible => 1), :method => :put,
+                  :class => "show" %>
+      <% end %>
+    <% end %>
   </div>
   <div class="entry">
     <%= content_tag :p, comment.body %>
     <p><a href="#">Reply</a></p>
   </div>
   <div class="cl">&nbsp;</div>
-
-  <ol>
-    <li>
-      <div class="cl">&nbsp;</div>
-      <div class="comment-meta">
-        by <a href="#" class="comment-creator">John Smithon</a><br />
-        Mar 03, 2010 at 1.:23pm
-      </div>
-    <div class="entry">
-        <p>Lorem ipsum dolor sit amet, congue nunc. Mauris a tortor ut massa egestas tempus. </p>
-        <p><a href="#">Reply</a></p>
-      </div>
-      <div class="cl">&nbsp;</div>
-    </li>
-  </ol>
 </li>
+<% end %>

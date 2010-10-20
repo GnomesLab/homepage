@@ -26,7 +26,9 @@ Homepage::Application.routes.draw do
 
   get 'posts/tagged/:tag_name' => 'posts#tagged', :as => "post_tags"
 
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 
   # Projects
   # get '/projects/:category_id/:project_id' => 'projects#show', :as => :project

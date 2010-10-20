@@ -15,45 +15,15 @@
   <!-- Comment List -->
   <div class="comment-list">
     <ol>
-      <% @post.comments.first_level.each_index do |idx| %>
       <%= render :partial => 'comments/comment',
-                 :locals => { :idx => idx, :comment => @post.comments.first_level[idx] } %>
-      <% end %>
+                 :locals => { :comments => @post.first_level_comments(user_signed_in?) } %>
     </ol>
   </div>
   <!-- End Comment List -->
   <% end %>
 
   <!-- Comment Form -->
-  <div class="comment-form form" id="submit-comment">
-    <h4>Post a Comment</h4>
-    <div class="cl">&nbsp;</div>
-    <div class="left">
-      <p>
-        <label>Name <span>(required)</span></label>
-        <input type="text" class="field"  />
-      </p>
-      <p>
-        <label>Email <span>(required) Will not be published</span></label>
-        <input type="text" class="field"  />
-      </p>
-      <p>
-        <label>URL</label>
-        <input type="text" class="field"  />
-      </p>
-    </div>
-    <div class="right">
-      <p>
-        <label>Comment:</label>
-        <textarea class="field" rows="10" cols="10"></textarea>
-      </p>
-      <p class="ar">
-        <input type="submit" class="button" value="Post this Comment" />
-      </p>
-    </div>
-    <div class="cl">&nbsp;</div>
-    
-  </div>
+  <%= render 'comments/form'  %>
   <!-- End Comment Form -->
   
 </div>

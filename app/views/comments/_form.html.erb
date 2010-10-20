@@ -1,0 +1,37 @@
+<div class="comment-form form" id="submit-comment">
+  <h4>Post a Comment</h4>
+  <div class="cl">&nbsp;</div>
+  <%= form_for([@post, @post.comments.build]) do |f| %>
+  <div class="left">
+    <p>
+      <%= f.label :name, raw("Name <span>(required)</span>") %>
+      <%= f.text_field :name,
+                       :class => "field #{flash[:error].nil? ? 'required' : ' field-error'}" %>
+    </p>
+    <p>
+      <%= f.label :email, raw("Email <span>(required) Will not be published</span>") %>
+      <%= f.text_field :email,
+                       :class => "field #{flash[:error].nil? ? 'required' : ' field-error'}" %>
+    </p>
+    <p>
+      <%= f.label :url, 'URL' %>
+      <%= f.text_field :url,
+                       :class => "field #{'field-error' if flash[:error]}" %>
+    </p>
+  </div>
+  <div class="right">
+    <p>
+      <%= f.label :body, "Comment:" %>
+      <%= f.text_area :body,
+                      :class => "field #{flash[:error].nil? ? 'required' : ' field-error'}",
+                      :rows => 10, 
+                      :cols => 10 %>
+    </p>
+    <p class="ar">
+      <%= f.submit "Submit your comment", :class => 'button', :disable_with => 'Posting...' %>
+    </p>
+  </div>
+  <% end %>
+  <div class="cl">&nbsp;</div>
+  
+</div>

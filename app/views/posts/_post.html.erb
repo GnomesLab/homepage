@@ -21,7 +21,10 @@
       </p>
     </div>
     <div id='comments' class="right">
-      <a href="blog-detailed.html" class="gray">Comments: 0</a>
+      <%= link_to pluralize(post.comments_count(user_signed_in?), 'comments'),
+                  post_path(post, :anchor => 'comments'),
+                  :class => 'gray' %>
+
       <% if user_signed_in? %>
         <p><%= link_to "Edit post", edit_post_path(post), :id => "edit_post_#{post.id}_link" %></p>
 

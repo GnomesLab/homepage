@@ -4,6 +4,14 @@ describe Comment do
 
   subject { Factory.build(:comment) }
 
+  describe "default" do
+    describe "visible" do
+      it "is true" do
+        subject.visible.should be_true
+      end
+    end
+  end
+
   describe "validations" do
     it "must be valid with all the properties set" do
       subject.should be_valid
@@ -12,6 +20,18 @@ describe Comment do
     describe "name" do
       it "is a required attribute" do
         subject.name = nil
+        subject.should_not be_valid
+        subject.errors.should include :name
+      end
+
+      it "is greater than 2 characters long" do
+        subject.name = 'z'
+        subject.should_not be_valid
+        subject.errors.should include :name
+      end
+
+      it "is shorter than 16 characters long" do
+        subject.name = (0..17).map { ('a'..'z').to_a[rand(26)] }.join
         subject.should_not be_valid
         subject.errors.should include :name
       end
@@ -47,6 +67,18 @@ describe Comment do
     describe "body" do
       it "is a required attribute" do
         subject.body = nil
+        subject.should_not be_valid
+        subject.errors.should include :body
+      end
+      
+      it "is greater than 2 characters long" do
+        subject.body = 'z'
+        subject.should_not be_valid
+        subject.errors.should include :body
+      end
+      
+      it "is smaller than 3000 characters long" do
+        subject.body = (0..3001).map { ('a'..'z').to_a[rand(26)] }.join
         subject.should_not be_valid
         subject.errors.should include :body
       end
@@ -105,9 +137,17 @@ describe Comment do
         Comment.second_level(Comment.first).each { |c| c.parent.should == Comment.first }
       end
     end # second level
+    
+    describe "visible" do
+      it "returns only visible comments" do
+        subject.visible = false
+        subject.save
+        Comment.visible.should_not include subject
+      end
+    end
   end # named scopes
 
-  describe "dependecies" do
+  describe "dependencies" do
     describe "post" do
       it "must be destroyed with the post" do
         subject.save
@@ -115,6 +155,6 @@ describe Comment do
         Comment.find_by_id(subject.id).should be_nil
       end
     end
-  end
+  end # dependencies
 
 end

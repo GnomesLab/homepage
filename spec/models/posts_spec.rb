@@ -188,58 +188,100 @@ describe Post do
     end # tag_cloud
 
   end # class methods
+  
+  describe "instance methods" do
+    describe "comments" do
+      before :each do
+        subject.save
+        5.times { |i| Factory.create(:comment, :post => subject) }
+        5.times { |i| Factory.create(:comment, :post => subject, :parent => Comment.first) }
+        @invisible_comment_level1 = Factory.create(:comment, :post => subject, :visible => false)
+        @invisible_comment_level2 = Factory.create(:comment, :post => subject, :parent => Comment.first, :visible => false)
+      end
 
-  describe "html_safe_body" do
+      describe "first level" do
+        it "only returns visible comments" do
+          subject.first_level_comments.should_not include @invisible_comment_level1
+        end
 
-    it "adds an HTML paragraph by default" do
-      p = Factory.build :post, :body => "hello world"
-      p.html_safe_body.should == "<p>hello world</p>"
-    end
+        it "returns all comments" do
+          subject.first_level_comments(true).should include @invisible_comment_level1
+        end
+      end # First level
 
-    it "should escape html considered to be unsafe" do
-      p = Factory.build :post, :body => "<a href='http://google.com'>google</a>"
-      p.html_safe_body.should == "<p>&lt;a href='http://google.com'&gt;google&lt;/a&gt;</p>"
-    end
+      describe "second level" do
+        it "only returns visible comments" do
+          subject.second_level_comments(Comment.first).should_not include @invisible_comment_level2
+        end
 
-  end # html_safe_body
+        it "returns all comments" do
+          subject.second_level_comments(Comment.first, true).should include @invisible_comment_level2
+        end
+      end # Second level
 
-  describe "post publishing" do
+      describe "count" do
+        it "all comments" do
+          subject.comments_count(true).should == subject.comments.count
+        end
 
-    it "allows you to easely publish" do
-      subject.publish.should be_true
-    end
+        it "visible comments" do
+          subject.comments_count.should == subject.comments.visible.count
+        end
+      end
+    end # comments
 
-    it "has a published at date time" do
-      subject.published_at.should be_nil
-      subject.publish
-      subject.published_at.should be_a_kind_of Time
-    end
+    describe "html_safe_body" do
 
-    it "returns false when asked if a new record has already been published" do
-      subject.should_not be_published
-    end
+      it "adds an HTML paragraph by default" do
+        p = Factory.build :post, :body => "hello world"
+        p.html_safe_body.should == "<p>hello world</p>"
+      end
 
-    it "only states that a post is published when it such setting has been explicitly defined" do
-      subject.save
-      subject.should_not be_published
-      subject.publish
-      subject.should be_published
-    end
+      it "should escape html considered to be unsafe" do
+        p = Factory.build :post, :body => "<a href='http://google.com'>google</a>"
+        p.html_safe_body.should == "<p>&lt;a href='http://google.com'&gt;google&lt;/a&gt;</p>"
+      end
 
-    it "saves a new record when asked to publish it" do
-      subject.should be_new_record
-      subject.publish
-      subject.should_not be_new_record
-      subject.should be_published
-    end
+    end # html_safe_body
 
-    it "returns true but doesn't update the published at date if the record has already been published" do
-      subject.publish
-      expected = subject.published_at
-      subject.publish.should be_true
-      subject.published_at.should == expected
-    end
+    describe "post publishing" do
 
-  end # publish
+      it "allows you to easely publish" do
+        subject.publish.should be_true
+      end
+
+      it "has a published at date time" do
+        subject.published_at.should be_nil
+        subject.publish
+        subject.published_at.should be_a_kind_of Time
+      end
+
+      it "returns false when asked if a new record has already been published" do
+        subject.should_not be_published
+      end
+
+      it "only states that a post is published when it such setting has been explicitly defined" do
+        subject.save
+        subject.should_not be_published
+        subject.publish
+        subject.should be_published
+      end
+
+      it "saves a new record when asked to publish it" do
+        subject.should be_new_record
+        subject.publish
+        subject.should_not be_new_record
+        subject.should be_published
+      end
+
+      it "returns true but doesn't update the published at date if the record has already been published" do
+        subject.publish
+        expected = subject.published_at
+        subject.publish.should be_true
+        subject.published_at.should == expected
+      end
+
+    end # publish
+  end # instance methods
 
 end

@@ -40,6 +40,19 @@ class Post < ActiveRecord::Base
   def self.tag_cloud(limit = 40)
     Post.tag_counts_on(:tags).limit(limit)
   end
+  
+  # First level, Second level, visible
+  def first_level_comments(all = false)
+    all ? self.comments.first_level : self.comments.first_level.visible
+  end
+
+  def second_level_comments(parent, all = false)
+    all ? self.comments.second_level(parent) : self.comments.second_level(parent).visible
+  end
+
+  def comments_count(all = false)
+    all ? self.comments.all.count : self.comments.visible.count
+  end
 
   # returns the 5 most recent posts
   #

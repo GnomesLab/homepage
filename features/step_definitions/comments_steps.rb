@@ -1,9 +1,18 @@
 Given /^there are ([\d+]) comment(?:s?)$/ do |n|
   n.to_i.times { Factory.create(:comment, :post => Post.first) }
+  Comment.last.destroy while Comment.count > n.to_i
 end
 
 Given /^the comment has no (\S+)$/ do |field|
   Post.first.update_attributes(field => nil)
+end
+
+Given /^There is a hidden comment$/ do
+  Comment.first.update_attributes(:visible => 0)
+end
+
+Then /^I should not see the hidden comment$/ do
+  comments_list.should_not include Comment.first.body
 end
 
 Then /^I should see ([\d+]) comment(?:s?)$/ do |n|
@@ -37,30 +46,26 @@ Then /^I should see the comment body$/ do
 end
 
 Then /^I should see the comment number$/ do
-  pending
-  node = find(:xpath, "//div[contains(@class, 'comment-list')]/ol/li/div[contains(@class, 'comment-meta')]/strong")
-  debugger
-  first_level_comments.each_index do |idx|
-    node.text.should include "#{idx+1}."
+  first_level_comments.each_index do |i|
+    node = find(:xpath, "//div[contains(@class, 'comment-list')]/ol/li[#{i + 1}]/div[contains(@class, 'comment-meta')]/strong")
+    node.text.should include "#{i+1}."
   end
 end
 
 Then /^I should(n\'t)? see the comment name as a link to the url$/ do |n|
-  first_level_comments.each do |c|
+  first_level_comments.each_with_index do |c, i|
     if n.blank?
-      comments_list.should include c.url
+      xpath = "//div[contains(@class, 'comment-list')]/ol/li[#{i+1}]/div[contains(@class, 'comment-meta')]/a[@href='#{c.url}']"
+      page.should have_xpath(xpath, :count => 1)
     else
-      pending
-      node = find(:css, '.comment-list > ol > li > comment-meta > span.comment-creator')
-      debugger
-      node.should include c.name
+      find(:css, ".comment-list > ol > li:nth-child(#{i+1}) > .comment-meta > .comment-creator").text.should include c.name
     end
   end
 end
 
+# Helpers
 def comments_list
-  node = find(:xpath, "//div[contains(@class, 'comment-list')]/ol")
-  node.text
+  find(:xpath, "//div[contains(@class, 'comment-list')]/ol").text
 end
 
 def first_level_comments
