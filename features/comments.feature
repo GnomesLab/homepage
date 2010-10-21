@@ -11,10 +11,23 @@ Feature: comments on a post page
     And I am on the view post page
 
   Scenario: a post with no comments should display 0 comments
-     And there are 0 comments
-     And I am on the view post page
-     Then I should see 0 comments
-     And the comments list should contain 0 comments
+    And there are 0 comments
+    And I am on the view post page
+    Then I should see 0 comments
+    And the comments list should contain 0 comments
+
+  Scenario: a post with 1 comment should display 1 comment
+    And there are 1 comment
+    And I am on the view post page
+    Then I should see 1 comment
+    And the comments list should contain 1 comment
+
+  Scenario: a post with 2 comments where 1 is hidden should display 1 comment
+    And there are 2 comments
+    And There is a hidden comment
+    And I am on the view post page
+    Then I should see 1 comments
+    And the comments list should contain 1 comments
 
   Scenario: the comment should have name, date, email, website and content
     Then I should see the comment name
