@@ -15,6 +15,7 @@ end
 def handle_to_id(handle)
   case handle
   when 'dbalmeida' then 'diogo_almeida'
+  when 'joaocorrelo' then 'joao_correlo'
   when 'miguelfteixeira' then 'miguel_teixeira'
   else
     nil

@@ -21,10 +21,17 @@ Feature: about gnomeslab
   Scenario: Meet the team - Diogo Almeida
     When I am on Diogo Almeida profile section
     Then I should see "Diogo Almeida :: Founder"
-    And I should see "Young entrepreneur and creative, Diogo has a constant drive to create"
+    And I should see "Young entrepreneur and creative, Diogo has a solid background"
     And I should see "diogo (dot) almeida (at) gnomeslab (dot) com"
     And I should see dbalmeida Linkedin profile link
     And I should see dbalmeida Twitter link 
+
+  Scenario: Meet the team - João Correlo
+    When I am on João Correlo profile section
+    Then I should see "João Correlo :: Partner"
+    And I should see "João has strong management and project/product development skills"
+    And I should see "joao (dot) correlo (at) gnomeslab (dot) com"
+    And I should see joaocorrelo Linkedin profile link
 
   Scenario: Meet the team - Pedro Coutinho
     When I am on Pedro Coutinho profile section
