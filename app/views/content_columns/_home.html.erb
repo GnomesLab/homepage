@@ -6,10 +6,11 @@
     <h2 class="border">What We Do?</h2>
     <div class="entry justify">
       <p>
-        We develop websites, applications and services. Our field of expertise goes from major corporate 
-        applications to simple websites like this one. No job is too big, no client is too small, 
-        if it needs coding, we're on it.
-        <br /><a href="about.html" class="more">more</a>
+        Gnomeslab positions itself as a specialist in providing both services and solutions based on Ruby 
+        technologies (e.g. Ruby on Rails, Sinatra, Rack), targeted at different kinds of organizations, 
+        both private and public.
+        We are mainly oriented towards the development of web facing applications, services and products. 
+        <%= link_to "more", services_path %>
       </p>
     </div>
   </div>
@@ -20,16 +21,32 @@
     <h2 class="border">Meet the team</h2>
     <div class="entry justify">
       <p>
-        Seriously, you DONT wanna meet the team. They are homicidal maniacs, they have been known to 
-        murder other developers for not commenting their code. Most of them have roots in the Sicilian Mafia. 
-        Other noone really knows who they are..... Be affraid, be very affraid!!!
-        <br /><a href="about.html" class="more">more</a>
+        We have a young and dynamic team of IT professionals, whose skills range from <i>Project Management</i>, 
+        through <i>Product Development</i> to <i>Agile Software Development</i>.
+      </p>
+      <p>
+        At Gnomeslab we value continuous learning and creative professionals that are able to solve complex 
+        business problems with elegance and proficiency. <%= link_to "more", "#{about_us_path}#team" %>
       </p>
     </div>
   </div>
   <!-- End Col -->
 
-  <%= render 'shared/content_box/featured_project' %>
+  <div class="col-right col2">
+    <h2 class="border">Where are we?</h2>
+    <div class="entry justify">
+      <p>
+        Gnomeslab is based in Lisbon, Portugal, the largest westernmost city in Europe. It lies in the western Iberian Peninsula on the Atlantic Ocean and the Tagus River.
+      </p>
+      <p>
+        In the Internet you can also find us at:
+        <ul class="fixlast">
+          <li><a hred="http://facebook.com/">Facebook</a></li>
+          <li><a hred="http://twitter.com/gnomeslab">Twitter</a></li>
+        </ul>
+      </p>
+    </div>
+  </div>
 
   <div class="cl">&nbsp;</div>
 </div>
