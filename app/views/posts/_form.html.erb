@@ -23,6 +23,6 @@
 
   <div class="form-buttons">
     <%= f.submit "Submit your post", :class => 'button', :disable_with => 'Posting...' %> or 
-    <%= link_to 'cancel', root_path, :title =>'Go back to the homepage' %>
+    <%= link_to 'cancel', @post, :title =>'Go back to the homepage' %>
   </div>
 <% end -%>

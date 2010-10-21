@@ -20,6 +20,8 @@ module NavigationHelpers
       new_user_session_path
     when /the tags page/
       post_tags_path(Post.last.tag_list.first)
+    when /the edit post page/
+      edit_post_path(Post.last)
     else
 
       begin
