@@ -97,40 +97,18 @@ describe Post do
       it "should only return the posts that have been published" do
         Post.first.publish
 
-        Post.published == Array(Post.first)
+        Post.published.should == Array(Post.first)
       end
     end
 
     describe "popular posts" do
       it "should return the 5 most popular posts" do
-        popular = Post.popular
+        popular = Post.popular(5)
         popular.should be_a_kind_of ActiveRecord::Relation
         popular.length.should == 5
         popular.first.views.should >= popular.last.views
       end
     end # popular posts
-
-    describe "related posts" do
-      it "should return the 5 most popular related posts" do
-        post = Post.first
-        related_posts = post.related
-        related_posts.should be_a_kind_of ActiveRecord::Relation
-        related_posts.length.should == 5
-        related_posts.first.views.should >= related_posts.last.views
-        related_posts.each do |t|
-          t.tag_list.should have_at_least(1).post.tag_list
-        end
-      end
-    end # related posts
-
-    describe "recent posts" do
-      it "should return the 5 most recent posts" do
-        recent_posts = Post.recent
-        recent_posts.should be_a_kind_of ActiveRecord::Relation
-        recent_posts.length.should == 5
-        recent_posts.first.id >= recent_posts.last.id
-      end
-    end # recent posts
 
   end # named scopes
 
@@ -186,6 +164,52 @@ describe Post do
       end
 
     end # tag_cloud
+
+    describe "related posts" do
+      before :each do
+        2.times { |i| Factory.create(:post, :user => test_user) }
+        3.times { |i| Factory.create(:published_post, :user => test_user) }
+      end
+
+      it "should return the 2 most popular published related posts" do
+        post = Post.last
+        related_posts = post.related(5)
+        related_posts.should be_a_kind_of ActiveRecord::Relation
+        related_posts.length.should == 2
+        related_posts.first.views.should >= related_posts.last.views
+        related_posts.each do |t|
+          t.tag_list.should have_at_least(1).post.tag_list
+        end
+      end
+    end # related posts
+
+    describe "recent posts" do
+      before :each do
+        2.times { |i| Factory.create(:post, :user => test_user) }
+        3.times { |i| Factory.create(:published_post, :user => test_user) }
+      end
+
+      it "should return the 3 most recent published posts" do
+        recent_posts = Post.recent
+        recent_posts.should be_a_kind_of ActiveRecord::Relation
+        recent_posts.length.should == 3
+        recent_posts.first.id >= recent_posts.last.id
+      end
+    end # recent posts
+
+    describe "popular posts" do
+      before :each do
+        2.times { |i| Factory.create(:post, :user => test_user) }
+        3.times { |i| Factory.create(:published_post, :user => test_user) }
+      end
+
+      it "should return the 3 most popular published posts" do
+        popular = Post.most_popular(5)
+        popular.should be_a_kind_of ActiveRecord::Relation
+        popular.length.should == 3
+        popular.first.views.should >= popular.last.views
+      end
+    end # popular posts
 
   end # class methods
   

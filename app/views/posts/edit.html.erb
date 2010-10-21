@@ -1,15 +1,12 @@
-<% title 'New Post', true %>
-<% if user_signed_in? %>
-  <%= content_title 'New Post' %>
-  <!-- Post Form -->
-    <div class="form floated-form">
-      <%= render 'posts/form'%>
-    </div>
-  <!-- End Post Form -->
-<% else %>
-  <%= content_title 'Not Authorized!' %>
-  There's nothing for you to see here, move along,
-<% end %>
+<% title 'Edit Post', true %>
+
+<%= content_title 'Edit Post' %>
+<!-- Post Form -->
+<div class="form floated-form">
+  <%= render 'posts/form'%>
+</div>
+<!-- End Post Form -->
+
 <%= content_for :sidebar do %>
   <%= render 'shared/content_box/our_profile' %>
 <% end %>

@@ -23,10 +23,10 @@ Then /^I should see the (\d+) latest posts (.*)$/ do |n, attribute|
       # inspect_post_html posts[i].id, '#post_tags', Regexp.new("Tags: #{['/.*/', '/.*/', '/.*/'].join(' ')}")
     when "comment count"
       inspect_post_html posts[i].id, '#comments', Regexp.new("#{posts[i].comments_count} comments")
-    when "delete button"
-      find("#posts #post_#{posts[i].id} form input.button").value.should == "Delete"
+    when "delete link"
+      find("#posts #post_#{posts[i].id} a.delete").text.should == "Destroy"
     when "edit link"
-      inspect_post_html posts[i].id, '#comments p a', Regexp.new("Edit post")
+      inspect_post_html posts[i].id, '#comments p a.edit', Regexp.new("Edit")
     else
       inspect_post_html posts[i].id, 'h2', Regexp.new(ERB::Util.h(posts[i].send(attribute.to_sym)))
     end

@@ -22,7 +22,7 @@ Feature: blog page
     And I should see the 2 latest posts creator name
     And I should see the 2 latest posts tags
     And I should see the 2 latest posts comment count
-    And I should see the 2 latest posts delete button
+    And I should see the 2 latest posts delete link
     And I should see the 2 latest posts edit link
 
   Scenario: Only authenticated users see the edit and delete options for each post

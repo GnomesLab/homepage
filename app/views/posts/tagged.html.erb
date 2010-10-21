@@ -1,8 +1,10 @@
-<% if @title.nil? %>
+<% if @tag.nil? %>
+  <% title 'Not Found', true %>
   <%= content_title "Page not found" %>
   <p>Sorry, we seem to have misplaced what you were looking for, but we're searching for it!</p>
 <% else %>
-  <%= content_title "Tag :: #{@title.name.capitalize}" %>
+  <% title "#{@tag.name.capitalize}", true %>
+  <%= content_title "Tag :: #{@tag.name.capitalize}" %>
   <div id='posts' class="justify">
   <br /><br />
 

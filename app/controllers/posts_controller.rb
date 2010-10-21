@@ -68,21 +68,29 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
 
+    if @post.update_attributes(params[:post])
+      flash[:notice] = "Post was successfully updated."
+    else
+      flash[:error] = "Oops! Your post could not be updated."
+    end
+
     respond_with @post
   end
 
   # DELETE /post/:id
   def destroy
-    Post.find(params[:id]).try(:destroy)
+    if Post.find(params[:id]).try(:destroy)
+      flash[:notice] = "Post was successfully deleted."
+    else
+      flash[:error] = "Oops! Your post could not be deleted."
+    end
 
     redirect_to blog_path
   end
 
   # GET /post/tagged/:tag_name
-  #
-  # FIXME: remove the @title
   def tagged
-    @title = ActsAsTaggableOn::Tag.find_by_name params[:tag_name]
+    @tag = ActsAsTaggableOn::Tag.find_by_name params[:tag_name]
     @posts = Post.tagged_with(params[:tag_name]).latest.paginate :page => params[:page], :per_page => Post.per_page
 
     respond_with @posts

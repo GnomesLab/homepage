@@ -88,11 +88,13 @@ label span{ color:#999; font-size:10px; }
 
 .socials { float:right; font-size:10px; color:#484848; padding-top:8px;}
 .socials span{ padding:0 5px;}
-.socials a{ color:#999; text-decoration: none; padding:2px 0 2px 18px; background:url(../images/layout/socials.gif) no-repeat 0 0; }
+.socials .contact { background: url(../images/layout/email.gif) no-repeat 0 0; padding: 3px 0 0 22px; color: #fff; }
+.socials a { color:#999; text-decoration: none; padding:2px 0 2px 18px; background:url(../images/layout/socials.gif) no-repeat 0 0;}
 .socials a:hover{ color:#fff; }
-.socials a.rss-link { background-position:0 0;}
-.socials a.facebook-link { background-position:0 -36px;}
-.socials a.twitter-link { background-position:0 -72px;}
+.socials a.rss-link { background-position:0 0; }
+.socials a.facebook-link { background-position:0 -36px; }
+.socials a.twitter-link { background-position:0 -72px; }
+.socials a.contact-link { background: none; color: #c9c9c9; padding-left: 5px; }
 
 #head { height:65px; padding:16px 0 25px 0; }
 #navigation { float:right; display:inline; text-transform: uppercase; font-size:13px; }
@@ -277,6 +279,7 @@ p.nav span{ color:#999; padding:0 6px;}
 }
 .post .entry{ padding-top:5px; }
 .post-meta { border-top:dashed 1px #cdcdcd; border-bottom:dashed 1px #cdcdcd; font-size:10px; white-space:nowrap; line-height:18px; padding:5px 0;}
+.post-meta .right { text-align: right; }
 
 .post-comments { padding-top:30px; }
 .comment-list{ }
@@ -353,3 +356,5 @@ input.button:hover { background:#00aeef; color:#fff; }
 
 #breadcrumb { margin-bottom: 10px; overflow: hidden; }
 #breadcrumb li { float: left; list-style: none; margin-right: 5px; }
+
+a.delete { color: #f00; }

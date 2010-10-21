@@ -22,7 +22,16 @@
     <%= pluralize(@post.comments_count(user_signed_in?), 'Comment') %>
     </a>
     <% if user_signed_in? %>
-      </p>Destroy? <%= link_to "Edit", edit_post_path %>?</p>
+    <p>
+      <%= link_to 'Destroy',
+                  @post,
+                  :method => :delete,
+                  :class => 'delete',
+                  :confirm => 'Are you sure that you want to delete this post?',
+                  :title => 'Delete the selected post.'  %>
+      &nbsp;|&nbsp;
+      <%= link_to "Edit", edit_post_path %>
+    </p>
     <% end %>
   </span>
   <div class="cl">&nbsp;</div>

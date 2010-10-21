@@ -22,7 +22,7 @@ class Post < ActiveRecord::Base
   # Scopes
   scope :latest, order('published_at DESC')
   scope :published, where('published_at IS NOT NULL')
-  scope :popular, lambda { |l = 5| order('views DESC').limit(l) }
+  scope :popular, lambda { |l| order('views DESC').limit(l) }
 
   # Public class methods
   #
@@ -66,8 +66,15 @@ class Post < ActiveRecord::Base
   # View example: (on recent posts partial)
   #   <% recent.each do |p| %>
   def self.recent(limit = 5)
-    self.latest.limit(limit)
+    self.published.latest.limit(limit)
   end # end recent (posts)
+
+  # returns the 5 most popular posts
+  #
+  # this method relies on the scope :popular
+  def self.most_popular(limit = 5)
+    self.published.popular(limit)
+  end
 
   # returns up to 5 related posts
   #
@@ -76,7 +83,7 @@ class Post < ActiveRecord::Base
   # View example: (on related posts partial)
   #   <%  post.related %>
   def related(limit = 5)
-    self.find_related_tags.popular(limit)
+    self.find_related_tags.most_popular(limit)
   end # end related (posts)
 
   # Public instance methods

@@ -6,7 +6,7 @@
     <% if comment.url.nil? %>
     <%= content_tag :span, comment.name, :class => 'comment-creator' %>
     <% else %>
-    <%= link_to comment.name, comment.url, :class => 'comment-creator' %>
+    <%= link_to comment.name, comment.url, :class => 'comment-creator', :target => '_blank' %>
     <% end %>
     <br />
     <%= l comment.created_at, :format => :long %>
@@ -23,7 +23,7 @@
   </div>
   <div class="entry">
     <%= content_tag :p, comment.body %>
-    <p><a href="#">Reply</a></p>
+    <p><a href="#submit-comment">Reply to post</a></p>
   </div>
   <div class="cl">&nbsp;</div>
 </li>
