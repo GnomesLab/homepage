@@ -5,6 +5,7 @@ Feature: blog page
 
   Background:
     Given There are 10 posts
+    And There are unpublished posts
     And I am on the posts page
 
   Scenario: page header
@@ -25,6 +26,16 @@ Feature: blog page
     And I should see the 2 latest posts delete link
     And I should see the 2 latest posts edit link
 
+  Scenario: not see unpublished posts
+    Given I am not signed in
+    And I am on the posts page
+    Then I should not see 2 unpublished posts
+
+  Scenario: see unpublished posts
+    Given I am signed in
+    And I am on the posts page
+    Then I should see 2 unpublished posts
+
   Scenario: Only authenticated users see the edit and delete options for each post
     Given I am not signed in
     When I am on the posts page
@@ -34,16 +45,17 @@ Feature: blog page
   Scenario: paginator
     Then I should see the posts paginator
 
-  Scenario: recent posts
+  Scenario: right column recent posts
     Then I should see the recent posts title
     And I should see the 5 most recent post titles
 
-  Scenario: popular posts
+  Scenario: right column popular posts
     Then I should see the popular posts title
     And I should see the 5 most popular post titles
 
   Scenario: right column archives
-    Then I should see archives
+    Then I should see "Archives"
+    And I should see the correct archive tree structure
 
   Scenario: page footer
     Then I should see the generic footer

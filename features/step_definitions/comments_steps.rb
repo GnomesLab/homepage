@@ -1,6 +1,6 @@
 Given /^there are ([\d+]) comment(?:s?)$/ do |n|
   n.to_i.times { Factory.create(:comment, :post => Post.first) }
-  Comment.last.destroy while Comment.count > n.to_i
+  Post.first.comments.last.destroy while Post.first.comments.count > n.to_i
 end
 
 Given /^the comment has no (\S+)$/ do |field|
@@ -17,7 +17,7 @@ end
 
 Then /^I should see ([\d+]) comment(?:s?)$/ do |n|
   ["//div[@id='comments']/h4[contains(@class, 'comments-count')]",
-  "//div[@class='post-meta']/span[@class='right']/a[contains(@class, 'comments-count')]"].each do |xpath|
+  "//div[@class='post-meta']/div[contains(@class, 'comments')]/a[contains(@class, 'comments-count')]"].each do |xpath|
     comments_number = find(:xpath, xpath)
     comments_number.text.should include n
   end

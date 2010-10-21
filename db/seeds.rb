@@ -33,7 +33,8 @@ if Rails.env == "development"
   end
 
   # Blog posts
-  10.times { Factory.create(:published_post) }
+  Factory.create(:published_post)
+  Factory.create(:post)
   
   # Comments
   5.times do

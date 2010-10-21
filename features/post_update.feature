@@ -1,4 +1,4 @@
-@crystal
+@mt
 Feature: post update
   As a company we want to be able to update our posts
 

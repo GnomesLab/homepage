@@ -22,15 +22,19 @@ Then /^I should see the (\d+) latest posts (.*)$/ do |n, attribute|
       inspect_post_html posts[i].id, "#tag_#{posts[i].id}_2", Regexp.new(ERB::Util.h(posts[i].tag_list[2]))
       # inspect_post_html posts[i].id, '#post_tags', Regexp.new("Tags: #{['/.*/', '/.*/', '/.*/'].join(' ')}")
     when "comment count"
-      inspect_post_html posts[i].id, '#comments', Regexp.new("#{posts[i].comments_count} comments")
+      inspect_post_html posts[i].id, '.comments', Regexp.new("#{posts[i].comments_count} comments")
     when "delete link"
       find("#posts #post_#{posts[i].id} a.delete").text.should == "Destroy"
     when "edit link"
-      inspect_post_html posts[i].id, '#comments p a.edit', Regexp.new("Edit")
+      inspect_post_html posts[i].id, '.comments p a.edit', Regexp.new("Edit")
     else
       inspect_post_html posts[i].id, 'h2', Regexp.new(ERB::Util.h(posts[i].send(attribute.to_sym)))
     end
   end
+end
+
+Then /^I should see the post (.*)$/ do |attribute|
+  Then "I should see the 1 latest posts #{attribute}"
 end
 
 Then /^I should not see the (\d+) latest posts (.*)$/ do |n, attribute|
@@ -38,12 +42,16 @@ Then /^I should not see the (\d+) latest posts (.*)$/ do |n, attribute|
 
   n.to_i.times do |i|
     case attribute
-    when "delete button"
-      find("#posts #post_#{posts[i].id} form input.button").should be_nil
+    when "delete link"
+      find("#posts #post_#{posts[i].id} a.delete").should be_nil
     when "edit link"
       find("#posts #post_#{posts[i].id} #comments p a#edit_post_#{posts[i].id}_link").should be_nil
     end
   end
+end
+
+Then /^I should not see the post (.*)$/ do |attribute|
+  Then "I should not see the 1 latest posts #{attribute}"
 end
 
 Then /^I should see the posts paginator$/ do
@@ -87,4 +95,12 @@ end
 Then /^I should see archives$/ do
   position = find("#archives h2").text =~ /Archives/
   position.should == 0
+end
+
+Then /^I should( not)? see (\d+)?\s?unpublished posts$/ do |n, d|
+  count = d.blank? ? 1 : count.to_i
+  posts = n.blank? ? Post.latest.limit(count) : Post.published.latest.limit(count)
+  posts.each do |p|
+    Then "I should see \"#{p.title}\""
+  end
 end

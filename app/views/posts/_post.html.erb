@@ -20,10 +20,10 @@
         <% end %>
       </p>
     </div>
-    <div id='comments' class="right">
+    <div class="comments right">
       <%= link_to pluralize(post.comments_count(user_signed_in?), 'comments'),
                   post_path(post, :anchor => 'comments'),
-                  :class => 'gray' %>
+                  :class => 'gray comments-count' %>
 
       <% if user_signed_in? %>
       <p>
