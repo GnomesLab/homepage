@@ -41,15 +41,20 @@ class Post < ActiveRecord::Base
     Post.tag_counts_on(:tags).limit(limit)
   end
   
-  # First level, Second level, visible
+  # Returns the list of the comments that have no parent associated with the post.
+  # Accepts a boolean for exemple the user session to allow the user to see al the comments (including the hidden)
   def first_level_comments(all = false)
     all ? self.comments.first_level : self.comments.first_level.visible
   end
 
+  # Returns the list of the comments that have a root parent associated with the post.
+  # Accepts a boolean for exemple the user session to allow the user to see al the comments (including the hidden)
   def second_level_comments(parent, all = false)
     all ? self.comments.second_level(parent) : self.comments.second_level(parent).visible
   end
 
+  # Returns the count of comments associated with the post.
+  # Accepts a boolean for exemple the user session to allow the user to see al the comments (including the hidden).
   def comments_count(all = false)
     all ? self.comments.all.count : self.comments.visible.count
   end
