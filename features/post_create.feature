@@ -6,32 +6,29 @@ Feature: post create
   Background:
     Given I am signed in
     And I am on the new post page
-    
+
+  Scenario: page header
+    Then I should see the generic header
+
   Scenario: I should not be able to create posts when im not logged in
     And I am not signed in
     And I am on the new post page
-    Then I should see "Not Authorized!"
+    Then I should be on the login page
 
   Scenario: I should be able to create posts
     And I fill in "Title" with "title"
     And I fill in "Text" with "text"
     And I press "Submit your post"
-    Then I should see "Post was successfully created." within "#content div.msg.msg-notice"
+    Then I should see "Post was successfully created."
 
-  Scenario: title validation for post form
+  Scenario: invalid post validation
     Given I have an invalid title
     And I fill the post form
     And I press "Submit your post"
-    Then I should see "Oops! Your post could not be created." within "#content div.msg.msg-error"
+    Then I should see "Oops! Your post could not be created."
 
-  Scenario: content validation for post form
-    Given I have an invalid content
-    And I fill the post form
-    And I press "Submit your post"
-    Then I should see "Oops! Your post could not be created." within "#content div.msg.msg-error"
+  Scenario: I should see the our profile column
+    Then I should see "Our profile"
 
-  # Scenario: tags validation for post form
-  #   Given I have an invalid tag
-  #   And I fill the post form
-  #   And I press "Submit"
-  #   Then I should see "You need to provide valid tags"
+  Scenario: page footer
+    Then I should see the generic footer

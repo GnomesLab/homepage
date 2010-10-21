@@ -1,6 +1,8 @@
 Then /^I should see the generic header$/ do
+  page.should have_content('Contact us')
+  page.should have_content('@gnomeslab.com')
   page.should have_content('RSS')
-  page.should have_content('Facebook')
+  # page.should have_content('Facebook')
   page.should have_content('Twitter')
   page.should have_content("Home")
   page.should have_content('About')

@@ -1,19 +1,12 @@
-<% title 'New Post | Gnomeslab' %>
-
 <% title 'New Post', true %>
-<% if user_signed_in? %>
-  <%= content_title 'New Post' %>
-  <!-- Post Form -->
-    <div class="form floated-form">
-      <%= render 'posts/form'%>
-    </div>
-  <!-- End Post Form -->
-  
-  <!-- FIXME: redirect the user to the homepage -->
-<% else %>
-  <%= content_title 'Not Authorized!' %>
-  There's nothing for you to see here, move along,
-<% end %>
+<%= content_title 'New Post' %>
+
+<!-- Post Form -->
+  <div class="form floated-form">
+    <%= render 'posts/form'%>
+  </div>
+<!-- End Post Form -->
+
 <%= content_for :sidebar do %>
   <%= render 'shared/content_box/our_profile' %>
 <% end %>

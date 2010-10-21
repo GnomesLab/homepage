@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   # Filters
-  before_filter :authenticate_user!, :only => [:create, :edit, :update, :destroy]
+  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
 
   # Responders
   respond_to :html
