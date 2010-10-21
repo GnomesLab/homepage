@@ -1,4 +1,4 @@
-@mt
+@crystal
 Feature: post update
   As a company we want to be able to update our posts
 
@@ -31,7 +31,7 @@ Feature: post update
 
   Scenario: I should be able to cancel the edition
     Then I follow "cancel"
-    And I should be on the view post page
+    Then I should be on the friendly url post page
 
   Scenario: I should see the our profile column
     Then I should see "Our profile"

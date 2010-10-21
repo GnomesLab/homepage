@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
+  helper_method :friendly_post_path
 
   # Generates a friendly url path for a given instance of Post.
   #
@@ -14,8 +15,9 @@ class ApplicationController < ActionController::Base
   def friendly_post_path(post = nil)
     return nil unless post.is_a? Post
 
-    friendly_post_show_path post.created_at.year,
-      post.published_at.month < 10 ? "0#{post.published_at.month.to_s}" : post.published_at.month.to_s,
-      "#{post.id.to_s}-w"
+    post.published? ? friendly_post_show_path(post.created_at.year,
+                                              "%02d" % post.published_at.month,
+                                              "#{post.friendly_id}") :
+                      post_path(post)
   end
 end

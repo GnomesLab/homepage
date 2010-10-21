@@ -32,6 +32,13 @@ def test_click(link)
   test_visit(link[:href])
 end
 
+# FIXME: Somebody could please remove this duplication? This logic is already in the ApplicationController
+def friendly_post_path(post)
+  friendly_post_show_path post.created_at.year,
+                          "%02d" % post.published_at.month,
+                          "#{post.friendly_id}"
+end
+
 # FIXME: make it generic
 def inspect_post_html(id, element, regexp)
   position = find("#posts #post_#{id} #{element}").text =~ regexp

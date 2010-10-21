@@ -1,4 +1,4 @@
-@mt
+@crystal
 Feature: view post
   In order to allow our visitors to read a post with more detail
   Gnomeslab website provides them with a post view page.
@@ -12,6 +12,9 @@ Feature: view post
 
   Scenario: page header
     Then I should see the generic header
+
+  Scenario: redirect to friendly url
+    Then I should be on the friendly url post page
 
   Scenario: blog post
     Given I am signed in
@@ -45,7 +48,7 @@ Feature: view post
   Scenario: not see unpublished posts
     Given I am not signed in
     And I am on the posts page
-    Then I should be on the posts page
+    Then I should be on the blog page
 
   Scenario: see unpublished posts
     Given I am signed in
@@ -54,7 +57,7 @@ Feature: view post
 
   Scenario: edit post
     Given I am signed in
-    When I am on the posts page   
+    When I am on the posts page
     Then I follow "Edit"
 
   Scenario: destroy post

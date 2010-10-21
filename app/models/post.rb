@@ -1,11 +1,13 @@
 class Post < ActiveRecord::Base
   # Included behavior
   include ArchiveTree
+  include FriendlyIdFinder
   acts_as_taggable_on :tags
 
   # Associations
   belongs_to :user
   has_many :comments, :dependent => :destroy
+  has_friendly_id :title, :use_slug => true, :approximate_ascii => true
 
   # Validations
   validates :user, :presence => true
@@ -139,5 +141,4 @@ class Post < ActiveRecord::Base
   def published?
     self.published_at.present?
   end
-
 end

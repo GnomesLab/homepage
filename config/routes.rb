@@ -18,7 +18,7 @@ Homepage::Application.routes.draw do
       :as => 'friendly_post_show',
       :constraints => { :year => /201\d/,
                         :month => /(0[1-9]|1[012])/,
-                        :id => /\d.+/ }
+                        :id => /\S+/ }
 
   get 'blog/:year(/:month)' => 'posts#published_at',
       :as => "post_published_at",

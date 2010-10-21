@@ -50,6 +50,13 @@ Then /^I should not see the (\d+) latest posts (.*)$/ do |n, attribute|
   end
 end
 
+Then /^I should be able to follow to the (\d+) latest posts pages$/ do |n|
+  posts = Post.published.latest
+  n.to_i.times do |i|
+    page.should have_css("#posts .post:nth-child(#{i+1}) a[href='#{friendly_post_path(posts[i])}']")
+  end
+end
+
 Then /^I should not see the post (.*)$/ do |attribute|
   Then "I should not see the 1 latest posts #{attribute}"
 end

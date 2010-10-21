@@ -25,6 +25,7 @@ Feature: blog page
     And I should see the 2 latest posts comment count
     And I should see the 2 latest posts delete link
     And I should see the 2 latest posts edit link
+    And I should be able to follow to the 2 latest posts pages
 
   Scenario: not see unpublished posts
     Given I am not signed in

@@ -2,7 +2,7 @@
 <%= content_tag :div, :id => "post_#{post.id}", :class => 'post' do %>
   <h2>
     <small class="right"><%= l(post.created_at, :format => :long) %></small>
-    <%= link_to post.title, post %>
+    <%= link_to post.title, friendly_post_path(post) %>
   </h2>
 
   <div class="entry">

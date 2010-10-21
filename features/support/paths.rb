@@ -5,13 +5,15 @@ module NavigationHelpers
     when /the home\s?page/
       root_path
     when /the blog\s?page/
-      root_path # FIXME: posts_path
+      blog_path
     when /^(.*) profile section$/i
       "#{about_us_path}##{$1.downcase.split.join('_')}"
     when /the about page/
       about_us_path
     when /the view post page/
       post_path(Post.first)
+    when /the friendly url post page/
+      friendly_post_path Post.published[0]
     when /registration page/
       '/users/new'
     when /profile page/
