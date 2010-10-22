@@ -58,9 +58,14 @@ Then /^I should(n\'t)? see the comment name as a link to the url$/ do |n|
       xpath = "//div[contains(@class, 'comment-list')]/ol/li[#{i+1}]/div[contains(@class, 'comment-meta')]/a[@href='#{c.url}']"
       page.should have_xpath(xpath, :count => 1)
     else
-      find(:css, ".comment-list > ol > li:nth-child(#{i+1}) > .comment-meta > .comment-creator").text.should include c.name
+      node = find(:css, ".comment-list > ol > li:nth-child(#{i+1}) > .comment-meta > .comment-creator")
+      node.text.should include c.name
     end
   end
+end
+
+Then /^I click on a comment url it should open a new window$/ do
+  page.should have_css("a.comment-creator[target='_blank']", :count => first_level_comments.count)
 end
 
 # Helpers

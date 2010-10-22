@@ -36,6 +36,9 @@ Feature: comments on a post page
     And I should see the comment number
     And I should see the comment name as a link to the url
 
+  Scenario: comment url
+    When I click on a comment url it should open a new window
+
   Scenario: a comment may have no website
     And there are 1 comment
     And the comment has no url
