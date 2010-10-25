@@ -1,9 +1,9 @@
 <div id="popular_posts" class="sidebar-box">
   <h2 class="border">Popular Posts</h2>
   <div class="entry">
-    <% if Post.most_popular %>
+    <% if Post.popular %>
       <ul>
-      <% Post.most_popular.each do |post| %>
+      <% Post.popular.each do |post| %>
         <li><%= link_to post.title, post %></li>
       <% end %>
       </ul>

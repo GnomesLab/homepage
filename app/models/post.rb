@@ -1,7 +1,9 @@
 class Post < ActiveRecord::Base
+
   # Included behavior
-  include ArchiveTree
   include FriendlyIdFinder
+
+  act_as_archive :published_at
   acts_as_taggable_on :tags
 
   # Associations
@@ -10,8 +12,8 @@ class Post < ActiveRecord::Base
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true
 
   # Validations
-  validates :user, :presence => true
-  validates :body, :presence => true, :length => { :minimum => 3 }
+  validates :user,  :presence => true
+  validates :body,  :presence => true, :length => { :minimum => 3 }
   validates :title, :presence => true, :length => { :within => 3..35 }
 
   # Attribute accessibility
@@ -22,9 +24,9 @@ class Post < ActiveRecord::Base
   @@per_page = 2
 
   # Scopes
-  scope :latest, order('published_at DESC')
+  scope :latest,    order('published_at DESC')
   scope :published, where('published_at IS NOT NULL')
-  scope :popular, lambda { |l| order('views DESC').limit(l) }
+  scope :popular,   lambda { |l = 5| published.order('views DESC').limit(l) }
 
   # Public class methods
   #
@@ -44,7 +46,7 @@ class Post < ActiveRecord::Base
   end
   
   # Returns the list of the comments that have no parent associated with the post.
-  # Accepts a boolean for exemple the user session to allow the user to see al the comments (including the hidden)
+  # Accepts a boolean for exemple the user session to allow the user to see all the comments (including the hidden)
   def first_level_comments(all = false)
     all ? self.comments.first_level : self.comments.first_level.visible
   end
@@ -71,13 +73,6 @@ class Post < ActiveRecord::Base
     self.published.latest.limit(limit)
   end # end recent (posts)
 
-  # returns the 5 most popular posts
-  #
-  # this method relies on the scope :popular
-  def self.most_popular(limit = 5)
-    self.published.popular(limit)
-  end
-
   # returns up to 5 related posts
   #
   # this method relies on the scope :popular which depends on the method increment to work.
@@ -85,7 +80,7 @@ class Post < ActiveRecord::Base
   # View example: (on related posts partial)
   #   <%  post.related %>
   def related(limit = 5)
-    self.find_related_tags.most_popular(limit)
+    self.find_related_tags.popular(limit)
   end # end related (posts)
 
   # Public instance methods
@@ -141,4 +136,5 @@ class Post < ActiveRecord::Base
   def published?
     self.published_at.present?
   end
-end
+
+end # Post

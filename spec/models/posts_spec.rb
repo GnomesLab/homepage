@@ -9,7 +9,10 @@ describe Post do
       subject.user.should be_a_kind_of User
       subject.should be_valid
     end
-  end
+
+    it "has many comments"
+    it "has one friendly id"
+  end # Associations
 
   describe "accessible attributes" do
 
@@ -25,7 +28,7 @@ describe Post do
       subject.should be_valid
     end
 
-    describe "name" do
+    describe "user" do
       it "defines user as a required attribute" do
         subject.user = nil
         subject.should_not be_valid
@@ -34,6 +37,8 @@ describe Post do
     end # name
 
     describe "tags" do
+      it "supports posts without any tag"
+
       it "defines tags as an attribute" do
         subject.tag_list = "rails, routes"
         subject.should be_valid
@@ -72,38 +77,32 @@ describe Post do
         subject.should_not be_valid
         subject.errors.should include :body
       end
-
-      it "should be RedClothable" do
-        subject.html_safe_body
-        subject.should be_valid
-      end
-    end
+    end # body
 
   end # Validations
 
   describe "named scopes" do
 
     before :each do
-      10.times { |i| Factory.create(:post, :user => test_user) }
+      10.times { |i| Factory.create(:published_post, :user => test_user) }
+      5.times { |i| Factory.create(:post, :user => test_user) }
     end
 
     describe "latest posts" do
       it "should return the latest posts" do
-        Post.order('id desc').first.id == Post.latest.first.id
+        Post.order('id desc').first == Post.latest.first
       end
     end # latest posts
 
     describe "published" do
       it "should only return the posts that have been published" do
-        Post.first.publish
-
         Post.published.should == Array(Post.first)
       end
     end
 
     describe "popular posts" do
-      it "should return the 5 most popular posts" do
-        popular = Post.popular(5)
+      it "the 5 most popular posts that have been published" do
+        popular = Post.popular
         popular.should be_a_kind_of ActiveRecord::Relation
         popular.length.should == 5
         popular.first.views.should >= popular.last.views
@@ -204,7 +203,7 @@ describe Post do
       end
 
       it "should return the 3 most popular published posts" do
-        popular = Post.most_popular(5)
+        popular = Post.popular(5)
         popular.should be_a_kind_of ActiveRecord::Relation
         popular.length.should == 3
         popular.first.views.should >= popular.last.views
@@ -212,7 +211,7 @@ describe Post do
     end # popular posts
 
   end # class methods
-  
+
   describe "instance methods" do
     describe "comments" do
       before :each do
