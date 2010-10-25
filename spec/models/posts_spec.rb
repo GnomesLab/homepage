@@ -96,7 +96,7 @@ describe Post do
 
     describe "published" do
       it "should only return the posts that have been published" do
-        Post.published.should == Array(Post.first)
+        Post.published.size.should == 10
       end
     end
 

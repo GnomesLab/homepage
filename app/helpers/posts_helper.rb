@@ -17,7 +17,6 @@ module PostsHelper
   #   <%= draw_archive_tree :archive, :archive_published_at_path %>
   def draw_archive_tree(model_sym = :post, route = :post_published_at_path)
     model = model_sym.to_s.capitalize.constantize
-    route = :post_published_at_path unless self.respond_to? route
 
     raw model.count > 0 ? draw_years(model_sym, route) : ""
   end # draw_archive_tree
@@ -26,6 +25,7 @@ module PostsHelper
 
     def draw_years(model_sym, route) # :nodoc:
       model = model_sym.to_s.capitalize.constantize
+      route = :post_published_at_path unless self.respond_to? route
 
       content_tag :ul do
         ul_body = ""

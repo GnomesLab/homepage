@@ -3,6 +3,8 @@
 # newer version of cucumber-rails. Consider adding your own code to a new file
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
+
+
 unless ARGV.any? {|a| a =~ /^gems/} # Don't load anything when running the gems:* tasks
 
   vendored_cucumber_bin = Dir["#{Rails.root}/vendor/{gems,plugins}/cucumber*/bin/cucumber"].first
@@ -12,8 +14,7 @@ unless ARGV.any? {|a| a =~ /^gems/} # Don't load anything when running the gems:
     require 'cucumber/rake/task'
 
     namespace :cucumber do
-      Cucumber::Rake::Task.new({:ok => 'db:test:prepare'},
-                                'Features that have been celebrated with a bottle of Crystal Champagne') do |t|
+      Cucumber::Rake::Task.new({:ok => 'db:test:prepare'}, 'Run features that should pass') do |t|
         t.binary = vendored_cucumber_bin # If nil, the gem's binary is used.
         t.fork = true # You may get faster startup if you set this to false
         t.profile = 'crystal'
@@ -24,7 +25,7 @@ unless ARGV.any? {|a| a =~ /^gems/} # Don't load anything when running the gems:
         t.fork = true # You may get faster startup if you set this to false
         t.profile = 'wip'
       end
-      
+
       { :dba => 'Diogo Almeida', :pdc => 'Pedro Coutinho', :mt => 'Miguel Teixeira' }.each do |k,v|
         Cucumber::Rake::Task.new({k => 'db:test:prepare'}, "Run features being worked on by #{v}") do |t|
           t.binary = vendored_cucumber_bin

@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/GnomesLab/archive_tree.git
-  revision: 0e4793120ea14423ed8491486151dd9fd5ca63fa
+  revision: 4d5dcd3fb599ffa1aef33b10dbb45feeb40689c7
   specs:
-    archive_tree (1.0.0.alpha.3)
+    archive_tree (1.0.0.beta2)
       activerecord (>= 3.0.0.rc)
 
 GEM
@@ -68,7 +68,7 @@ GEM
     cucumber-rails (0.3.2)
       cucumber (>= 0.8.0)
     culerity (0.2.12)
-    database_cleaner (0.5.2)
+    database_cleaner (0.6.0)
     devise (1.1.3)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 0.10.7)
