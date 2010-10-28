@@ -43,9 +43,9 @@ Then(/^I should not see the (\d+) latest posts (.*)$/) do |n, attribute|
   n.to_i.times do |i|
     case attribute
     when "delete link"
-      page.should have_no_selector("#posts #post_#{posts[i].id} a.delete")
+      page.has_no_selector?("#posts #post_#{posts[i].id} a.delete")
     when "edit link"
-      page.should have_no_selector("#posts #post_#{posts[i].id} #comments p a#edit_post_#{posts[i].id}_link")
+      page.has_no_selector?("#posts #post_#{posts[i].id} #comments p a#edit_post_#{posts[i].id}_link")
     end
   end
 end
