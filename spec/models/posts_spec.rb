@@ -10,8 +10,15 @@ describe Post do
       subject.should be_valid
     end
 
-    it "has many comments"
-    it "has one friendly id"
+    it "has many comments" do
+      subject.should respond_to(:comments)
+      Post.reflect_on_association(:comments).should_not be_nil
+    end
+    
+    it "has one friendly id" do
+      Post.reflect_on_association(:slug).should_not be_nil
+      Post.reflect_on_association(:slugs).should_not be_nil
+    end
   end # Associations
 
   describe "accessible attributes" do
@@ -37,7 +44,11 @@ describe Post do
     end # name
 
     describe "tags" do
-      it "supports posts without any tag"
+      it "supports posts without any tag" do
+        3.times { subject.tags.destroy }
+        subject.tags.should be_empty
+        subject.should be_valid
+      end
 
       it "defines tags as an attribute" do
         subject.tag_list = "rails, routes"
