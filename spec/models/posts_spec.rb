@@ -43,8 +43,7 @@ describe Post do
 
     describe "tags" do
       it "supports posts without any tag" do
-        3.times { subject.tags.destroy }
-        subject.tags.should be_empty
+        subject.tags.destroy_all.should be_empty
         subject.should be_valid
       end
 
@@ -68,7 +67,7 @@ describe Post do
       end
 
       it "has a maximum lenght" do
-        subject.title = "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii 35 is max"
+        subject.title = ActiveSupport::SecureRandom.hex(18)
         subject.should_not be_valid
         subject.errors.should include :title
       end
