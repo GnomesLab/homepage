@@ -22,7 +22,7 @@ Then(/^I should see the (\d+) latest posts (.*)$/) do |n, attribute|
       inspect_post_html posts[i].id, "#tag_#{posts[i].id}_2", Regexp.new(ERB::Util.h(posts[i].tag_list[2]))
       # inspect_post_html posts[i].id, '#post_tags', Regexp.new("Tags: #{['/.*/', '/.*/', '/.*/'].join(' ')}")
     when "comment count"
-      inspect_post_html posts[i].id, '.comments', Regexp.new("#{posts[i].comments_count} comments")
+      inspect_post_html posts[i].id, '.comments', Regexp.new("#{posts[i].comments.count} comments")
     when "delete link"
       find("#posts #post_#{posts[i].id} a.delete").text.should == "Destroy"
     when "edit link"

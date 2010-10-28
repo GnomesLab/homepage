@@ -57,12 +57,6 @@ class Post < ActiveRecord::Base
     all ? self.comments.second_level(parent) : self.comments.second_level(parent).visible
   end
 
-  # Returns the count of comments associated with the post.
-  # Accepts a boolean for exemple the user session to allow the user to see al the comments (including the hidden).
-  def comments_count(all = false)
-    all ? self.comments.all.count : self.comments.visible.count
-  end
-
   # returns the 5 most recent posts
   #
   # this method relies on the scope :latest
