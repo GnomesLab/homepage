@@ -11,13 +11,12 @@ describe Post do
     end
 
     it "has many comments" do
-      subject.should respond_to(:comments)
-      Post.reflect_on_association(:comments).should_not be_nil
+      Post.reflect_on_association(:comments).macro.should == :has_many
     end
     
     it "has one friendly id" do
-      Post.reflect_on_association(:slug).should_not be_nil
-      Post.reflect_on_association(:slugs).should_not be_nil
+      Post.reflect_on_association(:slug).macro.should == :has_one
+      Post.reflect_on_association(:slugs).macro.should == :has_many
     end
   end # Associations
 
