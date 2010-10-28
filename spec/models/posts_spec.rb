@@ -6,24 +6,23 @@ describe Post do
 
   describe "associations" do
     it "belongs to a user" do
-      subject.user.should be_a_kind_of User
-      subject.should be_valid
+      subject.class.reflect_on_association(:user).macro.should == :belongs_to
     end
 
     it "has many comments" do
-      Post.reflect_on_association(:comments).macro.should == :has_many
+      subject.class.reflect_on_association(:comments).macro.should == :has_many
     end
     
     it "has one friendly id" do
-      Post.reflect_on_association(:slug).macro.should == :has_one
-      Post.reflect_on_association(:slugs).macro.should == :has_many
+      subject.class.reflect_on_association(:slug).macro.should == :has_one
+      subject.class.reflect_on_association(:slugs).macro.should == :has_many
     end
   end # Associations
 
   describe "accessible attributes" do
 
     it "defines the attributes that are mass assignable" do
-      Post._accessible_attributes.to_a == ["user_id", "title", "body", "tag_list"]
+      subject.class._accessible_attributes.to_a.should == ["user_id", "title", "body", "tag_list"]
     end
 
   end # attr_accessible
@@ -100,19 +99,19 @@ describe Post do
 
     describe "latest posts" do
       it "should return the latest posts" do
-        Post.order('id desc').first == Post.latest.first
+        subject.class.order('id desc').first == subject.class.latest.first
       end
     end # latest posts
 
     describe "published" do
       it "should only return the posts that have been published" do
-        Post.published.size.should == 10
+        subject.class.published.size.should == 10
       end
     end
 
     describe "popular posts" do
       it "the 5 most popular posts that have been published" do
-        popular = Post.popular
+        popular = subject.class.popular
         popular.should be_a_kind_of ActiveRecord::Relation
         popular.length.should == 5
         popular.first.views.should >= popular.last.views
@@ -127,7 +126,7 @@ describe Post do
 
       it "should extend klass with its ArchiveTree::ClassMethods" do
         [:archived_years, :archived_months, :archive_tree].each do |method|
-          Post.should respond_to method
+          subject.class.should respond_to method
         end
       end # class methods
 
@@ -156,7 +155,7 @@ describe Post do
       end
 
       it "lists all the tags avaliable in Posts" do
-        cloud = Post.tag_cloud
+        cloud = subject.class.tag_cloud
 
         cloud.length.should == 2
         cloud.first.should be_a_kind_of ActsAsTaggableOn::Tag
@@ -165,7 +164,7 @@ describe Post do
       end
 
       it "supports the limit to be overridden" do
-        cloud = Post.tag_cloud 1
+        cloud = subject.class.tag_cloud 1
 
         cloud.length.should == 1
         cloud.first.should be_a_kind_of ActsAsTaggableOn::Tag
@@ -181,7 +180,7 @@ describe Post do
       end
 
       it "should return the 2 most popular published related posts" do
-        post = Post.last
+        post = subject.class.last
         related_posts = post.related(5)
         related_posts.should be_a_kind_of ActiveRecord::Relation
         related_posts.length.should == 2
@@ -199,7 +198,7 @@ describe Post do
       end
 
       it "should return the 3 most recent published posts" do
-        recent_posts = Post.recent
+        recent_posts = subject.class.recent
         recent_posts.should be_a_kind_of ActiveRecord::Relation
         recent_posts.length.should == 3
         recent_posts.first.id >= recent_posts.last.id
@@ -213,7 +212,7 @@ describe Post do
       end
 
       it "should return the 3 most popular published posts" do
-        popular = Post.popular(5)
+        popular = subject.class.popular(5)
         popular.should be_a_kind_of ActiveRecord::Relation
         popular.length.should == 3
         popular.first.views.should >= popular.last.views
@@ -251,16 +250,6 @@ describe Post do
           subject.second_level_comments(Comment.first, true).should include @invisible_comment_level2
         end
       end # Second level
-
-      describe "count" do
-        it "all comments" do
-          subject.comments_count(true).should == subject.comments.count
-        end
-
-        it "visible comments" do
-          subject.comments_count.should == subject.comments.visible.count
-        end
-      end
     end # comments
 
     describe "html_safe_body" do

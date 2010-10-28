@@ -21,7 +21,7 @@
       </p>
     </div>
     <div class="comments right">
-      <%= link_to pluralize(post.comments_count(user_signed_in?), 'comments'),
+      <%= link_to pluralize(user_signed_in? ? post.comments.count : post.comments.visible.count, 'comments'),
                   post_path(post, :anchor => 'comments'),
                   :class => 'gray comments-count' %>
 
