@@ -14,7 +14,7 @@ describe Post do
       subject.should respond_to(:comments)
       Post.reflect_on_association(:comments).should_not be_nil
     end
-    
+
     it "has one friendly id" do
       Post.reflect_on_association(:slug).should_not be_nil
       Post.reflect_on_association(:slugs).should_not be_nil
