@@ -22,7 +22,7 @@ Then /^I should click the generic header$/ do
     3 => 'Services',
     # 4 => 'Projects',
     4 => 'Popular Posts',
-    5 => 'Feedback' }.each { |k,v| top_menu_clicker(k,v) }
+    5 => 'Contact Gnomeslab' }.each { |k,v| top_menu_clicker(k,v) }
 end
 
 def top_menu_clicker(index = 0, content = nil)
