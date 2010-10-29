@@ -80,19 +80,28 @@ class PostsController < ApplicationController
 
   # DELETE /post/:id
   def destroy
-    if Post.find(params[:id]).try(:destroy)
+    if post = Post.find(params[:id]).try(:destroy)
       flash[:notice] = "Post was successfully deleted."
     else
       flash[:error] = "Oops! Your post could not be deleted."
     end
 
-    redirect_to blog_path
+    respond_with post
   end
 
   # GET /post/tagged/:tag_name
   def tagged
     @tag = ActsAsTaggableOn::Tag.find_by_name params[:tag_name]
     @posts = Post.tagged_with(params[:tag_name]).latest.paginate :page => params[:page], :per_page => Post.per_page
+
+    respond_with @posts
+  end
+
+  # GET blog/:year(/:month)
+  def published_at
+    @posts = Post.archive_node(:year => params[:year]).
+              order('published_at DESC').
+              paginate(:page => params[:page], :per_page => Post.per_page)
 
     respond_with @posts
   end

@@ -1,0 +1,27 @@
+<% title 'Archive | Gnomeslab' %>
+
+<!-- Posts -->
+<div id='posts' class="justify">
+  <%= render 'shared/flash/box', :locals => flash %>
+
+  <% if post = @posts[0] %>
+    <%= content_title "Published in #{Date::MONTHNAMES[post.published_at.month] + ',' if params[:month]} #{post.published_at.year}" %>
+    <br /><br />
+    <%= render @posts if @posts %>
+
+    <!-- Pagination -->
+    <%= paginate_records @posts %>
+    <!-- End Pagination -->
+  <% else %>
+    <%= content_title "Published in #{post.published_at.year}" %>
+    <p>Sorry, we seem to have misplaced what you were looking for, but we're searching for it!</p>
+  <% end %>
+
+</div>
+<!-- End Posts -->
+
+<%= content_for :sidebar do %>
+  <%= render 'shared/content_box/recent_posts' %>
+  <%= render 'shared/content_box/popular_post' %>
+  <%= render 'shared/content_box/archives' %>
+<% end %>

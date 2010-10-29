@@ -11,7 +11,7 @@ Feature: contact page
     Then I should see the generic header
 
   Scenario: page title and pitch line
-    Then I should see "Feedback"
+    Then I should see "Contact Gnomeslab"
     And I should see "Send us a message! We would love to hear about your projects... or could just say hi!"
 
   Scenario: right column gnomeslab profile

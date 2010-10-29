@@ -1,4 +1,4 @@
-@dba
+@pdc
 Feature: Posts archive
   In order to make it easier for our visitors to find the posts they are looking for
   GnomesLab catalogs its entries by date in its archive, allowing its visitors to browse all entries by year and month
@@ -32,4 +32,9 @@ Feature: Posts archive
   Scenario: View records for the selected year
     Given I am on the posts page
     When I follow the active year archive link
-    Then I should see "Posts published in 2010" within "#main #content h2[1]"
+    Then I should see that year archived posts title
+
+  Scenario: View records for the selected month
+    Given I am on the posts page
+    When I follow the first month of the active year
+    Then I should see that month archived posts title
