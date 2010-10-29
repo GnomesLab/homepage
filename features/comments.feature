@@ -71,3 +71,8 @@ Feature: comments on a post page
     And There is a hidden comment
     And I am on the view post page
     Then I should not see the hidden comment
+
+  Scenario: right column recent comments
+    Then I should see "Recent Comments"
+    And I should see the 5 most recent comments
+    And I should see a link to read more for each of the 5 comments

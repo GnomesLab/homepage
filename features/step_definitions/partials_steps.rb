@@ -35,5 +35,5 @@ Then /^I should see the generic footer$/ do
   page.should have_content("About")
   page.should have_content("Latest Posts")
   page.should have_content("Tag Cloud")
-  page.should have_content("Latest Tweets")
+  page.should have_content("Contact Us")
 end

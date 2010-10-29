@@ -22,6 +22,7 @@ class Comment < ActiveRecord::Base
   scope :first_level, where('parent_id IS NULL')
   scope :second_level, lambda { |p| where('parent_id = ?', p.id) }
   scope :visible, where('visible = ?', true)
+  scope :recent, lambda { |n = 5| first_level.visible.limit(n).order('created_at DESC') }
 
   # accessor
   def url=(value)

@@ -70,13 +70,13 @@ describe Comment do
         subject.should_not be_valid
         subject.errors.should include :body
       end
-      
+
       it "is greater than 2 characters long" do
         subject.body = 'z'
         subject.should_not be_valid
         subject.errors.should include :body
       end
-      
+
       it "is smaller than 3000 characters long" do
         subject.body = (0..3001).map { ('a'..'z').to_a[rand(26)] }.join
         subject.should_not be_valid
@@ -137,12 +137,38 @@ describe Comment do
         Comment.second_level(Comment.first).each { |c| c.parent.should == Comment.first }
       end
     end # second level
-    
+
     describe "visible" do
       it "returns only visible comments" do
         subject.visible = false
         subject.save
         Comment.visible.should_not include subject
+      end
+    end
+
+    describe "recent" do
+      before :each do
+        post = Factory.create(:post)
+        10.times { |i| Factory.create(:comment, :post => post, :visible => false, :created_at => "2010-01-01 00:00:#{i}") }
+        10.times { |i| Factory.create(:comment, :post => post, :created_at => "2011-01-01 00:00:#{i}") }
+      end
+
+      it "returns 5 comments" do
+        Comment.recent.should have(5).records
+      end
+      
+      it "overrides to 10 comments" do
+        Comment.recent(10).should have(10).records
+      end
+
+      it "only returns visible comments" do
+        Comment.recent.each do |c|
+          c.visible.should be_true
+        end
+      end
+
+      it "returns the comments ordered by date descending" do
+        Comment.recent.order_values.should include "created_at DESC"
       end
     end
   end # named scopes

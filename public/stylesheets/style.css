@@ -1,7 +1,7 @@
 * { padding:0; margin:0; outline:0; }
 
 body {
-	background:#fff;
+	background: #101010;
 	font-family: "Lucida Sans", Lucida, "Trebuchet MS", sans-serif;
 	font-size:12px;
 	line-height:22px;
@@ -134,7 +134,7 @@ label span{ color:#999; font-size:10px; }
 .slider-nav a.next{ background:url(../images/layout/next.png); left:949px}
 .slider-nav a.prev{ background:url(../images/layout/prev.png); left:-3px;}
 
-#container { padding-bottom:60px; }
+#container { padding-bottom:60px; background: #fff; }
 #main { padding-top:20px; }
 #main .cols{ padding-top:25px; }
 #main .cols-nopadding{ padding-top:0; }

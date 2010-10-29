@@ -1,7 +1,18 @@
-<div id="recent_posts" class="sidebar-box">
+<div id="recent-comments" class="sidebar-box">
   <h2 class="border">Recent Comments</h2>
   <div class="entry">
-    <p>There are no comments :(</p>
-    <p>Perhaps you can check our <%= link_to 'Twitter', 'http://twitter.com/gnomeslab' %>!</p>
+    <% if Comment.recent %>
+      <ul>
+      <% Comment.recent.each do |c| %>
+        <li>
+          <%= c.body.truncate(150) %> <br />
+          <%= link_to 'more', post_path(c.post, :anchor => 'comments') %>
+        </li>
+      <% end %>
+      </ul>
+    <% else %>
+      <p>There are no comments :(</p>
+      <p>Perhaps you can check our <%= link_to 'Twitter', 'http://twitter.com/gnomeslab' %>!</p>
+    <% end %>
   </div>
 </div>

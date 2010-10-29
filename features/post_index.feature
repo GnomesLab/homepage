@@ -36,7 +36,6 @@ Feature: blog page
     Given I am signed in
     And I am on the posts page
     Then I should see 2 unpublished posts
-    And I should see a "Publish" l
 
   Scenario: Only authenticated users see the edit and delete options for each post
     Given I am not signed in

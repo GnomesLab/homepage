@@ -59,9 +59,9 @@ Feature: about gnomeslab
     And I should see "Visit our Facebook group"
     And I should see "Follow Gnomeslab on Twitter"
 
-  Scenario: contact us (right column)
-    Then I should see "About us"
-    And I should see "Gnomeslab is different."
+  Scenario: contact teaser (right column)
+    Then I should see "Have an idea a project or a problem?"
+    And I should see "We can help you with that!"
 
   Scenario: the about page should have a footer
     Then I should see the generic footer

@@ -68,6 +68,19 @@ Then /^I click on a comment url it should open a new window$/ do
   page.should have_css("a.comment-creator[target='_blank']", :count => first_level_comments.count)
 end
 
+Then /^I should see the (\d+) most recent comments$/ do |n|
+  Comment.recent(n.to_i).each_with_index do |c, i|
+    find(:css, "#recent-comments > .entry li:nth-child(#{i+1})").text.should include c.body
+  end
+end
+
+Then /^I should see a link to read more for each of the (\d+) comments$/ do |n|
+  Comment.recent(n.to_i).each_with_index do |c, i|
+    find("#recent-comments > .entry li:nth-child(#{i+1})").should have_link("more")
+    page.should have_css("#recent-comments > .entry li:nth-child(#{i+1}) a[href='#{post_path(c.post)}#comments']")
+  end
+end
+
 # Helpers
 def comments_list
   find(:xpath, "//div[contains(@class, 'comment-list')]/ol").text
