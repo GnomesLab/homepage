@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/GnomesLab/archive_tree.git
-  revision: 84e92dc9f413affb4c82389e795c33888497ec30
+  revision: 5582b39bba8da421f61dd347bd7f9203f267356a
   specs:
-    archive_tree (1.0.0.beta5)
+    archive_tree (1.0.0.beta6)
       activerecord (~> 3.0.0)
 
 GEM
@@ -165,20 +165,20 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  RedCloth (~> 4.2)
+  RedCloth (~> 4.2.3)
   active_record_attributes_equality (~> 1.0)
-  acts-as-taggable-on (~> 2.0)
+  acts-as-taggable-on (~> 2.0.6)
   archive_tree!
-  capybara (~> 0.3)
-  cucumber-rails (~> 0.3)
-  database_cleaner (~> 0.5)
-  devise (~> 1.1)
-  factory_girl_rails (~> 1.0)
-  friendly_id (~> 3.1)
-  launchy (~> 0.3)
-  mysql2 (~> 0.2)
-  rails (~> 3.0)
-  rspec-rails (~> 2.0)
-  ruby-debug19 (~> 0.11)
-  term-ansicolor (~> 1.0)
+  capybara (~> 0.4.0)
+  cucumber-rails (~> 0.3.2)
+  database_cleaner (~> 0.6.0)
+  devise (~> 1.1.3)
+  factory_girl_rails (~> 1.0.0)
+  friendly_id (~> 3.1.7)
+  launchy (~> 0.3.7)
+  mysql2 (~> 0.2.6)
+  rails (~> 3.0.1)
+  rspec-rails (~> 2.0.1)
+  ruby-debug19 (~> 0.11.6)
+  term-ansicolor (~> 1.0.5)
   will_paginate (~> 3.0.pre2)
