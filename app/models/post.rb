@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   # Included behavior
   include FriendlyIdFinder
 
-  act_as_archive :published_at
+  acts_as_archive :published_at
   acts_as_taggable_on :tags
 
   # Associations
@@ -27,6 +27,7 @@ class Post < ActiveRecord::Base
   scope :latest,    order('published_at DESC')
   scope :published, where('published_at IS NOT NULL')
   scope :popular,   lambda { |l = 5| published.order('views DESC').limit(l) }
+  scope :recent,    lambda { |l = 5| published.latest.limit(l) }
 
   # Public class methods
   #
@@ -56,22 +57,6 @@ class Post < ActiveRecord::Base
   def second_level_comments(parent, all = false)
     all ? self.comments.second_level(parent) : self.comments.second_level(parent).visible
   end
-
-  # Returns the count of comments associated with the post.
-  # Accepts a boolean for exemple the user session to allow the user to see al the comments (including the hidden).
-  def comments_count(all = false)
-    all ? self.comments.all.count : self.comments.visible.count
-  end
-
-  # returns the 5 most recent posts
-  #
-  # this method relies on the scope :latest
-  #
-  # View example: (on recent posts partial)
-  #   <% recent.each do |p| %>
-  def self.recent(limit = 5)
-    self.published.latest.limit(limit)
-  end # end recent (posts)
 
   # returns up to 5 related posts
   #

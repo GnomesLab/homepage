@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/GnomesLab/archive_tree.git
-  revision: 4d5dcd3fb599ffa1aef33b10dbb45feeb40689c7
+  revision: 84e92dc9f413affb4c82389e795c33888497ec30
   specs:
-    archive_tree (1.0.0.beta2)
-      activerecord (>= 3.0.0.rc)
+    archive_tree (1.0.0.beta5)
+      activerecord (~> 3.0.0)
 
 GEM
   remote: http://rubygems.org/
@@ -86,7 +86,7 @@ GEM
     gherkin (2.2.9)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
-    i18n (0.4.1)
+    i18n (0.4.2)
     json (1.4.6)
     json_pure (1.4.6)
     launchy (0.3.7)
@@ -94,10 +94,11 @@ GEM
       rake (>= 0.8.1)
     linecache19 (0.5.11)
       ruby_core_source (>= 0.1.4)
-    mail (2.2.7)
+    mail (2.2.9)
       activesupport (>= 2.3.6)
-      mime-types
-      treetop (>= 1.4.5)
+      i18n (~> 0.4.1)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
     mime-types (1.16)
     mysql2 (0.2.6)
     nokogiri (1.4.3.1)

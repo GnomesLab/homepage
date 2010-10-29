@@ -11,7 +11,7 @@
 <!-- Comments -->
 <div class="post-comments justify" id="comments">
   <a href="#submit-comment" class="right">Write a comment</a>
-  <h4 class="comments-count"><%= pluralize(@post.comments_count, 'Comment') %></h4>
+  <h4 class="comments-count"><%= pluralize(@post.comments.visible.count, 'Comment') %></h4>
   
   <% if @post.comments.present? %>
   <!-- Comment List -->
