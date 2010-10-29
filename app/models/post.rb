@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   # Included behavior
   include FriendlyIdFinder
 
-  act_as_archive :published_at
+  acts_as_archive :published_at
   acts_as_taggable_on :tags
 
   # Associations
