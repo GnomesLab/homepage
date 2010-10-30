@@ -311,6 +311,7 @@ p.nav span{ color:#999; padding:0 6px;}
 .form textarea.field{ width:370px; height:124px;}
 .form select.field { width: 63px; }
 .form p{ margin-bottom:12px; }
+.form .time-separator, .form .datetime-separator { display:block; float: left; margin-left: 15px; }
 
 .floated-form { padding-top:10px;}
 .floated-form label{ float:left; width:200px; display:inline; padding-top:1px; text-align: right;}
