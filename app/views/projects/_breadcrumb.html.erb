@@ -1,7 +1,0 @@
-<ul id="breadcrumb">
-  <li><%= link_to 'Projects', projects_path %></li>
-  <li> > </li>
-  <li><%= link_to @project.category.name.capitalize, @project.category %></li>
-  <li> > </li>
-  <li><%= link_to @project.title.capitalize, project_path(@project.category, @project) %></li>
-</ul>

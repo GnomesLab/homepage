@@ -23,15 +23,6 @@ miguel_teixeira.save!
 
 # Development seed
 if Rails.env == "development"
-  # Projects
-  2.times do
-    c = Factory.create(:category)
-    6.times do
-      p = Factory.create(:project, :category => c)
-      2.times { Factory.create(:image, :project => p) }
-    end
-  end
-
   # Blog posts
   Factory.create(:published_post)
   Factory.create(:post)

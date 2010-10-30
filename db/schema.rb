@@ -10,16 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101020174820) do
-
-  create_table "categories", :force => true do |t|
-    t.string   "name",                          :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "projects_count", :default => 0, :null => false
-  end
-
-  add_index "categories", ["projects_count"], :name => "index_categories_on_projects_count"
+ActiveRecord::Schema.define(:version => 20101030002548) do
 
   create_table "comments", :force => true do |t|
     t.string   "name",                         :null => false
@@ -49,15 +40,6 @@ ActiveRecord::Schema.define(:version => 20101020174820) do
 
   add_index "enquiries", ["email"], :name => "index_enquiries_on_email"
 
-  create_table "images", :force => true do |t|
-    t.string   "title",                         :null => false
-    t.text     "url",                           :null => false
-    t.integer  "project_id",                    :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "is_default", :default => false
-  end
-
   create_table "posts", :force => true do |t|
     t.string   "title",                       :null => false
     t.integer  "user_id",                     :null => false
@@ -70,19 +52,6 @@ ActiveRecord::Schema.define(:version => 20101020174820) do
 
   add_index "posts", ["created_at"], :name => "index_posts_on_created_at"
   add_index "posts", ["published_at"], :name => "index_posts_on_published_at"
-
-  create_table "projects", :force => true do |t|
-    t.string   "title",       :null => false
-    t.string   "subtitle",    :null => false
-    t.date     "date",        :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "category_id", :null => false
-    t.text     "description", :null => false
-    t.string   "url",         :null => false
-  end
-
-  add_index "projects", ["category_id"], :name => "index_projects_on_category_id"
 
   create_table "slugs", :force => true do |t|
     t.string   "name"
