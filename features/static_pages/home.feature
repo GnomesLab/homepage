@@ -34,4 +34,5 @@ Feature: home page
     Given There are 5 post
     And I am on the home page
     Then I should see the generic footer
-    And I should see the latest posts titles
+    And I should see the 5 recent posts titles
+    And I should see the 3 latest Gnomeslab tweets

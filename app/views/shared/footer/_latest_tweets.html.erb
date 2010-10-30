@@ -1,20 +1,17 @@
 <div class="col-right col3">
   <h5>Latest Tweets</h5>
-  <ul class="fixlast">
-    <li>
-      <span>Link: Andy Awesome, lovely pop artillustration on canvas</span>
-      <a href="http://chocotemplates.com">chocotemplates.com</a>
-      <small>about 15 hours ago</small>
-    </li>
-    <li>
-      <span>Link: Andy Awesome, lovely pop artillustration on canvas</span>
-      <a href="http://chocotemplates.com">chocotemplates.com</a>
-      <small>about 15 hours ago</small>
-    </li>
-    <li class="last">
-      <span>Link: Andy Awesome, lovely pop artillustration on canvas</span>
-      <a href="http://chocotemplates.com">chocotemplates.com</a>
-      <small>about 15 hours ago</small>
-    </li>
-  </ul>
+  <% if tweets = Grackle::Client.new.statuses.user_timeline?(:user => 'gnomeslab', :count => 4) %>
+    <ul class="fixlast">
+      <% for tweet in tweets %>
+
+        <%= content_tag :li, :class => tweet == tweets.last ? 'last' : '' do %>
+          <%= content_tag :p, tweet.text %>
+          <%= link_to I18n.l(Time.parse(tweet.created_at), :format => :long), tweet_path(tweet.id) %>
+        <% end %>
+
+      <% end %>
+    </ul>
+  <% else %>
+    <li> Oops we are unable to retrieve our tweets! </li>
+  <% end %>
 </div>

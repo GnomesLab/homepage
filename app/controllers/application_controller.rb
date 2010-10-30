@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
-  helper_method :friendly_post_path
+  helper_method :friendly_post_path, :tweet_path
 
   # Generates a friendly url path for a given instance of Post.
   #
@@ -19,5 +19,9 @@ class ApplicationController < ActionController::Base
                                               "%02d" % post.published_at.month,
                                               "#{post.friendly_id}") :
                       post_path(post)
+  end
+
+  def tweet_path(id)
+    "http://twitter.com/gnomeslab/status/#{id}"
   end
 end

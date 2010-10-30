@@ -7,6 +7,7 @@ gem 'will_paginate', '~> 3.0.pre2'
 gem "friendly_id", '~> 3.1.7'
 gem 'acts-as-taggable-on', '~> 2.0.6'
 gem 'RedCloth', '~> 4.2.3'
+gem 'grackle', '~>0.1.10'
 
 # Gnomeslab gems
 gem 'active_record_attributes_equality', '~> 1.0'

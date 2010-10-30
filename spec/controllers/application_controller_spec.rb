@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ApplicationController do
 
-  describe "friendly post path" do
+  describe "friendly_post_path" do
     base_path = '/blog'
 
     it "defaults to nil" do
@@ -26,5 +26,13 @@ describe ApplicationController do
     end
 
   end # friendly_post_path
+
+  describe "tweet_path" do
+
+    it "returns the url for a gnomeslab tweet" do
+      controller.tweet_path(12345).should == 'http://twitter.com/gnomeslab/status/12345'
+    end
+
+  end # tweet_path
 
 end
