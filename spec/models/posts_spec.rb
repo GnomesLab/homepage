@@ -22,7 +22,7 @@ describe Post do
   describe "accessible attributes" do
 
     it "defines the attributes that are mass assignable" do
-      subject.class._accessible_attributes.to_a.should == ["user_id", "title", "body", "tag_list"]
+      subject.class._accessible_attributes.to_a.should == ["user_id", "title", "body", "tag_list", "published_at"]
     end
 
   end # attr_accessible

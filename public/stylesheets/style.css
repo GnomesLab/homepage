@@ -308,6 +308,7 @@ p.nav span{ color:#999; padding:0 6px;}
 .form label{ display:block; }
 .form .field{ display:block; width:230px;}
 .form textarea.field{ width:370px; height:124px;}
+.form select.field { width: 63px; }
 .form p{ margin-bottom:12px; }
 
 .floated-form { padding-top:10px;}

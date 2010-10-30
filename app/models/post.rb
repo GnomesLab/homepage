@@ -17,7 +17,7 @@ class Post < ActiveRecord::Base
   validates :title, :presence => true, :length => { :within => 3..35 }
 
   # Attribute accessibility
-  attr_accessible :user_id, :title, :body, :tag_list
+  attr_accessible :user_id, :title, :body, :tag_list, :published_at
 
   # Pagination
   cattr_reader :per_page

@@ -21,7 +21,17 @@
                    :class => "field #{flash[:error].nil? ? 'required' : ' field-error'}" %>
   <div class="cl">&nbsp;</div>
 
+  <%= f.label :published_at %>
+  <%= f.datetime_select :published_at,
+                        { :use_short_month => true,
+                          :include_blank => true,
+                          :start_year => (Post.minimum('YEAR(published_at)') || Time.now.year) - 1,
+                          :end_year => (Post.maximum('YEAR(published_at)')  || Time.now.year) + 1 },
+                        { :class => "field #{flash[:error].nil? ? 'required' : ' field-error'}" } %>
+  <div class="cl">&nbsp;</div>
+
   <div class="form-buttons">
+    <br />
     <%= f.submit "Submit your post", :class => 'button', :disable_with => 'Posting...' %> or 
     <%= link_to 'cancel', @post, :title =>'Go back to the homepage' %>
   </div>
