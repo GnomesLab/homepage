@@ -2,31 +2,21 @@
   <div class="shell cols">
     <div class="cl">&nbsp;</div>
 
-    <!-- Col -->
-    <div class="col col3">
-      <h5>About</h5>
-      <p>
-        Based in Lisbon, Portugal, Gnomeslab positions itself as a specialist in the fields of 
-        <i>Web Development</i> and <i>Product Development</i>.
-      </p>
-      <p>
-        We use <i>Agile Software Development</i>, <i>Continuous Integration</i> and <i>Ruby on Rails</i> to 
-        bring our clients ideas and vision into reality. <%= link_to "more", about_us_path %>
-      </p>
-    </div>
-    <!-- End Cols -->
+    <!-- About -->
+    <%= render '/shared/footer/about'%>
+    <!-- End About -->
 
-    <!-- Col Latest post -->
+    <!-- Latest post -->
     <%= render '/shared/footer/latest_posts'%>
-    <!-- End Cols Latest post -->
+    <!-- End Latest post -->
 
-    <!-- Col tag cloud-->
+    <!-- Tag cloud-->
     <%= render '/shared/footer/tag_cloud' %>
-    <!-- End Col tag cloud -->
+    <!-- End Tag cloud -->
 
-    <!-- Col -->
-    <%= render :partial => 'shared/footer/contact_us' %>
-    <!-- End Cols -->
+    <!-- Latest tweets -->
+    <%= render 'shared/footer/latest_tweets' %>
+    <!-- Col Latest tweets -->
 
     <div class="cl">&nbsp;</div>
   </div>
