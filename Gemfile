@@ -10,7 +10,7 @@ gem 'RedCloth', '~> 4.2.3'
 
 # Gnomeslab gems
 gem 'active_record_attributes_equality', '~> 1.0'
-gem 'archive_tree', :git => 'git://github.com/GnomesLab/archive_tree.git'
+gem 'archive_tree', '~> 1.0.0.rc'
 
 group :development, :test do
   gem 'term-ansicolor', '~> 1.0.5'
