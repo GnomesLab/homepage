@@ -9,6 +9,7 @@ Feature: post create
 
   Scenario: page header
     Then I should see the generic header
+    And I should see "Blog" selected in the header
 
   Scenario: I should not be able to create posts when im not logged in
     Given I am not signed in

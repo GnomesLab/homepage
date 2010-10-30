@@ -22,6 +22,10 @@ Then(/^I should click the generic header$/) do
     5 => 'Contact Gnomeslab' }.each { |k,v| top_menu_clicker(k,v) }
 end
 
+Then(/^I should see "([^"]*)" selected in the header$/) do |field|
+  find("#head #navigation a[class~='active']").should have_content(field)
+end
+
 Then(/^I should see the generic footer$/) do
   page.should have_content("About")
   page.should have_content("Latest Posts")

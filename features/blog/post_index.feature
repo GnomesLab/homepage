@@ -10,6 +10,7 @@ Feature: blog page
 
   Scenario: page header
     Then I should see the generic header
+    And I should see "Blog" selected in the header
 
   Scenario: the blog page should have the 2 latest posts visible
     Then I should see the 2 latest posts

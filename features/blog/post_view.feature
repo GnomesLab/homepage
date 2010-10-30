@@ -12,6 +12,7 @@ Feature: view post
 
   Scenario: page header
     Then I should see the generic header
+    And I should see "Blog" selected in the header
 
   Scenario: redirect to friendly url
     Then I should be on the friendly url post page

@@ -10,6 +10,7 @@ Feature: services page
 
   Scenario: page header
     Then I should see the generic header
+    And I should see "Services" selected in the header
 
   Scenario: web development service
     Then I should see "Web development"

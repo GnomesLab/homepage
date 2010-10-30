@@ -9,6 +9,7 @@ Feature: contact page
 
   Scenario: page header
     Then I should see the generic header
+    And I should see "Contact" selected in the header
 
   Scenario: page title and pitch line
     Then I should see "Contact Gnomeslab"

@@ -9,6 +9,7 @@ Feature: post update
 
   Scenario: page header
     Then I should see the generic header
+    And I should see "Blog" selected in the header
 
   Scenario: I should not be able to edit posts when im not logged in
     And I am not signed in

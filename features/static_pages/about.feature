@@ -11,6 +11,7 @@ Feature: about gnomeslab
 
   Scenario: page header
     Then I should see the generic header
+    And I should see "About us" selected in the header
 
   Scenario: about us content
     Then I should see "About us"

@@ -9,6 +9,7 @@ Feature: home page
 
   Scenario: page header
     Then I should click the generic header
+    And I should see "Home" selected in the header
 
   Scenario: the homepage should have a "Who are we" section on the body
     Then I should see "Who are we"
