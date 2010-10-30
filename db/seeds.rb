@@ -1,7 +1,7 @@
 # Users
 diogo_almeida = User.new
 diogo_almeida.name     = 'Diogo Almeida'
-diogo_almeida.email    = 'diogo.borges.almeida@gmail.com'
+diogo_almeida.email    = 'diogo.almeida@gnomeslab.com'
 diogo_almeida.password = 'gnomes1234'
 diogo_almeida.save!
 diogo_almeida.reload

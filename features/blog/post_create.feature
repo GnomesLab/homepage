@@ -11,19 +11,22 @@ Feature: post create
     Then I should see the generic header
 
   Scenario: I should not be able to create posts when im not logged in
-    And I am not signed in
-    And I am on the new post page
+    Given I am not signed in
+    When I am on the new post page
     Then I should be on the login page
 
   Scenario: I should be able to create posts
-    And I fill in "Title" with "title"
+    Given I fill in "Title" with "title"
     And I fill in "Text" with "text"
-    And I press "Submit your post"
+    And I select "2010" from "post_published_at_1i"
+    And I select "Oct" from "post_published_at_2i"
+    And I select "30" from "post_published_at_3i"
+    When I press "Submit your post"
     Then I should see "Post was successfully created."
 
   Scenario: invalid post validation
     Given I have an invalid title
-    And I fill the post form
+    When I fill the post form
     And I press "Submit your post"
     Then I should see "Oops! Your post could not be created."
 
