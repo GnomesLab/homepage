@@ -31,4 +31,7 @@ Feature: home page
     Then I should see "Gnomeslab is based in Lisbon"
 
   Scenario: the blog post should have a footer
+    Given There are 5 post
+    And I am on the home page
     Then I should see the generic footer
+    And I should see the latest posts titles

@@ -29,6 +29,13 @@ Then(/^I should see the generic footer$/) do
   page.should have_content("Latest Tweets")
 end
 
+Then(/^I should see the latest posts titles$/) do
+  Post.recent.each_with_index do |p, i|
+    page.should have_css("#footer .col3:nth-child(3) li:nth-child(#{i+1})")
+    find("#footer .col3:nth-child(3) li:nth-child(#{i+1}) a[href='#{post_path(p)}']").should have_content(p.title)
+  end
+end
+
 #
 # Helpers
 #
