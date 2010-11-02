@@ -1,17 +1,19 @@
-<div class="col-right col3">
-  <h5>Latest Tweets</h5>
-  <% if tweets = TwitterProxy::get_tweets %>
-    <ul class="fixlast">
-      <% for tweet in tweets %>
+<% cache('latest_tweets', :expires_in => 1.hour) do %>
+  <div class="col-right col3">
+    <h5>Latest Tweets</h5>
+    <% if tweets = TwitterProxy::get_tweets %>
+      <ul class="fixlast">
+        <% for tweet in tweets %>
 
-        <%= content_tag :li, :class => tweet == tweets.last ? 'last' : '' do %>
-          <%= content_tag :p, tweet.text %>
-          <%= link_to I18n.l(Time.parse(tweet.created_at), :format => :long), tweet_path(tweet.id) %>
+          <%= content_tag :li, :class => tweet == tweets.last ? 'last' : '' do %>
+            <%= content_tag :p, tweet.text %>
+            <%= link_to I18n.l(Time.parse(tweet.created_at), :format => :long), tweet_path(tweet.id) %>
+          <% end %>
+
         <% end %>
-
-      <% end %>
-    </ul>
-  <% else %>
-    <li> Oops we are unable to retrieve our tweets! </li>
-  <% end %>
-</div>
+      </ul>
+    <% else %>
+      <li> Oops we are unable to retrieve our tweets! </li>
+    <% end %>
+  </div>
+<% end %>
