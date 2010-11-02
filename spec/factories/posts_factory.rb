@@ -7,5 +7,5 @@ Factory.define :post do |p|
 end
 
 Factory.define :published_post, :parent => :post do |p|
-  p.sequence(:published_at) { |n| n.hours.ago }
+  p.sequence(:published_at) { |n| n.seconds.ago }
 end
