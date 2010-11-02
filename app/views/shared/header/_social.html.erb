@@ -1,0 +1,16 @@
+<% if current_user %>
+  <div class="login">
+    <li>
+      <span>|</span>
+      <%= link_to 'Logout', destroy_user_session_path %>
+    </li>
+  </div>
+<% end %>
+<div class="socials">
+  <span class="contact">Contact us:</span>
+  <a href='mailto:pedro.coutinho@gnomeslab.com' class="contact-link email">pedro.coutinho@gnomeslab.com</a>
+  <span>|</span>
+  <%= link_to 'Twitter', 'http://twitter.com/gnomeslab', :class => 'twitter-link' %>
+  <span>|</span>
+  <%= link_to 'RSS', posts_url(:rss), :class => 'rss-link' %>
+</div>

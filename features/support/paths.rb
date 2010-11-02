@@ -24,6 +24,8 @@ module NavigationHelpers
       post_tags_path(Post.last.tag_list.first)
     when /the edit post page/
       edit_post_path(Post.last)
+    when /the posts page via rss/
+      posts_url(:format => :rss)      
     else
 
       begin

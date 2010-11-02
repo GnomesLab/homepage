@@ -12,12 +12,16 @@ class PostsController < ApplicationController
   # Redirects:
   #   * Requests matching /^\/posts(\/?)$/ will be permanently redirected to the blog_path
   def index
-    return redirect_to blog_path, :status => 301 if request.path =~ /^\/posts(\/?)$/ && flash.empty?
+    respond_with(@posts) do |format|
+      format.html do
+        return redirect_to blog_path, :status => 301 if request.path =~ /^\/posts(\/?)$/ && flash.empty?
 
-    @posts = user_signed_in? ? Post.latest : Post.published.latest
-    @posts = @posts.paginate :page => params[:page], :per_page => Post.per_page
+        @posts = user_signed_in? ? Post.latest : Post.published.latest
+        @posts = @posts.paginate :page => params[:page], :per_page => Post.per_page
+      end
 
-    respond_with @posts
+      format.rss { @posts = Post.published.latest }
+    end
   end
 
   # GET /posts/:id
@@ -100,8 +104,8 @@ class PostsController < ApplicationController
   # GET blog/:year(/:month)
   def published_at
     @posts = Post.archive_node(:year => params[:year]).
-              order('published_at DESC').
-              paginate(:page => params[:page], :per_page => Post.per_page)
+      order('published_at DESC').
+      paginate(:page => params[:page], :per_page => Post.per_page)
 
     respond_with @posts
   end

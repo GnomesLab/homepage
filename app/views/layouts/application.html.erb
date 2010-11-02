@@ -22,22 +22,7 @@
     <div id="header">
       <div class="shell">
         <!-- Socials -->
-        <% if current_user %>
-          <div class="login">
-            <li>
-              <span>|</span>
-              <%= link_to 'Logout', destroy_user_session_path %>
-            </li>
-          </div>
-        <% end %>
-        <div class="socials">
-          <span class="contact">Contact us:</span>
-          <a href='mailto:pedro.coutinho@gnomeslab.com' class="contact-link email">pedro.coutinho@gnomeslab.com</a>
-          <span>|</span>
-          <a href="#" class="twitter-link">Twitter</a>
-          <span>|</span>
-          <a href="#" class="rss-link">RSS</a>
-        </div>
+        <%= render 'shared/header/social' %>
         <!-- End Socials -->
       </div>
     </div>
