@@ -13,14 +13,16 @@ gem 'grackle', '~>0.1.10'
 gem 'active_record_attributes_equality', '~> 1.0'
 gem 'archive_tree', '~> 1.0.0.rc'
 
-group :development, :test do
-  gem 'term-ansicolor', '~> 1.0.5'
-  gem 'ruby-debug19', '~> 0.11.6'
-  gem 'capybara', '~> 0.4.0'
-  gem 'database_cleaner', '~> 0.6.0'
-  gem 'cucumber-rails', '~> 0.3.2'
-  gem 'rspec-rails', '~> 2.0.1'
-  gem 'launchy', '~> 0.3.7'
-  gem 'factory_girl_rails', '~> 1.0.0'
-  # gem 'spork'
+unless ENV['USER'] ? !! ENV['USER'].match(/^repo\d+/) : ENV.any?{|key, _| key.match(/^HEROKU_/)}
+  group :development, :test do
+    gem 'term-ansicolor', '~> 1.0.5'
+    gem 'ruby-debug19', '~> 0.11.6'
+    gem 'capybara', '~> 0.4.0'
+    gem 'database_cleaner', '~> 0.6.0'
+    gem 'cucumber-rails', '~> 0.3.2'
+    gem 'rspec-rails', '~> 2.0.1'
+    gem 'launchy', '~> 0.3.7'
+    gem 'factory_girl_rails', '~> 1.0.0'
+    # gem 'spork'
+  end
 end
