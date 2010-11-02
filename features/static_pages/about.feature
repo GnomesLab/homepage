@@ -57,7 +57,6 @@ Feature: about gnomeslab
 
   Scenario: we're social (right column)
     Then I should see "We're social!"
-    And I should see "Visit our Facebook group"
     And I should see "Follow Gnomeslab on Twitter"
 
   Scenario: contact teaser (right column)
