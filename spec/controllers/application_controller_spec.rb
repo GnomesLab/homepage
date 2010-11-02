@@ -35,4 +35,14 @@ describe ApplicationController do
 
   end # tweet_path
 
+  describe "ensure_domain" do
+
+    it "ignores the redirect order unless the env is set to production and the host is not gnomeslab.com" do
+      Rails.env.should_not == 'production'
+      request.env['HTTP_HOST'].should_not == 'gnomeslab.com'
+      response.should be_success
+    end
+
+  end # ensure_domain
+
 end

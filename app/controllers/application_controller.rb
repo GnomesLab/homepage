@@ -29,9 +29,13 @@ class ApplicationController < ActionController::Base
     "http://twitter.com/gnomeslab/status/#{id}"
   end
 
-  def ensure_domain
-    if Rails.env == 'production' && request.env['HTTP_HOST'] != 'gnomeslab.com'
-      redirect_to 'http://gnomeslab.com'
+  private
+    # Redirects the current request to http://gnomeslab.com unless:
+    #   * the current env is not set to production
+    #   * the request already has gnomeslab.com as HTTP_HOST
+    def ensure_domain
+      if Rails.env == 'production' && request.env['HTTP_HOST'] != 'gnomeslab.com'
+        redirect_to 'http://gnomeslab.com'
+      end
     end
-  end
 end
