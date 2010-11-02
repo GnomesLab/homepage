@@ -1,5 +1,5 @@
 class EnquiryMailer < ActionMailer::Base
-  default :to => 'gnomeslab@googlegroups.com'
+  default :to => 'mail@gnomeslab.com'
 
   def contact(enquiry)
     @enquiry = enquiry

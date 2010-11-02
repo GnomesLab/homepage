@@ -29,7 +29,7 @@ describe EnquiryMailer do
 
     it "the email must be sent only to Gnomeslab Google Group" do
       @email.should have(1).to
-      @email.to.first.should include 'gnomeslab@googlegroups.com'
+      @email.to.first.should include 'mail@gnomeslab.com'
     end
 
   end # contact email
