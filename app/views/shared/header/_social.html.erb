@@ -8,7 +8,7 @@
 <% end %>
 <div class="socials">
   <span class="contact">Contact us:</span>
-  <a href='mailto:pedro.coutinho@gnomeslab.com' class="contact-link email">pedro.coutinho@gnomeslab.com</a>
+  <%= mail_to 'pedro.coutinho@gnomeslab.com', 'pedro.coutinho@gnomeslab.com', :class => 'contact-link email'%>
   <span>|</span>
   <%= link_to 'Twitter', 'http://twitter.com/gnomeslab', :class => 'twitter-link' %>
   <span>|</span>
