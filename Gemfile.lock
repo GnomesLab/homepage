@@ -33,7 +33,7 @@ GEM
     activesupport (3.0.1)
     acts-as-taggable-on (2.0.6)
     archive-tar-minitar (0.5.2)
-    archive_tree (1.0.0.rc)
+    archive_tree (1.0.0.rc2)
       activerecord (~> 3.0.0)
     arel (1.0.1)
       activesupport (~> 3.0.0)
