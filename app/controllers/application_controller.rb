@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
 
   def ensure_domain
     if Rails.env == 'production' && request.env['HTTP_HOST'] != 'gnomeslab.com'
-      redirect_to 'gnomeslab.com'
+      redirect_to 'http://gnomeslab.com'
     end
   end
 end
