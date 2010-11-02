@@ -46,3 +46,4 @@ module Homepage
 end
 
 autoload :FriendlyIdFinder, "#{Rails.root}/lib/friendly_id_finder"
+autoload :TwitterProxy, "#{Rails.root}/lib/twitter_proxy"

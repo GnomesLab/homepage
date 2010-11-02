@@ -41,11 +41,13 @@ Then(/^I should see the (\d+) recent posts titles$/) do |n|
 end
 
 Then(/^I should see the (\d+) latest Gnomeslab tweets$/) do |n|
-  Grackle::Client.new.statuses.user_timeline?(:user => 'gnomeslab', :count => n.to_i+1).each_with_index do |tweet, i|
-    page.should have_css("#footer .col-right li:nth-child(#{i+1})")
-    find("#footer .col-right li:nth-child(#{i+1}) p").should have_content(tweet.text)
-    find("#footer .col-right li:nth-child(#{i+1}) a[href='http://twitter.com/gnomeslab/status/#{(tweet.id)}']").should
-      have_content(I18n.l(Time.parse(tweet.created_at), :format => :long))
+  if tweets = TwitterProxy::get_tweets
+    tweets.each_with_index do |tweet, i|
+      page.should have_css("#footer .col-right li:nth-child(#{i+1})")
+      find("#footer .col-right li:nth-child(#{i+1}) p").should have_content(tweet.text)
+      find("#footer .col-right li:nth-child(#{i+1}) a[href='http://twitter.com/gnomeslab/status/#{(tweet.id)}']").should
+        have_content(I18n.l(Time.parse(tweet.created_at), :format => :long))
+    end
   end
 end
 

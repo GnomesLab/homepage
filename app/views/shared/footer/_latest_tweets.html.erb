@@ -1,6 +1,6 @@
 <div class="col-right col3">
   <h5>Latest Tweets</h5>
-  <% if tweets = Grackle::Client.new.statuses.user_timeline?(:user => 'gnomeslab', :count => 4) %>
+  <% if tweets = TwitterProxy::get_tweets %>
     <ul class="fixlast">
       <% for tweet in tweets %>
 
