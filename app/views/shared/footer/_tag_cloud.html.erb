@@ -1,4 +1,6 @@
-<div id="tag_cloud_title" class="col col3">
-  <h5>Tag Cloud</h5>
-  <div id="tag_cloud" class="tag-cloud"><%= draw_tag_cloud %></div>
-</div>
+<% cache('tag_clould', :expires_in => 10.minutes) do %>
+  <div id="tag_cloud_title" class="col col3">
+    <h5>Tag Cloud</h5>
+    <div id="tag_cloud" class="tag-cloud"><%= draw_tag_cloud %></div>
+  </div>
+<% end %>

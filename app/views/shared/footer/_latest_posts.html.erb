@@ -1,13 +1,15 @@
-<div class="col col3">
-  <h5>Latest Posts</h5>
-  <ul class="fixlast gray-links">
-    <% if Post.recent %>
-      <% for post in posts = Post.recent %>
-        <%= content_tag :li, link_to(post.title, post_path(post)), :class => post == posts.last ? 'last' : '' %>
+<% cache('latest_posts', :expires_in => 10.minutes) do %>
+  <div class="col col3">
+    <h5>Latest Posts</h5>
+    <ul class="fixlast gray-links">
+      <% if Post.recent %>
+        <% for post in posts = Post.recent %>
+          <%= content_tag :li, link_to(post.title, post_path(post)), :class => post == posts.last ? 'last' : '' %>
+        <% end %>
+      <% else %>
+        <li>There are no posts :(</li>
+        <li class="last">Perhaps you can check our <%= link_to 'Twitter', 'http://twitter.com/gnomeslab' %>!</li>
       <% end %>
-    <% else %>
-      <li>There are no posts :(</li>
-      <li class="last">Perhaps you can check our <%= link_to 'Twitter', 'http://twitter.com/gnomeslab' %>!</li>
-    <% end %>
-  </ul>
-</div>
+    </ul>
+  </div>
+<% end %>
