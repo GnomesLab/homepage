@@ -1,4 +1,4 @@
-@crystal @pdc
+@crystal
 Feature: view post
   In order to allow our visitors to read a post with more detail
   Gnomeslab website provides them with a post view page.
