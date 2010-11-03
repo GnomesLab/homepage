@@ -29,8 +29,11 @@ class PostsController < ApplicationController
   # Redirects:
   #   * Requests matching /^\/posts\/\d.+$/ will be permanently redirect to the corresponding friendly_post_path
   def show
-    @post = Post.find(params[:id])
-    return redirect_to blog_path unless @post.published? || user_signed_in?
+    @post = Post.find_by_friendly_id(params[:id])
+    if @post.nil? || !authorized?
+      flash[:notice] = "Apparently we lost the post you are looking for, why don't you read another while you wait for us to find it?"
+      return redirect_to blog_path
+    end
 
     if @post.published? && request.path =~ /^\/posts/ && flash.empty?
       return redirect_to friendly_post_path(@post), :status => 301
@@ -109,4 +112,9 @@ class PostsController < ApplicationController
 
     respond_with @posts
   end
+
+  protected
+    def authorized?
+      @post.published? || user_signed_in?
+    end
 end

@@ -41,7 +41,7 @@ end
 
 # FIXME: make it generic
 def inspect_post_html(id, element, regexp)
-  position = find("#posts #post_#{id} #{element}").text =~ regexp
+  position = find("#post_#{id} #{element}").text =~ regexp
   position.should be_a_kind_of Fixnum
   position.should_not be_nil
 end

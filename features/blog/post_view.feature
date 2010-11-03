@@ -19,7 +19,7 @@ Feature: view post
 
   Scenario: blog post
     Given I am signed in
-    When I am on the posts page
+    When I am on the view post page
     Then I should see the post title
     And I should see the post date
     And I should see the post body
@@ -31,7 +31,7 @@ Feature: view post
 
   Scenario: delete or update
     Given I am not signed in
-    When I am on the posts page
+    When I am on the view post page
     Then I should not see the post edit link
     And I should not see the post delete link
     
@@ -48,22 +48,28 @@ Feature: view post
 
   Scenario: not see unpublished posts
     Given I am not signed in
-    And I am on the posts page
+    And I am on the view unpublished post page
     Then I should be on the blog page
+    And I should see "Apparently we lost the post you are looking for, why don't you read another while you wait for us to find it?"
 
   Scenario: see unpublished posts
     Given I am signed in
-    And I am on the posts page
+    And I am on the view unpublished post page
     Then I should see unpublished posts
+
+  Scenario: invalid post id doesn't crash
+    Given I am on an invalid post url
+    Then I should be on the blog page
+    And I should see "Apparently we lost the post you are looking for, why don't you read another while you wait for us to find it?"
 
   Scenario: edit post
     Given I am signed in
-    When I am on the posts page
+    When I am on the view post page
     Then I follow "Edit"
 
   Scenario: destroy post
     Given I am signed in
-    When I am on the posts page
+    When I am on the view post page
     Then I follow "Destroy"
     # FIXME: it wasn't possible to catch the confirmation box
 

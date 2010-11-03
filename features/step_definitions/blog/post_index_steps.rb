@@ -24,7 +24,7 @@ Then(/^I should see the (\d+) latest posts (.*)$/) do |n, attribute|
     when "comment count"
       inspect_post_html posts[i].id, '.comments', Regexp.new("#{posts[i].comments.count} comments")
     when "delete link"
-      find("#posts #post_#{posts[i].id} a.delete").text.should == "Destroy"
+      find("#post_#{posts[i].id} a.delete").text.should == "Destroy"
     when "edit link"
       inspect_post_html posts[i].id, '.comments p a.edit', Regexp.new("Edit")
     else

@@ -25,7 +25,12 @@ module NavigationHelpers
     when /the edit post page/
       edit_post_path(Post.last)
     when /the posts page via rss/
-      posts_url(:format => :rss)      
+      posts_url(:format => :rss)
+    when /the view unpublished post page/
+      post_path(Post.last)
+    when /an invalid post url/
+      post_path(0)
+      
     else
 
       begin
