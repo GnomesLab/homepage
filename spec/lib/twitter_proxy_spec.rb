@@ -20,7 +20,7 @@ describe TwitterProxy do
       end
 
       it "allows to override the count" do
-        TwitterProxy::get_tweets('gnomeslab', 2).size.should == 1
+        TwitterProxy::get_tweets('gnomeslab', 2).size.should == 2
       end
     end # overrides
 
