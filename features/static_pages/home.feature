@@ -11,6 +11,15 @@ Feature: home page
     Then I should click the generic header
     And I should see "Home" selected in the header
 
+  Scenario: rotator
+    Then I should see the rotator
+    And I should see "We bring your ideas to life" in the position 1 of the rotator
+    And I should see "Using effective processes" in the position 2 of the rotator
+    And I should see "Centered on our clients" in the position 3 of the rotator
+    And I should see "Adding value to your business" in the position 4 of the rotator
+    And I should be able to link to about page through the images
+    And I should be able to jump to a specific image
+
   Scenario: the homepage should have a "Who are we" section on the body
     Then I should see "Who are we"
     And I should see "Gnomeslab is different."

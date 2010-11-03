@@ -2,29 +2,18 @@
 <div id="slider">
   <div id="slider-holder">
     <ul>
-      <li>
-        <h2>We bring your ideas to life</h2>
-        <a href="#"><img src="../images/content/rotator/1.jpg" alt="" /></a>
-      </li>
-      <li>
-        <h2>Using effective processes</h2>
-        <a href="#"><img src="../images/content/rotator/2.jpg" alt="" /></a>
-      </li>
-      <li>
-        <h2>Centered on our clients</h2>
-        <a href="#"><img src="../images/content/rotator/3.jpg" alt="" /></a>
-      </li>
-      <li>
-        <h2>Adding value to your business</h2>
-        <a href="#"><img src="../images/content/rotator/4.jpg" alt="" /></a>
-      </li>
+      <% rotator_statements.each_with_index do |statement, i| %>
+        <li>
+          <%= content_tag :h2, statement %>
+          <%= link_to image_tag("content/rotator/#{i+1}.jpg"), about_us_path %>
+        </li>
+      <% end %>
     </ul>
   </div>
   <div class="slider-controls">
-    <a href="#">1</a>
-    <a href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
+    <% rotator_statements.each_index do |i| %>
+      <%= link_to i+1, '#' %>
+    <% end %>
   </div>
   <div class="slider-nav">
     <a href="#" class="prev">previous</a>
