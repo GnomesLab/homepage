@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by_friendly_id(params[:id])
     if @post.nil? || !authorized?
-      flash[:notice] = "Apparently we lost the post you are looking for, why don't you read another while you wait for us to find it?"
+      flash[:notice] = "Oops! The post you were trying to find is no longer available."
       return redirect_to blog_path
     end
 

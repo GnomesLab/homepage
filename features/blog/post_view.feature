@@ -1,4 +1,4 @@
-@crystal
+@crystal @pdc
 Feature: view post
   In order to allow our visitors to read a post with more detail
   Gnomeslab website provides them with a post view page.
@@ -50,7 +50,7 @@ Feature: view post
     Given I am not signed in
     And I am on the view unpublished post page
     Then I should be on the blog page
-    And I should see "Apparently we lost the post you are looking for, why don't you read another while you wait for us to find it?"
+    And I should see "Oops! The post you were trying to find is no longer available."
 
   Scenario: see unpublished posts
     Given I am signed in
@@ -60,7 +60,7 @@ Feature: view post
   Scenario: invalid post id doesn't crash
     Given I am on an invalid post url
     Then I should be on the blog page
-    And I should see "Apparently we lost the post you are looking for, why don't you read another while you wait for us to find it?"
+    And I should see "Oops! The post you were trying to find is no longer available."
 
   Scenario: edit post
     Given I am signed in
