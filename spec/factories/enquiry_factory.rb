@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Factory.define :enquiry do |c|
   c.name          'John Doe'
   c.email         'john.doe@gnomeslab.com'

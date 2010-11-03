@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Given /^there are ([\d+]) comment(?:s?)$/ do |n|
   n.to_i.times { Factory.create(:comment, :post => Post.first) }
   Post.first.comments.last.destroy while Post.first.comments.count > n.to_i

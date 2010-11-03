@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 module ApplicationHelper
   # Sets the page title variable
   def title(title = nil, append_company = false)

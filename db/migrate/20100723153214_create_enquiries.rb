@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class CreateEnquiries < ActiveRecord::Migration
   def self.up
     create_table :enquiries do |t|

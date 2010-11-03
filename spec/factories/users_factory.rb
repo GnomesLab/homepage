@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Factory.define(:user) do |u|
   u.name "John Doe"
   u.sequence(:email) { |n| "john#{n}@doe.com" }

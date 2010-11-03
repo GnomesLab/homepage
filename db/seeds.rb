@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 # Users
 diogo_almeida = User.new
 diogo_almeida.name     = 'Diogo Almeida'

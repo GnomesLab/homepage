@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Factory.define :post do |p|
   p.association :user, :factory => :user
   p.sequence(:title) { |n| "Post Title#{n}" }

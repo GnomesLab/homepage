@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Posts < ActiveRecord::Migration
   def self.up
     create_table(:posts, :force => true) do |t|

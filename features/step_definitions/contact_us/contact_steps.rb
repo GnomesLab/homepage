@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Then /^I should see a generic contact error message$/ do
   page.should have_content("Oops! Your message could not be sent. Please check your input and try again.")
 end

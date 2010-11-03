@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Given /^I am(.*)signed in$/ do |type|
   if type.blank?
     user = User.first || Factory.create(:user)

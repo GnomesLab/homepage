@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Then(/^I should see the rotator$/) do
   page.should have_css('#slider #slider-holder ul li')
 end

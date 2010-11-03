@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class ImproveEnquires < ActiveRecord::Migration
   def self.up
     drop_table :enquiries

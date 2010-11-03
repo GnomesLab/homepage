@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Homepage::Application.routes.draw do
   # Static single pages
   get 'about',          :to => 'static_pages#about_us', :as => 'about_us'

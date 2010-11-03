@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class AddIsDefaultColumnToImagesTable < ActiveRecord::Migration
   def self.up
     add_column :images, :is_default, :boolean, :default => false

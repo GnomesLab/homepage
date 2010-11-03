@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class ChangeSiteColumnToUrlOnComments < ActiveRecord::Migration
   def self.up
     rename_column :comments, :site, :url

@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Given /^I have an invalid title$/ do
   @post = Factory.build(:post, :title => "")
 end

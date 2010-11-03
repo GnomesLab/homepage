@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Then(/^I should see the (\d+) latest posts$/) do |n|
   posts = Post.published.latest
 

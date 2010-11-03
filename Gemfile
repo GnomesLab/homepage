@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '~> 3.0.1'
-gem 'mysql2', '~> 0.2.6'
 gem "devise", '~> 1.1.3'
 gem 'will_paginate', '~> 3.0.pre2'
 gem "friendly_id", '~> 3.1.7'
@@ -15,6 +14,7 @@ gem 'active_record_attributes_equality', '~> 1.0'
 gem 'archive_tree', '~> 1.0.0.rc'
 
 group :development, :test do
+  gem 'mysql2', '~> 0.2.6'
   gem 'ruby-debug19', '~> 0.11.6'
   gem 'capybara', '~> 0.4.0'
   gem 'database_cleaner', '~> 0.6.0'
@@ -23,4 +23,8 @@ group :development, :test do
   gem 'launchy', '~> 0.3.7'
   gem 'factory_girl_rails', '~> 1.0.0'
   # gem 'spork'
+end
+
+group :production do
+  gem 'pg', '~> 0.9.0'
 end

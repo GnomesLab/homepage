@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Then /^I should see the box title set to "([^"]*)"$/ do |title|
   find("#archives h2").text.should == title
 end

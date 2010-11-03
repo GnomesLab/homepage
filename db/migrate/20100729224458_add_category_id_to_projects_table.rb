@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class AddCategoryIdToProjectsTable < ActiveRecord::Migration
   def self.up
     add_column :projects, :category_id, :integer

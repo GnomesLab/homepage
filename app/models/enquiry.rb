@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Enquiry < ActiveRecord::Base
   # validations
   validates :name,    :presence => true
