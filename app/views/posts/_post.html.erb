@@ -16,7 +16,7 @@
       <p id='post_tags'>
         <em>Tags:</em>
         <% post.tag_list.each do |t| %>
-        <%= link_to t, post_tags_path(t), :id => "tag_#{post.id}_#{post.tag_list.rindex(t)}" %>
+          <%= link_to t, post_tags_path(t), :id => "tag_#{post.id}_#{post.tag_list.rindex(t)}" %>
         <% end %>
       </p>
     </div>
@@ -26,16 +26,16 @@
                   :class => 'gray comments-count' %>
 
       <% if user_signed_in? %>
-      <p>
-        <%= link_to 'Destroy',
-                    post,
-                    :method => :delete,
-                    :class => 'delete',
-                    :confirm => "Are you sure that you want to delete the #{post.title} post?",
-                    :title => 'Delete the selected post.'  %>
-        &nbsp;|&nbsp;
-        <%= link_to "Edit", edit_post_path(post), :id => "edit_post_#{post.id}_link", :class => 'edit' %>
-      </p>
+        <p>
+          <%= link_to 'Destroy',
+                      post,
+                      :method => :delete,
+                      :class => 'delete',
+                      :confirm => "Are you sure that you want to delete the #{post.title} post?",
+                      :title => 'Delete the selected post.'  %>
+          &nbsp;|&nbsp;
+          <%= link_to "Edit", edit_post_path(post), :id => "edit_post_#{post.id}_link", :class => 'edit' %>
+        </p>
       <% end %>
     </div>
     <div class="cl">&nbsp;</div>
