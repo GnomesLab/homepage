@@ -10,6 +10,9 @@ Feature: home page
   Scenario: page header
     Then I should click the generic header
     And I should see "Home" selected in the header
+    And I should see the contact us link
+    And I should see the twitter link
+    And I should see rss link
 
   Scenario: rotator
     Then I should see the rotator

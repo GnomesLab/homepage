@@ -1,3 +1,18 @@
+Then(/^I should see the contact us link$/) do
+  find(:css, '#header .socials').should have_link('pedro.coutinho@gnomeslab.com')
+  page.should have_css("#header .socials .contact-link[href='mailto:pedro.coutinho@gnomeslab.com']")
+end
+
+Then(/^I should see the twitter link$/) do
+  find(:css, '#header .socials').should have_link('Twitter')
+  page.should have_css("#header .socials .twitter-link[href='http://twitter.com/gnomeslab']")
+end
+
+Then(/^I should see rss link$/) do
+  find(:css, '#header .socials').should have_link('RSS')
+  page.should have_css("#header .socials .rss-link[href='#{blog_url(:rss)}']")
+end
+
 Then(/^I should see the rotator$/) do
   page.should have_css('#slider #slider-holder ul li')
 end

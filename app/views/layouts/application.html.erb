@@ -6,8 +6,11 @@
 
     <%= stylesheet_link_tag ['http://fonts.googleapis.com/css?family=Crimson+Text:regular&subset=latin', 'style'] %>
 
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
+    <!-- RSS and Meta tags -->
+    <%= auto_discovery_link_tag(:rss, blog_url(:rss)) %>
+    <meta name="keywords" content="ruby, rails, ruby on rails, software development, web development, product development" />
+    <meta name="description" content="Based in Lisbon, Portugal, Gnomeslab positions itself as a specialist in the fields of Web Development and Product Development." />
+    <!-- End RSS and Meta tags -->
 
     <!-- JS -->
     <%= javascript_include_tag ['http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js',
