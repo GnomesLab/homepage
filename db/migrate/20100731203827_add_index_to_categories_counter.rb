@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class AddIndexToCategoriesCounter < ActiveRecord::Migration
   def self.up
     add_index :categories, :count_of_projects

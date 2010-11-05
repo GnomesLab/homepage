@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 module TwitterProxy
   def self.get_tweets(user = 'gnomeslab', count = 3)
     begin

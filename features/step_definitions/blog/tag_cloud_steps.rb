@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Then /^I should see the tag cloud title$/ do
   position = find("#tag_cloud_title h5").text =~ /Tag Cloud/
   position.should == 0

@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Given /^There (?:are|is) (\d+) (.+)$/ do |n, name|
 
   n.to_i.times do |i|

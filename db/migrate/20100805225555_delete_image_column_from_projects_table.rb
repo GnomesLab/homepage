@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class DeleteImageColumnFromProjectsTable < ActiveRecord::Migration
   def self.up
     remove_column :projects, :image

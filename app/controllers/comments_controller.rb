@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class CommentsController < ApplicationController
   # Filters
   before_filter :authenticate_user!, :only => [:update]

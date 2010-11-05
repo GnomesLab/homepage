@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Then /^I should see (.*) Linkedin profile link$/ do |handle|
   element = get_html_element(handle, 'linkedin')
 

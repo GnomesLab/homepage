@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Then /^I should see a xml document$/ do
   page.body.should include("<?xml version=\"1.0\" encoding=\"UTF-8\"?>")
 end

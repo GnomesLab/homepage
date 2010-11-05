@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class FixCategoriesProjectCounterColumn < ActiveRecord::Migration
   def self.up
     remove_column :categories, :count_of_projects

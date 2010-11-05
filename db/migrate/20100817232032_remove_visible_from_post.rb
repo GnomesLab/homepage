@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class RemoveVisibleFromPost < ActiveRecord::Migration
   def self.up
     remove_column :posts, :visible

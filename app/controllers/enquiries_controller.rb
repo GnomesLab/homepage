@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class EnquiriesController < ApplicationController
   respond_to :html
 

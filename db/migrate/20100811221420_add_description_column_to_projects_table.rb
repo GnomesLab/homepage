@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class AddDescriptionColumnToProjectsTable < ActiveRecord::Migration
   def self.up
     add_column :projects, :description, :text, :null => false

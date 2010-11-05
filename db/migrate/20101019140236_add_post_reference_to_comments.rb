@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class AddPostReferenceToComments < ActiveRecord::Migration
   def self.up
     add_column :comments, :post_id, :integer

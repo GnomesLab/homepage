@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Then /^There are unpublished posts$/ do
   2.times { Factory.create(:post) }
 end

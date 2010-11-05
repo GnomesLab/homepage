@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 module NavigationHelpers
 
   def path_to(page_name)

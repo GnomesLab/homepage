@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class EnquiryMailer < ActionMailer::Base
   default :to => 'mail@gnomeslab.com'
 

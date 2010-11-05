@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 module StaticPagesHelper
   def rotator_statements
     ['We bring your ideas to life',

@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class RemoveProjectsAndCategories < ActiveRecord::Migration
   def self.up
     drop_table :categories

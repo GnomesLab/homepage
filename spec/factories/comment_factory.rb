@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Factory.define :comment do |p|
   p.sequence(:name)   { |n| "comment user#{n}"                }
   p.sequence(:email)  { |n| "comment_email#{n}@gnomeslab.com" }

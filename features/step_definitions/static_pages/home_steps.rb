@@ -1,3 +1,4 @@
+# encoding: UTF-8
 Then(/^I should see the contact us link$/) do
   find(:css, '#header .socials').should have_link('pedro.coutinho@gnomeslab.com')
   page.should have_css("#header .socials .contact-link[href='mailto:pedro.coutinho@gnomeslab.com']")

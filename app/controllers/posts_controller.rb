@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class PostsController < ApplicationController
   # Filters
   before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]

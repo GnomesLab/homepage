@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class AddUrlColumnToProjectsTable < ActiveRecord::Migration
   def self.up
     add_column :projects, :url, :string, :null => false

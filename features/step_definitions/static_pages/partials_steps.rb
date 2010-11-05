@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Then(/^I should see the generic header$/) do
   page.should have_content('Contact us')
   page.should have_content('@gnomeslab.com')
