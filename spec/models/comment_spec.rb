@@ -80,7 +80,7 @@ describe Comment do
       end
 
       it "is smaller than 3000 characters long" do
-        subject.body = (0..3001).map { ('a'..'z').to_a[rand(26)] }.join
+        subject.body = ActiveSupport::SecureRandom.hex(3001)
         subject.should_not be_valid
         subject.errors.should include :body
       end
@@ -185,4 +185,22 @@ describe Comment do
     end
   end # dependencies
 
+  describe "instance methods" do
+    describe "url=" do
+      it "must append http:// to url's without protocol" do
+        subject.url = 'gnomeslab.com'
+        subject.url.should == 'http://gnomeslab.com'
+      end
+
+      it "does nothing to urls with protocol" do
+        subject.url = 'http://gnomeslab.com'
+        subject.url.should == 'http://gnomeslab.com'
+      end
+
+      it "does nothing to empty urls" do
+        subject.url = ''
+        subject.url.should be_nil
+      end
+    end
+  end # instance methods
 end

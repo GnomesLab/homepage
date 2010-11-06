@@ -1,23 +1,23 @@
 # encoding: UTF-8
 
-Given /^there are ([\d+]) comment(?:s?)$/ do |n|
+Given(/^there are ([\d+]) comment(?:s?)$/) do |n|
   n.to_i.times { Factory.create(:comment, :post => Post.first) }
   Post.first.comments.last.destroy while Post.first.comments.count > n.to_i
 end
 
-Given /^the comment has no (\S+)$/ do |field|
-  Post.first.update_attributes(field => nil)
+Given(/^the comment has no (\S+)$/) do |field|
+  Comment.first.update_attributes(field => nil)
 end
 
-Given /^There is a hidden comment$/ do
+Given(/^There is a hidden comment$/) do
   Comment.first.update_attributes(:visible => 0)
 end
 
-Then /^I should not see the hidden comment$/ do
+Then(/^I should not see the hidden comment$/) do
   comments_list.should_not include Comment.first.body
 end
 
-Then /^I should see ([\d+]) comment(?:s?)$/ do |n|
+Then(/^I should see ([\d+]) comment(?:s?)$/) do |n|
   ["//div[@id='comments']/h4[contains(@class, 'comments-count')]",
   "//div[@class='post-meta']/div[contains(@class, 'comments')]/a[contains(@class, 'comments-count')]"].each do |xpath|
     comments_number = find(:xpath, xpath)
@@ -25,58 +25,56 @@ Then /^I should see ([\d+]) comment(?:s?)$/ do |n|
   end
 end
 
-Then /^the comments list should contain ([\d+]) comment(?:s?)$/ do |n|
+Then(/^the comments list should contain ([\d+]) comment(?:s?)$/) do |n|
   page.should have_css('.comment-list > ol > li', :count => n.to_i)
 end
 
-Then /^I should see the comment name$/ do
+Then(/^I should see the comment name$/) do
   first_level_comments.each do |c|
     comments_list.should include c.name
   end
 end
 
-Then /^I should see the comment date$/ do
+Then(/^I should see the comment date$/) do
   first_level_comments.each do |c|
     comments_list.should include I18n.l(c.created_at, :format => :long)
   end
 end
 
-Then /^I should see the comment body$/ do
+Then(/^I should see the comment body$/) do
   first_level_comments.each do |c|
     comments_list.should include c.body
   end
 end
 
-Then /^I should see the comment number$/ do
+Then(/^I should see the comment number$/) do
   first_level_comments.each_index do |i|
     node = find(:xpath, "//div[contains(@class, 'comment-list')]/ol/li[#{i + 1}]/div[contains(@class, 'comment-meta')]/strong")
     node.text.should include "#{i+1}."
   end
 end
 
-Then /^I should(n\'t)? see the comment name as a link to the url$/ do |n|
+Then(/^I should(n\'t)? see the comment name as a link to the url$/) do |n|
   first_level_comments.each_with_index do |c, i|
     if n.blank?
-      xpath = "//div[contains(@class, 'comment-list')]/ol/li[#{i+1}]/div[contains(@class, 'comment-meta')]/a[@href='#{c.url}']"
-      page.should have_xpath(xpath, :count => 1)
+      page.should have_css(".comment-list li:nth-child(#{i+1}) a.comment-creator[href='#{c.url}']", :count => 1)
     else
-      node = find(:css, ".comment-list > ol > li:nth-child(#{i+1}) > .comment-meta > .comment-creator")
-      node.text.should include c.name
+      find(:css, ".comment-list li:nth-child(#{i+1}) span.comment-creator").text.should include c.name
     end
   end
 end
 
-Then /^I click on a comment url it should open a new window$/ do
+Then(/^I click on a comment url it should open a new window$/) do
   page.should have_css("a.comment-creator[target='_blank']", :count => first_level_comments.count)
 end
 
-Then /^I should see the (\d+) most recent comments$/ do |n|
+Then(/^I should see the (\d+) most recent comments$/) do |n|
   Comment.recent(n.to_i).each_with_index do |c, i|
     find(:css, "#recent-comments > .entry li:nth-child(#{i+1})").text.should include c.body
   end
 end
 
-Then /^I should see a link to read more for each of the (\d+) comments$/ do |n|
+Then(/^I should see a link to read more for each of the (\d+) comments$/) do |n|
   Comment.recent(n.to_i).each_with_index do |c, i|
     find("#recent-comments > .entry li:nth-child(#{i+1})").should have_link("more")
     page.should have_css("#recent-comments > .entry li:nth-child(#{i+1}) a[href='#{post_path(c.post)}#comments']")

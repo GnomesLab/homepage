@@ -28,7 +28,8 @@ class Comment < ActiveRecord::Base
 
   # accessor
   def url=(value)
-    self[:url] = value =~ /^(?:(\S+))\:\/\// ? value : "http://#{value}"
+    value = nil if value.blank?
+    self[:url] = value.nil? || value =~ /^(?:(\S+))\:\/\// ? value : "http://#{value}"
   end
 
   # protected instance methods
