@@ -1,14 +1,6 @@
-<div class="sidebar-box">
-  <h2 class="border">Popular Tags</h2>
-  <div class="tag-cloud">
-    <a href="#" class="tag-size1">Ut in quam</a>
-    <a href="#" class="tag-size2">eu lorem mollis</a>
-    <a href="#" class="tag-size5">varius a ut risus</a>
-    <a href="#" class="tag-size3">Sed est augue</a>
-    <a href="#" class="tag-size4">consectetur nec hendrerit eu</a>
-    <a href="#" class="tag-size6">laoreet vel magna</a>
-    <a href="#" class="tag-size7">Fusce urna nisi</a>
-    <a href="#" class="tag-size2">faucibus eu accumsan et</a>
-    <a href="#" class="tag-size1">dictum sed nibh</a>
+<% cache('popular_tags', :expires_in => 10.minutes) do %>
+  <div class="sidebar-box">
+    <h2 class="border">Popular Tags</h2>
+    <%= content_tag :div, draw_tag_cloud, :class => 'tag-cloud' %>
   </div>
-</div>
+<% end %>
