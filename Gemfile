@@ -22,6 +22,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.0.1'
   gem 'launchy', '~> 0.3.7'
   gem 'factory_girl_rails', '~> 1.0.0'
+  gem 'fakeweb', '~> 1.3.0'
   # gem 'spork'
 end
 

@@ -2,7 +2,7 @@
   <div class="col-right col3">
     <h5>Latest Tweets</h5>
     <ul class="fixlast">
-    <% if tweets = TwitterProxy::get_tweets %>
+    <% if tweets = TwitterProxy.instance.get_tweets %>
       <% for tweet in tweets %>
 
         <%= content_tag :li, :class => tweet == tweets.last ? 'last' : '' do %>
