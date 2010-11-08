@@ -38,3 +38,13 @@ Feature: Posts archive
     Given I am on the posts page
     When I follow the first month of the active year
     Then I should see that month archived posts title
+
+  Scenario: View empty year archive
+    Given I am on the archive of year 2009
+    Then I should be on the blog page
+    And I should see "Oops! There are no posts on the requested archive."
+
+  Scenario: View archive for a valid year but with an empty month
+    Given I am on a empty month archive
+    Then I should be on the blog page
+    And I should see "Oops! There are no posts on the requested archive."

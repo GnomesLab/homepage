@@ -108,9 +108,14 @@ class PostsController < ApplicationController
 
   # GET blog/:year(/:month)
   def published_at
-    @posts = Post.archive_node(:year => params[:year]).
-      order('published_at DESC').
+    @posts = Post.archive_node(:year => params[:year], :month => params[:month]).
+      latest.
       paginate(:page => params[:page], :per_page => Post.per_page)
+
+    if @posts.empty?
+      flash[:notice] = "Oops! There are no posts on the requested archive."
+      return redirect_to blog_path
+    end
 
     respond_with @posts
   end

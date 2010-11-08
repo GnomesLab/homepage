@@ -18,13 +18,13 @@ Homepage::Application.routes.draw do
 
   get 'blog/:year/:month/:id' => 'posts#show',
     :as => 'friendly_post_show',
-    :constraints => { :year => /201\d/,
+    :constraints => { :year => /\d{4}/,
                       :month => /(0[1-9]|1[012])/,
                       :id => /\S+/ }
 
   get 'blog/:year(/:month)' => 'posts#published_at',
     :as => "post_published_at",
-    :constraints => { :year => /201\d/, :month => /(0[1-9]|1[012])/ }
+    :constraints => { :year => /\d{4}/, :month => /(0[1-9]|1[012])/ }
 
   get 'posts/tagged/:tag_name' => 'posts#tagged', :as => "post_tags"
 

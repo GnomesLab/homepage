@@ -32,9 +32,12 @@ module NavigationHelpers
       post_path(Post.last)
     when /an invalid post url/
       post_path(0)
-      
+    when /the archive of year (\d{4})/
+      post_published_at_path(:year => $1)
+    when /a empty month archive/
+      published_date = Post.last.published_at
+      post_published_at_path(:year => published_date.year, :month => (published_date - 1.month).month)
     else
-
       begin
         page_name =~ /the (.*) page/
         path_components = $1.split(/\s+/)
