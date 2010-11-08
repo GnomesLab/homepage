@@ -14,6 +14,11 @@ describe TwitterProxy do
       it "can't be explicited initiated" do
         lambda { TwitterProxy.new }.should raise_error(NoMethodError)
       end
+
+      it "must return always the same instance" do
+        TwitterProxy.instance.object_id.should == TwitterProxy.instance.object_id
+      end
+
     end # singleton
 
   end # behavior
