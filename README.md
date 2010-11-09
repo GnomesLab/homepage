@@ -44,4 +44,5 @@ Pop a bottle of crystal. You've made it once again!
 * will_paginate 3.0.pre2
 
 #### Internal
-* active_record_attributes_equality 1.0.0.rc.2
+* active_record_attributes_equality
+* archive_tree
