@@ -9,7 +9,7 @@ describe Comment do
   describe "default" do
     describe "visible" do
       it "is true" do
-        subject.visible.should be_true
+        Comment.new.visible.should be_true
       end
     end
   end
@@ -26,14 +26,14 @@ describe Comment do
         subject.errors.should include :name
       end
 
-      it "is greater than 2 characters long" do
-        subject.name = 'z'
+      it "must be greater than 2 characters long" do
+        subject.name = 'a'
         subject.should_not be_valid
         subject.errors.should include :name
       end
 
-      it "is shorter than 16 characters long" do
-        subject.name = (0..17).map { ('a'..'z').to_a[rand(26)] }.join
+      it "must be shorter than 16 characters long" do
+        subject.name = ActiveSupport::SecureRandom.hex(17)
         subject.should_not be_valid
         subject.errors.should include :name
       end
@@ -92,21 +92,21 @@ describe Comment do
         subject.should be_valid
       end
 
-      it "must belongs to the same post as the parent" do
+      it "must be the same as the parent comment" do
         subject.parent = Factory.build(:comment)
         subject.should_not be_valid
         subject.errors.should include :post
       end
 
-      it "must be a first level parent" do
+      it "can be a root comment" do
         subject.parent = Factory.create(:comment, :post => subject.post)
         subject.should be_valid
       end
 
-      it "can't be a second level parent" do
-        first_level = Factory.build(:comment, :post => subject.post)
-        second_level = Factory.build(:comment, :parent => first_level, :post => subject.post)
-        subject.parent = second_level
+      it "can't be a non root parent" do
+        subject.parent = Factory.build(:comment,
+                                       :parent => Factory.build(:comment, :post => subject.post),
+                                       :post => subject.post)
         subject.should_not be_valid
         subject.errors.should include :parent
       end
@@ -123,25 +123,28 @@ describe Comment do
 
   describe "named scopes" do
     before :each do
-      post = Factory.create(:post)
-      5.times { |i| Factory.create(:comment, :post => post) }
-      5.times { |i| Factory.create(:comment, :post => post, :parent => Comment.first) }
-    end
+      @post = Factory.create(:post)
 
-    describe "first level" do
-      it "should only return comments without parent" do
-        Comment.first_level.each { |c| c.parent.should be_nil }
+      5.times do
+        Factory.create(:comment, :post => @post)
+        Factory.create(:comment, :post => @post, :parent => Comment.first)
       end
-    end # first level
+    end # before :each
 
-    describe "second level" do
-      it "should only return comments with the specified parent" do
-        Comment.second_level(Comment.first).each { |c| c.parent.should == Comment.first }
+    describe "root" do
+      it "returns only comments without parent" do
+        Comment.root.each { |c| c.parent.should be_nil }
       end
-    end # second level
+    end # root
+
+    describe "child" do
+      it "returns comments with the given parent" do
+        Comment.child(Comment.first).each { |c| c.parent.should == Comment.first }
+      end
+    end # child
 
     describe "visible" do
-      it "returns only visible comments" do
+      it "filter invisible comments" do
         subject.visible = false
         subject.save
         Comment.visible.should_not include subject
@@ -150,23 +153,24 @@ describe Comment do
 
     describe "recent" do
       before :each do
-        post = Factory.create(:post)
-        10.times { |i| Factory.create(:comment, :post => post, :visible => false, :created_at => "2010-01-01 00:00:#{i}") }
-        10.times { |i| Factory.create(:comment, :post => post, :created_at => "2011-01-01 00:00:#{i}") }
-      end
+        @post = Factory.create(:post)
 
-      it "returns 5 comments" do
+        10.times do |i|
+          Factory.create(:comment, :post => @post, :created_at => "2010-01-01 00:00:#{i}", :visible => false)
+          Factory.create(:comment, :post => @post, :created_at => "2011-01-01 00:00:#{i}")
+        end
+      end # before :each
+
+      it "default returns 5 comments" do
         Comment.recent.should have(5).records
       end
-      
+
       it "overrides to 10 comments" do
         Comment.recent(10).should have(10).records
       end
 
-      it "only returns visible comments" do
-        Comment.recent.each do |c|
-          c.visible.should be_true
-        end
+      it "returns only visible comments" do
+        Comment.recent(20).each { |c| c.visible.should be_true }
       end
 
       it "returns the comments ordered by date descending" do
@@ -203,4 +207,5 @@ describe Comment do
       end
     end
   end # instance methods
+
 end

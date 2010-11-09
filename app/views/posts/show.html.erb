@@ -18,7 +18,7 @@
   <div class="comment-list">
     <ol>
       <%= render :partial => 'comments/comment',
-                 :locals => { :comments => @post.first_level_comments(user_signed_in?).order('id ASC') } %>
+                 :locals => { :comments => @post.root_comments(user_signed_in?).order('id ASC') } %>
     </ol>
   </div>
   <!-- End Comment List -->

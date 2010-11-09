@@ -30,32 +30,32 @@ Then(/^the comments list should contain ([\d+]) comment(?:s?)$/) do |n|
 end
 
 Then(/^I should see the comment name$/) do
-  first_level_comments.each do |c|
+  root_comments.each do |c|
     comments_list.should include c.name
   end
 end
 
 Then(/^I should see the comment date$/) do
-  first_level_comments.each do |c|
+  root_comments.each do |c|
     comments_list.should include I18n.l(c.created_at, :format => :long)
   end
 end
 
 Then(/^I should see the comment body$/) do
-  first_level_comments.each do |c|
+  root_comments.each do |c|
     comments_list.should include c.body
   end
 end
 
 Then(/^I should see the comment number$/) do
-  first_level_comments.each_index do |i|
+  root_comments.each_index do |i|
     node = find(:xpath, "//div[contains(@class, 'comment-list')]/ol/li[#{i + 1}]/div[contains(@class, 'comment-meta')]/strong")
     node.text.should include "#{i+1}."
   end
 end
 
 Then(/^I should(n\'t)? see the comment name as a link to the url$/) do |n|
-  first_level_comments.each_with_index do |c, i|
+  root_comments.each_with_index do |c, i|
     if n.blank?
       page.should have_css(".comment-list li:nth-child(#{i+1}) a.comment-creator[href='#{c.url}']", :count => 1)
     else
@@ -65,7 +65,7 @@ Then(/^I should(n\'t)? see the comment name as a link to the url$/) do |n|
 end
 
 Then(/^I click on a comment url it should open a new window$/) do
-  page.should have_css("a.comment-creator[target='_blank']", :count => first_level_comments.count)
+  page.should have_css("a.comment-creator[target='_blank']", :count => root_comments.count)
 end
 
 Then(/^I should see the (\d+) most recent comments$/) do |n|
@@ -86,6 +86,6 @@ def comments_list
   find(:xpath, "//div[contains(@class, 'comment-list')]/ol").text
 end
 
-def first_level_comments
-  Post.first.comments.first_level
+def root_comments
+  Post.first.root_comments
 end

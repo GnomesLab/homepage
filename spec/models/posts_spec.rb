@@ -224,33 +224,38 @@ describe Post do
 
   describe "instance methods" do
     describe "comments" do
+
       before :each do
         subject.save
-        5.times { |i| Factory.create(:comment, :post => subject) }
-        5.times { |i| Factory.create(:comment, :post => subject, :parent => Comment.first) }
-        @invisible_comment_level1 = Factory.create(:comment, :post => subject, :visible => false)
-        @invisible_comment_level2 = Factory.create(:comment, :post => subject, :parent => Comment.first, :visible => false)
-      end
+        5.times do
+          Factory.create(:comment, :post => subject)
+          Factory.create(:comment, :post => subject, :parent => Comment.first)
+        end
 
-      describe "first level" do
+        @invisible_root_comment = Factory.create(:comment, :post => subject, :visible => false)
+        @invisible_child_comment = Factory.create(:comment, :post => subject, :parent => Comment.first,
+                                                  :visible => false)
+      end # before :each
+
+      describe "root_comments" do
         it "only returns visible comments" do
-          subject.first_level_comments.should_not include @invisible_comment_level1
+          subject.root_comments.should_not include @invisible_root_comment
         end
 
         it "returns all comments" do
-          subject.first_level_comments(true).should include @invisible_comment_level1
+          subject.root_comments(true).should include @invisible_root_comment
         end
-      end # First level
+      end # root_comments
 
-      describe "second level" do
+      describe "child_comments" do
         it "only returns visible comments" do
-          subject.second_level_comments(Comment.first).should_not include @invisible_comment_level2
+          subject.child_comments(Comment.first).should_not include @invisible_child_comment
         end
 
         it "returns all comments" do
-          subject.second_level_comments(Comment.first, true).should include @invisible_comment_level2
+          subject.child_comments(Comment.first, true).should include @invisible_child_comment
         end
-      end # Second level
+      end # child_comments
     end # comments
 
     describe "html_safe_body" do

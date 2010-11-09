@@ -1,11 +1,11 @@
 # encoding: UTF-8
 
 class Comment < ActiveRecord::Base
-  # associations
+  # Associations
   belongs_to :parent, :class_name => 'Comment'
   belongs_to :post
 
-  # validations
+  # Validations
   validates :name,  :presence => true, :length => { :within => 2..16 }
   validates :body,  :presence => true, :length => { :within => 2..3000 }
 
@@ -18,29 +18,29 @@ class Comment < ActiveRecord::Base
   validates :post,  :presence => true,
                     :associated => true
 
-  validate :validate_parent_post, :validate_parent_tree
+  validate :validate_post, :validate_tree
 
-  # scopes
-  scope :first_level, where('parent_id IS NULL')
-  scope :second_level, lambda { |p| where('parent_id = ?', p.id) }
+  # Scopes
+  scope :root,    where('parent_id IS NULL')
+  scope :child,   lambda { |p| where('parent_id = ?', p.id) }
   scope :visible, where('visible = ?', true)
-  scope :recent, lambda { |n = 5| first_level.visible.limit(n).order('created_at DESC') }
+  scope :recent,  lambda { |n = 5| root.visible.limit(n).order('created_at DESC') }
 
-  # accessor
+  # Accessor
   def url=(value)
     value = nil if value.blank?
     self[:url] = value.nil? || value =~ /^(?:(\S+))\:\/\// ? value : "http://#{value}"
   end
 
-  # protected instance methods
+  # Protected instance methods
   protected
-    def validate_parent_post
-      return if self.post.nil? || self.parent.nil?
-      self.errors.add(:post, 'self and parent must belong to the same post') unless self.post == self.parent.post
+    def validate_post
+      return if post.nil? || parent.nil?
+      errors.add(:post, 'must be the same as the parent comment') unless post == parent.post
     end
 
-    def validate_parent_tree
+    def validate_tree
       return if self.parent.nil?
-      self.errors.add(:parent, 'parent can\'t be a child') unless self.parent.parent.nil?
+      errors.add(:parent, 'must be a root comment') unless parent.parent.nil?
     end
 end
