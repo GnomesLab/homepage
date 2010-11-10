@@ -4,6 +4,7 @@ xml.rss :version => "2.0" do
     xml.title { xml.cdata!('Blog | Gnomeslab') }
     xml.description { xml.cdata!('Latest blog posts on gnomeslab.com') }
     xml.link { xml.cdata!(posts_url) }
+    xml.ttl 30
 
     for post in @posts
       xml.item do
