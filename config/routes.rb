@@ -4,7 +4,6 @@ Homepage::Application.routes.draw do
   # Static single pages
   get 'about',          :to => 'static_pages#about_us', :as => 'about_us'
   get 'services',       :to => 'static_pages#services'
-  get 'sitemap',        :to => 'static_pages#sitemap'
 
   # Users
   devise_for :users, :skip => [:passwords, :registrations]
