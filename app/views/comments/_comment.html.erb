@@ -1,30 +1,40 @@
 <% comments.each_with_index do |comment, idx| %>
 <li>
   <div class="cl">&nbsp;</div>
+
   <div class="comment-meta">
     <strong><%= idx+1 %>.</strong> by
+
     <% if comment.url.nil? %>
-    <%= content_tag :span, comment.name, :class => 'comment-creator' %>
+      <%= content_tag :span, comment.name, :class => 'comment-creator' %>
     <% else %>
-    <%= link_to comment.name, comment.url, :class => 'comment-creator', :target => '_blank' %>
+      <%= link_to comment.name, comment.url, :class => 'comment-creator', :target => '_blank' %>
     <% end %>
+
     <br />
     <%= l comment.created_at, :format => :long %>
     <br />
+
     <% if user_signed_in? %>
       <% if comment.visible %>
-      <%= link_to 'Hide', post_comment_path(comment.post, comment, :visible => 0), :method => :put, 
-                  :class => "hide" %>
+        <%= link_to 'Hide',
+            post_comment_path(comment.post, comment, :visible => 0),
+            :method => :put,
+            :class => "hide" %>
       <% else %>
-      <%= link_to 'Show', post_comment_path(comment.post, comment, :visible => 1), :method => :put,
-                  :class => "show" %>
+        <%= link_to 'Show',
+            post_comment_path(comment.post, comment, :visible => 1),
+            :method => :put,
+            :class => "show" %>
       <% end %>
     <% end %>
   </div>
+
   <div class="entry">
     <%= content_tag :p, comment.body %>
     <p><a href="#submit-comment">Reply to post</a></p>
   </div>
+
   <div class="cl">&nbsp;</div>
 </li>
 <% end %>

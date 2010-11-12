@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 class Enquiry < ActiveRecord::Base
-  # validations
+  # Validations
   validates :name,    :presence => true
   validates :message, :presence => true, :length => { :minimum => 3 }
   validates :email,   :presence => true,
