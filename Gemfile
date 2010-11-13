@@ -8,10 +8,11 @@ gem 'acts-as-taggable-on', '~> 2.0.6'
 gem 'RedCloth', '~> 4.2.3'
 gem 'grackle', '~>0.1.10'
 gem 'term-ansicolor', '~> 1.0.5'
+gem 'uuidtools', '~> 2.1.1'
 
 # Gnomeslab gems
 gem 'active_record_attributes_equality', '~> 1.0'
-gem 'archive_tree', '~> 1.0.0.rc'
+gem 'archive_tree', :git => 'git://github.com/GnomesLab/archive_tree.git'
 
 group :development, :test do
   gem 'mysql2', '~> 0.2.6'

@@ -31,6 +31,9 @@ class Post < ActiveRecord::Base
   scope :popular,   lambda { |l = 5| published.order('views DESC').limit(l) }
   scope :recent,    lambda { |l = 5| published.latest.limit(l) }
 
+  # Callbacks
+  before_create :add_uuid
+
   # Public class methods
   #
   # Returns the list of tags (ActsAsTaggableOn::Tag) associated with the Post model.
@@ -47,7 +50,7 @@ class Post < ActiveRecord::Base
   def self.tag_cloud(limit = 40)
     Post.tag_counts_on(:tags).limit(limit)
   end
-  
+
   # Returns the root comments.
   # Accepts a boolean to filter hidden comments.
   def root_comments(all = false)
@@ -124,4 +127,11 @@ class Post < ActiveRecord::Base
     self.published_at.present?
   end
 
+  protected
+    # Protected instance methods
+    #
+    # Used by before_create callback in order to set the uuid attribute with a new UUID based on the current timestamp.
+    def add_uuid
+      self.uuid = UUIDTools::UUID::timestamp_create.to_s
+    end
 end # Post

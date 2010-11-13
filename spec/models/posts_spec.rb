@@ -312,4 +312,26 @@ describe Post do
     end # publish
   end # instance methods
 
+  describe "callbacks" do
+
+    describe "add_uuid" do
+
+      it "sets the uuid on the database create" do
+        subject.uuid.should be_nil
+        subject.save
+        subject.uuid.should be_a_kind_of String
+      end
+
+      it "does nothing on the update" do
+        subject.save
+        uuid = subject.uuid
+        subject.title = 'dummy-title'
+        subject.save
+        subject.uuid.should == uuid
+      end
+
+    end # add_uuid
+
+  end # callbacks
+
 end
