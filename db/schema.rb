@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20101113135305) do
     t.integer  "user_id",                     :null => false
     t.text     "body",                        :null => false
     t.integer  "views",        :default => 0, :null => false
-    t.string   "uuid"
+
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "published_at"
