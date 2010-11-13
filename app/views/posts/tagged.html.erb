@@ -1,23 +1,24 @@
 <% if @tag.nil? %>
-  <% title 'Not Found', true %>
-  <%= content_title "Page not found" %>
+  <% title 'Tag not found', true %>
+  <%= content_title "No posts found" %>
   <p>Sorry, we seem to have misplaced what you were looking for, but we're searching for it!</p>
 <% else %>
   <% title "#{@tag.name.capitalize}", true %>
   <%= content_title "Posts tagged with #{@tag.name.capitalize}" %>
+
   <div id='posts' class="justify">
-  <br /><br />
+    <br /><br />
 
-  <%= render @posts if @posts %>
+    <%= render @posts if @posts %>
 
-  <!-- Pagination -->
-  <%= paginate_records @posts %>
-  <!-- End Pagination -->
-
+    <!-- Pagination -->
+    <%= paginate_records @posts %>
+    <!-- End Pagination -->
   </div>
-  <br /><br />
 
+  <br /><br />
 <% end %>
+
 <%= content_for :sidebar do %>
   <%= render :partial => 'shared/content_box/popular_post' %>
   <%= render :partial => 'shared/content_box/popular_tags' %>

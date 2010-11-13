@@ -15,8 +15,4 @@ class StaticPagesController < ApplicationController
   def services
     render 'static_pages/services/services'
   end
-
-  # GET /sitemap
-  def sitemap
-  end
 end

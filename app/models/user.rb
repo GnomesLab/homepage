@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 class User < ActiveRecord::Base
-  
+  # Associations
   has_many :posts
   
   # Devise modules
@@ -12,10 +12,11 @@ class User < ActiveRecord::Base
                       :remember_token, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at,
                       :current_sign_in_ip, :last_sign_in_ip, :created_at, :updated_at, :name
 
-  # validations
+  # Validations
   validates :name, :presence => true, :format => { :with => /\A([a-zA-Z]+{3,10})\s([a-zA-Z]+{3,10})\z/i,
                                                    :allow_blank => false,
                                                    :allow_nil => false }
 
+  # Public instance methods
   public :sanitize_for_mass_assignment
 end

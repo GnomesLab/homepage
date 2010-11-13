@@ -3,12 +3,12 @@
   <div class="entry">
     <% if Comment.recent %>
       <ul>
-      <% Comment.recent.each do |c| %>
-        <li>
-          <%= c.body.truncate(150) %> <br />
-          <%= link_to 'more', post_path(c.post, :anchor => 'comments') %>
-        </li>
-      <% end %>
+        <% Comment.recent.each do |c| %>
+          <li>
+            <%= c.body.truncate(150) %> <br />
+            <%= link_to 'more', post_path(c.post, :anchor => 'comments') %>
+          </li>
+        <% end %>
       </ul>
     <% else %>
       <p>There are no comments :(</p>

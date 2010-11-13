@@ -7,13 +7,13 @@ module FriendlyIdFinder
   end
 
   module ClassMethods
-    def find_by_friendly_id(friendly_id)
-      begin
-        find(friendly_id)
-      rescue ActiveRecord::RecordNotFound
-        return nil
-      end
-    end
-  end
 
-end
+    def find_by_friendly_id(friendly_id)
+      find(friendly_id)
+    rescue ActiveRecord::RecordNotFound
+      nil
+    end
+
+  end # ClassMethods
+
+end # FriendlyIdFinder

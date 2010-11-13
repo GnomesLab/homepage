@@ -1,5 +1,6 @@
 <!-- Slider -->
 <div id="slider">
+
   <div id="slider-holder">
     <ul>
       <% rotator_statements.each_with_index do |statement, i| %>
@@ -10,11 +11,13 @@
       <% end %>
     </ul>
   </div>
+
   <div class="slider-controls">
     <% rotator_statements.each_index do |i| %>
       <%= link_to i+1, '#' %>
     <% end %>
   </div>
+
   <div class="slider-nav">
     <a href="#" class="prev">previous</a>
     <a href="#" class="next">next</a>

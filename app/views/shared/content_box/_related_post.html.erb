@@ -2,14 +2,14 @@
   <h2 class="border">Related Posts</h2>
   <div class="entry">
     <% if collection.first == nil %>
-    <p>There are no related posts :(</p>
-    <p>Perhaps you can check our <%= link_to 'Twitter', 'http://twitter.com/gnomeslab' %>!</p>
-      <% else %>
-      <ul>
-        <% collection.each do |p| %>
-        <li><%= link_to p.title, post_path(p) %></li>
-      <% end %>
-      </ul>
+      <p>There are no related posts :(</p>
+      <p>Perhaps you can check our <%= link_to 'Twitter', 'http://twitter.com/gnomeslab' %>!</p>
+        <% else %>
+        <ul>
+          <% collection.each do |p| %>
+            <li><%= link_to p.title, post_path(p) %></li>
+          <% end %>
+        </ul>
     <% end %>
   </div>
 </div>

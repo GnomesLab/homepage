@@ -3,9 +3,9 @@
   <div class="entry">
     <% if Post.popular %>
       <ul>
-      <% Post.popular.each do |post| %>
-        <li><%= link_to post.title, post %></li>
-      <% end %>
+        <% Post.popular.each do |post| %>
+          <li><%= link_to post.title, post %></li>
+        <% end %>
       </ul>
     <% else %>
       <p>There are no posts :(</p>

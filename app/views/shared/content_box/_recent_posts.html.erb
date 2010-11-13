@@ -3,9 +3,9 @@
   <div class="entry">
     <% if Post.recent %>
       <ul>
-      <% Post.recent.each do |p| %>
-        <li><%= link_to p.title, post_path(p) %></li>
-      <% end %>
+        <% Post.recent.each do |p| %>
+          <li><%= link_to p.title, post_path(p) %></li>
+        <% end %>
       </ul>
     <% else %>
       <p>There are no posts :(</p>
