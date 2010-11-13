@@ -12,7 +12,7 @@ Then(/^I should see the (\d+) latest posts (.*)$/) do |n, attribute|
   n.to_i.times do |i|
     case attribute
     when "date"
-      inspect_post_html posts[i].id, 'h2', Regexp.new(ERB::Util.h(I18n.l(posts[i].created_at, :format => :long)))
+      inspect_post_html posts[i].id, 'h2', Regexp.new(ERB::Util.h(I18n.l(posts[i].published_at, :format => :long)))
     when "body"
       inspect_post_html posts[i].id, '.entry', Regexp.new(ERB::Util.h(posts[i].body))
     when "creator name"

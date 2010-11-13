@@ -1,7 +1,8 @@
 <!-- Post -->
 <%= content_tag :div, :id => "post_#{post.id}", :class => 'post' do %>
   <h2>
-    <small class="right"><%= l(post.created_at, :format => :long) %></small>
+    <%= content_tag(:small, I18n.l(post.published_at, :format => :long), :class => 'right') if post.published? %>
+
     <%= link_to post.title, friendly_post_path(post) %>
   </h2>
 
