@@ -24,7 +24,7 @@ Then(/^I should see the published posts through rss items$/) do
     node.xpath('comments').text.should include(post_url(p, :anchor => 'comments'))
     node.xpath('author').text.should include(p.user.name)
     node.xpath('pubDate').text.should include(p.published_at.to_s(:rfc822))
-    node.xpath('guid[@isPermaLink=false]').text.should include(p.guid)
+    node.xpath('guid[@isPermaLink="false"]').text.should include(p.uuid)
   end
 end
 

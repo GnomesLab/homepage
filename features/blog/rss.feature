@@ -1,4 +1,4 @@
-@mt
+@crystal
 Feature: blog page
   Gnomeslab wishes to keep its visitors updated using rss
 
