@@ -279,6 +279,7 @@ p.nav span{ color:#999; padding:0 6px;}
   margin-bottom:10px;
 }
 .post .entry{ padding-top:5px; }
+.post .entry code { display: block; background: #ECECEC; margin: 5px 0px; padding: 5px 10px; }
 .post-meta { border-top:dashed 1px #cdcdcd; border-bottom:dashed 1px #cdcdcd; font-size:10px; white-space:nowrap; line-height:18px; padding:5px 0;}
 .post-meta .right { text-align: right; }
 
