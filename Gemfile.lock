@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/GnomesLab/archive_tree.git
-  revision: fdc904fd95b258943388af199670ada56ba2a126
-  specs:
-    archive_tree (1.0.0)
-      actionpack (~> 3.0.1)
-      activerecord (~> 3.0.1)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -41,6 +33,9 @@ GEM
     activesupport (3.0.1)
     acts-as-taggable-on (2.0.6)
     archive-tar-minitar (0.5.2)
+    archive_tree (1.0.1)
+      actionpack (~> 3.0.1)
+      activerecord (~> 3.0.1)
     arel (1.0.1)
       activesupport (~> 3.0.0)
     babosa (0.2.0)
@@ -177,7 +172,7 @@ DEPENDENCIES
   RedCloth (~> 4.2.3)
   active_record_attributes_equality (~> 1.0)
   acts-as-taggable-on (~> 2.0.6)
-  archive_tree!
+  archive_tree (~> 1.0.1)
   capybara (~> 0.4.0)
   cucumber-rails (~> 0.3.2)
   database_cleaner (~> 0.6.0)

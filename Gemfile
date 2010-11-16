@@ -12,7 +12,7 @@ gem 'uuidtools', '~> 2.1.1'
 
 # Gnomeslab gems
 gem 'active_record_attributes_equality', '~> 1.0'
-gem 'archive_tree', :git => 'git://github.com/GnomesLab/archive_tree.git'
+gem 'archive_tree', '~> 1.0.1'
 
 group :development, :test do
   gem 'mysql2', '~> 0.2.6'
