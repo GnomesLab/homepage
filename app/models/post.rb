@@ -21,6 +21,9 @@ class Post < ActiveRecord::Base
   # Attribute accessibility
   attr_accessible :user_id, :title, :body, :tag_list, :published_at
 
+  # Readonly attributes
+  attr_readonly :uuid
+
   # Pagination
   cattr_reader :per_page
   @@per_page = 2
@@ -32,7 +35,7 @@ class Post < ActiveRecord::Base
   scope :recent,    lambda { |l = 5| published.latest.limit(l) }
 
   # Callbacks
-  before_create :add_uuid
+  before_create :set_uuid
 
   # Public class methods
   #
@@ -131,7 +134,7 @@ class Post < ActiveRecord::Base
     # Protected instance methods
     #
     # Used by before_create callback in order to set the uuid attribute with a new UUID based on the current timestamp.
-    def add_uuid
-      self.uuid = UUIDTools::UUID::timestamp_create.to_s
+    def set_uuid
+      self.uuid = UUIDTools::UUID::timestamp_create.to_s if self.uuid.blank?
     end
 end # Post

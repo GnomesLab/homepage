@@ -91,6 +91,25 @@ describe Post do
 
   end # Validations
 
+  describe "readonly attributes" do
+
+    describe "uuid" do
+
+      it "allow changes before create" do
+        subject.uuid = 'some-uuid'
+        subject.save
+        subject.uuid.should == 'some-uuid'
+      end
+
+      it "doesn't allow changes after create" do
+        subject.tap { |s| s.uuid = 'some-uuid'; s.save }.
+          tap { |s| s.uuid = 'some-other-uuid'; s.save }.reload.uuid.should =='some-uuid'
+      end
+
+    end # uuid
+
+  end # readonly attributes
+
   describe "named scopes" do
 
     before :each do
@@ -314,18 +333,17 @@ describe Post do
 
   describe "callbacks" do
 
-    describe "add_uuid" do
+    describe "set_uuid" do
 
-      it "sets the uuid on the database create" do
+      it "sets the uuid if uuid is nil on create" do
         subject.uuid.should be_nil
         subject.save
         subject.uuid.should be_a_kind_of String
       end
 
-      it "does nothing on the update" do
-        subject.save
-        uuid = subject.uuid
-        subject.title = 'dummy-title'
+      it "does nothing if uuid is defined on create" do
+        uuid = UUIDTools::UUID::timestamp_create.to_s
+        subject.uuid = uuid
         subject.save
         subject.uuid.should == uuid
       end
