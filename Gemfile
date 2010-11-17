@@ -13,7 +13,7 @@ gem 'uuidtools', '~> 2.1.1'
 # Gnomeslab gems
 gem 'active_record_attributes_equality', '~> 1.0.0'
 gem 'archive_tree', '~> 1.0.2'
-#gem 'human_detector', :git => 'git@github.com:GnomesLab/human_detector.git'
+gem 'activerecord_random', '1.0.0.rc2' # REMOVE THIS WHEN ADDING HUMAN_DETECTOR DEPENDENCY
 
 group :development, :test do
   gem 'mysql2', '~> 0.2.6'

@@ -48,7 +48,6 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    debugger
     @post = Post.new(params[:post])
 
     respond_with @post

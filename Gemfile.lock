@@ -27,6 +27,8 @@ GEM
       activesupport (= 3.0.3)
       arel (~> 2.0.2)
       tzinfo (~> 0.3.23)
+    activerecord_random (1.0.0.rc2)
+      activerecord (~> 3.0.1)
     activeresource (3.0.3)
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
@@ -170,6 +172,7 @@ PLATFORMS
 DEPENDENCIES
   RedCloth (~> 4.2.3)
   active_record_attributes_equality (~> 1.0.0)
+  activerecord_random (= 1.0.0.rc2)
   acts-as-taggable-on (~> 2.0.6)
   archive_tree (~> 1.0.2)
   capybara (~> 0.4.0)
