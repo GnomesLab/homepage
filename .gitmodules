@@ -1,3 +1,6 @@
 [submodule "vendor/plugins/archive_tree"]
 	path = vendor/plugins/archive_tree
 	url = git://github.com/GnomesLab/archive_tree.git
+[submodule "vendor/plugins/human_detector"]
+	path = vendor/plugins/human_detector
+	url = git@github.com:GnomesLab/human_detector.git
