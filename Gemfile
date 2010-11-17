@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+# External
 gem 'rails', '~> 3.0.1'
 gem "devise", '~> 1.1.3'
 gem 'will_paginate', '~> 3.0.pre2'
@@ -16,6 +17,7 @@ gem 'archive_tree', '~> 1.0.2'
 gem 'activerecord_random', '1.0.0.rc2' # REMOVE THIS WHEN ADDING HUMAN_DETECTOR DEPENDENCY
 
 group :development, :test do
+  gem 'fuubar', '~> 0.0'
   gem 'mysql2', '~> 0.2.6'
   gem 'ruby-debug19', '~> 0.11.6'
   gem 'capybara', '~> 0.4.0'
