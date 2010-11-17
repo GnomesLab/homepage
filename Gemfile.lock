@@ -187,3 +187,6 @@ DEPENDENCIES
   ruby-debug19 (~> 0.11.6)
   term-ansicolor (~> 1.0.5)
   will_paginate (~> 3.0.pre2)
+
+METADATA
+  version: 1.0.6
