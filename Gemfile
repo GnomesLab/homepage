@@ -11,8 +11,8 @@ gem 'term-ansicolor', '~> 1.0.5'
 gem 'uuidtools', '~> 2.1.1'
 
 # Gnomeslab gems
-gem 'active_record_attributes_equality', '~> 1.0'
-gem 'archive_tree', '~> 1.0.1'
+gem 'active_record_attributes_equality', '~> 1.0.0'
+gem 'archive_tree', '~>1.0.2'
 
 group :development, :test do
   gem 'mysql2', '~> 0.2.6'
