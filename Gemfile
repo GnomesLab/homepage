@@ -16,6 +16,7 @@ gem 'archive_tree',                       '~> 1.0.3'
 gem 'human_detector',                     '~> 1.0.0.rc'
 
 group :development, :test do
+  gem 'heroku',             '~> 1.13.7'
   gem 'fuubar',             '~> 0.0'
   gem 'mysql2',             '~> 0.2.6'
   gem 'ruby-debug19',       '~> 0.11.6'
