@@ -81,10 +81,10 @@ GEM
       rake (>= 0.8.7)
     friendly_id (3.1.7)
       babosa (~> 0.2.0)
-    fuubar (0.0.1)
-      progressbar (~> 0.9)
+    fuubar (0.0.2)
       rspec (~> 2.0)
-      rspec-instafail (~> 0.1)
+      rspec-instafail (~> 0.1.4)
+      ruby-progressbar (~> 0.0.9)
     gherkin (2.2.9)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
@@ -92,7 +92,7 @@ GEM
       json
       mime-types
       oauth
-    human_detector (1.0.0.rc)
+    human_detector (1.0.0.rc2)
       actionpack (~> 3.0.0)
       activerecord (~> 3.0.0)
       activerecord_random (~> 1.0.0)
@@ -115,7 +115,6 @@ GEM
     oauth (0.4.4)
     pg (0.9.0)
     polyglot (0.3.1)
-    progressbar (0.9.0)
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
@@ -156,6 +155,7 @@ GEM
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
       ruby-debug-base19 (>= 0.11.19)
+    ruby-progressbar (0.0.9)
     ruby_core_source (0.1.4)
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.4)
