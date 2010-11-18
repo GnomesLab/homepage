@@ -33,4 +33,7 @@ if Rails.env == "development"
   5.times do
     Post.all.each { |p| Factory.create(:comment, :post => p) }
   end
+
+  # HumanDetector Questions
+  50.times { |i| HumanDetector::Question.create(:title => "How much is #{i} + #{i * 2}?", :answer => "#{i + i * 2}") }
 end
