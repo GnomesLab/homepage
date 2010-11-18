@@ -5,6 +5,7 @@ Feature: post create
 
   Background:
     Given I am signed in
+    And I have a question
     And I am on the new post page
 
   Scenario: page header

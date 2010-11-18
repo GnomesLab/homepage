@@ -5,6 +5,7 @@ Feature: post update
   Background:
     Given I am signed in
     And There is 1 post
+    And I have a question
     And I am on the edit post page
 
   Scenario: page header

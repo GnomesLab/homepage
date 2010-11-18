@@ -5,6 +5,10 @@ Given(/^there are ([\d+]) comment(?:s?)$/) do |n|
   Post.first.comments.last.destroy while Post.first.comments.count > n.to_i
 end
 
+Given /^I have a question$/ do
+  Factory.create(:question)
+end
+
 Given(/^the comment has no (\S+)$/) do |field|
   Comment.first.update_attributes(field => nil)
 end

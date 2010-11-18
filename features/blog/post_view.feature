@@ -8,6 +8,7 @@ Feature: view post
   Background:
     Given There are 5 post
     And There are unpublished posts
+    And I have a question
     And I am on the view post page
 
   Scenario: page header

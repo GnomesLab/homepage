@@ -7,6 +7,7 @@ Feature: comments on a post page
   Background:
     Given There is 1 post
     And there are 5 comment
+    And I have a question
     And I am not signed in
     And I am on the view post page
 
@@ -50,10 +51,12 @@ Feature: comments on a post page
     And I fill in "Email" with "email@email.com"
     And I fill in "URL" with "www.website.com"
     And I fill in "Comment" with "This is a comment"
+    And I fill in "How much is" with "2"
     When I press "Submit your comment"
     Then I should see "Comment was successfully created."
 
   Scenario: invalid comment
+    Given I fill in "How much is" with "2"
     When I press "Submit your comment"
     Then I should see "Oops! Your comment could not be created."
 
@@ -76,3 +79,13 @@ Feature: comments on a post page
     Then I should see "Recent Comments"
     And I should see the 5 most recent comments
     And I should see a link to read more for each of the 5 comments
+    
+  Scenario: invalid captcha submission
+    And I fill in "Name" with "name"
+    And I fill in "Email" with "email@email.com"
+    And I fill in "URL" with "www.website.com"
+    And I fill in "Comment" with "This is a comment"
+    And I fill in "How much is" with "1"
+    When I press "Submit your comment"
+    Then I should see "Invalid captcha answer"
+  
