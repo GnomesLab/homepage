@@ -1,3 +1,0 @@
-[submodule "vendor/plugins/human_detector"]
-	path = vendor/plugins/human_detector
-	url = git@github.com:GnomesLab/human_detector.git
