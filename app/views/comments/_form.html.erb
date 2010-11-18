@@ -3,7 +3,7 @@
 
   <div class="cl">&nbsp;</div>
 
-  <%= form_for([@post, @post.comments.build]) do |f| %>
+  <%= form_for([@post, @comment || @post.comments.build]) do |f| %>
     <div class="left">
       <p>
         <%= f.label :name, raw("Name <span>(required)</span>") %>
@@ -21,6 +21,11 @@
         <%= f.label :url, 'URL' %>
         <%= f.text_field :url,
                          :class => "field #{'field-error' if flash[:error]}" %>
+      </p>
+
+      <p>
+        <%= human_detector_tag :input_css => "field #{'field-error' if flash[:error]}",
+                               :label_sufix => ' <span>(required)</span>' %>
       </p>
     </div>
 

@@ -309,7 +309,7 @@ p.nav span{ color:#999; padding:0 6px;}
 .form .right{ width:380; float:left; padding-left:20px; }
 .form label{ display:block; }
 .form .field{ display:block; width:230px;}
-.form textarea.field{ width:370px; height:124px;}
+.form textarea.field{ width:370px; height:185px;}
 .form select.field { width: 63px; }
 .form p{ margin-bottom:12px; }
 .form .time-separator, .form .datetime-separator { display:block; float: left; margin-left: 15px; }

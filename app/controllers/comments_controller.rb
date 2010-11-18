@@ -11,13 +11,16 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(params[:comment])
 
-    if @comment.save
-      flash[:notice] = "Comment was successfully created."
-    else
-      flash[:error] = "Oops! Your comment could not be created."
+    unless spam_detected?
+      if @comment.save
+        flash[:notice] = "Comment was successfully created."
+        return respond_with @post
+      else
+        flash[:error] = "Oops! Your comment could not be created."
+      end
     end
 
-    respond_with @post
+    render 'posts/show'
   end
 
   # POST /posts/:post_id/comment/:id

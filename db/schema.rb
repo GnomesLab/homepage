@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101113135306) do
+ActiveRecord::Schema.define(:version => 20101117225519) do
 
   create_table "comments", :force => true do |t|
     t.string   "name",                         :null => false
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(:version => 20101113135306) do
   end
 
   add_index "enquiries", ["email"], :name => "index_enquiries_on_email"
+
+  create_table "human_detector_questions", :force => true do |t|
+    t.string   "title",      :null => false
+    t.string   "answer",     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "title",                       :null => false

@@ -45,7 +45,7 @@ Feature: comments on a post page
     And I am on the view post page
     Then I shouldn't see the comment name as a link to the url
 
-  Scenario: I should be able to comment a post
+  Scenario: I should be able to comment on a given post
     And I fill in "Name" with "name"
     And I fill in "Email" with "email@email.com"
     And I fill in "URL" with "www.website.com"
@@ -53,7 +53,7 @@ Feature: comments on a post page
     When I press "Submit your comment"
     Then I should see "Comment was successfully created."
 
-  Scenario: Invalid comment
+  Scenario: invalid comment
     When I press "Submit your comment"
     Then I should see "Oops! Your comment could not be created."
 
