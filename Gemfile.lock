@@ -199,3 +199,6 @@ DEPENDENCIES
   term-ansicolor (~> 1.0.5)
   uuidtools (~> 2.1.1)
   will_paginate (~> 3.0.pre2)
+
+METADATA
+  version: 1.0.6
