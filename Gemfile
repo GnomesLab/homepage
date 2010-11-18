@@ -13,7 +13,7 @@ gem 'uuidtools',            '~> 2.1.1'
 # Gnomeslab gems
 gem 'active_record_attributes_equality',  '~> 1.0'
 gem 'archive_tree',                       '~> 1.0.3'
-gem 'activerecord_random',                '~> 1.0.1'
+gem 'human_detector',                     '~> 1.0.0.rc'
 
 group :development, :test do
   gem 'fuubar',             '~> 0.0'
