@@ -92,6 +92,10 @@ GEM
       json
       mime-types
       oauth
+    heroku (1.13.7)
+      json_pure (>= 1.2.0, < 1.5.0)
+      launchy (~> 0.3.2)
+      rest-client (>= 1.4.0, < 1.7.0)
     human_detector (1.0.0.rc2)
       actionpack (~> 3.0.0)
       activerecord (~> 3.0.0)
@@ -134,6 +138,8 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
+    rest-client (1.6.1)
+      mime-types (>= 1.16)
     rspec (2.0.1)
       rspec-core (~> 2.0.1)
       rspec-expectations (~> 2.0.1)
@@ -193,6 +199,7 @@ DEPENDENCIES
   friendly_id (~> 3.1.7)
   fuubar (~> 0.0)
   grackle (~> 0.1.10)
+  heroku (~> 1.13.7)
   human_detector (~> 1.0.0.rc)
   launchy (~> 0.3.7)
   mysql2 (~> 0.2.6)
