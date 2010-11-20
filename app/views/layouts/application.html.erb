@@ -5,6 +5,7 @@
     <title><%= @title || title %></title>
 
     <%= stylesheet_link_tag ['http://fonts.googleapis.com/css?family=Crimson+Text:regular&subset=latin', 'style'] %>
+    <%= favicon_link_tag %>
 
     <!-- RSS and Meta tags -->
     <%= auto_discovery_link_tag(:rss, blog_url(:rss)) %>
