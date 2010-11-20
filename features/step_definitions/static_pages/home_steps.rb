@@ -11,7 +11,7 @@ end
 
 Then(/^I should see rss link$/) do
   find(:css, '#header .socials').should have_link('RSS')
-  page.should have_css("#header .socials .rss-link[href='#{blog_url(:rss)}']")
+  page.should have_css("#header .socials .rss-link[href='http://feeds.feedburner.com/gnomeslab_blog']")
 end
 
 Then(/^I should see the rotator$/) do
