@@ -1,7 +1,7 @@
 # encoding: UTF-8
 Then(/^I should see the contact us link$/) do
-  find(:css, '#header .socials').should have_link('pedro.coutinho@gnomeslab.com')
-  page.should have_css("#header .socials .contact-link[href='mailto:pedro.coutinho@gnomeslab.com']")
+  find(:css, '#header .socials').should have_link('diogo.almeida@gnomeslab.com')
+  page.should have_css("#header .socials .contact-link[href='mailto:diogo.almeida@gnomeslab.com']")
 end
 
 Then(/^I should see the twitter link$/) do
