@@ -205,7 +205,19 @@ describe Comment do
         subject.url = ''
         subject.url.should be_nil
       end
-    end
+    end # url
+
+    describe "html_safe_body" do
+      it "adds an HTML paragraph by default" do
+        p = Factory.build :comment, :body => "hello world from comment"
+        p.html_safe_body.should == "<p>hello world from comment</p>"
+      end
+
+      it "should escape html considered to be unsafe" do
+        p = Factory.build :comment, :body => "<a href='http://gnomeslab.com'>gnomeslab</a>"
+        p.html_safe_body.should == "<p>&lt;a href='http://gnomeslab.com'&gt;gnomeslab&lt;/a&gt;</p>"
+      end
+    end # html_safe_body
   end # instance methods
 
 end

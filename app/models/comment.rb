@@ -32,6 +32,18 @@ class Comment < ActiveRecord::Base
     self[:url] = value.nil? || value =~ /^(?:(\S+))\:\/\// ? value : "http://#{value}"
   end
 
+  # Escapes the Post#body into an HTML safe representation, blocking all sorts of injections.
+  #
+  # Example
+  #   p = Post.find.first
+  #   p.body = "<a href='http://google.com'>google</a>"
+  #   p.html_safe_body #=> "&gt;a..."
+  def html_safe_body
+    safe_body = RedCloth.new(body)
+    safe_body.filter_html = true
+    safe_body.to_html
+  end
+
   # Protected instance methods
   protected
     def validate_post

@@ -31,7 +31,7 @@
   </div>
 
   <div class="entry">
-    <%= content_tag :p, comment.body %>
+    <%= raw(comment.html_safe_body) %>
     <p><a href="#submit-comment">Reply to post</a></p>
   </div>
 
